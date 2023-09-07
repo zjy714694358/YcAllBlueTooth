@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/bac_an_yinying_hei_yuanjiao.xml" value="0.183" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/btn_yinying_new.xml" value="0.191" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/btn_yinying_shenlan.xml" value="0.191" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/edit_background.xml" value="0.1955" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/ic_launcher_background.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/progressbar_bac.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/text_quxiao.xml" value="0.188" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/textview_sure.xml" value="0.188" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/vp_bac.xml" value="0.221" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/yinying_dianji.xml" value="0.236" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/yinying_dianji_fen.xml" value="0.14" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/yinying_dianji_jiantou.xml" value="0.231" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/yuanjiao_bac_bai.xml" value="0.236" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/yuanjiao_bac_bai2.xml" value="0.191" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/yuanjiao_bac_bai22.xml" value="0.191" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/yuanjiao_bac_qianlv.xml" value="0.191" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/yuanjiao_bac_zhuti.xml" value="0.191" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/yuanjiao_bac_zhuti2.xml" value="0.191" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/yuanjiao_bac_zhuti_new.xml" value="0.191" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/yuanjiao_bai_biankuang.xml" value="0.191" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/yuanjiao_biankuang_hui.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/yuanjiao_biankuang_zhuti.xml" value="0.183" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/yuanjiao_hui_biankuang_zhuti2.xml" value="0.191" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/zhijiao_biankuang_zhuti.xml" value="0.191" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/zhizu_ceshi_bac.xml" value="0.221" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/zhizu_ceshi_ll_1_bac.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/drawable/zhizu_ceshi_ll_bac.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_blue_tooth.xml" value="0.2875" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dlzk_danxiang_er.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dlzk_danxiang_san.xml" value="0.20260416666666667" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dlzk_danxiang_yi.xml" value="0.22" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dlzk_home.xml" value="0.16" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dlzk_lingxu_er.xml" value="0.16" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dlzk_lingxu_yi.xml" value="0.2375" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dlzk_sanxiang_er.xml" value="0.2" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dlzk_sanxiang_san.xml" value="0.22" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dlzk_sanxiang_yi.xml" value="0.25" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dlzk_shuju.xml" value="0.16" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dlzk_xitong.xml" value="0.16" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dlzk_xitong_shijian_shezhi.xml" value="0.12552083333333333" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dtd10c_home.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dtd10c_jl_cx.xml" value="0.25833333333333336" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dtd10c_sj_jz.xml" value="0.25833333333333336" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dtd10c_xt_sz.xml" value="0.25833333333333336" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dtd10c_zz_cs1.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dtd10c_zz_cs2.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dtd10c_zz_cs3.xml" value="0.22" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_dtd_home.xml" value="0.11875" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_main_new.xml" value="0.1953125" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_std_home.xml" value="0.2" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_test.xml" value="0.12864583333333332" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_test2.xml" value="0.1859375" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_yz_home.xml" value="0.2" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_yz_sjcy.xml" value="0.18181818181818182" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_yz_sjcy_info.xml" value="0.21" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_yz_sjsz.xml" value="0.14" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_yz_sysm.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_yz_yzcs_chongdian.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_yz_yzcs_cssz.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_yz_yzcs_kaishi_cs.xml" value="0.2" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_yz_yzcs_kaishi_cs2.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_zhizu_ceshi_dy_er.xml" value="0.16" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_zhizu_ceshi_dy_yi.xml" value="0.14" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_zhizu_ceshi_std_er.xml" value="0.25" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_zhizu_ceshi_std_lingxian_er.xml" value="0.17291666666666666" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_zhizu_ceshi_std_lingxian_yi.xml" value="0.1875" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_zhizu_ceshi_std_yi.xml" value="0.21" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_zhizu_ceshi_yn_er.xml" value="0.2" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_zhizu_ceshi_yn_yi.xml" value="0.16" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_zhizu_ceshi_yn_yi1.xml" value="0.2296875" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/activity_zhizu_ceshi_yn_yi2.xml" value="0.14635416666666667" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/bluetooth_listview_item.xml" value="0.12" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/bluetooth_listview_item2.xml" value="0.2875" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/dialog_dayin.xml" value="0.2515625" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/dlzk_danxiang_shuju_list_item.xml" value="0.2375" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/dlzk_sanxiang_abc0_shuju_list_item.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/dlzk_sanxiang_shuju_list_item.xml" value="0.25" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/dtd10c_jiluchaxun_listview_item.xml" value="0.22447916666666667" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/fragment_std_dy_jl_new.xml" value="0.2375" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/fragment_std_shijian_shezhi.xml" value="0.17" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/fragment_std_xiaoci_gongneng.xml" value="0.2375" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/fragment_std_xitong_shezhi.xml" value="0.2375" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/fragment_std_yiqi_shezhi.xml" value="0.12" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/fragment_std_zhizu_ceshi.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/fragment_std_zhizu_ceshi_new.xml" value="0.2" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/fragment_std_zz_cs_dy_cs.xml" value="0.2515625" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/fragment_std_zz_cs_std_cs.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/fragment_std_zz_cs_yn_cs.xml" value="0.14" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/jiluchaxun_listview_item.xml" value="0.25833333333333336" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/layout_dy_er.xml" value="0.2703125" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/layout_std_yi.xml" value="0.2703125" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/layout_yn_yi.xml" value="0.2703125" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/select_slide_template.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/std_shujuguanli_listview_item_new.xml" value="0.2375" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/yz_sjcy_shuju_list_item_layout.xml" value="0.18" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/yz_sysm_cjgz_and_jjff_layout.xml" value="0.2" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/yz_sysm_jishucanshu_layout.xml" value="0.33" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/yz_sysm_jxt_sanjiao_layout.xml" value="0.2" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/yz_sysm_jxt_yn_layout.xml" value="0.2" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/layout/yz_sysm_xntd_layout.xml" value="0.21302083333333333" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/YcAllBlueTooth/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.18" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

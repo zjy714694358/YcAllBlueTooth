@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/zhuti"
+    tools:context=".youzai.activity.YzSysmActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/white"
+        android:theme="@style/textSize_20_b"
+        android:text="@string/chanpinshouce"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@color/index2"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <include layout="@layout/yz_sysm_xntd_layout"
+                    android:visibility="visible" />
+                <include layout="@layout/yz_sysm_jishucanshu_layout"
+                    android:visibility="gone"/>
+                <include layout="@layout/yz_sysm_cjgz_and_jjff_layout"
+                    android:visibility="gone" />
+                <include layout="@layout/yz_sysm_jxt_yn_layout"
+                    android:visibility="gone" />
+                <include layout="@layout/yz_sysm_jxt_sanjiao_layout"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tvYzSysmSyy"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textColor="@color/white"
+                    android:theme="@style/textSize_18_b"
+                    android:gravity="center"
+                    android:background="@drawable/btn_yinying_shenlan"
+                    android:text="@string/shangyiye"/>
+                <TextView
+                    android:id="@+id/tvYzSysmXyy"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:padding="5dp"
+                    android:textColor="@color/white"
+                    android:theme="@style/textSize_18_b"
+                    android:gravity="center"
+                    android:background="@drawable/btn_yinying_shenlan"
+                    android:text="@string/xiayiye"/>
+                <TextView
+                    android:id="@+id/tvYzSysmFanhui"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:padding="5dp"
+                    android:textColor="@color/white"
+                    android:theme="@style/textSize_18_b"
+                    android:gravity="center"
+                    android:background="@drawable/btn_yinying_shenlan"
+                    android:text="@string/fanhui"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/zhuti"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tvYzSysmShijian"
+            android:layout_width="220dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            style="@style/tvYzHomeDiSize_20"
+            android:text=""/>
+    </LinearLayout>
+</LinearLayout>

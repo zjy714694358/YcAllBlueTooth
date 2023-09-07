@@ -1,0 +1,509 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+   <!-- <style name="Theme.YcAllBlueTooth" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        &lt;!&ndash; Primary brand color. &ndash;&gt;
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        &lt;!&ndash; Secondary brand color. &ndash;&gt;
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        &lt;!&ndash; Status bar color. &ndash;&gt;
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        &lt;!&ndash; Customize your theme here. &ndash;&gt;
+    </style>-->
+    <style name="Theme.YcAllBlueTooth2" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/zhuti</item>
+        <item name="colorPrimaryVariant">@color/zhuti</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <!--<item name="android:forceDarkAllowed">false</item>-->
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+    </style>
+    <style name="MyDialog" parent="android:style/Theme.Dialog">
+        <!--背景颜色及和透明程度-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--是否去除标题 -->
+        <item name="android:windowNoTitle">false</item>
+        <!--是否去除边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="SlideDialog" parent="@android:style/Theme.Holo.Dialog">
+        <!-- 是否有边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!--是否在悬浮Activity之上  -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--阴影  -->
+        <item name="android:windowIsTranslucent">true</item><!--半透明-->
+        <!--背景透明-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 还可以加入一些弹出和退出的动画 (lan)-->
+    </style>
+    <declare-styleable name="EasyPickerView">
+        <attr name="epvTextSize" format="dimension"/>
+        <attr name="epvTextColor" format="color"/>
+        <attr name="epvTextPadding" format="dimension"/>
+        <attr name="epvTextMaxScale" format="float"/>
+        <attr name="epvTextMinAlpha" format="float"/>
+        <attr name="epvRecycleMode" format="boolean"/>
+        <attr name="epvMaxShowNum" format="integer"/>
+    </declare-styleable>
+
+    <style name="textSize_10">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_10_b">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_11">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_11_b">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_12">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_12_b">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_13">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_13_b">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_14_b">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_15">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_15_b">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_16">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_16_b">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_17">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_17_b">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_18">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_18_b">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_19">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_19_b">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_20">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_20_b">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_21">
+        <item name="android:textSize">21sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_21_b">
+        <item name="android:textSize">21sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_22">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_22_b">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_23">
+        <item name="android:textSize">23sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_23_b">
+        <item name="android:textSize">23sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_24">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_24_b">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_25">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_25_b">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_26">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_26_b">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_27">
+        <item name="android:textSize">27sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_27_b">
+        <item name="android:textSize">27sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_28">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_28_b">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_29">
+        <item name="android:textSize">29sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_29_b">
+        <item name="android:textSize">29sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_30">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_30_b">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_31">
+        <item name="android:textSize">31sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_31_b">
+        <item name="android:textSize">31sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_32">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_32_b">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_33">
+        <item name="android:textSize">33sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_33_b">
+        <item name="android:textSize">33sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_34">
+        <item name="android:textSize">34sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_34_b">
+        <item name="android:textSize">34sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_35">
+        <item name="android:textSize">35sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_35_b">
+        <item name="android:textSize">35sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_36">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_36_b">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_37">
+        <item name="android:textSize">37sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_37_b">
+        <item name="android:textSize">37sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_38">
+        <item name="android:textSize">38sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_38_b">
+        <item name="android:textSize">38sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_39">
+        <item name="android:textSize">39sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_39_b">
+        <item name="android:textSize">39sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_40">
+        <item name="android:textSize">40sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_40_b">
+        <item name="android:textSize">40sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_41">
+        <item name="android:textSize">41sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_41_b">
+        <item name="android:textSize">41sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="textSize_42">
+        <item name="android:textSize">42sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_42_b">
+        <item name="android:textSize">42sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_43">
+        <item name="android:textSize">43sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_43_b">
+        <item name="android:textSize">43sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_44">
+        <item name="android:textSize">44sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_44_b">
+        <item name="android:textSize">44sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_45">
+        <item name="android:textSize">45sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_45_b">
+        <item name="android:textSize">45sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_46">
+        <item name="android:textSize">46sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_46_b">
+        <item name="android:textSize">46sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_47">
+        <item name="android:textSize">47sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_47_b">
+        <item name="android:textSize">47sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_48">
+        <item name="android:textSize">48sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_48_b">
+        <item name="android:textSize">48sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_49">
+        <item name="android:textSize">49sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_49_b">
+        <item name="android:textSize">49sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_50">
+        <item name="android:textSize">50sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="textSize_50_b">
+        <item name="android:textSize">50sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+<!--*********************************************************************************10C**********************************************************************-->
+    <style name="tvHomeSize">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="tvHomeTimeSize_20">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="tvHomeSize_25">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="tvHomeSize_25_b">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="tvHomeSize_30">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="tvHomeSize_35">
+        <item name="android:textSize">35sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="tvHomeSize_40">
+        <item name="android:textSize">40sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="tvHomeSize_45">
+        <item name="android:textSize">45sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="tvHomeSize_15_w">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="tvHomeSize_15_b">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="tvHomeSize_15_b2">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!--*****************************************************************三通道*********************************************************************-->
+    <style name="BlackBold">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <!--*********************************************************************************有载**********************************************************************-->
+    <style name="tvYzHomeSize">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="tvYzHomeDiSize_20">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+</resources>

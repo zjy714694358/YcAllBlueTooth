@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ExtraTranslation">
+    <string name="app_name">电测管家</string>
+
+    <string name="lianjielanya" translatable="false">连接蓝牙</string>
+    <string name="zhongying" translatable="false">中/英</string>
+    <string name="dakailanya" translatable="false">打开蓝牙</string>
+    <string name="guanbilanya" translatable="false">关闭蓝牙</string>
+    <string name="sousuolanya" translatable="false">搜索蓝牙</string>
+    <string name="tingzhisousuo" translatable="false">停止搜索</string>
+    <string name="qingkaiqilanya" translatable="false">请开启蓝牙</string>
+    <string name="weilianjie" translatable="false">未连接</string>
+    <string name="yilianjie" translatable="false">已连接</string>
+    <string name="lianjiezhong" translatable="false">连接中...</string>
+
+    <string name="ceshifangfa">测试方法</string>
+
+    <string name="std_app_title" translatable="false">变压器直流电阻测试仪</string>
+    <string name="app_zhizuceshi" translatable="false">直阻测试</string>
+    <string name="app_xiaocigongneng" translatable="false">消磁功能</string>
+    <string name="app_diaoyuejilu" translatable="false">调阅记录</string>
+    <string name="app_shijianshezhi" translatable="false">时间设置</string>
+    <string name="app_xitongshezhi" translatable="false">系统设置</string>
+    <string name="zzcs_santongdao_ceshi" translatable="false">三通道测试</string>
+    <string name="zzcs_yn_ceshi" translatable="false">YN测试</string>
+    <string name="zzcs_dy_ceshi" translatable="false">D(Y)测试</string>
+    <string name="ceshidianliu" translatable="false">测试电流</string>
+    <string name="ceshixiangbie" translatable="false">测试相别</string>
+    <string name="lingxiandianzu" translatable="false">零线电阻</string>
+    <string name="dianliu" translatable="false">电流</string>
+    <string name="dianliu2" translatable="false">电流:</string>
+    <string name="xiangbie" translatable="false">相别</string>
+    <string name="xiangbie2" translatable="false">相别:</string>
+    <string name="zhuci" translatable="false">助磁</string>
+    <string name="kaishiceshi" translatable="false">开始测试</string>
+    <string name="jishi" translatable="false">计时:</string>
+    <string name="tingzhi" translatable="false">停止</string>
+    <string name="ceshidianzu" translatable="false">测试电阻</string>
+    <string name="zhesuandianzu" translatable="false">折算电阻</string>
+    <string name="zhesuandianzu2" translatable="false">折算电阻：</string>
+    <string name="zuidabupinghenglv" translatable="false">最大不平衡率：</string>
+    <string name="fenjieweizhi" translatable="false">分接位置</string>
+    <string name="fenjieweizhi2" translatable="false">分接位置:</string>
+    <string name="shipinwendu" translatable="false">试品温度</string>
+    <string name="baocun" translatable="false">保存</string>
+    <string name="dayin" translatable="false">打印</string>
+    <string name="huanxiang" translatable="false">换相</string>
+    <string name="xiaocixiangbie" translatable="false">消磁相别</string>
+    <string name="kaishixiaoci" translatable="false">开始消磁</string>
+    <string name="tingzhixiaoci" translatable="false">停止消磁</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="tishi" translatable="false">提示</string>
+    <string name="fangdiantanchuang" translatable="false">正在放电，请勿拆线！</string>
+    <string name="baocuntanchuang" translatable="false">正在保存，请稍后...</string>
+    <string name="dayintanchuang" translatable="false">正在打印，请稍后...</string>
+    <!--******************************************************短路阻抗*********************************************************************-->
+    <!--<string name="app_title">变压器低电压短路阻抗测试仪</string>-->
+    <string name="app_title">变压器短路阻抗测试仪</string>
+    <string name="sanxiangduanluzukang">三相短路阻抗</string>
+    <string name="danxiangduanluzukang">单相短路阻抗</string>
+    <string name="lingxuzukang">零序阻抗</string>
+    <string name="shujuchuli">数据处理</string>
+    <string name="xitongshezhi">系统设置</string>
+
+    <string name="canshushezhi">参数设置</string>
+    <string name="ceshi">测试</string>
+    <string name="fanhui">返回</string>
+
+    <string name="edingrongliang">额定容量</string>
+    <string name="xuanzedianyuan">选择电源</string>
+    <string name="fenjiedianya">分接电压</string>
+    <string name="suopingdianliu">锁屏电流</string>
+    <string name="mingpaizukang">铭牌阻抗</string>
+    <string name="celiangwendu">测量温度</string>
+   <!-- <string name="fenjieweizhi">分接位置</string>-->
+    <string name="jiaozhengwendu">校正温度</string>
+    <string name="celiangweizhi">测量位置</string>
+    <string name="celiangmoshi">测量模式</string>
+    <string name="shipinbianhao">试品编号</string>
+    <string name="ceshirenyuan">测试人员</string>
+    <string name="celiangjiexian">测量接线</string>
+    <string name="bianyaqileixing">变压器类型</string>
+    <string name="celiangxiangbie">测量相别</string>
+
+    <string name="ceshibianhao">测试编号</string>
+    <string name="celiangpinlv">测量频率</string>
+    <string name="duanludianzu">短路电阻</string>
+    <string name="gonglvyinshu">功率因数</string>
+
+    <string name="lingxugankang">零序感抗</string>
+    <string name="lingxudianzu">零序电阻</string>
+    <string name="lingxudiangan">零序电感</string>
+
+    <string name="gaodi">高-低</string>
+    <string name="gaozhong">高-中</string>
+    <string name="zhongdi">中-低</string>
+    <string name="neibu">内部</string>
+    <string name="waibu">外部</string>
+    <string name="zidong">自动</string>
+    <string name="shoudong">手动</string>
+    <string name="yylianjie">Y/Y联结</string>
+    <string name="ydlianjie">Y/△联结</string>
+    <string name="dylianjieaz">△/Y联结(AZ-BX-CY)</string>
+    <string name="dylianjieay">△/Y联结(AY-BZ-CX)</string>
+    <string name="danxiang">单相</string>
+    <string name="sanxiang">三相(Yn/Y、Yn/△)</string>
+
+    <string name="suoping">锁屏</string>
+    <string name="chongce">重测</string>
+    <string name="sanxiangzukangceshi">三相阻抗测试</string>
+    <string name="jiayaraozu">加压绕组</string>
+
+   <!-- <string name="baocun">保存</string>
+    <string name="dayin">打印</string>-->
+    <string name="shijiadianya">施加电压</string>
+    <string name="shijiadianliu">施加电流</string>
+    <string name="celiangxiangjiao">测量相角</string>
+    <string name="yougonggonglv">有功功率</string>
+    <string name="duanluzukang">短路阻抗</string>
+    <string name="duanlugankang">短路感抗</string>
+    <string name="raozudiangan">绕组电感</string>
+    <string name="zukangdianya">阻抗电压</string>
+    <string name="abxiang">AB相</string>
+    <string name="bcxiang">BC相</string>
+    <string name="caxiang">CA相</string>
+    <string name="a0xiang">A0相</string>
+    <string name="b0xiang">B0相</string>
+    <string name="c0xiang">C0相</string>
+    <string name="zukangdianyazkbaifenhao">阻抗电压Zk%</string>
+    <string name="zukangwuchadzkbaifenhao">阻抗误差△Zk%</string>
+    <string name="celiangzukang">测量阻抗</string>
+    <string name="celiangdiankang">测量电抗</string>
+    <string name="loudiangan">漏电感</string>
+    <string name="hengxiangpiancha">横向偏差</string>
+
+    <string name="danxiangzukangceshi">单相阻抗测试</string>
+
+    <string name="ceshicanshu">测试参数</string>
+
+    <string name="shijianshezhi">时间设置</string>
+    <string name="tongxuncanshu">通讯参数</string>
+    <string name="tiaoshishezhi">调试设置</string>
+    <string name="qingshurumima">请输入密码</string>
+
+    <string name="riqi" translatable="false">日期</string>
+    <string name="nian" translatable="false">年</string>
+    <string name="yue" translatable="false">月</string>
+    <string name="ri" translatable="false">日</string>
+    <string name="shi" translatable="false">时</string>
+    <string name="fen" translatable="false">分</string>
+    <string name="miao" translatable="false">秒</string>
+    <string name="shijian" translatable="false">时间</string>
+    <string name="queren" translatable="false">确认</string>
+
+    <string name="shanchu" translatable="false">删除</string>
+    <string name="qingchu" translatable="false">清除</string>
+    <string name="daochu" translatable="false">导出</string>
+    <string name="ceshishijian" translatable="false">测试时间</string>
+    <string name="quanxuan" translatable="false">全选</string>
+
+    <!--<string name="lianjielanya" translatable="false">连接蓝牙</string>
+    <string name="zhongying" translatable="false">中/英</string>
+    <string name="dakailanya" translatable="false">打开蓝牙</string>
+    <string name="guanbilanya" translatable="false">关闭蓝牙</string>
+    <string name="sousuolanya" translatable="false">搜索蓝牙</string>
+    <string name="tingzhisousuo" translatable="false">停止搜索</string>
+    <string name="qingkaiqilanya" translatable="false">请开启蓝牙</string>
+    <string name="weilianjie" translatable="false">未连接</string>
+    <string name="yilianjie" translatable="false">已连接</string>
+    <string name="lianjiezhong" translatable="false">连接中...</string>-->
+
+   <!-- <string name="tishi" translatable="false">提示</string>
+    <string name="baocuntanchuang" translatable="false">正在保存，请稍后...</string>
+    <string name="dayintanchuang" translatable="false">正在打印，请稍后...</string>-->
+
+    <!--**********************************************************10C**************************************************************-->
+    <string name="zhiliudianzuceshiyi">直流直阻测试仪</string>
+
+    <string name="zhizuceshi" translatable="false">直阻测试</string>
+    <string name="jiluchaxun" translatable="false">记录查询</string>
+    <string name="shijianjiaozheng" translatable="false">时间校正</string>
+
+    <string name="jisuanbupinghenglv" translatable="false">计算不平衡率</string>
+
+    <string name="ceshidianliu2" translatable="false">测试电流：</string>
+    <string name="raozu10c" translatable="false">绕&#160;&#160;&#160;&#160;&#160;&#160;&#160;组</string>
+    <string name="xiangbie10c" translatable="false">相&#160;&#160;&#160;&#160;&#160;&#160;&#160;别</string>
+    <string name="fenjie10c" translatable="false">分&#160;&#160;&#160;&#160;&#160;&#160;&#160;接</string>
+    <string name="raozucailiao" translatable="false">绕组材料</string>
+    <string name="zhesuanwendu" translatable="false">折算温度</string>
+    <string name="gaoya" translatable="false">高压</string>
+    <string name="zhongya" translatable="false">中压</string>
+    <string name="diya" translatable="false">低压</string>
+    <string name="tong" translatable="false">铜</string>
+    <string name="lv" translatable="false">铝</string>
+
+    <string name="zhesuandianzu1" translatable="false">折算电阻</string>
+
+    <string name="ceshishijian2" translatable="false">测试时间:</string>
+    <string name="fenjie2" translatable="false">分接:</string>
+    <string name="ceshidianzua" translatable="false">测试电阻A0/AB:</string>
+    <string name="ceshidianzub" translatable="false">测试电阻B0/BC:</string>
+    <string name="ceshidianzuc" translatable="false">测试电阻C0/CA:</string>
+    <string name="zhesuandianzua" translatable="false">折算电阻A0/AB:</string>
+    <string name="zhesuandianzub" translatable="false">折算电阻B0/BC:</string>
+    <string name="zhesuandianzuc" translatable="false">折算电阻C0/CA:</string>
+
+    <string name="ceshidianzua0" translatable="false">测试电阻A0:</string>
+    <string name="ceshidianzub0" translatable="false">测试电阻B0:</string>
+    <string name="ceshidianzuc0" translatable="false">测试电阻C0:</string>
+    <string name="zhesuandianzua0" translatable="false">折算电阻A0:</string>
+    <string name="zhesuandianzub0" translatable="false">折算电阻B0:</string>
+    <string name="zhesuandianzuc0" translatable="false">折算电阻C0:</string>
+
+    <string name="ceshidianzuab" translatable="false">测试电阻AB:</string>
+    <string name="ceshidianzubc" translatable="false">测试电阻BC:</string>
+    <string name="ceshidianzuca" translatable="false">测试电阻CA:</string>
+    <string name="zhesuandianzuab" translatable="false">折算电阻AB:</string>
+    <string name="zhesuandianzubc" translatable="false">折算电阻BC:</string>
+    <string name="zhesuandianzuca" translatable="false">折算电阻CA:</string>
+
+    <!--***************************************************************三通道********************************************************************************-->
+    <string name="hao" translatable="false">好</string>
+    <string name="start_search" translatable="false">开始搜索</string>
+    <string name="stop_search" translatable="false">停止搜索</string>
+    <string name="disconnect" translatable="false">断开连接</string>
+    <string name="bluetooth_not_connected" translatable="false">蓝牙未连接</string>
+
+    <string name="yiqishezhi" translatable="false">仪器设置</string>
+    <string name="neibutiaoshi" translatable="false">内部调试</string>
+    <string name="raozucaizhi" translatable="false">绕组材质</string>
+    <string name="shebeimingcheng" translatable="false">设备名称</string>
+    <string name="shurumima" translatable="false">输入密码</string>
+    <string name="di" translatable="false">第</string>
+    <string name="tiao" translatable="false">条</string>
+    <string name="tiao2" translatable="false">条,</string>
+    <string name="gong" translatable="false">共</string>
+    <string name="celiangwendu2" translatable="false">测量温度:</string>
+    <string name="ceshixiang" translatable="false">测试相</string>
+    <string name="a0dianzu" translatable="false">A0电阻：</string>
+    <string name="a0zhesuandianzu" translatable="false">A0折算电阻：</string>
+    <string name="b0dianzu" translatable="false">B0电阻：</string>
+    <string name="b0zhesuandianzu" translatable="false">B0折算电阻：</string>
+    <string name="c0dianzu" translatable="false">C0电阻：</string>
+    <string name="c0zhesuandianzu" translatable="false">C0折算电阻：</string>
+    <string name="abdianzu" translatable="false">ab电阻：</string>
+    <string name="abzhesuandianzu" translatable="false">ab折算电阻：</string>
+    <string name="bcdianzu" translatable="false">bc电阻：</string>
+    <string name="bczhesuandianzu" translatable="false">bc折算电阻：</string>
+    <string name="cadianzu" translatable="false">ca电阻：</string>
+    <string name="cazhesuandianzu" translatable="false">ca折算电阻：</string>
+    <!--***************************************************************有载****************************************************************************-->
+    <string name="youzaiceshi" translatable="false">有载测试</string>
+    <string name="shujuchayue" translatable="false">数据查阅</string>
+    <!-- <string name="shijianshezhi" translatable="false">时间设置</string>-->
+    <string name="shiyongshuoming" translatable="false">使用说明</string>
+    <string name="youzaikaiguancanshuceshiyi" translatable="false">有载开关参数测试仪Ver.</string>
+    <string name="liangcheng2" translatable="false">量程:</string>
+    <string name="shichang2" translatable="false">时长:</string>
+    <string name="lingmindu2" translatable="false">灵敏度:</string>
+    <!--<string name="shipinbianhao" translatable="false">试品编号</string>-->
+    <string name="ceshifenjie" translatable="false">测试分接</string>
+    <string name="lianjiefangshi" translatable="false">连接方式</string>
+    <string name="ceshixiangshu" translatable="false">测试相数</string>
+    <string name="kaishichongdian" translatable="false">开始充电</string>
+    <!--<string name="fanhui" translatable="false">返回</string>-->
+    <string name="chongdian" translatable="false">充电</string>
+    <!--<string name="kaishiceshi" translatable="false">开始测试</string>-->
+    <string name="zhengzaiceshi" translatable="false">正在测试......</string>
+
+    <string name="chanpinshouce" translatable="false">产品手册</string>
+    <string name="jishucanshu" translatable="false">技术参数</string>
+    <string name="canshu" translatable="false">参数</string>
+    <string name="jishuzhibiao" translatable="false">技术指标</string>
+    <string name="shangyiye" translatable="false">上一页</string>
+    <string name="xiayiye" translatable="false">下一页</string>
+    <!--<string name="fanhui" translatable="false">返回</string>-->
+    <string name="guodudianzuceliangfanwei" translatable="false">过渡电阻测量范围:</string>
+    <string name="guodushijianfanwei" translatable="false">过渡时间范围:</string>
+    <string name="guodudianzufenbianlv" translatable="false">过渡电阻分辨率:</string>
+    <string name="guodudianzuceliangjingdu" translatable="false">过渡电阻测量精度:</string>
+    <string name="guodushijianfenbianlv" translatable="false">过渡时间分辨率:</string>
+    <string name="guodushijianjingdu" translatable="false">过渡时间精度:</string>
+    <string name="caiyangpinlv" translatable="false">采样频率:</string>
+    <string name="gongzuodianyuan" translatable="false">工作电源:</string>
+    <string name="gongzuowendushidu" translatable="false">工作温度/湿度:</string>
+    <!-- <string name="chanpinshouce" translatable="false">0.3Ω~10Ω（2.0A）</string>
+    <string name="chanpinshouce" translatable="false">0.6Ω~20Ω（1.0A）</string>
+    <string name="chanpinshouce" translatable="false">3.0Ω~100Ω（0.2A）</string>
+    <string name="chanpinshouce" translatable="false">0~120ms/0~300ms</string>-->
+    <string name="guodudianzujingdu2" translatable="false">±(5%读数±0.2ms)</string>
+    <string name="guodushijianjingdu2" translatable="false">±(0.1%读数±0.1Ω)</string>
+    <string name="changjianguzhangjijiejuefangfa" translatable="false">常见故障及解决方法</string>
+    <string name="guzhangxianxiang" translatable="false">故障现象</string>
+    <string name="guzhangyuanyinjijiejuefangfa" translatable="false">故障原因及解决方法</string>
+    <string name="dayinjibudayin" translatable="false">打印机不打印</string>
+    <string name="dayinjibudayin1" translatable="false">1.检查打印机指示灯，如果不亮检查打印机电源是否正常；</string>
+    <string name="dayinjibudayin2" translatable="false">2.检查是否有打印机；</string>
+    <string name="dayinjibudayin3" translatable="false">3.检查打印机是否正常，启动打印机自检；</string>
+    <string name="dayinjibudayin4" translatable="false">4.检查打印机插接件是否松动，确保接触良好。</string>
+    <string name="ceshibuzhengchang" translatable="false">测试不正常</string>
+    <string name="ceshibuzhengchang1" translatable="false">1.检查灵敏度和量程设置，选择合适的灵敏度和量程。</string>
+    <string name="kaijihouxianshipingwuxianshi" translatable="false">开机后显示屏无显示</string>
+    <string name="kaijihouxianshipingwuxianshi1" translatable="false">1.检查AC220V电源及保险管。</string>
+    <string name="sanxiangdianliubupingheng" translatable="false">三相电流不平衡</string>
+    <string name="sanxiangdianliubupingheng1" translatable="false">1.检查测试接线，确保接触良好。</string>
+    <string name="xingnengtedian" translatable="false">性能特点</string>
+    <string name="xingnengtedian1" translatable="false">1.功能强大，可实现过渡波形、过渡时间、过渡电阻、三相同期性等参数的测量、计算；</string>
+    <string name="xingnengtedian2" translatable="false">2.采用高亮7.0寸液晶显示器和触摸屏，全中文菜单，操作简单、便捷；</string>
+    <string name="xingnengtedian3" translatable="false">3.智能型测试和结果分析，具有放大或缩小波形，自动转换分接档位号的功能；</string>
+    <string name="xingnengtedian4" translatable="false">4.三路独立的恒流源</string>
+    <string name="xingnengtedian5" translatable="false">5.六路独立信号处理，高速A/D转换，20kHz高速采样，真实反映参数的变化；</string>
+    <string name="xingnengtedian6" translatable="false">6.仪器内设大容量FLASH存储器能够存储1000组数据，可随时存档、调阅、分析；</string>
+    <string name="xingnengtedian7" translatable="false">7.测试YN、Y、△型变压器，阻值不用换算直接显示；</string>
+    <string name="xingnengtedian8" translatable="false">8.仪器带标准U盘接口，可将数据传入U盘，方便于计算机管理数据；</string>
+    <string name="xingnengtedian9" translatable="false">9.支持RS232、蓝牙两种通讯方式；</string>
+    <string name="xingnengtedian10" translatable="false">10.仪器自带高速热敏打印机，可打印波形、过渡时间、过渡电阻、三相同期性时间等测试结果；</string>
+    <string name="xingnengtedian11" translatable="false">11.仪器设有自动放电回路和过压保护电路。</string>
+    <string name="jiexiantu" translatable="false">接线图</string>
+    <string name="jiexiantuyn1" translatable="false">1.有载调压绕组星型接线有中性点（YN型）接线如下：</string>
+    <string name="jiexiantusanjiao" translatable="false">1.有载调压绕组（△型）：</string>
+    <string name="jiexiantusanjiao1" translatable="false">图一：测ab和bc时接线图</string>
+    <string name="jiexiantusanjiao2" translatable="false">测AB和BC：黄色线接A，红色线接C，黑色线接B，绿色线与黑色线短接。</string>
+    <string name="jiexiantusanjiao3" translatable="false">测BC和CA：绿色线接B，黄色线接A，黑色线接C，红色线与黑色线短接。</string>
+    <string name="jiexiantusanjiao4" translatable="false">测CA和AB：红色线接C，绿色线接B，黑色线接A，黄色线与黑色线短接。</string>
+
+    <!-- <string name="shujuchayue" translatable="false">数据查阅</string>-->
+    <!--<string name="quanxuan" translatable="false">全选</string>-->
+    <!--<string name="shipinbianhao" translatable="false">试品编号</string>-->
+    <!--<string name="fenjieweizhi" translatable="false">分接位置</string>-->
+    <!--<string name="ceshishijian" translatable="false">测试时间</string>-->
+    <string name="chakan" translatable="false">查看</string>
+    <!--<string name="daochu" translatable="false">导出</string>-->
+    <string name="qingkong" translatable="false">清空</string>
+    <!--<string name="gong" translatable="false">共</string>-->
+    <string name="tiaojilu" translatable="false">条记录</string>
+    <!--<string name="fanhui" translatable="false">返回</string>-->
+    <string name="quanqing" translatable="false">全清</string>
+
+    <string name="baocunxiugai" translatable="false">保存修改</string>
+    <string name="benjidizhi2" translatable="false">本机地址:</string>
+    <!--<string name="ceshi" translatable="false">测试</string>-->
+    <string name="boxingsuofang" translatable="false">波形缩放</string>
+    <string name="guangbiaoqiehuan" translatable="false">光标切换</string>
+    <string name="guodushijian2" translatable="false">过渡时间：</string>
+    <string name="butongqishijian2" translatable="false">不同期时间：</string>
+    <string name="bai" translatable="false">白</string>
+    <string name="hei" translatable="false">黑</string>
+
+</resources>

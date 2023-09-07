@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 主体背景颜色值 -->
+    <solid android:color="@color/textColor_black" />
+    <!-- 连框宽度和颜色值 -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/zhuti" />
+    <corners android:radius="0dp"/>
+</shape>

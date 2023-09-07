@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ExtraTranslation">
+    <string name="app_name">Electric measuring manager</string>
+
+    <string name="lianjielanya" translatable="false">Bluetooth connection</string>
+    <string name="zhongying" translatable="false">Chinese/English</string>
+    <string name="dakailanya" translatable="false">Turn on Bluetooth</string>
+    <string name="guanbilanya" translatable="false">Turn off Bluetooth</string>
+    <string name="sousuolanya" translatable="false">Search Bluetooth</string>
+    <string name="tingzhisousuo" translatable="false">Stop searching</string>
+    <string name="qingkaiqilanya" translatable="false">Please turn on Bluetooth</string>
+    <string name="weilianjie" translatable="false">Not connected</string>
+    <string name="yilianjie" translatable="false">Connected</string>
+    <string name="lianjiezhong" translatable="false">Connecting...</string>
+
+    <string name="ceshifangfa">Test method</string>
+
+    <string name="std_app_title" translatable="false">Transformer DC Resistance Test</string>
+    <string name="app_zhizuceshi" translatable="false">Resistance Test</string>
+    <string name="app_xiaocigongneng" translatable="false">Degauss Function</string>
+    <string name="app_diaoyuejilu" translatable="false">Retrieval Record</string>
+    <string name="app_shijianshezhi" translatable="false">Time Settings</string>
+    <string name="app_xitongshezhi" translatable="false">System Settings</string>
+    <string name="zzcs_santongdao_ceshi" translatable="false">Three Phases Test</string>
+    <string name="zzcs_yn_ceshi" translatable="false">YN Test</string>
+    <string name="zzcs_dy_ceshi" translatable="false">D(Y) Test</string>
+    <string name="ceshidianliu" translatable="false">Test Current</string>
+    <string name="ceshixiangbie" translatable="false">Test Phase</string>
+    <string name="lingxiandianzu" translatable="false">Neutral Resistance</string>
+    <string name="dianliu" translatable="false">Current</string>
+    <string name="dianliu2" translatable="false">Current:</string>
+    <string name="xiangbie" translatable="false">Phase</string>
+    <string name="xiangbie2" translatable="false">Phase:</string>
+    <string name="zhuci" translatable="false">Magnetics</string>
+    <string name="kaishiceshi" translatable="false">Testing</string>
+    <string name="jishi" translatable="false">Timing:</string>
+    <string name="tingzhi" translatable="false">Stop</string>
+    <string name="ceshidianzu" translatable="false">Test Resistance</string>
+    <string name="zhesuandianzu" translatable="false">Reduced Resistance</string>
+    <string name="zhesuandianzu2" translatable="false">Reduced Resistance：</string>
+    <string name="zuidabupinghenglv" translatable="false">Maximum unbalance rate:</string>
+    <string name="fenjieweizhi" translatable="false">Tapping position</string>
+    <string name="fenjieweizhi2" translatable="false">Tapping Position:</string>
+    <string name="shipinwendu" translatable="false">Tested Sample Temperature</string>
+    <string name="baocun" translatable="false">Save</string>
+    <string name="dayin" translatable="false">Print</string>
+    <string name="huanxiang" translatable="false">Commutation</string>
+    <string name="xiaocixiangbie" translatable="false">Degauss Phase</string>
+    <string name="kaishixiaoci" translatable="false">Start Degaussing</string>
+    <string name="tingzhixiaoci" translatable="false">Stop Degaussing</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="tishi" translatable="false">Tips</string>
+    <string name="fangdiantanchuang" translatable="false">Discharge, please do not remove wire!</string>
+    <string name="baocuntanchuang" translatable="false">Saving, please wait...</string>
+    <string name="dayintanchuang" translatable="false">Printing,please wait...</string>
+    <!--*****************************************************短路阻抗**********************************************************-->
+    <!--<string name="app_title">Transformer low voltage short circuit impedance tester</string>-->
+    <string name="app_title">Transformer short-circuit impedance tester</string>
+    <string name="sanxiangduanluzukang">Three-phase short-circuit impedance</string>
+    <string name="danxiangduanluzukang">Single-phase short-circuit impedance</string>
+    <string name="lingxuzukang">Zero-sequence impedance</string>
+    <string name="shujuchuli">Data processing</string>
+    <string name="xitongshezhi">System settings</string>
+
+    <string name="canshushezhi">Parameter setting</string>
+    <string name="ceshi">Test</string>
+    <string name="fanhui">Return</string>
+
+    <string name="edingrongliang">Rated capacity</string>
+    <string name="xuanzedianyuan">Selective power supply</string>
+    <string name="fenjiedianya">Tap voltage</string>
+    <string name="suopingdianliu">Lock current</string>
+    <string name="mingpaizukang">Nameplate impedance</string>
+    <string name="celiangwendu">Measuring temperature</string>
+    <!--<string name="fenjieweizhi">Tap position</string>-->
+    <string name="jiaozhengwendu">Correction temperature</string>
+    <string name="celiangweizhi">Measuring position</string>
+    <string name="celiangmoshi">Measurement mode</string>
+    <string name="shipinbianhao">Sample number</string>
+    <string name="ceshirenyuan">Tester</string>
+    <string name="celiangjiexian">Measuring connection</string>
+    <!--<string name="bianyaqileixing">Type of transformer</string>-->
+    <string name="bianyaqileixing">Transformer</string>
+    <string name="celiangxiangbie">Measurement phase</string>
+
+    <string name="ceshibianhao">Test number</string>
+    <string name="celiangpinlv">Measurement frequency</string>
+    <string name="duanludianzu">Short circuit resistance</string>
+    <string name="gonglvyinshu">Power factor</string>
+
+    <string name="lingxugankang">Zero sequence inductance</string>
+    <string name="lingxudianzu">Zero sequence resistance</string>
+    <string name="lingxudiangan">Zero-sequence inductance</string>
+
+    <string name="gaodi">H-L</string>
+    <string name="gaozhong">H-M</string>
+    <string name="zhongdi">M-L</string>
+    <string name="neibu">Inside</string>
+    <string name="waibu">External</string>
+    <string name="zidong">Automatic</string>
+    <string name="shoudong">Manual</string>
+    <string name="yylianjie">Y/Yjoin</string>
+    <string name="ydlianjie">Y/△join</string>
+    <string name="dylianjieaz">△/Yjoin(AZ-BX-CY)</string>
+    <string name="dylianjieay">△/Yjoin(AY-BZ-CX)</string>
+    <string name="danxiang">Single-phase</string>
+    <string name="sanxiang">Three phase(Yn/Y、Yn/△)</string>
+
+    <string name="suoping">Lock screen</string>
+    <string name="chongce">Retest</string>
+    <string name="sanxiangzukangceshi">Three-phase impedance test</string>
+    <string name="jiayaraozu">Pressure winding</string>
+
+    <!--<string name="baocun">Save</string>
+    <string name="dayin">Print</string>-->
+    <string name="shijiadianya">Applied voltage</string>
+    <string name="shijiadianliu">Applied current</string>
+    <string name="celiangxiangjiao">Measured phase Angle</string>
+    <string name="yougonggonglv">Active power</string>
+    <string name="duanluzukang">Short-circuit impedance</string>
+    <string name="duanlugankang">Short-circuit reactance</string>
+    <string name="raozudiangan">Winding inductance</string>
+    <string name="zukangdianya">Impedance voltage</string>
+    <string name="abxiang">AB phase</string>
+    <string name="bcxiang">BC phase</string>
+    <string name="caxiang">CA phase</string>
+    <string name="a0xiang">A0 phase</string>
+    <string name="b0xiang">B0 phase</string>
+    <string name="c0xiang">C0 phase</string>
+    <string name="zukangdianyazkbaifenhao">Impedance voltage Zk%</string>
+    <string name="zukangwuchadzkbaifenhao">Impedance error △Zk%</string>
+    <string name="celiangzukang">Measured impedance</string>
+    <string name="celiangdiankang">Measured reactance</string>
+    <string name="loudiangan">Leakage inductance</string>
+    <string name="hengxiangpiancha">Lateral deviation</string>
+
+    <string name="danxiangzukangceshi">Single-phase impedance test</string>
+
+    <string name="ceshicanshu">Test parameter</string>
+
+    <string name="shijianshezhi">Time setting</string>
+    <string name="tongxuncanshu">Communication parameter</string>
+    <string name="tiaoshishezhi">Debug setting</string>
+    <string name="qingshurumima">Please enter password</string>
+
+    <string name="riqi" translatable="false">Date</string>
+    <string name="nian" translatable="false">Year</string>
+    <string name="yue" translatable="false">Month</string>
+    <string name="ri" translatable="false">Day</string>
+    <string name="shi" translatable="false">Hour</string>
+    <string name="fen" translatable="false">Minute</string>
+    <string name="miao" translatable="false">Second</string>
+    <string name="shijian" translatable="false">Time</string>
+    <string name="queren" translatable="false">Certain</string>
+
+    <string name="shanchu" translatable="false">Delete</string>
+    <string name="qingchu" translatable="false">Clear</string>
+    <string name="daochu" translatable="false">Export</string>
+    <string name="ceshishijian" translatable="false">Test time</string>
+    <string name="quanxuan" translatable="false">Select all</string>
+
+    <!--<string name="lianjielanya" translatable="false">Bluetooth connection</string>
+    <string name="zhongying" translatable="false">Chinese/English</string>
+    <string name="dakailanya" translatable="false">Turn on Bluetooth</string>
+    <string name="guanbilanya" translatable="false">Turn off Bluetooth</string>
+    <string name="sousuolanya" translatable="false">Search Bluetooth</string>
+    <string name="tingzhisousuo" translatable="false">Stop searching</string>
+    <string name="qingkaiqilanya" translatable="false">Please turn on Bluetooth</string>
+    <string name="weilianjie" translatable="false">Not connected</string>
+    <string name="yilianjie" translatable="false">Connected</string>
+    <string name="lianjiezhong" translatable="false">Connecting...</string>-->
+
+    <!--<string name="tishi" translatable="false">Tips</string>
+    <string name="baocuntanchuang" translatable="false">Saving, please wait...</string>
+    <string name="dayintanchuang" translatable="false">Printing,please wait...</string>-->
+    <!--*******************************************************10C*******************************************************************-->
+    <string name="zhiliudianzuceshiyi">DC Resistance Tester</string>
+
+    <string name="zhizuceshi" translatable="false">Resistance Test</string>
+    <string name="jiluchaxun" translatable="false">Record Query</string>
+    <string name="shijianjiaozheng" translatable="false">Time Correction</string>
+
+    <string name="jisuanbupinghenglv" translatable="false">Unbalance rate</string>
+
+    <string name="ceshidianliu2" translatable="false">Test current：</string>
+    <string name="raozu10c" translatable="false">Winding</string>
+    <string name="xiangbie10c" translatable="false">Separate</string>
+    <string name="fenjie10c" translatable="false">Tap</string>
+    <string name="raozucailiao" translatable="false">Winding material</string>
+    <string name="zhesuanwendu" translatable="false">Reduced T</string>
+    <string name="gaoya" translatable="false">HV</string>
+    <string name="zhongya" translatable="false">MV</string>
+    <string name="diya" translatable="false">LV</string>
+    <string name="tong" translatable="false">CU</string>
+    <string name="lv" translatable="false">AL</string>
+
+    <string name="zhesuandianzu1" translatable="false">Converted resistance</string>
+
+    <string name="ceshishijian2" translatable="false">Test Time:</string>
+    <string name="fenjie2" translatable="false">tap:</string>
+    <string name="ceshidianzua" translatable="false">Test resistanceA0/AB:</string>
+    <string name="ceshidianzub" translatable="false">Test resistanceB0/BC:</string>
+    <string name="ceshidianzuc" translatable="false">Test resistanceC0/CA:</string>
+    <string name="zhesuandianzua" translatable="false">Converted resistanceA0/AB:</string>
+    <string name="zhesuandianzub" translatable="false">Converted resistanceB0/BC:</string>
+    <string name="zhesuandianzuc" translatable="false">Converted resistanceC0/CA:</string>
+
+    <string name="ceshidianzua0" translatable="false">Test resistance A0:</string>
+    <string name="ceshidianzub0" translatable="false">Test resistance B0:</string>
+    <string name="ceshidianzuc0" translatable="false">Test resistance C0:</string>
+    <string name="zhesuandianzua0" translatable="false">Converted resistance A0:</string>
+    <string name="zhesuandianzub0" translatable="false">Converted resistance B0:</string>
+    <string name="zhesuandianzuc0" translatable="false">Converted resistance C0:</string>
+
+    <string name="ceshidianzuab" translatable="false">Test resistance AB:</string>
+    <string name="ceshidianzubc" translatable="false">Test resistance BC:</string>
+    <string name="ceshidianzuca" translatable="false">Test resistance CA:</string>
+    <string name="zhesuandianzuab" translatable="false">Converted resistance AB:</string>
+    <string name="zhesuandianzubc" translatable="false">Converted resistance BC:</string>
+    <string name="zhesuandianzuca" translatable="false">Converted resistance CA:</string>
+    <!--*************************************************************三通道***************************************************************************-->
+    <string name="hao">Ok</string>
+    <string name="start_search" translatable="false">start search</string>
+    <string name="stop_search" translatable="false">stop search</string>
+    <string name="disconnect" translatable="false">disconnect</string>
+    <string name="bluetooth_not_connected" translatable="false">Bluetooth is not connected</string>
+    <string name="yiqishezhi" translatable="false">Tester Setting</string>
+    <string name="neibutiaoshi" translatable="false">Internal Debugging</string>
+    <string name="raozucaizhi" translatable="false">Winding Material</string>
+    <string name="shebeimingcheng" translatable="false">Device name</string>
+    <string name="shurumima" translatable="false">Enter Password</string>
+    <string name="di" translatable="false">Article</string>
+    <string name="tiao" translatable="false">item</string>
+    <string name="tiao2" translatable="false">item,</string>
+    <string name="gong" translatable="false">of</string>
+    <string name="celiangwendu2" translatable="false">Measuring temperature:</string>
+    <string name="ceshixiang" translatable="false">Test Phase</string>
+    <string name="a0dianzu" translatable="false">A0 resistance：</string>
+    <string name="a0zhesuandianzu" translatable="false">A0 Converted resistance：</string>
+    <string name="b0dianzu" translatable="false">B0 resistance：</string>
+    <string name="b0zhesuandianzu" translatable="false">B0 Converted resistance：</string>
+    <string name="c0dianzu" translatable="false">C0 resistance：</string>
+    <string name="c0zhesuandianzu" translatable="false">C0 Converted resistance：</string>
+    <string name="abdianzu" translatable="false">ab resistance：</string>
+    <string name="abzhesuandianzu" translatable="false">ab Converted resistance：</string>
+    <string name="bcdianzu" translatable="false">bc resistance：</string>
+    <string name="bczhesuandianzu" translatable="false">bc Converted resistance：</string>
+    <string name="cadianzu" translatable="false">ca resistance：</string>
+    <string name="cazhesuandianzu" translatable="false">ca Converted resistance：</string>
+    <!--***************************************************************有载****************************************************************************-->
+    <string name="youzaiceshi" translatable="false">On-load test</string>
+    <string name="shujuchayue" translatable="false">Data lookup</string>
+    <!-- <string name="shijianshezhi" translatable="false">时间设置</string>-->
+    <string name="shiyongshuoming" translatable="false">Instructions for use</string>
+    <string name="youzaikaiguancanshuceshiyi" translatable="false">On-load switch parameter tester Ver.</string>
+    <string name="liangcheng2" translatable="false">range:</string>
+    <string name="shichang2" translatable="false">duration:</string>
+    <string name="lingmindu2" translatable="false">sensitivity:</string>
+    <!--<string name="shipinbianhao" translatable="false">试品编号</string>-->
+    <string name="ceshifenjie" translatable="false">Test tap</string>
+    <string name="lianjiefangshi" translatable="false">Connection mode</string>
+    <string name="ceshixiangshu" translatable="false">Test phase number</string>
+    <string name="kaishichongdian" translatable="false">Start charging</string>
+    <!--<string name="fanhui" translatable="false">返回</string>-->
+    <string name="chongdian" translatable="false">charging</string>
+    <!--<string name="kaishiceshi" translatable="false">开始测试</string>-->
+    <string name="zhengzaiceshi" translatable="false">Be testing......</string>
+
+    <string name="chanpinshouce" translatable="false">Product manual</string>
+    <string name="jishucanshu" translatable="false">Technical parameter</string>
+    <string name="canshu" translatable="false">argument</string>
+    <string name="jishuzhibiao" translatable="false">Technical index</string>
+    <string name="shangyiye" translatable="false">Page Up</string>
+    <string name="xiayiye" translatable="false">Page Down</string>
+    <!--<string name="fanhui" translatable="false">返回</string>-->
+    <string name="guodudianzuceliangfanwei" translatable="false">Transition resistance measurement range:</string>
+    <string name="guodushijianfanwei" translatable="false">Transition time range:</string>
+    <string name="guodudianzufenbianlv" translatable="false">Transition resistance resolution:</string>
+    <string name="guodudianzuceliangjingdu" translatable="false">Measurement accuracy of transition resistance:</string>
+    <string name="guodushijianfenbianlv" translatable="false">Transition time resolution:</string>
+    <string name="guodushijianjingdu" translatable="false">Transition time accuracy:</string>
+    <string name="caiyangpinlv" translatable="false">Sampling frequency:</string>
+    <string name="gongzuodianyuan" translatable="false">Working power supply:</string>
+    <string name="gongzuowendushidu" translatable="false">Operating temperature/humidity:</string>
+    <!-- <string name="chanpinshouce" translatable="false">0.3Ω~10Ω（2.0A）</string>
+    <string name="chanpinshouce" translatable="false">0.6Ω~20Ω（1.0A）</string>
+    <string name="chanpinshouce" translatable="false">3.0Ω~100Ω（0.2A）</string>
+    <string name="chanpinshouce" translatable="false">0~120ms/0~300ms</string>-->
+    <string name="guodudianzujingdu2" translatable="false">±(5%reading±0.2ms)</string>
+    <string name="guodushijianjingdu2" translatable="false">±(0.1%reading±0.1Ω)</string>
+    <string name="changjianguzhangjijiejuefangfa" translatable="false">Common faults and solutions</string>
+    <string name="guzhangxianxiang" translatable="false">Fault phenomenon</string>
+    <string name="guzhangyuanyinjijiejuefangfa" translatable="false">Fault cause and solution</string>
+    <string name="dayinjibudayin" translatable="false">Printer does not print</string>
+    <string name="dayinjibudayin1" translatable="false">1.Check the printer indicator. If it is off, check whether the printer power supply is normal；</string>
+    <string name="dayinjibudayin2" translatable="false">2.Check if there is a printer；</string>
+    <string name="dayinjibudayin3" translatable="false">3.Check whether the printer is normal and start the printer self-test；</string>
+    <string name="dayinjibudayin4" translatable="false">4.Check that the printer connector is loose and in good contact。</string>
+    <string name="ceshibuzhengchang" translatable="false">Abnormal test</string>
+    <string name="ceshibuzhengchang1" translatable="false">1.Check the sensitivity and range Settings and select the appropriate sensitivity and range。</string>
+    <string name="kaijihouxianshipingwuxianshi" translatable="false">The display does not display after the device is powered on</string>
+    <string name="kaijihouxianshipingwuxianshi1" translatable="false">1.Check AC220V power supply and safety tube。</string>
+    <string name="sanxiangdianliubupingheng" translatable="false">Three phase current unbalance</string>
+    <string name="sanxiangdianliubupingheng1" translatable="false">1.Check test wiring to ensure good contact。</string>
+    <string name="xingnengtedian" translatable="false">Performance characteristics</string>
+    <string name="xingnengtedian1" translatable="false">1.Powerful function, can realize the transition waveform, transition time, transition resistance, three phase synchronization and other parameters measurement, calculation；</string>
+    <string name="xingnengtedian2" translatable="false">2.Using a bright 7.0 inch LCD display and touch screen, all Chinese menu, simple and convenient operation；</string>
+    <string name="xingnengtedian3" translatable="false">3.Intelligent test and result analysis, with the function of enlarging or reducing the waveform and automatically converting the tap gear number；</string>
+    <string name="xingnengtedian4" translatable="false">4.Three independent constant current sources</string>
+    <string name="xingnengtedian5" translatable="false">5.Six independent signal processing, high-speed A/D conversion, 20kHz high-speed sampling, truly reflect the change of parameters；</string>
+    <string name="xingnengtedian6" translatable="false">6.The large capacity FLASH memory in the instrument can store 1000 sets of data, which can be archived, accessed and analyzed at any time；</string>
+    <string name="xingnengtedian7" translatable="false">7.Test YN, Y, △ type transformers, resistance values do not need to be directly displayed；</string>
+    <string name="xingnengtedian8" translatable="false">8.Instrument with standard U disk interface, data can be transferred to U disk, convenient for computer management data；</string>
+    <string name="xingnengtedian9" translatable="false">9.Support RS232, Bluetooth two communication methods；</string>
+    <string name="xingnengtedian10" translatable="false">10.The instrument comes with a high-speed thermal printer, which can print test results such as waveform, transition time, transition resistance, and three-phase synchronous time；</string>
+    <string name="xingnengtedian11" translatable="false">11.The instrument is equipped with automatic discharge circuit and overvoltage protection circuit。</string>
+    <string name="jiexiantu" translatable="false">Wiring diagram</string>
+    <string name="jiexiantuyn1" translatable="false">1.The star connection of the on-load regulator winding has a neutral point (YN type) as follows：</string>
+    <string name="jiexiantusanjiao" translatable="false">1.Load regulating winding（△ model）：</string>
+    <string name="jiexiantusanjiao1" translatable="false">Figure 1: Wiring diagram for measuring ab and bc</string>
+    <string name="jiexiantusanjiao2" translatable="false">Test AB and BC: Connect the yellow line to A, the red line to C, the black line to B, and the green line to the black line。</string>
+    <string name="jiexiantusanjiao3" translatable="false">Test BC and CA: Connect the green line to B, the yellow line to A, the black line to C, and the red line to the black line。</string>
+    <string name="jiexiantusanjiao4" translatable="false">Test CA and AB: Connect the red line to C, the green line to B, the black line to A, and the yellow line to the black line。</string>
+
+    <!-- <string name="shujuchayue" translatable="false">数据查阅</string>-->
+    <!--<string name="quanxuan" translatable="false">全选</string>-->
+    <!--<string name="shipinbianhao" translatable="false">试品编号</string>-->
+    <!--<string name="fenjieweizhi" translatable="false">分接位置</string>-->
+    <!--<string name="ceshishijian" translatable="false">测试时间</string>-->
+    <string name="chakan" translatable="false">view</string>
+    <!--<string name="daochu" translatable="false">导出</string>-->
+    <string name="qingkong" translatable="false">Clear</string>
+    <!--<string name="gong" translatable="false">共</string>-->
+    <string name="tiaojilu" translatable="false">Record (s)</string>
+    <!--<string name="fanhui" translatable="false">返回</string>-->
+    <string name="quanqing" translatable="false">Clear all</string>
+
+    <string name="baocunxiugai" translatable="false">Save changes</string>
+    <string name="benjidizhi2" translatable="false">Local address:</string>
+    <!--<string name="ceshi" translatable="false">测试</string>-->
+    <string name="boxingsuofang" translatable="false">Waveform scaling</string>
+    <string name="guangbiaoqiehuan" translatable="false">Cursor switching</string>
+    <string name="guodushijian2" translatable="false">Transition time：</string>
+    <string name="butongqishijian2" translatable="false">Different time：</string>
+    <string name="bai" translatable="false">white</string>
+    <string name="hei" translatable="false">black</string>
+
+</resources>

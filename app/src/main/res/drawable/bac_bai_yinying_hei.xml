@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 阴影 -->
+    <item
+        android:bottom="0dp"
+        android:left="0dp"
+        android:right="0dp"
+        android:top="0dp">
+        <shape android:shape="rectangle">
+            <!-- 阴影也可以弄成渐变的阴影，偷了懒，选了很浅的颜色#E7EDFE直接当阴影了，有耐心或者有UI图的，可以自己吸色做渐变 -->
+            <gradient
+                android:angle="270"
+                android:startColor="#555555"
+                android:endColor="#555555"
+                android:type="linear"/>
+
+            <corners
+                android:bottomLeftRadius="15dp"
+                android:bottomRightRadius="15dp"
+                android:topLeftRadius="15dp"
+                android:topRightRadius="15dp"/>
+        </shape>
+    </item>
+    <!-- 实心内容 bottom、left、right、top的距离就是阴影显示的范围，0就是没有阴影显示的范围-->
+    <item
+        android:bottom="0dp"
+        android:left="2dp"
+        android:right="0dp"
+        android:top="2dp">
+        <shape android:shape="rectangle">
+            <!-- 圆角，想要左右两边都是半圆型，大小就要与按钮的高度一样，我按钮高度为dp_60 -->
+            <corners android:topLeftRadius="15dp" android:topRightRadius="15dp"
+                android:bottomLeftRadius="15dp" android:bottomRightRadius="15dp"/>
+            <!-- 渐变的关键，具体自己百度文档，可以按照属性调出你想要的渐变色 -->
+            <gradient android:type="linear" android:useLevel="true" android:startColor="@color/white" android:endColor="@color/white" android:angle="180" />
+        </shape>
+    </item>
+</layer-list>

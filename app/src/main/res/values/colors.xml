@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="zhuti">#1296db</color>
+    <color name="zhuti2">#1288ff</color>
+    <color name="zhuti3">#1290c0</color>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="possible_result_points">#c0ffbd21</color> <!-- Android standard ICS color -->
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c099cc00</color> <!-- Android standard ICS color -->
+    <color name="result_text">#ffffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="viewfinder_laser">#ffcc0000</color> <!-- Android standard ICS color -->
+    <color name="viewfinder_mask">#60000000</color>
+
+    <color name="index1">#78538e</color>
+    <color name="index2">#3aaba9</color>
+
+    <!--<color name="colorAccent">#038ece</color>-->
+
+
+    <color name="welcomeText">#4682B4</color>
+    <color name="tabHostBg">#F6F6F6</color>
+    <color name="tabTextColor">#AEAEAE</color> n
+    <color name="tabBg">#F6F6F6</color>
+    <color name="foot_txt_gray">#AEAEAE</color>
+    <color name="textColor_gray">#f05124</color>
+    <color name="textColor_black">#04068e</color>
+    <color name="textColor_red">#ff4040</color>
+    <color name="textColor_item_list_menus">#000000</color>
+    <color name="addShopping_bg">#5e5e5e</color>
+    <color name="grey">#5e5e5e</color>
+
+    <color name="drawer_home_coclor">#00A8F1</color>
+    <color name="drawer_search_coclor">#ff2ec5f5</color>
+    <color name="drawer_setting_coclor">#ffec7530</color>
+    <color name="drawer_advice_coclor">#ff6fc624</color>
+    <color name="drawer_share_coclor">#fffecb2f</color>
+    <color name="drawer_about_coclor">#038ECE</color>
+    <color name="drawer_exit_coclor">#ff3bbfba</color>
+
+
+    <color name="progressColor">#5588FF</color>
+    <color name="font_light">#464e76</color>
+    <color name="milk_white">#f5f5f5</color>
+    <color name="title_color">#86c4e6</color>
+    <!--color name="title_color">#fdf5e6</color-->
+    <color name="milk_white2">#f0f0f0</color>
+    <color name="shopping_list_bg">#D8D0CF</color>
+    <color name="shop_bg">#FF0714</color>
+    <color name="table_boder_color">#848484</color>
+    <color name="register_bg_color">#fdfdfe</color>
+    <color name="register_hint_text_color">#AEAEAE</color>
+    <color name="login_btn_text_color">#0fc4d9</color>
+    <color name="detail_buy_color">#FF9631</color>
+    <color name="gold">#FFD700</color>
+    <color name="gold2">#e9a020</color>
+    <color name="gold3">#f8d658</color>
+    <color name="sivler">#e3e3d3</color>
+
+    <color name="date_picker_bg">#FFFFFF</color>
+    <color name="date_picker_divider">#11112233</color>
+    <color name="date_picker_text_light">#59B29C</color>
+    <color name="date_picker_text_dark">#333333</color>
+
+    <color name="main_bg">#F0F0F0</color>
+    <color name="select_title_text">#B0B0B0</color>
+    <color name="current_time_bg">#FFFFFF</color>
+    <color name="current_time_text">#666666</color>
+    <color name="selected_time_text">#57C5E8</color>
+    <color name="shenlan" tools:ignore="MissingDefaultResource">#191970</color>
+</resources>
