@@ -389,6 +389,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.e(TAG+"跳","跳转1");
             Log.e(TAG+"ev",eventMsg.toString());
             Log.e(TAG+"evMsg",eventMsg.getMsg());
+
             switch (eventMsg.getMsg()) {
                 case Constants.BLE_CONNECTION_FINISH_MSG:
                     Log.i("蓝牙连接状态：","蓝牙连接完成");
