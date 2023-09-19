@@ -145,6 +145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (IndexOfAndSubStr.isIndexOf(newMsgStr, "6677") && newMsgStr.length() >= 26) {
                         if(StringUtils.isEmpty(yqlx)){
                             yqlx = StringUtils.subStrStartToEnd(newMsgStr, 18, 20);
+                            //yqlx = "34";//只能20
                             Log.e(TAG+"仪器类型", yqlx);
                             Config.yqlx = yqlx;
                             if ((StringUtils.isEquals(yqlx, "31")) || (StringUtils.isEquals(yqlx, "34")) ||

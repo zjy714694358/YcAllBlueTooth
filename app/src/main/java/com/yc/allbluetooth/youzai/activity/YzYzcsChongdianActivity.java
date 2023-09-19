@@ -160,6 +160,11 @@ public class YzYzcsChongdianActivity extends AppCompatActivity implements View.O
     }
     public void initModel(){
         //sendDataByBle("feef04200000fddf","");//读取测试状态
+        bleConnectUtil = new BleConnectUtil(YzYzcsChongdianActivity.this);
+        if (!bleConnectUtil.isConnected() && StringUtils.noEmpty(bleConnectUtil.wsDeviceAddress)) {
+            bleConnectUtil.connect(bleConnectUtil.wsDeviceAddress, 10, 10);//标签从机：34:14:B5:B6:D6:E1
+            bleConnectUtil.setCallback(blecallback);
+        }
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
