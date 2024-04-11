@@ -1,8 +1,17 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+//解决阿里下载问题，http换成https
+buildscript{
+    repositories{
+        maven{ url = "https://maven.aliyun.com/nexus/content/groups/public/" }
+        google()
+        mavenCentral()
+    }
+}
 plugins {
     id 'com.android.application' version '7.2.1' apply false
     id 'com.android.library' version '7.2.1' apply false
 }
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir

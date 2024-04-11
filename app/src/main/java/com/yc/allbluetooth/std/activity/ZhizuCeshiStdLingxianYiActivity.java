@@ -146,6 +146,7 @@ public class ZhizuCeshiStdLingxianYiActivity extends AppCompatActivity implement
                                         //0:A0;1:B0;2:C0;3:ab;4:bc;5:ca;6:三相
                                         //if (StringUtils.isEquals("06", csxw)) {//三通道
                                         tvStdA0Dl.setText(DianliuDianzuDw.dw("00", a0orab, tvStdA0DlDw));
+                                        Log.e("lxdz==60","=========Config.lxType============"+Config.lxType);
                                         if(Config.lxType == 1){
                                             if(!StringUtils.isEquals(b0orbc,"FFFFFFFF")){
                                                 tvStdB0Dl.setText(DianliuDianzuDw.dw("00", b0orbc, tvStdB0DlDw));
@@ -235,6 +236,7 @@ public class ZhizuCeshiStdLingxianYiActivity extends AppCompatActivity implement
                                         //0:A0;1:B0;2:C0;3:ab;4:bc;5:ca;6:三相
                                         //if (StringUtils.isEquals("06", csxw)) {//三通道
                                         tvStdA0Dl.setText(DianliuDianzuDw.dw("00", a0orab, tvStdA0DlDw));
+                                        Log.e("lxdz==86","=========Config.lxType============"+Config.lxType);
                                         if(Config.lxType == 1){
                                             if(!StringUtils.isEquals(b0orbc,"FFFFFFFF")){
                                                 tvStdB0Dl.setText(DianliuDianzuDw.dw("00", b0orbc, tvStdB0DlDw));
@@ -325,6 +327,7 @@ public class ZhizuCeshiStdLingxianYiActivity extends AppCompatActivity implement
                                         //0:A0;1:B0;2:C0;3:ab;4:bc;5:ca;6:三相
                                         //if (StringUtils.isEquals("06", csxw)) {//三通道
                                         tvStdA0Dl.setText(DianliuDianzuDw.dw("00", a0orab, tvStdA0DlDw));
+                                        Log.e("lxdz==120","=========Config.lxType============"+Config.lxType);
                                         if(Config.lxType == 1){
                                             if(!StringUtils.isEquals(b0orbc,"FFFFFFFF")){
                                                 tvStdB0Dl.setText(DianliuDianzuDw.dw("00", b0orbc, tvStdB0DlDw));
@@ -408,6 +411,7 @@ public class ZhizuCeshiStdLingxianYiActivity extends AppCompatActivity implement
                                         //0:A0;1:B0;2:C0;3:ab;4:bc;5:ca;6:三相
                                         //if (StringUtils.isEquals("06", csxw)) {//三通道
                                         tvStdA0Dl.setText(DianliuDianzuDw.dw("00", a0orab, tvStdA0DlDw));
+                                        Log.e("lxdz==126","=========Config.lxType============"+Config.lxType);
                                         if(Config.lxType == 1){
                                             if(!StringUtils.isEquals(b0orbc,"FFFFFFFF")){
                                                 tvStdB0Dl.setText(DianliuDianzuDw.dw("00", b0orbc, tvStdB0DlDw));

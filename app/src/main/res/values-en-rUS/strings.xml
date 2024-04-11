@@ -21,6 +21,7 @@
     <string name="app_xiaocigongneng" translatable="false">Degauss Function</string>
     <string name="app_diaoyuejilu" translatable="false">Retrieval Record</string>
     <string name="app_shijianshezhi" translatable="false">Time Settings</string>
+    <!--<string name="app_shijianshezhi" translatable="false">Time setting</string>-->
     <string name="app_xitongshezhi" translatable="false">System Settings</string>
     <string name="zzcs_santongdao_ceshi" translatable="false">Three Phases Test</string>
     <string name="zzcs_yn_ceshi" translatable="false">YN Test</string>
@@ -252,9 +253,11 @@
     <string name="cazhesuandianzu" translatable="false">ca Converted resistance：</string>
     <!--***************************************************************有载****************************************************************************-->
     <string name="youzaiceshi" translatable="false">On-load test</string>
-    <string name="shujuchayue" translatable="false">Data lookup</string>
-    <!-- <string name="shijianshezhi" translatable="false">时间设置</string>-->
-    <string name="shiyongshuoming" translatable="false">Instructions for use</string>
+    <!--<string name="shujuchayue" translatable="false">Data lookup</string>-->
+    <string name="shujuchayue" translatable="false">Data retrieval</string>
+    <!--<string name="shijianshezhiyz" translatable="false">时间设置</string>-->
+    <!--<string name="shiyongshuoming" translatable="false">Instructions for use</string>-->
+    <string name="shiyongshuoming" translatable="false">Instructions</string>
     <string name="youzaikaiguancanshuceshiyi" translatable="false">On-load switch parameter tester Ver.</string>
     <string name="liangcheng2" translatable="false">range:</string>
     <string name="shichang2" translatable="false">duration:</string>

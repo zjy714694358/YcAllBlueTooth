@@ -1,6 +1,7 @@
 pluginManagement {
     repositories {
         gradlePluginPortal()
+        //maven{ url = "http://maven.aliyun.com/nexus/content/groups/public/" }
         google()
         mavenCentral()
         maven {
@@ -11,6 +12,7 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        //maven{ url = "http://maven.aliyun.com/nexus/content/groups/public/" }
         google()
         mavenCentral()
         maven {

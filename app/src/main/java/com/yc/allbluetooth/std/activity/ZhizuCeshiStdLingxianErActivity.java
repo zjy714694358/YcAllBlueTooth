@@ -694,7 +694,7 @@ public class ZhizuCeshiStdLingxianErActivity extends AppCompatActivity implement
                                             TipsFangdian.cancel();
                                             TipsSave.cancel();
                                         } else if (btnType == 3) {//停止
-                                            Log.e(TAG, "放电44");
+                                            Log.e(TAG, "放电44====");
                                             TipsFangdian.cancel();
                                             TipsDayin.cancel();
                                             TipsSave.cancel();

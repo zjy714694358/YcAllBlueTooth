@@ -220,7 +220,7 @@ public class StdZhizuCeshiNewFragment extends Fragment implements View.OnClickLi
                                         startActivity(new Intent(getActivity(), ZhizuCeshiDyYiActivity.class));
                                     }
                                 }
-                            }, 500);//3秒后执行Runnable中的run方法
+                            }, 500);//0.5秒后执行Runnable中的run方法
 
                         }
                     }
@@ -438,6 +438,7 @@ public class StdZhizuCeshiNewFragment extends Fragment implements View.OnClickLi
                 break;
             case R.id.btnZzCsStartCsNew:
                 Log.e("","=============");
+                Config.lxType = 0;//每次点击开始测试都默认是第一次进零线电阻
                 sendDataByBle(SendUtil.initSend("73"),"");//先发送返回
                 break;
         }
