@@ -11,25 +11,28 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.yc.allbluetooth.R;
+import com.yc.allbluetooth.bianbi.activity.HomeActivity;
 import com.yc.allbluetooth.config.Config;
 import com.yc.allbluetooth.utils.ActivityCollector;
+import com.yc.allbluetooth.utils.CheckUtils;
 
 import java.util.Locale;
 
-public class DxBbActivity extends AppCompatActivity implements View.OnClickListener {
+public class DxBbEndActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText etEdgy;
-    private EditText etEddy;
-    private EditText etFjzs;
-    private EditText etFjjj;
-    private EditText etRwbh;
-    private TextView tvCeshi;
-    private TextView tvFanhui;
-    String TAG = "DxBbActivity";
+    private TextView tvFj;
+    private TextView tvBb;
+    private TextView tvZb;
+    private TextView tvJx;
+    private TextView tvWc;
+    private TextView tvCc;
+    private TextView tvBc;
+    private TextView tvDy;
+    private TextView tvFh;
+    String TAG = "DxBbEndActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,36 +49,42 @@ public class DxBbActivity extends AppCompatActivity implements View.OnClickListe
             config.locale = Locale.US;
         }
         resources.updateConfiguration(config, dm);
-        setContentView(R.layout.activity_dx_bb);
+        setContentView(R.layout.activity_dx_bb_end);
         ActivityCollector.addActivity(this);
         initView();
     }
     public void initView(){
-        etEdgy = findViewById(R.id.etDxCsEdgy);
-        etEddy = findViewById(R.id.etDxCsEddy);
-        etFjzs = findViewById(R.id.etDxCsFjzs);
-        etFjjj = findViewById(R.id.etDxCsFjjj);
-        etRwbh = findViewById(R.id.etDxCsRwbh);
-        tvCeshi = findViewById(R.id.tvDxCsCeshi);
-        tvFanhui = findViewById(R.id.tvDxCsFanhui);
-
-        tvCeshi.setOnClickListener(this);
-        tvFanhui.setOnClickListener(this);
+        tvFj = findViewById(R.id.tvDxBbEndFenjie);
+        tvBb = findViewById(R.id.tvDxBbEndBianbi);
+        tvZb = findViewById(R.id.tvDxBbEndZabi);
+        tvJx = findViewById(R.id.tvDxBbEndJixing);
+        tvWc = findViewById(R.id.tvDxBbEndWucha);
+        tvCc = findViewById(R.id.tvDxBbEndChongce);
+        tvBc = findViewById(R.id.tvDxBbEndBaocun);
+        tvDy = findViewById(R.id.tvDxBbEndDayin);
+        tvFh = findViewById(R.id.tvDxBbEndFanhui);
+        tvCc.setOnClickListener(this);
+        tvBc.setOnClickListener(this);
+        tvDy.setOnClickListener(this);
+        tvFh.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.tvDxCsCeshi){
-            Log.e("bianbi==","测试");
-            startActivity(new Intent(DxBbActivity.this, DxBbCeshiActivity.class));
-        }else if (v.getId() == R.id.tvDxCsFanhui ){
+        if (v.getId() == R.id.tvDxBbEndChongce){//重测
+
+        } else if (v.getId() == R.id.tvDxBbEndBaocun) {//保存
+
+        } else if (v.getId() == R.id.tvDxBbEndDayin) {//打印
+
+        } else if (v.getId() == R.id.tvDxBbEndFanhui) {//返回
             finish();
+            startActivity(new Intent(DxBbEndActivity.this, HomeActivity.class));
         }
     }
-
     @Override
     protected void onDestroy() {
-        ActivityCollector.removeActivity(DxBbActivity.this);
+        ActivityCollector.removeActivity(DxBbEndActivity.this);
         super.onDestroy();
     }
 }

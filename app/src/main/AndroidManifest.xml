@@ -28,8 +28,37 @@
         android:theme="@style/Theme.YcAllBlueTooth2"
         tools:targetApi="31">
         <activity
+            android:name=".bianbi.activity.XtSzActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".bianbi.activity.dyjl.DyJlInfoActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".bianbi.activity.dyjl.DyJlActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".bianbi.activity.sanxiang.SxBbActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".bianbi.activity.HomeActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".bianbi.activity.danxiang.DxBbEndActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".bianbi.activity.danxiang.DxBbCeshiActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".bianbi.activity.danxiang.DxBbActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".youzai.activity.YzSjcyInfoActivity"
             android:exported="false"

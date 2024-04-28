@@ -335,4 +335,73 @@
     <string name="butongqishijian2" translatable="false">不同期时间：</string>
     <string name="bai" translatable="false">白</string>
     <string name="hei" translatable="false">黑</string>
+    <!--************************************************变比*******************************************************-->
+    <!--主页四个模块-->
+    <string name="bianbiceshiyi" translatable="false">变比测试仪</string>
+    <string name="danxiangbianbi" translatable="false">单相变比</string>
+    <string name="sanxiangbianbi" translatable="false">三相变比</string>
+    <string name="diaoyuejilu" translatable="false">调阅记录</string>
+    <!--<string name="xitongshezhi" translatable="false">系统设置</string>-->
+    <!--单相参数设置-->
+    <!--<string name="canshushezhi" translatable="false">参数设置</string>-->
+    <string name="edinggaoya" translatable="false">额定高压</string>
+    <string name="edingdiya" translatable="false">额定低压</string>
+    <string name="fenjiezongshu" translatable="false">分接总数</string>
+    <string name="fenjiejianju" translatable="false">分接间距</string>
+    <string name="renwubianhao" translatable="false">任务编号</string>
+    <!--<string name="ceshi" translatable="false">测试</string>
+    <string name="fanhui" translatable="false">返回</string>-->
+    <!--单相测试中-->
+    <!--<string name="zhengzaiceshi" translatable="false">正在测试</string>-->
+    <string name="fenjie" translatable="false">分接</string>
+    <!--<string name="ceshidianliu" translatable="false">测试电流</string>-->
+    <string name="yicidianya" translatable="false">一次电压</string>
+    <string name="ercidianya" translatable="false">二次电压</string>
+    <!--单相测试结果-->
+    <string name="ceshijieguo" translatable="false">测试结果</string>
+    <string name="bianbi" translatable="false">变比</string>
+    <string name="zabi" translatable="false">匝比</string>
+    <string name="jixing" translatable="false">极性</string>
+    <string name="wucha" translatable="false">误差</string>
+    <!--<string name="chongce" translatable="false">重测</string>
+    <string name="baocun" translatable="false">保存</string>
+    <string name="dayin" translatable="false">打印</string>-->
+    <!--三相参数设置-->
+    <string name="lianjiezubie" translatable="false">联结组别</string>
+    <string name="weizhi" translatable="false">未知</string>
+    <!--三相测试中-->
+    <!--<string name="xiangbie" translatable="false">相别</string>-->
+    <!--三相测试结果-->
+    <string name="jiaodu" translatable="false">角度</string>
+    <string name="zubieshiliang" translatable="false">组别矢量</string>
+    <string name="fenjiezhi" translatable="false">分接值</string>
+    <string name="lianjiefangshi" translatable="false">联结方式</string>
+    <!--系统设置-->
+    <!--<string name="chanpinshouce" translatable="false">产品手册</string>
+    <string name="shijianjiaozheng" translatable="false">时间校正</string>
+    <string name="tongxuncanshu" translatable="false">通讯参数</string>-->
+    <string name="changjiatiaoshi" translatable="false">厂家调试</string>
+    <!--<string name="nian" translatable="false">年</string>
+    <string name="yue" translatable="false">月</string>
+    <string name="ri" translatable="false">日</string>
+    <string name="shi" translatable="false">时</string>
+    <string name="fen" translatable="false">分</string>
+    <string name="miao" translatable="false">秒</string>-->
+    <string name="shengchanchangjia" translatable="false">生产厂家</string>
+    <string name="chanpinxinghao" translatable="false">产品型号</string>
+    <string name="chuchangbianhao" translatable="false">出厂编号</string>
+    <!--<string name="shebeimingcheng" translatable="false">设备名称</string>-->
+    <string name="mima" translatable="false">密码</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <!--<string name="hello_blank_fragment">Hello blank fragment</string>-->
+    <!--<string name="shangyiye" translatable="false">上一页</string>
+    <string name="xiayiye" translatable="false">下一页</string>-->
+    <!--调阅记录-->
+    <!--<string name="qingchu" translatable="false">清除</string>-->
+    <string name="ceshijilu" translatable="false">测试记录</string>
+    <!--<string name="chakan" translatable="false">查看</string>-->
+
+    <string name="bianbizhi" translatable="false">变比值</string>
+    <string name="ceshijilu2" translatable="false">测试记录：</string>
+    <!--<string name="daochu" translatable="false">导出</string>-->
 </resources>

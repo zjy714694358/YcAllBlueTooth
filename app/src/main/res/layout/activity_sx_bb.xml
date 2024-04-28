@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".bianbi.activity.danxiang.DxBbActivity">
+    tools:context=".bianbi.activity.sanxiang.SxBbActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:theme="@style/textSize_26_b"
-            android:text="@string/danxiangbianbi"/>
+            android:text="@string/sanxiangbianbi"/>
         <ImageView
             android:layout_width="26dp"
             android:layout_height="26dp"
@@ -56,7 +56,7 @@
                     android:theme="@style/textSize_30_b"
                     android:text="@string/edinggaoya"/>
                 <EditText
-                    android:id="@+id/etDxCsEdgy"
+                    android:id="@+id/etSxCsEdgy"
                     android:layout_width="140dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
@@ -86,7 +86,7 @@
                     android:theme="@style/textSize_30_b"
                     android:text="@string/fenjiezongshu"/>
                 <EditText
-                    android:id="@+id/etDxCsFjzs"
+                    android:id="@+id/etSxCsFjzs"
                     android:layout_width="140dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
@@ -123,7 +123,7 @@
                     android:theme="@style/textSize_30_b"
                     android:text="@string/edingdiya"/>
                 <EditText
-                    android:id="@+id/etDxCsEddy"
+                    android:id="@+id/etSxCsEddy"
                     android:layout_width="140dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
@@ -153,7 +153,7 @@
                     android:theme="@style/textSize_30_b"
                     android:text="@string/fenjiejianju"/>
                 <EditText
-                    android:id="@+id/etDxCsFjjj"
+                    android:id="@+id/etSxCsFjjj"
                     android:layout_width="140dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
@@ -181,6 +181,93 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center_vertical|left"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/textSize_30_b"
+                    android:text="@string/lianjiezubie"/>
+                <TextView
+                    android:id="@+id/tvSxCsLjzbYi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:theme="@style/textSize_30_b"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/bac_bai_yinying_hei_zhijiao"
+                    android:gravity="center"
+                    android:text="@string/weizhi"/>
+                <LinearLayout
+                    android:id="@+id/llSxCsLjzbYiJiantou"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:background="@drawable/yinying_dianji_jiantou">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/jiantou_down"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tvSxCsLjzbEr"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="20dp"
+                    android:theme="@style/textSize_30_b"
+                    android:text="@string/weizhi"
+                    android:gravity="center"
+                    android:background="@drawable/bac_bai_yinying_hei_zhijiao"/>
+                <LinearLayout
+                    android:id="@+id/llSxCsLjzbErJiantou"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:background="@drawable/yinying_dianji_jiantou">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/jiantou_down"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tvSxCsLjzbSan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="20dp"
+                    android:theme="@style/textSize_30_b"
+                    android:text="@string/weizhi"
+                    android:gravity="center"
+                    android:background="@drawable/bac_bai_yinying_hei_zhijiao"/>
+                <LinearLayout
+                    android:id="@+id/llSxCsLjzbSanJiantou"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:background="@drawable/yinying_dianji_jiantou">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/jiantou_down"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
                 <TextView
@@ -189,7 +276,7 @@
                     android:theme="@style/textSize_30_b"
                     android:text="@string/renwubianhao"/>
                 <EditText
-                    android:id="@+id/etDxCsRwbh"
+                    android:id="@+id/etSxCsRwbh"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
@@ -223,7 +310,7 @@
         android:background="@color/bacg"
         android:gravity="center_vertical">
         <TextView
-            android:id="@+id/tvDxCsCeshi"
+            android:id="@+id/tvSxCsCeshi"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:theme="@style/textSize_24_b"
@@ -236,7 +323,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
-            android:id="@+id/tvDxCsFanhui"
+            android:id="@+id/tvSxCsFanhui"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:theme="@style/textSize_24_b"
@@ -245,4 +332,5 @@
             android:gravity="center"
             android:text="@string/fanhui"/>
     </LinearLayout>
+
 </LinearLayout>

@@ -2,17 +2,15 @@ package com.yc.allbluetooth.bianbi.activity.danxiang;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.TextView;
+
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.config.Config;
@@ -20,16 +18,15 @@ import com.yc.allbluetooth.utils.ActivityCollector;
 
 import java.util.Locale;
 
-public class DxBbActivity extends AppCompatActivity implements View.OnClickListener {
+public class DxBbCeshiActivity extends AppCompatActivity {
 
-    private EditText etEdgy;
-    private EditText etEddy;
-    private EditText etFjzs;
-    private EditText etFjjj;
-    private EditText etRwbh;
-    private TextView tvCeshi;
+    private TextView tvFj;
+    private TextView tvCsdl;
+    private TextView tvYcdy;
+    private TextView tvEcdy;
     private TextView tvFanhui;
-    String TAG = "DxBbActivity";
+    String TAG = "DxBbCeshiActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,36 +43,26 @@ public class DxBbActivity extends AppCompatActivity implements View.OnClickListe
             config.locale = Locale.US;
         }
         resources.updateConfiguration(config, dm);
-        setContentView(R.layout.activity_dx_bb);
+        setContentView(R.layout.activity_dx_bb_ceshi);
         ActivityCollector.addActivity(this);
         initView();
     }
     public void initView(){
-        etEdgy = findViewById(R.id.etDxCsEdgy);
-        etEddy = findViewById(R.id.etDxCsEddy);
-        etFjzs = findViewById(R.id.etDxCsFjzs);
-        etFjjj = findViewById(R.id.etDxCsFjjj);
-        etRwbh = findViewById(R.id.etDxCsRwbh);
-        tvCeshi = findViewById(R.id.tvDxCsCeshi);
-        tvFanhui = findViewById(R.id.tvDxCsFanhui);
-
-        tvCeshi.setOnClickListener(this);
-        tvFanhui.setOnClickListener(this);
+        tvFj = findViewById(R.id.tvDxBbCeshiFenjie);
+        tvCsdl = findViewById(R.id.tvDxBbCeshiCsDl);
+        tvYcdy = findViewById(R.id.tvDxBbCeshiYcDy);
+        tvEcdy = findViewById(R.id.tvDxBbCeshiEcDy);
+        tvFanhui = findViewById(R.id.tvDxCszhongFanhui);
+        tvFanhui.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
-
-    @Override
-    public void onClick(View v) {
-        if(v.getId() == R.id.tvDxCsCeshi){
-            Log.e("bianbi==","测试");
-            startActivity(new Intent(DxBbActivity.this, DxBbCeshiActivity.class));
-        }else if (v.getId() == R.id.tvDxCsFanhui ){
-            finish();
-        }
-    }
-
     @Override
     protected void onDestroy() {
-        ActivityCollector.removeActivity(DxBbActivity.this);
+        ActivityCollector.removeActivity(DxBbCeshiActivity.this);
         super.onDestroy();
     }
 }
