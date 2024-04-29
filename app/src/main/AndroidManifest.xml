@@ -53,7 +53,7 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".bianbi.activity.HomeActivity"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="landscape" >
             <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />

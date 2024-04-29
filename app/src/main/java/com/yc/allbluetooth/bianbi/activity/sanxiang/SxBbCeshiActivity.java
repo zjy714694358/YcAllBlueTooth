@@ -2,6 +2,7 @@ package com.yc.allbluetooth.bianbi.activity.sanxiang;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -66,6 +67,7 @@ public class SxBbCeshiActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                startActivity(new Intent(SxBbCeshiActivity.this,SxBbEndActivity.class));
             }
         });
     }

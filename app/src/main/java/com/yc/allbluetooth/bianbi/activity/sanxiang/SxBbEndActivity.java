@@ -88,6 +88,7 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
         tvBaocun.setOnClickListener(this);
         tvDayin.setOnClickListener(this);
         tvFanhui.setOnClickListener(this);
+        //ivZbsl.setImageResource(R.drawable.slt01);
     }
     @Override
     protected void onDestroy() {
