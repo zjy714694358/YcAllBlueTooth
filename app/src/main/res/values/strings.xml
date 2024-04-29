@@ -375,7 +375,7 @@
     <string name="jiaodu" translatable="false">角度</string>
     <string name="zubieshiliang" translatable="false">组别矢量</string>
     <string name="fenjiezhi" translatable="false">分接值</string>
-    <string name="lianjiefangshi" translatable="false">联结方式</string>
+    <string name="lianjiefangshi2" translatable="false">联结方式</string>
     <!--系统设置-->
     <!--<string name="chanpinshouce" translatable="false">产品手册</string>
     <string name="shijianjiaozheng" translatable="false">时间校正</string>
