@@ -63,7 +63,7 @@ public class DyJlActivity extends AppCompatActivity implements View.OnClickListe
             Diaoyuejilu diaoyuejilu = new Diaoyuejilu();
             diaoyuejilu.setId(i);
             diaoyuejilu.setCsjl("csjl:"+i);
-            diaoyuejilu.setRwbh("rwbh:"+"123456789123456789123456789123456789");
+            diaoyuejilu.setRwbh("rwbh:"+"123456789123456789");
             mDatas.add(diaoyuejilu);
         }
 
