@@ -42,6 +42,7 @@ import android.widget.Toast;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.adapter.BlueToothListBaseAdapter;
+import com.yc.allbluetooth.bianbi.activity.BbHomeActivity;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
@@ -156,6 +157,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 startActivity(new Intent(MainActivity.this, Dtd10cHomeActivity.class));
                             } else if (StringUtils.isEquals(yqlx, "33")) {//短路阻抗
                                 startActivity(new Intent(MainActivity.this, DlzkHomeActivity.class));
+                            } else if (StringUtils.isEquals(yqlx, "38")) {//变比
+                                startActivity(new Intent(MainActivity.this, BbHomeActivity.class));
                             }
                         }
 

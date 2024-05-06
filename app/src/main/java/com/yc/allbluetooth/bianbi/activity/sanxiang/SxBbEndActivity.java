@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 
 import com.yc.allbluetooth.R;
-import com.yc.allbluetooth.bianbi.activity.HomeActivity;
+import com.yc.allbluetooth.bianbi.activity.BbHomeActivity;
 import com.yc.allbluetooth.config.Config;
 import com.yc.allbluetooth.utils.ActivityCollector;
 
@@ -106,7 +106,7 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
 
         } else if (v.getId() == R.id.tvSxBbEndFanhui) {//返回
             finish();
-            startActivity(new Intent(SxBbEndActivity.this, HomeActivity.class));
+            startActivity(new Intent(SxBbEndActivity.this, BbHomeActivity.class));
         }
     }
 }

@@ -404,4 +404,7 @@
     <string name="bianbizhi" translatable="false">变比值</string>
     <string name="ceshijilu2" translatable="false">测试记录：</string>
     <!--<string name="daochu" translatable="false">导出</string>-->
+    <string name="bianhao" translatable="false">编号</string>
+    <string name="bianbizhiorzabizhi" translatable="false">变比值/匝比值</string>
+    <!--<string name="ceshishijian" translatable="false">测试时间</string>-->
 </resources>

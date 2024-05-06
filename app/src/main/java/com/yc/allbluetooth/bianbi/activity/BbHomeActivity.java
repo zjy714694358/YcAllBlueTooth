@@ -1,55 +1,53 @@
-package com.yc.allbluetooth.bianbi.fragment;
+package com.yc.allbluetooth.bianbi.activity;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.os.Handler;
 import android.os.Message;
+import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import com.yc.allbluetooth.R;
+import com.yc.allbluetooth.bianbi.activity.danxiang.DxBbActivity;
+import com.yc.allbluetooth.bianbi.activity.dyjl.DyJlActivity;
+import com.yc.allbluetooth.bianbi.activity.dyjl.DyJlNewActivity;
+import com.yc.allbluetooth.bianbi.activity.sanxiang.SxBbActivity;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
+import com.yc.allbluetooth.dlzk.activity.DlzkHomeActivity;
+import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
-import com.yc.allbluetooth.utils.EditorAction;
 import com.yc.allbluetooth.utils.GetTime;
-import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SendUtil;
 import com.yc.allbluetooth.utils.StringUtils;
 
+import java.util.Locale;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ShijianJzFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ShijianJzFragment extends Fragment {
+public class BbHomeActivity extends AppCompatActivity implements View.OnClickListener {
+    private ImageView ivDx;
+    private ImageView ivSx;
+    private ImageView ivDyjl;
+    private ImageView ivXtsz;
+    private TextView tvTime;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-    private EditText etNian;
-    private EditText etYue;
-    private EditText etRi;
-    private EditText etShi;
-    private EditText etFen;
-    private EditText etMiao;
-    private TextView tvQueren;
+    private String TAG = "DlzkHomeActivity";
 
     BleConnectUtil bleConnectUtil;
     String newMsgStr = "";
@@ -69,10 +67,15 @@ public class ShijianJzFragment extends Fragment {
             super.handleMessage(msg);
             switch (msg.what) {
                 case msgKey1:
-                    //tvTime.setText(GetTime.getTime(4));//年-月-日 时：分：秒
-                    //tvTime.setText(GetTime.getTime2());//年-月-日 时：分：秒
+                    tvTime.setText(GetTime.getTime(4));//年-月-日 时：分：秒
                     break;
                 case Config.BLUETOOTH_GETDATA:
+                    String msgStr = msg.obj.toString();
+                    Log.e(TAG, "Home:"+msgStr);
+                    //String zhilingStr = StringUtils.subStrStartToEnd(msgStr, 4, 6);
+//                    if(StringUtils.isEquals("6A",zhilingStr)){
+//                        startActivity(new Intent(HomeActivity.this,ZzCs1Activity.class));
+//                    }
 
                     break;
                 default:
@@ -81,101 +84,72 @@ public class ShijianJzFragment extends Fragment {
         }
     };
 
-    public ShijianJzFragment() {
-        // Required empty public constructor
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
+
+        Resources resources = this.getResources();// 获得res资源对象
+        Configuration config = resources.getConfiguration();// 获得设置对象
+        DisplayMetrics dm = resources.getDisplayMetrics();// 获得屏幕参数：主要是分辨率，像素等。
+        if("zh".equals(Config.zyType)){
+            config.locale = Locale.SIMPLIFIED_CHINESE;
+        }else{
+            config.locale = Locale.US;
+        }
+        resources.updateConfiguration(config, dm);
+
+        setContentView(R.layout.activity_bb_home);
+        //Config.ymType = "dlzkHome";
+        ActivityCollector.addActivity(this);
+        initModel();
+        initView();
+        new TimeThread().start();
+    }
+    public void initModel(){
+        bleConnectUtil = new BleConnectUtil(BbHomeActivity.this);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+        }
+        if(bleConnectUtil.mBluetoothGatt!=null){
+            bleConnectUtil.mBluetoothGatt.close();
+        }
+        if(!bleConnectUtil.isConnected()&& StringUtils.noEmpty(bleConnectUtil.wsDeviceAddress)){
+            bleConnectUtil.connect(bleConnectUtil.wsDeviceAddress,10,10);//标签从机：34:14:B5:B6:D6:E1
+            bleConnectUtil.setCallback(blecallback);
+        }
+    }
+    public void initView(){
+        ivDx = findViewById(R.id.ivHomeDxBianbi);
+        ivSx = findViewById(R.id.ivHomeSxBianbi);
+        ivDyjl = findViewById(R.id.ivHomeDyjl);
+        ivXtsz = findViewById(R.id.ivHomeXtsz);
+        tvTime = findViewById(R.id.tvHomeTime);
+        ivDx.setOnClickListener(this);
+        ivSx.setOnClickListener(this);
+        ivDyjl.setOnClickListener(this);
+        ivXtsz.setOnClickListener(this);
     }
 
     /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ShijianJzFragment.
+     * 屏幕右下角时间显示，每隔一秒执行一次
      */
-    // TODO: Rename and change types and number of parameters
-    public static ShijianJzFragment newInstance(String param1, String param2) {
-        ShijianJzFragment fragment = new ShijianJzFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public class TimeThread extends Thread{
+        @Override
+        public void run() {
+            do {
+                try {
+                    Thread.sleep(1000);
+                    Message msg = new Message();
+                    msg.what = msgKey1;
+                    mHandler.sendMessage(msg);
+                }
+                catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            } while(true);
         }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View mainView = inflater.inflate(R.layout.fragment_shijian_jz,null);
-        initView(mainView);
-        initModel();
-        return mainView;
-        //return inflater.inflate(R.layout.fragment_shijian_jz, container, false);
-    }
-    public void initView(View view){
-        etNian = view.findViewById(R.id.etBbXtSjjzNian);
-        etYue = view.findViewById(R.id.etBbXtSjjzYue);
-        etRi = view.findViewById(R.id.etBbXtSjjzRi);
-        etShi = view.findViewById(R.id.etBbXtSjjzShi);
-        etFen = view.findViewById(R.id.etBbXtSjjzFen);
-        etMiao = view.findViewById(R.id.etBbXtSjjzMiao);
-        tvQueren = view.findViewById(R.id.tvBbXtSjjzQueren);
-        tvQueren.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String nianStr = etNian.getText().toString();
-                String yueStr = etYue.getText().toString();
-                String riStr = etRi.getText().toString();
-                String shiStr = etShi.getText().toString();
-                String fenStr = etFen.getText().toString();
-                String miaoStr = etMiao.getText().toString();
-                //sendDataByBle(SendUtil.shijianSend("87",nianStr+yueStr+riStr+shiStr+fenStr+miaoStr),"");
-                sendDataByBle(SendUtil.shijianSend("6e",StringUtils.bulingXiaoShiliu(nianStr)+StringUtils.bulingXiaoShiliu(yueStr)+
-                        StringUtils.bulingXiaoShiliu(riStr)+StringUtils.bulingXiaoShiliu(shiStr)+StringUtils.bulingXiaoShiliu(fenStr)+
-                        StringUtils.bulingXiaoShiliu(miaoStr)),"");
-            }
-        });
-
-        String timeStr = GetTime.getTime(3);
-        String nian = StringUtils.subStrStartToEnd(timeStr,0,2);
-        String yue = StringUtils.subStrStartToEnd(timeStr,2,4);
-        String ri = StringUtils.subStrStartToEnd(timeStr,4,6);
-        String shi = StringUtils.subStrStartToEnd(timeStr,8,10);
-        String fen = StringUtils.subStrStartToEnd(timeStr,10,12);
-        String miao = StringUtils.subStrStartToEnd(timeStr,12,14);
-        EditorAction editorAction = new EditorAction();
-        editorAction.nian(etNian,nian);
-        editorAction.yue(etYue,yue);
-        editorAction.ri(etRi,etNian,etYue,ri);
-        editorAction.shi(etShi,shi);
-        editorAction.fen(etFen,fen);
-        editorAction.miao(etMiao,miao);
-        //Log.e("年=：",nian+yue+ri+shi+fen+miao+",type="+type);
-        etNian.setText(nian);
-        etYue.setText(yue);
-        etRi.setText(ri);
-        etShi.setText(shi);
-        etFen.setText(fen);
-        etMiao.setText(miao);
-    }
-    public void initModel(){
-        bleConnectUtil = new BleConnectUtil(getActivity());
-//        if(!bleConnectUtil.isConnected()&&StringUtils.noEmpty(bleConnectUtil.wsDeviceAddress)){
-//            bleConnectUtil.connect(bleConnectUtil.wsDeviceAddress,10,10);//标签从机：34:14:B5:B6:D6:E1
-//            bleConnectUtil.setCallback(blecallback);
-//        }
-        bleConnectUtil.connect(Config.lyAddress, 10, 10);//标签从机：34:14:B5:B6:D6:E1
-        bleConnectUtil.setCallback(blecallback);
     }
     /**
      * 蓝牙连接检测线程
@@ -210,6 +184,7 @@ public class ShijianJzFragment extends Fragment {
             //收到的数据
             byte[] receive_byte = data_char.getValue();
             String str = CheckUtils.byte2hex(receive_byte).toString();
+            //Log.e(TAG,"收..."+str);
 
             Message message = new Message();
             message.obj = str;
@@ -220,14 +195,13 @@ public class ShijianJzFragment extends Fragment {
         @Override
         public void onSuccessSend() {
             //数据发送成功
-            Log.e("zhizu", "onSuccessSend: ");
-
+            Log.e("home", "onSuccessSend: ");
         }
 
         @Override
         public void onDisconnect() {
             //设备断开连接
-            Log.e("zhizu", "onDisconnect: ");
+            Log.e("home", "onDisconnect: ");
             Message message = new Message();
             message.what = Config.BLUETOOTH_LIANJIE_DUANKAI;
             mHandler.sendMessage(message);
@@ -286,6 +260,36 @@ public class ShijianJzFragment extends Fragment {
                     Log.e("--->", "是否发送成功2：" + isSuccess[0]);
                 }
             }, (currentSendAllOrder.length() / 40 + 1) * 15);
+        }
+    }
+    @Override
+    protected void onDestroy() {
+        Log.e(TAG,"onDestroy()");
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+        }
+        if(bleConnectUtil.mBluetoothGatt!=null){
+            bleConnectUtil.mBluetoothGatt.close();
+        }
+//        bleConnectUtil.setCallback(null);
+//        bleConnectUtil.disConnect();
+//        mHandler.removeCallbacksAndMessages(null);
+        ActivityCollector.removeActivity(this);
+        super.onDestroy();
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.ivHomeDxBianbi){
+            sendDataByBle(SendUtil.initSend("6a"),"");
+            startActivity(new Intent(BbHomeActivity.this, DxBbActivity.class));
+        } else if (v.getId() == R.id.ivHomeSxBianbi){
+            sendDataByBle(SendUtil.initSend("6b"),"");
+            startActivity(new Intent(BbHomeActivity.this, SxBbActivity.class));
+        } else if (v.getId() == R.id.ivHomeDyjl) {
+            startActivity(new Intent(BbHomeActivity.this, DyJlNewActivity.class));
+        } else if (v.getId() == R.id.ivHomeXtsz) {
+            startActivity(new Intent(BbHomeActivity.this, BbXtSzActivity.class));
         }
     }
 }

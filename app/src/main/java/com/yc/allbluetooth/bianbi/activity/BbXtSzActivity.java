@@ -27,7 +27,7 @@ import com.yc.allbluetooth.utils.ActivityCollector;
 
 import java.util.Locale;
 
-public class XtSzActivity extends AppCompatActivity implements View.OnClickListener {
+public class BbXtSzActivity extends AppCompatActivity implements View.OnClickListener {
 
     private LinearLayout llCpsc;
     private LinearLayout llSjjz;
@@ -51,7 +51,7 @@ public class XtSzActivity extends AppCompatActivity implements View.OnClickListe
             config.locale = Locale.US;
         }
         resources.updateConfiguration(config, dm);
-        setContentView(R.layout.activity_xt_sz);
+        setContentView(R.layout.activity_bb_xt_sz);
         ActivityCollector.addActivity(this);
         initView();
     }
@@ -75,7 +75,7 @@ public class XtSzActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     protected void onDestroy() {
-        ActivityCollector.removeActivity(XtSzActivity.this);
+        ActivityCollector.removeActivity(BbXtSzActivity.this);
         super.onDestroy();
     }
 

@@ -208,6 +208,21 @@
                             android:background="@drawable/bac_bai_yinying_hei_zhijiao_shangyou" />
                     </LinearLayout>
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tvBbXtSjjzQueren"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/textSize_24_b"
+                        android:background="@drawable/btn_lv_yinying_hei"
+                        android:gravity="center"
+                        android:text="@string/queren"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
