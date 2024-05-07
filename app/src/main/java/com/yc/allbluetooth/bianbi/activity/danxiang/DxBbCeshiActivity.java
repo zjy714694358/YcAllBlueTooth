@@ -44,6 +44,8 @@ public class DxBbCeshiActivity extends AppCompatActivity {
     private TextView tvFanhui;
     String crcJy =  "";
     String fenjie = "";
+    String sjxz = "";//1电流；2变比匝比
+    String csxw = "";
     String csdl = "";
     String ycdy = "";
     String ecdy = "";
@@ -131,6 +133,7 @@ public class DxBbCeshiActivity extends AppCompatActivity {
         tvFanhui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sendDataByBle(SendUtil.initSend("82"),"");
                 finish();
             }
         });

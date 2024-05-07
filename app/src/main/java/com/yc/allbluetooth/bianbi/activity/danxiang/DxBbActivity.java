@@ -91,7 +91,7 @@ public class DxBbActivity extends AppCompatActivity implements View.OnClickListe
                             //可以
                             Log.e(TAG+"可以",newMsgStr);
                             if(diyi==0){
-                                if(IndexOfAndSubStr.isIndexOf(newMsgStr,"667770")){
+                                /*if(IndexOfAndSubStr.isIndexOf(newMsgStr,"667770")){
                                     Log.e(TAG,"----70----------");
                                     sendDataByBle(SendUtil.dlzkCanshuShuruSizijieSend("71", "0.4"), "");
                                 }else if(IndexOfAndSubStr.isIndexOf(newMsgStr,"667771")){
@@ -101,6 +101,19 @@ public class DxBbActivity extends AppCompatActivity implements View.OnClickListe
                                     sendDataByBle(SendUtil.dlzkCanshuShuruSizijieSend("73", "2.5"), "");
                                 }else if(IndexOfAndSubStr.isIndexOf(newMsgStr,"667773")){
                                     //sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("6d",""),"");
+                                    sendDataByBle(SendUtil.yiqibianhaoSend_std("6d", "A123456"),"");
+                                    diyi = 1;//进入第一轮发送完毕
+                                    Log.e(TAG,"进入第一轮发送完成");
+                                }*/
+                                if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"70")){
+                                    Log.e(TAG,"----70----------");
+                                    sendDataByBle(SendUtil.dlzkCanshuShuruSizijieSend("71", "0.4"), "");
+                                }else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"71")){
+                                    Log.e(TAG,"----71----------");
+                                    sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("72", "03"), "");
+                                }else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"72")){
+                                    sendDataByBle(SendUtil.dlzkCanshuShuruSizijieSend("73", "2.5"), "");
+                                }else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"73")){
                                     sendDataByBle(SendUtil.yiqibianhaoSend_std("6d", "A123456"),"");
                                     diyi = 1;//进入第一轮发送完毕
                                     Log.e(TAG,"进入第一轮发送完成");
