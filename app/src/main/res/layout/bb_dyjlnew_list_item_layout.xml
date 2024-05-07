@@ -27,6 +27,7 @@
             android:layout_weight="1"
             android:theme="@style/textSize_20_b"
             android:gravity="center"
+            android:background="@color/gold3"
             android:text=""/>
         <TextView
             android:id="@+id/tvBbDyjlListNewItemBbzB"
@@ -36,6 +37,7 @@
             android:theme="@style/textSize_20_b"
             android:gravity="center"
             android:singleLine="true"
+            android:background="@color/drawer_advice_coclor"
             android:text=""/>
         <TextView
             android:id="@+id/tvBbDyjlListNewItemBbzC"
@@ -45,6 +47,7 @@
             android:theme="@style/textSize_20_b"
             android:gravity="center"
             android:singleLine="true"
+            android:background="@color/textColor_gray"
             android:text=""/>
         <TextView
             android:id="@+id/tvBbDyjlListNewItemCcsj"

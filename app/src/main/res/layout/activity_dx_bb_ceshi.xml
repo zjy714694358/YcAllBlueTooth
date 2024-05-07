@@ -49,6 +49,7 @@
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:theme="@style/textSize_30_b"
+                android:visibility="gone"
                 android:text="@string/fenjie"/>
             <TextView
                 android:layout_width="0dp"
@@ -93,6 +94,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:theme="@style/textSize_25_b"
+                    android:visibility="gone"
                     android:gravity="center"/>
                 <TextView
                     android:id="@+id/tvDxBbCeshiCsDl"
