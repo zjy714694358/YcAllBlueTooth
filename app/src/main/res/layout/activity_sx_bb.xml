@@ -66,7 +66,7 @@
                     android:paddingLeft="5dp"
                     android:inputType="numberDecimal"
                     android:imeOptions="actionDone"
-                    android:text=""/>
+                    android:text="10.00"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                     android:paddingLeft="5dp"
                     android:inputType="number"
                     android:imeOptions="actionDone"
-                    android:text=""/>
+                    android:text="03"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
                     android:paddingLeft="5dp"
                     android:inputType="numberDecimal"
                     android:imeOptions="actionDone"
-                    android:text=""/>
+                    android:text="0.4"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -163,7 +163,7 @@
                     android:paddingLeft="5dp"
                     android:inputType="numberDecimal"
                     android:imeOptions="actionDone"
-                    android:text=""/>
+                    android:text="2.5"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -197,7 +197,7 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/bac_bai_yinying_hei_zhijiao"
                     android:gravity="center"
-                    android:text="@string/weizhi"/>
+                    android:text="D"/>
                 <LinearLayout
                     android:id="@+id/llSxCsLjzbYiJiantou"
                     android:layout_width="40dp"
@@ -218,7 +218,7 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="20dp"
                     android:theme="@style/textSize_30_b"
-                    android:text="@string/weizhi"
+                    android:text="y"
                     android:gravity="center"
                     android:background="@drawable/bac_bai_yinying_hei_zhijiao"/>
                 <LinearLayout
@@ -241,7 +241,7 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="20dp"
                     android:theme="@style/textSize_30_b"
-                    android:text="@string/weizhi"
+                    android:text="11"
                     android:gravity="center"
                     android:background="@drawable/bac_bai_yinying_hei_zhijiao"/>
                 <LinearLayout
@@ -284,9 +284,8 @@
                     android:theme="@style/textSize_30_b"
                     android:background="@drawable/bac_bai_yinying_hei_zhijiao"
                     android:paddingLeft="5dp"
-                    android:inputType="numberDecimal"
                     android:imeOptions="actionDone"
-                    android:text=""/>
+                    android:text="A123456"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

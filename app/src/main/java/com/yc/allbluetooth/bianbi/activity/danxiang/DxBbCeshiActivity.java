@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -30,6 +31,7 @@ import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SendUtil;
+import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StringUtils;
 
 import java.math.BigInteger;
@@ -49,6 +51,10 @@ public class DxBbCeshiActivity extends AppCompatActivity {
     String csdl = "";
     String ycdy = "";
     String ecdy = "";
+    String bianbi = "";
+    String jixing = "";
+    String zabi = "";
+    int jinru = 0;
     String TAG = "DxBbCeshiActivity";
     BleConnectUtil bleConnectUtil;
     String newMsgStr = "";
@@ -72,18 +78,19 @@ public class DxBbCeshiActivity extends AppCompatActivity {
                     //tvTime.setText(GetTime.getTime2());//年-月-日 时：分：秒
                     break;
                 case Config.BLUETOOTH_GETDATA:
+                    Log.e(TAG,"进入.2..bianbiDxBbCeshi");
                     if(StringUtils.isEquals(Config.ymType,"bianbiDxBbCeshi")){
                         String msgStr = msg.obj.toString();
                         Log.i(TAG, msgStr);
-                        if(IndexOfAndSubStr.isIndexOf(msgStr,"6677")){
+                        /*if(IndexOfAndSubStr.isIndexOf(msgStr,"6677")){
                             newMsgStr = msgStr;
                             Log.e(TAG,newMsgStr);
                         }else{
                             newMsgStr = newMsgStr+msgStr;
                             //可以
                             Log.e(TAG+"可以",newMsgStr);
-                        }
-                        if(newMsgStr.length() == 44){
+                        }*/
+                        /*if(newMsgStr.length() == 44){
                             String crcAll = StringUtils.subStrStartToEnd(newMsgStr,0,40);
                             byte[] bytesSx = new BigInteger(crcAll, 16).toByteArray();
                             crcJy = StringUtils.subStrStartToEnd(newMsgStr,40,44);
@@ -93,6 +100,51 @@ public class DxBbCeshiActivity extends AppCompatActivity {
                                 String dl = StringUtils.gaodiHuanBaoliuShierwei(csdl);
                                 tvCsdl.setText(StringUtils.wuweiYouxiaoStr(dl));
                             }
+                        }*/
+                        if(msgStr.length()!=18&&newMsgStr.length()<88){
+                            newMsgStr += msgStr;
+                            Log.e(TAG,newMsgStr);
+                        }
+                        if (newMsgStr.length() == 88&&jinru!=19) {
+                            String crcAll = StringUtils.subStrStartToEnd(newMsgStr,0,40);
+                            byte[] bytesSx = new BigInteger(crcAll, 16).toByteArray();
+                            crcJy = StringUtils.subStrStartToEnd(newMsgStr,40,44);
+                            //Log.e("tfxx==1", CrcUtil.getTableCRC(bytesSx));
+                            //if(CrcUtil.CrcIsOk(bytesSx,crcJy)){
+                                csdl = StringUtils.subStrStartToEnd(newMsgStr,16,24);//测试电流
+                                ycdy = StringUtils.subStrStartToEnd(newMsgStr,24,32);
+                                ecdy = StringUtils.subStrStartToEnd(newMsgStr,32,40);
+                                Log.e(TAG,csdl+","+ycdy+","+ecdy);
+                                String dl = ShiOrShiliu.hexToFloatWuBuhuan(csdl);
+                                String ycdyFl = ShiOrShiliu.hexToFloatWuBuhuan(ycdy);
+                                String ecdyFl = ShiOrShiliu.hexToFloatWuBuhuan(ecdy);
+                                tvCsdl.setText(dl+"mA");
+                                tvYcdy.setText(ycdyFl+"V");
+                                tvEcdy.setText(ecdyFl+"V");
+                                jinru +=1;
+                            Log.e("进入==1", jinru+"");
+                                if(jinru==19){
+                                    fenjie = StringUtils.subStrStartToEnd(newMsgStr,82,84);//测试分接
+                                    bianbi = StringUtils.subStrStartToEnd(newMsgStr,60,68);//变比
+                                    jixing = StringUtils.subStrStartToEnd(newMsgStr,58,60);//极性：0：正；1负
+                                    String jixing2 = "";
+                                    if(StringUtils.isEquals(jixing,"00")){
+                                        jixing2 = "+";
+                                    } else if (StringUtils.isEquals(jixing,"01")) {
+                                        jixing2 = "-";
+                                    }
+                                    String bianbiStr = ShiOrShiliu.hexToFloatWuBuhuan(bianbi);
+                                    finish();
+                                    Intent intent = new Intent(DxBbCeshiActivity.this,DxBbEndActivity.class);
+                                    intent.putExtra("bbfenjie",fenjie);
+                                    intent.putExtra("bbbianbi",bianbiStr);
+                                    intent.putExtra("bbjixing",jixing2);
+                                    startActivity(intent);
+                                    //startActivity(new Intent(DxBbCeshiActivity.this,DxBbEndActivity.class));
+                                } else {
+                                    newMsgStr = "";
+                                }
+                            //}
                         }
                     }
                     break;
@@ -121,8 +173,10 @@ public class DxBbCeshiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dx_bb_ceshi);
         ActivityCollector.addActivity(this);
         Config.ymType = "bianbiDxBbCeshi";
+        Log.e(TAG,"进入...bianbiDxBbCeshi");
         initModel();
         initView();
+        sendDataByBle(SendUtil.initSendStd("77"),"");
     }
     public void initView(){
         tvFj = findViewById(R.id.tvDxBbCeshiFenjie);
@@ -133,7 +187,7 @@ public class DxBbCeshiActivity extends AppCompatActivity {
         tvFanhui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendDataByBle(SendUtil.initSend("82"),"");
+                sendDataByBle(SendUtil.initSend("7c"),"");
                 finish();
             }
         });

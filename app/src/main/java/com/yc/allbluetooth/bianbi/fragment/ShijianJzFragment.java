@@ -25,6 +25,7 @@ import com.yc.allbluetooth.utils.EditorAction;
 import com.yc.allbluetooth.utils.GetTime;
 import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SendUtil;
+import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StringUtils;
 
 
@@ -139,7 +140,10 @@ public class ShijianJzFragment extends Fragment {
                 String shiStr = etShi.getText().toString();
                 String fenStr = etFen.getText().toString();
                 String miaoStr = etMiao.getText().toString();
-                //sendDataByBle(SendUtil.shijianSend("87",nianStr+yueStr+riStr+shiStr+fenStr+miaoStr),"");
+//                sendDataByBle(SendUtil.shijianSend("6e", ShiOrShiliu.xiaoyushiBl(StringUtils.strToInt(nianStr))
+//                        +ShiOrShiliu.xiaoyushiBl(StringUtils.strToInt(yueStr)) +ShiOrShiliu.xiaoyushiBl(StringUtils.strToInt(riStr))
+//                        +ShiOrShiliu.xiaoyushiBl(StringUtils.strToInt(shiStr))+ShiOrShiliu.xiaoyushiBl(StringUtils.strToInt(fenStr))
+//                        +ShiOrShiliu.xiaoyushiBl(StringUtils.strToInt(miaoStr))),"");
                 sendDataByBle(SendUtil.shijianSend("6e",StringUtils.bulingXiaoShiliu(nianStr)+StringUtils.bulingXiaoShiliu(yueStr)+
                         StringUtils.bulingXiaoShiliu(riStr)+StringUtils.bulingXiaoShiliu(shiStr)+StringUtils.bulingXiaoShiliu(fenStr)+
                         StringUtils.bulingXiaoShiliu(miaoStr)),"");
@@ -167,6 +171,7 @@ public class ShijianJzFragment extends Fragment {
         etShi.setText(shi);
         etFen.setText(fen);
         etMiao.setText(miao);
+
     }
     public void initModel(){
         bleConnectUtil = new BleConnectUtil(getActivity());

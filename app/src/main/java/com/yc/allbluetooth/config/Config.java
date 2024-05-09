@@ -547,4 +547,21 @@ public class Config {
      * 透传\读写UUID：0xFFE1
      */
     public static String sousuoUuid = "0000fff0-0000-1000-8000-00805f9b34fb";
+    /******************************************************变比********************************************************/
+    /**
+     * 变比额定高压
+     */
+    public static String bbEdgy = "10";
+    /**
+     * 变比额定低压
+     */
+    public static String bbEddy = "0.4";
+    /**
+     * 变比分接总数
+     */
+    public static String bbFjzs = "3";
+    /**
+     * 变比分接间距（%）
+     */
+    public static String bbFjjj = "2.5";
 }

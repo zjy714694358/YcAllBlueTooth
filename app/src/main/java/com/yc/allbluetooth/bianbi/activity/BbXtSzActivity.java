@@ -53,6 +53,7 @@ public class BbXtSzActivity extends AppCompatActivity implements View.OnClickLis
         resources.updateConfiguration(config, dm);
         setContentView(R.layout.activity_bb_xt_sz);
         ActivityCollector.addActivity(this);
+        Config.ymType = "bianbiXtsz";
         initView();
     }
 

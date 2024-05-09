@@ -47,7 +47,7 @@ public class BbHomeActivity extends AppCompatActivity implements View.OnClickLis
     private ImageView ivXtsz;
     private TextView tvTime;
 
-    private String TAG = "DlzkHomeActivity";
+    private String TAG = "BbHomeActivity";
 
     BleConnectUtil bleConnectUtil;
     String newMsgStr = "";
@@ -70,12 +70,17 @@ public class BbHomeActivity extends AppCompatActivity implements View.OnClickLis
                     tvTime.setText(GetTime.getTime(4));//年-月-日 时：分：秒
                     break;
                 case Config.BLUETOOTH_GETDATA:
-                    String msgStr = msg.obj.toString();
-                    Log.e(TAG, "Home:"+msgStr);
-                    //String zhilingStr = StringUtils.subStrStartToEnd(msgStr, 4, 6);
-//                    if(StringUtils.isEquals("6A",zhilingStr)){
-//                        startActivity(new Intent(HomeActivity.this,ZzCs1Activity.class));
-//                    }
+                    if(StringUtils.isEquals(Config.ymType ,"bianbiHome")){
+                        String msgStr = msg.obj.toString();
+                        Log.e(TAG, "Home:"+msgStr);
+                        String zhilingStr = StringUtils.subStrStartToEnd(msgStr, 6, 8);
+//                        if(StringUtils.isEquals("6A",zhilingStr)){
+//                            startActivity(new Intent(BbHomeActivity.this,DxBbActivity.class));
+//                        } else if (StringUtils.isEquals("6B",zhilingStr)) {
+//                            startActivity(new Intent(BbHomeActivity.this, SxBbActivity.class));
+//                        }
+                    }
+
 
                     break;
                 default:
@@ -102,7 +107,7 @@ public class BbHomeActivity extends AppCompatActivity implements View.OnClickLis
         resources.updateConfiguration(config, dm);
 
         setContentView(R.layout.activity_bb_home);
-        //Config.ymType = "dlzkHome";
+        Config.ymType = "bianbiHome";
         ActivityCollector.addActivity(this);
         initModel();
         initView();

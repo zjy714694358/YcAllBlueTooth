@@ -37,6 +37,7 @@ import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SendUtil;
 import com.yc.allbluetooth.utils.ShiOrShiliu;
+import com.yc.allbluetooth.utils.StrToAsc;
 import com.yc.allbluetooth.utils.StringUtils;
 
 import java.util.Locale;
@@ -82,34 +83,30 @@ public class SxBbActivity extends AppCompatActivity implements View.OnClickListe
                     //tvTime.setText(GetTime.getTime2());//年-月-日 时：分：秒
                     break;
                 case Config.BLUETOOTH_GETDATA:
-                    if(StringUtils.isEquals(Config.ymType,"bianbiDxBb")){
+                    if(StringUtils.isEquals(Config.ymType,"bianbiSxBb")){
                         String msgStr = msg.obj.toString();
                         Log.i(TAG, msgStr);
                         if(IndexOfAndSubStr.isIndexOf(msgStr,"6677")){
                             newMsgStr = msgStr;
                             Log.e(TAG,newMsgStr);
-                        }else{
-                            newMsgStr = newMsgStr+msgStr;
-                            //可以
-                            Log.e(TAG+"可以",newMsgStr);
                             if(diyi==0){
                                 if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"70")){
                                     Log.e(TAG,"----70----------");
-                                    sendDataByBle(SendUtil.dlzkCanshuShuruSizijieSend("71", "0.4"), "");
+                                    sendDataByBle(SendUtil.ShuruSizijieSend("71", "0.4"), "");
                                 }else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"71")){
                                     Log.e(TAG,"----71----------");
                                     sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("72", "03"), "");
                                 }else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"72")){
-                                    sendDataByBle(SendUtil.dlzkCanshuShuruSizijieSend("73", "2.5"), "");
+                                    sendDataByBle(SendUtil.ShuruSizijieSend("73", "2.5"), "");
                                 }else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"73")){//D-Y-Z
                                     sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("74", "01"), "");
                                 }else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"74")){//d-y-z
                                     sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("75", "00"), "");
                                 }else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"75")){//组别号：0-11-未知
-                                    sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("76", "0B"), "");
+                                    sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("76", "11"), "");
                                 }else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"76")){
                                     //sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("6d",""),"");
-                                    sendDataByBle(SendUtil.yiqibianhaoSend_std("6d", "A123456"),"");
+                                    sendDataByBle(SendUtil.initSendBianbiNew8("6d", StrToAsc.ToAscii("A123456",8)),"");
                                     diyi = 1;//进入第一轮发送完毕
                                     Log.e(TAG,"进入第一轮发送完成");
                                 }
@@ -174,8 +171,11 @@ public class SxBbActivity extends AppCompatActivity implements View.OnClickListe
                         diyi = 1;
                         String edgy = etEdgy.getText().toString();
                         if(StringUtils.isEmpty(edgy)){
-                            sendDataByBle(SendUtil.dlzkCanshuShuruSizijieSend("70", "0.00"), "");
+                            etEdgy.setText("10.00");
+                            Config.bbEdgy = "10";
+                            sendDataByBle(SendUtil.ShuruSizijieSend("70", "10.00"), "");
                         }else {
+                            Config.bbEdgy = edgy;
                             sendDataByBle(SendUtil.dlzkCanshuShuruSizijieSend("70", edgy), "");
                         }
                         break;
@@ -191,8 +191,11 @@ public class SxBbActivity extends AppCompatActivity implements View.OnClickListe
                         diyi = 1;
                         String eddy = etEddy.getText().toString();
                         if(StringUtils.isEmpty(eddy)){
-                            sendDataByBle(SendUtil.dlzkCanshuShuruSizijieSend("71", "0.00"), "");
+                            etEddy.setText("0.4");
+                            Config.bbEddy = "0.4";
+                            sendDataByBle(SendUtil.ShuruSizijieSend("71", "0.4"), "");
                         }else {
+                            Config.bbEddy = eddy;
                             sendDataByBle(SendUtil.dlzkCanshuShuruSizijieSend("71", eddy), "");
                         }
                         break;
@@ -208,13 +211,12 @@ public class SxBbActivity extends AppCompatActivity implements View.OnClickListe
                         diyi = 1;
                         String fjzs = etFjzs.getText().toString();
                         if(StringUtils.noEmpty(fjzs)){
-                            if(StringUtils.strToInt(fjzs)<16){
-                                sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("72", "0"+ ShiOrShiliu.toHexString(StringUtils.strToInt(fjzs))), "");
-                            }else{
-                                sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("72", ShiOrShiliu.toHexString(StringUtils.strToInt(fjzs))), "");
-                            }
+                            Config.bbFjjj = StringUtils.strToInt(fjzs)+"";
+                            sendDataByBle(SendUtil.dlzkShujuSend("72", StringUtils.strToInt(fjzs)),"");
                         }else{
-                            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("72", "00"), "");
+                            etFjzs.setText("03");
+                            Config.bbFjjj = "03";
+                            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("72", "03"), "");
                         }
                         break;
                 }
@@ -229,9 +231,12 @@ public class SxBbActivity extends AppCompatActivity implements View.OnClickListe
                         diyi = 1;
                         String fjjj = etFjjj.getText().toString();
                         if(StringUtils.isEmpty(fjjj)){
-                            sendDataByBle(SendUtil.dlzkCanshuShuruSizijieSend("73", "0.00"), "");
+                            etFjjj.setText("2.5");
+                            Config.bbFjjj = "2.5";
+                            sendDataByBle(SendUtil.ShuruSizijieSend("73", "2.5"), "");
                         }else {
-                            sendDataByBle(SendUtil.dlzkCanshuShuruSizijieSend("73", fjjj), "");
+                            Config.bbFjjj = fjjj;
+                            sendDataByBle(SendUtil.ShuruSizijieSend("73", fjjj), "");
                         }
                         break;
                 }
@@ -245,7 +250,8 @@ public class SxBbActivity extends AppCompatActivity implements View.OnClickListe
                     case EditorInfo.IME_ACTION_DONE://输入框，完成按钮点击事件
                         diyi = 1;
                         String rwbh = etRwbh.getText().toString();
-                        sendDataByBle(SendUtil.yiqibianhaoSend_std("6d", rwbh),"");
+                        //sendDataByBle(SendUtil.yiqibianhaoSend_std("6d", rwbh),"");
+                        sendDataByBle(SendUtil.initSendBianbiNew8("6d", StrToAsc.ToAscii(rwbh,8)),"");
                         break;
                 }
                 return false;
@@ -265,7 +271,16 @@ public class SxBbActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
     public void initSend(){
-        sendDataByBle(SendUtil.dlzkCanshuShuruSizijieSend("70", "10.00"), "");
+        //sendDataByBle(SendUtil.ShuruSizijieSend("70", "10.00"), "");
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                /**
+                 *要执行的操作
+                 */
+                sendDataByBle(SendUtil.ShuruSizijieSend("70", "10.00"), "");
+            }
+        }, 100);//0.1秒后执行Runnable中的run方法
     }
     @Override
     public void onClick(View v) {
@@ -273,19 +288,19 @@ public class SxBbActivity extends AppCompatActivity implements View.OnClickListe
             String tvzbYiStr = tvLjzbYi.getText().toString();
             //LianjieZubie lianjieZubie = new LianjieZubie();
             String zhiling = LianjieZubie.getYi(SxBbActivity.this,tvLjzbYi,tvzbYiStr);
-            sendDataByBle(SendUtil.initSend(zhiling),"");
+            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("74",zhiling),"");
         } else if (v.getId() == R.id.llSxCsLjzbErJiantou) {//联结组别二切换
             String tvzbErStr = tvLjzbEr.getText().toString();
             //LianjieZubie lianjieZubie = new LianjieZubie();
             String zhiling = LianjieZubie.getEr(SxBbActivity.this,tvLjzbEr,tvzbErStr);
-            sendDataByBle(SendUtil.initSend(zhiling),"");
+            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("75",zhiling),"");
         } else if (v.getId() == R.id.llSxCsLjzbSanJiantou) {//联结组别三切换
             String tvzbSanStr = tvLjzbSan.getText().toString();
             //LianjieZubie lianjieZubie = new LianjieZubie();
             String zhiling = LianjieZubie.getSan(SxBbActivity.this,tvLjzbSan,tvzbSanStr);
-            sendDataByBle(SendUtil.initSend(zhiling),"");
+            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("76",zhiling),"");
         } else if (v.getId() == R.id.tvSxCsCeshi) {
-            sendDataByBle(SendUtil.initSend("77"),"");
+            //sendDataByBle(SendUtil.initSend("77"),"");
             startActivity(new Intent(SxBbActivity.this, SxBbCeshiActivity.class));
         } else if (v.getId() == R.id.tvSxCsFanhui) {
             sendDataByBle(SendUtil.initSend("78"),"");

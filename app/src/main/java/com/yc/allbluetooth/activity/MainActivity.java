@@ -169,6 +169,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Config.yqlx = yqlx;
                         Config.yzBenjiAddress = bjdz;
                         startActivity(new Intent(MainActivity.this, YzHomeActivity.class));
+                    }else if(IndexOfAndSubStr.isIndexOf(newMsgStr, "6677") && newMsgStr.length() == 18){//确定设备型号是有载
+                        yqlx = StringUtils.subStrStartToEnd(newMsgStr, 8, 10);
+                        if (StringUtils.isEquals(yqlx, "38")) {//变比
+                            startActivity(new Intent(MainActivity.this, BbHomeActivity.class));
+                        }
                     }else{//如果不是助磁、直阻、短路阻抗，发送获取有载设备型号指令
                         sendDataByBle("feefaaaa5555fddf","");//feef..aa5555fddf(..:04/05)
                     }

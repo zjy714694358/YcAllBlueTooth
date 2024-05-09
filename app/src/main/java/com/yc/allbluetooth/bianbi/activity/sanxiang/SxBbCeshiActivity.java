@@ -131,6 +131,7 @@ public class SxBbCeshiActivity extends AppCompatActivity {
         Config.ymType = "bianbiDxBbCeshi";
         initModel();
         initView();
+        sendDataByBle(SendUtil.initSend("77"),"");
     }
 
     public void initView(){

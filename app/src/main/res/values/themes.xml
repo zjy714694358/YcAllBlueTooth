@@ -434,6 +434,16 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
     </style>
+    <style name="textSize_60_b">
+        <item name="android:textSize">60sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="textSize_70_b">
+        <item name="android:textSize">70sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 <!--*********************************************************************************10C**********************************************************************-->
     <style name="tvHomeSize">
         <item name="android:textSize">30sp</item>

@@ -1,4 +1,4 @@
-package com.yc.allbluetooth.bianbi.activity.danxiang;
+package com.yc.allbluetooth.huilu.activity;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
@@ -16,42 +16,45 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.yc.allbluetooth.R;
-import com.yc.allbluetooth.bianbi.activity.BbHomeActivity;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
-import com.yc.allbluetooth.crc.CrcUtil;
 import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
-import com.yc.allbluetooth.utils.IndexOfAndSubStr;
+import com.yc.allbluetooth.utils.GetTime;
 import com.yc.allbluetooth.utils.SendUtil;
-import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StringUtils;
-import com.yc.allbluetooth.utils.XiaoshuYunsuan;
 
-import java.math.BigInteger;
+import org.w3c.dom.Text;
+
 import java.util.Locale;
 
-public class DxBbEndActivity extends AppCompatActivity implements View.OnClickListener {
+public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView tvFj;
-    private TextView tvBb;
-    private TextView tvZb;
-    private TextView tvJx;
-    private TextView tvWc;
-    private TextView tvCc;
-    private TextView tvBc;
-    private TextView tvDy;
-    private TextView tvFh;
-    String TAG = "DxBbEndActivity";
-    String crcJy = "";
+    private TextView tvSydl50;
+    private TextView tvSydl100;
+    private TextView tvCssc1;
+    private TextView tvCssc3;
+    private TextView tvCssc10;
+    private TextView tvCssc60;
+    private TextView tvCsscLianxu;
+    private EditText etSybh;
+    private TextView tvKscs;
+    private TextView tvFanhui;
+    String shiyanDl = "";
+    String ceshiSc = "";
+
+    private String TAG = "HlDianzuceshiActivity";
+
     BleConnectUtil bleConnectUtil;
     String newMsgStr = "";
 
@@ -70,32 +73,10 @@ public class DxBbEndActivity extends AppCompatActivity implements View.OnClickLi
             super.handleMessage(msg);
             switch (msg.what) {
                 case msgKey1:
-                    //tvTime.setText(GetTime.getTime(4));//年-月-日 时：分：秒
-                    //tvTime.setText(GetTime.getTime2());//年-月-日 时：分：秒
                     break;
                 case Config.BLUETOOTH_GETDATA:
-                    if(StringUtils.isEquals(Config.ymType,"bianbiDxBbEnd")){
-                        String msgStr = msg.obj.toString();
-                        Log.i(TAG, msgStr);
-                        if(IndexOfAndSubStr.isIndexOf(msgStr,"6677")){
-                            newMsgStr = msgStr;
-                            Log.e(TAG,newMsgStr);
-                        }else{
-                            newMsgStr = newMsgStr+msgStr;
-                            //可以
-                            Log.e(TAG+"可以",newMsgStr);
-                        }
-                        if(newMsgStr.length() == 44){
-                            String crcAll = StringUtils.subStrStartToEnd(newMsgStr,0,40);
-                            byte[] bytesSx = new BigInteger(crcAll, 16).toByteArray();
-                            crcJy = StringUtils.subStrStartToEnd(newMsgStr,40,44);
-                            if(CrcUtil.CrcIsOk(bytesSx,crcJy)){
-//                                csdl = StringUtils.subStrStartToEnd(newMsgStr,16,24);//测试电流
-//                                String dl = StringUtils.gaodiHuanBaoliuShierwei(csdl);
-//                                tvCsdl.setText(StringUtils.wuweiYouxiaoStr(dl));
-                            }
-                        }
-                    }
+                    String msgStr = msg.obj.toString();
+                    Log.e(TAG, "Home:"+msgStr);
                     break;
                 default:
                     break;
@@ -118,59 +99,105 @@ public class DxBbEndActivity extends AppCompatActivity implements View.OnClickLi
             config.locale = Locale.US;
         }
         resources.updateConfiguration(config, dm);
-        setContentView(R.layout.activity_dx_bb_end);
+        setContentView(R.layout.activity_hl_dianzuceshi);
+        Config.ymType = "hlDianzuceshi";
         ActivityCollector.addActivity(this);
-        Config.ymType = "bianbiDxBbEnd";
         initModel();
         initView();
     }
     public void initView(){
-        tvFj = findViewById(R.id.tvDxBbEndFenjie);
-        tvBb = findViewById(R.id.tvDxBbEndBianbi);
-        tvZb = findViewById(R.id.tvDxBbEndZabi);
-        tvJx = findViewById(R.id.tvDxBbEndJixing);
-        tvWc = findViewById(R.id.tvDxBbEndWucha);
-        tvCc = findViewById(R.id.tvDxBbEndChongce);
-        tvBc = findViewById(R.id.tvDxBbEndBaocun);
-        tvDy = findViewById(R.id.tvDxBbEndDayin);
-        tvFh = findViewById(R.id.tvDxBbEndFanhui);
-        tvCc.setOnClickListener(this);
-        tvBc.setOnClickListener(this);
-        tvDy.setOnClickListener(this);
-        tvFh.setOnClickListener(this);
-        Intent intent = getIntent();
-        String fenjie = intent.getStringExtra("bbfenjie");
-        String bianbi = intent.getStringExtra("bbbianbi");
-        String jixing = intent.getStringExtra("bbjixing");
-        tvFj.setText(fenjie);
-        tvBb.setText(bianbi);
-        tvZb.setText(bianbi);
-        tvJx.setText(jixing);
-        XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
-        String edbb = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(Config.bbEdgy),xiaoshuYunsuan.xiaoshu(Config.bbEddy))+"";
-        //String edfj = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(Config.bbFjzs),xiaoshuYunsuan.xiaoshu("2"))+"";
-        int edfj = (StringUtils.strToInt(Config.bbFjzs)+1)/2;
-        Log.e(TAG,"额定分接："+edfj);
-        int wuchaFj = edfj-StringUtils.strToInt(fenjie);
-        Log.e(TAG,"与额定差几个分接："+wuchaFj);
-        String fjjjStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(wuchaFj+""),xiaoshuYunsuan.xiaoshu(Config.bbFjjj))+"";
-        Log.e(TAG,"分接间距1："+fjjjStr);
-        String fjjjStr2 = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(fjjjStr+""),xiaoshuYunsuan.xiaoshu("100"))+"";
-        Log.e(TAG,"分接间距2："+fjjjStr2);
-        String wuchaBilv = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu("1"),xiaoshuYunsuan.xiaoshu(fjjjStr2))+"";
-        Log.e(TAG,"误差比率："+wuchaBilv);
-        String duiyingBb = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(edbb),xiaoshuYunsuan.xiaoshu(wuchaBilv))+"";
-        Log.e(TAG,"对应分接变比："+duiyingBb);
-        String shiji = xiaoshuYunsuan.xiaoshuJian(xiaoshuYunsuan.xiaoshu(bianbi),xiaoshuYunsuan.xiaoshu(duiyingBb))+"";
-        Log.e(TAG,"实际："+shiji);
-        String wucha = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(shiji),xiaoshuYunsuan.xiaoshu(duiyingBb))+"";
-        Log.e(TAG,"误差1："+wucha);
-        String wucha2 = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(wucha),xiaoshuYunsuan.xiaoshu("100"))+"%";
-        Log.e(TAG,"误差2："+wucha2);
-        tvWc.setText(wucha2);
+        tvSydl50 = findViewById(R.id.tvHlDzcsSydl50);
+        tvSydl100 = findViewById(R.id.tvHlDzcsSydl100);
+        tvCssc1 = findViewById(R.id.tvHlDzcsCssc1);
+        tvCssc3 = findViewById(R.id.tvHlDzcsCssc3);
+        tvCssc10 = findViewById(R.id.tvHlDzcsCssc10);
+        tvCssc60 = findViewById(R.id.tvHlDzcsCssc60);
+        tvCsscLianxu = findViewById(R.id.tvHlDzcsCsscLianxu);
+        etSybh = findViewById(R.id.etHlDzcsSybh);
+        tvKscs = findViewById(R.id.tvHlDzcsKaishiceshi);
+        tvFanhui = findViewById(R.id.tvHlDzcsFanhui);
+        tvSydl50.setOnClickListener(this);
+        tvSydl100.setOnClickListener(this);
+        tvCssc1.setOnClickListener(this);
+        tvCssc3.setOnClickListener(this);
+        tvCssc10.setOnClickListener(this);
+        tvCssc60.setOnClickListener(this);
+        tvCsscLianxu.setOnClickListener(this);
+        tvKscs.setOnClickListener(this);
+        tvFanhui.setOnClickListener(this);
+        etSybh.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                switch (i){
+                    case EditorInfo.IME_ACTION_DONE:
+                        String sybh = etSybh.getText().toString();
+                        sendDataByBle(SendUtil.yiqibianhaoSend_std("6d", sybh),"");
+                        break;
+                }
+                return false;
+            }
+        });
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.tvHlDzcsSydl50){
+            shiyanDl = "";
+            tvSydl50.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+            tvSydl100.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            sendDataByBle(SendUtil.initSend(shiyanDl),"");
+        } else if (view.getId() == R.id.tvHlDzcsSydl100) {
+            shiyanDl = "";
+            tvSydl50.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvSydl100.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+            sendDataByBle(SendUtil.initSend(shiyanDl),"");
+        }else if (view.getId() == R.id.tvHlDzcsCssc1) {
+            ceshiSc = "";
+            tvCssc1.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+            tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            sendDataByBle(SendUtil.initSend(ceshiSc),"");
+        }else if (view.getId() == R.id.tvHlDzcsCssc3) {
+            ceshiSc = "";
+            tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc3.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+            tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            sendDataByBle(SendUtil.initSend(ceshiSc),"");
+        }else if (view.getId() == R.id.tvHlDzcsCssc10) {
+            ceshiSc = "";
+            tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc10.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+            tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            sendDataByBle(SendUtil.initSend(ceshiSc),"");
+        }else if (view.getId() == R.id.tvHlDzcsCssc60) {
+            ceshiSc = "";
+            tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc60.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+            tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            sendDataByBle(SendUtil.initSend(ceshiSc),"");
+        }else if (view.getId() == R.id.tvHlDzcsCsscLianxu) {
+            ceshiSc = "";
+            tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCsscLianxu.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+            sendDataByBle(SendUtil.initSend(ceshiSc),"");
+        }else if (view.getId() == R.id.tvHlDzcsKaishiceshi) {
+            sendDataByBle(SendUtil.initSend(""),"");
+            startActivity(new Intent(HlDianzuceshiActivity.this, HlDianzuceshi2Activity.class));
+        }
     }
     public void initModel(){
-        bleConnectUtil = new BleConnectUtil(DxBbEndActivity.this);
+        bleConnectUtil = new BleConnectUtil(HlDianzuceshiActivity.this);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
         }
         if(bleConnectUtil.mBluetoothGatt!=null){
@@ -293,26 +320,15 @@ public class DxBbEndActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
     @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.tvDxBbEndChongce){//重测
-            finish();
-            startActivity(new Intent(DxBbEndActivity.this, DxBbCeshiActivity.class));
-            sendDataByBle(SendUtil.initSendStd("79"),"");
-        } else if (v.getId() == R.id.tvDxBbEndBaocun) {//保存
-            sendDataByBle(SendUtil.initSendStd("7a"),"");
-            Toast.makeText(DxBbEndActivity.this,getString(R.string.baocuntanchuang),Toast.LENGTH_SHORT).show();
-        } else if (v.getId() == R.id.tvDxBbEndDayin) {//打印
-            sendDataByBle(SendUtil.initSendStd("7b"),"");
-            Toast.makeText(DxBbEndActivity.this,getString(R.string.dayintanchuang),Toast.LENGTH_SHORT).show();
-        } else if (v.getId() == R.id.tvDxBbEndFanhui) {//返回
-            sendDataByBle(SendUtil.initSend("7c"),"");
-            finish();
-            startActivity(new Intent(DxBbEndActivity.this, BbHomeActivity.class));
-        }
-    }
-    @Override
     protected void onDestroy() {
-        ActivityCollector.removeActivity(DxBbEndActivity.this);
+        Log.e(TAG,"onDestroy()");
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+        }
+        if(bleConnectUtil.mBluetoothGatt!=null){
+            bleConnectUtil.mBluetoothGatt.close();
+        }
+        ActivityCollector.removeActivity(this);
         super.onDestroy();
     }
 }

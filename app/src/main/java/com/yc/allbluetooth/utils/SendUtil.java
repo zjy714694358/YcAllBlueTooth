@@ -257,6 +257,23 @@ public class SendUtil {
         String sendAllYnSave = strStdCsAllStdSave + crcStdSave;
         Log.e("参数fasong:",sendAllYnSave);
         return sendAllYnSave;
+    } /**
+     * 参数设置，四个字节的(不需要高低位转换（HexUtil.reverseHex）)
+     * @param zhiling
+     * @param csStr
+     * @return
+     */
+    public static String ShuruSizijieSend(String zhiling,String csStr){
+        //float f=Float.parseFloat(csStr);
+        //Log.e("---", Integer.toHexString(Float.floatToRawIntBits(Float.parseFloat(csStr))));
+        //Integer.toHexString(Float.floatToIntBits(f))
+        String strStdCsAllStdSave = "6886"+zhiling+ HexUtil.fToHex(Float.parseFloat(csStr))+"00000000";
+        byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
+
+        String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
+        String sendAllYnSave = strStdCsAllStdSave + crcStdSave;
+        Log.e("参数fasong:",sendAllYnSave);
+        return sendAllYnSave;
     }
     /**
      * 短路阻抗参数设置，单字节的
@@ -397,6 +414,20 @@ public class SendUtil {
      */
     public static String initSendStdNew(String zhiling,String type){
         String strStdCsAllStdSave = "6886"+zhiling+"00000000"+type+"00"+"0000";
+        byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
+        String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
+        String sendAllSave = strStdCsAllStdSave + crcStdSave;
+        Log.e("fasong:",sendAllSave);
+        return sendAllSave;
+    }
+    /**
+     * 变比后续添加：输入八字节
+     * @param zhiling
+     * @param type
+     * @return
+     */
+    public static String initSendBianbiNew8(String zhiling,String type){
+        String strStdCsAllStdSave = "6886"+zhiling+type;
         byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
         String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
         String sendAllSave = strStdCsAllStdSave + crcStdSave;

@@ -79,13 +79,13 @@ public class LianjieZubie {
             zhiling = "09";
         }else if (StringUtils.isEquals(tvStr,"09")){
             textView.setText("10");
-            zhiling = "0A";
+            zhiling = "10";
         }else if (StringUtils.isEquals(tvStr,"10")){
             textView.setText("11");
-            zhiling = "0B";
+            zhiling = "11";
         }else if (StringUtils.isEquals(tvStr,"11")){
             textView.setText(activity.getString(R.string.weizhi));
-            zhiling = "0C";
+            zhiling = "12";
         }
         return zhiling;
     }
