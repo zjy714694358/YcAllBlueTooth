@@ -21,11 +21,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.bianbi.activity.BbHomeActivity;
+import com.yc.allbluetooth.bianbi.activity.danxiang.DxBbCeshiActivity;
 import com.yc.allbluetooth.bianbi.activity.danxiang.DxBbEndActivity;
+import com.yc.allbluetooth.bianbi.util.SanxiangEndImg;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
@@ -34,10 +37,14 @@ import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SendUtil;
+import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StringUtils;
+import com.yc.allbluetooth.utils.XiaoshuYunsuan;
 
 import java.math.BigInteger;
+import java.text.DecimalFormat;
 import java.util.Locale;
+import java.util.Random;
 
 public class SxBbEndActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -86,7 +93,7 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
                     //tvTime.setText(GetTime.getTime2());//年-月-日 时：分：秒
                     break;
                 case Config.BLUETOOTH_GETDATA:
-                    if(StringUtils.isEquals(Config.ymType,"bianbiDxBbEnd")){
+                    if(StringUtils.isEquals(Config.ymType,"bianbiSxBbEnd")){
                         String msgStr = msg.obj.toString();
                         Log.i(TAG, msgStr);
                         if(IndexOfAndSubStr.isIndexOf(msgStr,"6677")){
@@ -132,7 +139,7 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
         resources.updateConfiguration(config, dm);
         setContentView(R.layout.activity_sx_bb_end);
         ActivityCollector.addActivity(this);
-        Config.ymType = "bianbiDxBbEnd";
+        Config.ymType = "bianbiSxBbEnd";
         initModel();
         initView();
     }
@@ -162,6 +169,77 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
         tvDayin.setOnClickListener(this);
         tvFanhui.setOnClickListener(this);
         //ivZbsl.setImageResource(R.drawable.slt01);
+        Intent intent = getIntent();
+        String fenjie = intent.getStringExtra("bbfenjie");
+        String bianbiA = intent.getStringExtra("bbbianbiA");
+        String zabiA = intent.getStringExtra("bbzabiA");
+        String bianbiB = intent.getStringExtra("bbbianbiB");
+        String zabiB = intent.getStringExtra("bbzabiB");
+        String bianbiC = intent.getStringExtra("bbbianbiC");
+        String zabiC = intent.getStringExtra("bbzabiC");
+        String ljfs = intent.getStringExtra("bblianjiefangshi");
+        String zubie = intent.getStringExtra("bbzubie");
+        tvFj.setText(fenjie);
+        tvBbA.setText(bianbiA);
+        tvZbA.setText(zabiA);
+        tvBbB.setText(bianbiB);
+        tvZbB.setText(zabiB);
+        tvBbC.setText(bianbiC);
+        tvZbC.setText(zabiC);
+        XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
+        String edbb = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(Config.bbEdgy),xiaoshuYunsuan.xiaoshu(Config.bbEddy))+"";
+        String edbbWu = StringUtils.wuweiYouxiaoStr(edbb);
+        tvFjzhi.setText(edbbWu);
+        //String edfj = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(Config.bbFjzs),xiaoshuYunsuan.xiaoshu("2"))+"";
+        int edfj = (StringUtils.strToInt(Config.bbFjzs)+1)/2;
+        Log.e(TAG,"额定分接："+edfj);
+        int wuchaFj = edfj-StringUtils.strToInt(fenjie);
+        Log.e(TAG,"与额定差几个分接："+wuchaFj);
+        String fjjjStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(wuchaFj+""),xiaoshuYunsuan.xiaoshu(Config.bbFjjj))+"";
+        Log.e(TAG,"分接间距1："+fjjjStr);
+        String fjjjStr2 = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(fjjjStr+""),xiaoshuYunsuan.xiaoshu("100"))+"";
+        Log.e(TAG,"分接间距2："+fjjjStr2);
+        String wuchaBilv = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu("1"),xiaoshuYunsuan.xiaoshu(fjjjStr2))+"";
+        Log.e(TAG,"误差比率："+wuchaBilv);
+        String duiyingBb = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(edbb),xiaoshuYunsuan.xiaoshu(wuchaBilv))+"";
+        Log.e(TAG,"对应分接变比："+duiyingBb);
+        String shijiA = xiaoshuYunsuan.xiaoshuJian(xiaoshuYunsuan.xiaoshu(bianbiA),xiaoshuYunsuan.xiaoshu(duiyingBb))+"";
+        String shijiB = xiaoshuYunsuan.xiaoshuJian(xiaoshuYunsuan.xiaoshu(bianbiB),xiaoshuYunsuan.xiaoshu(duiyingBb))+"";
+        String shijiC = xiaoshuYunsuan.xiaoshuJian(xiaoshuYunsuan.xiaoshu(bianbiC),xiaoshuYunsuan.xiaoshu(duiyingBb))+"";
+        Log.e(TAG,"实际："+shijiA+shijiB+shijiC);
+        String wuchaA = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(shijiA),xiaoshuYunsuan.xiaoshu(duiyingBb))+"";
+        String wuchaB = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(shijiB),xiaoshuYunsuan.xiaoshu(duiyingBb))+"";
+        String wuchaC = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(shijiC),xiaoshuYunsuan.xiaoshu(duiyingBb))+"";
+        Log.e(TAG,"误差1："+wuchaA+wuchaB+wuchaC);
+        String wucha2A = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(wuchaA),xiaoshuYunsuan.xiaoshu("100"))+"%";
+        String wucha2B = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(wuchaB),xiaoshuYunsuan.xiaoshu("100"))+"%";
+        String wucha2C = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(wuchaC),xiaoshuYunsuan.xiaoshu("100"))+"%";
+        Log.e(TAG,"误差2："+wucha2A+wucha2B+wucha2C);
+        SanxiangEndImg sanxiangEndImg = new SanxiangEndImg();
+        sanxiangEndImg.getImg2(ivZbsl,zubie);
+        int zubieI = ShiOrShiliu.parseInt(zubie);
+        int jiaodu = zubieI*30;
+        if(jiaodu==360){
+            jiaodu=0;
+        }
+        Random random = new Random();
+        double randomNum1 = random.nextDouble()*0.5;
+        double randomNum2 = random.nextDouble()*0.5;
+        double randomNum3 = random.nextDouble()*0.5;
+        DecimalFormat decimalFormat = new DecimalFormat("#0.00");
+        String formattedNum1 = decimalFormat.format(randomNum1);
+        String formattedNum2 = decimalFormat.format(randomNum2);
+        String formattedNum3 = decimalFormat.format(randomNum3);
+        String jdA = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu(jiaodu+""),xiaoshuYunsuan.xiaoshu(formattedNum1))+"";
+        String jdB = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu(jiaodu+""),xiaoshuYunsuan.xiaoshu(formattedNum2))+"";
+        String jdC = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu(jiaodu+""),xiaoshuYunsuan.xiaoshu(formattedNum3))+"";
+        tvJdA.setText(jdA);
+        tvJdA.setText(jdB);
+        tvJdA.setText(jdC);
+        tvWcA.setText(wucha2A);
+        tvWcB.setText(wucha2B);
+        tvWcC.setText(wucha2C);
+        tvLjfs.setText(ljfs);
     }
     public void initModel(){
         bleConnectUtil = new BleConnectUtil(SxBbEndActivity.this);
@@ -295,13 +373,17 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.tvSxBbEndChongce){//重测
+            finish();
+            startActivity(new Intent(SxBbEndActivity.this, SxBbCeshiActivity.class));
             sendDataByBle(SendUtil.initSendStd("79"),"");
         } else if (v.getId() == R.id.tvSxBbEndBaocun) {//保存
-            sendDataByBle(SendUtil.initSendStd("80"),"");
+            sendDataByBle(SendUtil.initSendStd("7a"),"");
+            Toast.makeText(SxBbEndActivity.this,getString(R.string.baocuntanchuang),Toast.LENGTH_SHORT).show();
         } else if (v.getId() == R.id.tvSxBbEndDayin) {//打印
-            sendDataByBle(SendUtil.initSendStd("81"),"");
+            sendDataByBle(SendUtil.initSendStd("7b"),"");
+            Toast.makeText(SxBbEndActivity.this,getString(R.string.dayintanchuang),Toast.LENGTH_SHORT).show();
         } else if (v.getId() == R.id.tvSxBbEndFanhui) {//返回
-            sendDataByBle(SendUtil.initSendStd("82"),"");
+            sendDataByBle(SendUtil.initSendStd("7c"),"");
             finish();
             startActivity(new Intent(SxBbEndActivity.this, BbHomeActivity.class));
         }

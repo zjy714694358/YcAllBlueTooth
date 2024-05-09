@@ -89,4 +89,55 @@ public class LianjieZubie {
         }
         return zhiling;
     }
+    public static String getYi2(String str){
+        String strEnd = "";
+            if(StringUtils.isEquals(str,"00")){
+                strEnd = "Y";
+            } else if (StringUtils.isEquals(str,"01")) {
+                strEnd = "D";
+            }else if (StringUtils.isEquals(str,"02")) {
+                strEnd = "Z";
+            }
+        return strEnd;
+    }
+    public static String getEr2(String str){
+        String strEnd = "";
+        if(StringUtils.isEquals(str,"00")){
+            strEnd = "y";
+        } else if (StringUtils.isEquals(str,"01")) {
+            strEnd = "d";
+        }else if (StringUtils.isEquals(str,"02")) {
+            strEnd = "z";
+        }
+        return strEnd;
+    }
+    public static String getSan2(String str){
+        String strEnd = "";
+        if(StringUtils.isEquals(str,"00")){
+            strEnd = "00";
+        } else if (StringUtils.isEquals(str,"01")) {
+            strEnd = "01";
+        }else if (StringUtils.isEquals(str,"02")) {
+            strEnd = "02";
+        }else if (StringUtils.isEquals(str,"03")) {
+            strEnd = "03";
+        }else if (StringUtils.isEquals(str,"04")) {
+            strEnd = "04";
+        }else if (StringUtils.isEquals(str,"05")) {
+            strEnd = "05";
+        }else if (StringUtils.isEquals(str,"06")) {
+            strEnd = "06";
+        }else if (StringUtils.isEquals(str,"07")) {
+            strEnd = "07";
+        }else if (StringUtils.isEquals(str,"08")) {
+            strEnd = "08";
+        }else if (StringUtils.isEquals(str,"09")) {
+            strEnd = "09";
+        }else if (StringUtils.isEquals(str,"0A")) {
+            strEnd = "10";
+        }else if (StringUtils.isEquals(str,"0B")) {
+            strEnd = "11";
+        }
+        return strEnd;
+    }
 }

@@ -75,11 +75,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -201,6 +203,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ActivityCollector.addActivity(this);
         initView();
         Config.ymType = "main";
+
+        int zubieI = 5;
+        int jiaodu = zubieI*30;
+        Random random = new Random();
+        double randomNum1 = random.nextDouble()*0.5;
+        double randomNum2 = random.nextDouble()*0.5;
+        double randomNum3 = random.nextDouble()*0.5;
+        DecimalFormat decimalFormat = new DecimalFormat("#0.00");
+        String formattedNum1 = decimalFormat.format(randomNum1);
+        String formattedNum2 = decimalFormat.format(randomNum2);
+        String formattedNum3 = decimalFormat.format(randomNum3);
+        XiaoshuYunsuan xiaoshuYunsuan  = new XiaoshuYunsuan();
+        String xiaoshu1 = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu(jiaodu+""),xiaoshuYunsuan.xiaoshu(formattedNum1))+"";
+        String xiaoshu2 = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu(jiaodu+""),xiaoshuYunsuan.xiaoshu(formattedNum2))+"";
+        String xiaoshu3 = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu(jiaodu+""),xiaoshuYunsuan.xiaoshu(formattedNum3))+"";
+        System.out.println("随机小数：" + formattedNum1);
+        System.out.println("随机小数2：" + xiaoshu1);
+        System.out.println("随机小数3：" + xiaoshu2);
+        System.out.println("随机小数3：" + xiaoshu3);
     }
 
     public void initView() {

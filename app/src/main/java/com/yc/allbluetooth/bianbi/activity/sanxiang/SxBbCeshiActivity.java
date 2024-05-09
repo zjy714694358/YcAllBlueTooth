@@ -24,6 +24,8 @@ import android.widget.TextView;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.bianbi.activity.danxiang.DxBbCeshiActivity;
+import com.yc.allbluetooth.bianbi.activity.danxiang.DxBbEndActivity;
+import com.yc.allbluetooth.bianbi.util.LianjieZubie;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
@@ -32,6 +34,7 @@ import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SendUtil;
+import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StringUtils;
 
 import java.math.BigInteger;
@@ -51,12 +54,30 @@ public class SxBbCeshiActivity extends AppCompatActivity {
     private TextView tvFanhui;
 
     String crcJy =  "";
-    String fenjie = "";
     String sjxz = "";//1电流；2变比匝比
     String csxw = "";
     String csdl = "";
+    String bianbi = "";
+    String jixing = "";
+    String zabi = "";
     String ycdy = "";
     String ecdy = "";
+    String gyjxlx = "";
+    String dyjxlx = "";
+    String zubie = "";
+    String fenjie = "";
+    int jinru = 0;
+    String bianbiA = "";
+    String bianbiB = "";
+    String bianbiC = "";
+    String zabiA = "";
+    String zabiB = "";
+    String zabiC = "";
+    String jixingA = "";
+    String jixingB = "";
+    String jixingC = "";
+    String lianjiefangshi = "";
+
 
     String TAG = "DxBbCeshiActivity";
     BleConnectUtil bleConnectUtil;
@@ -84,24 +105,87 @@ public class SxBbCeshiActivity extends AppCompatActivity {
                     if(StringUtils.isEquals(Config.ymType,"bianbiDxBbCeshi")){
                         String msgStr = msg.obj.toString();
                         Log.i(TAG, msgStr);
-                        if(IndexOfAndSubStr.isIndexOf(msgStr,"6677")){
-                            newMsgStr = msgStr;
+                        if(msgStr.length()!=18&&newMsgStr.length()<88){
+                            newMsgStr += msgStr;
                             Log.e(TAG,newMsgStr);
-                        }else{
-                            newMsgStr = newMsgStr+msgStr;
-                            //可以
-                            Log.e(TAG+"可以",newMsgStr);
                         }
-                        if(newMsgStr.length() == 44){
+                        if (newMsgStr.length() == 88&&jinru!=19) {
                             String crcAll = StringUtils.subStrStartToEnd(newMsgStr,0,40);
                             byte[] bytesSx = new BigInteger(crcAll, 16).toByteArray();
                             crcJy = StringUtils.subStrStartToEnd(newMsgStr,40,44);
-                            Log.e("tfxx==1", CrcUtil.getTableCRC(bytesSx));
-                            if(CrcUtil.CrcIsOk(bytesSx,crcJy)){
-                                csdl = StringUtils.subStrStartToEnd(newMsgStr,16,24);//测试电流
-                                String dl = StringUtils.gaodiHuanBaoliuShierwei(csdl);
-                                tvCsdlA.setText(StringUtils.wuweiYouxiaoStr(dl));
+                            //Log.e("tfxx==1", CrcUtil.getTableCRC(bytesSx));
+                            //if(CrcUtil.CrcIsOk(bytesSx,crcJy)){
+                            sjxz = StringUtils.subStrStartToEnd(newMsgStr,12,14);//数据性质：1、电流电压；2、测试变比匝比
+                            csxw = StringUtils.subStrStartToEnd(newMsgStr,14,16);//测试相位0：AB；1：BC；2：CA
+                            csdl = StringUtils.subStrStartToEnd(newMsgStr,16,24);//测试电流；测试变比
+                            ycdy = StringUtils.subStrStartToEnd(newMsgStr,24,32);//一次电压；测试匝比
+                            ecdy = StringUtils.subStrStartToEnd(newMsgStr,32,40);//二次电压;
+                            bianbi = StringUtils.subStrStartToEnd(newMsgStr,60,68);//变比;
+                            zabi = StringUtils.subStrStartToEnd(newMsgStr,68,76);//匝比
+                            jixing = StringUtils.subStrStartToEnd(newMsgStr,68,70);//极性：1：正；0负
+                            gyjxlx = StringUtils.subStrStartToEnd(newMsgStr,76,78);//高压侧接线类型
+                            dyjxlx = StringUtils.subStrStartToEnd(newMsgStr,78,80);//低压侧接线类型
+                            zubie = StringUtils.subStrStartToEnd(newMsgStr,80,82);//组别
+                            fenjie = StringUtils.subStrStartToEnd(newMsgStr,82,84);//测试分接
+                            Log.e(TAG,csdl+","+ycdy+","+ecdy);
+                            String dl = ShiOrShiliu.hexToFloatWuBuhuan(csdl);
+                            String ycdyFl = ShiOrShiliu.hexToFloatWuBuhuan(ycdy);
+                            String ecdyFl = ShiOrShiliu.hexToFloatWuBuhuan(ecdy);
+                            if(StringUtils.isEquals(csxw,"00")){
+                                tvCsdlA.setText(dl+"mA");
+                                tvYcdyA.setText(ycdyFl+"V");
+                                tvEcdyA.setText(ecdyFl+"V");
+//                                if(StringUtils.isEquals(jixing,"01")){
+//                                    jixingA = "+";
+//                                } else if (StringUtils.isEquals(jixing,"00")) {
+//                                    jixingA = "-";
+//                                }
+                                bianbiA = ShiOrShiliu.hexToFloatWuBuhuan(bianbi);
+                                zabiA = ShiOrShiliu.hexToFloatWuBuhuan(zabi);
+                            }else if(StringUtils.isEquals(csxw,"01")){
+                                tvCsdlB.setText(dl+"mA");
+                                tvYcdyB.setText(ycdyFl+"V");
+                                tvEcdyB.setText(ecdyFl+"V");
+//                                if(StringUtils.isEquals(jixing,"01")){
+//                                    jixingB = "+";
+//                                } else if (StringUtils.isEquals(jixing,"00")) {
+//                                    jixingB = "-";
+//                                }
+                                bianbiB = ShiOrShiliu.hexToFloatWuBuhuan(bianbi);
+                                zabiB = ShiOrShiliu.hexToFloatWuBuhuan(zabi);
+                            }else if(StringUtils.isEquals(csxw,"02")){
+                                tvCsdlC.setText(dl+"mA");
+                                tvYcdyC.setText(ycdyFl+"V");
+                                tvEcdyC.setText(ecdyFl+"V");
+//                                if(StringUtils.isEquals(jixing,"01")){
+//                                    jixingC = "+";
+//                                } else if (StringUtils.isEquals(jixing,"00")) {
+//                                    jixingC = "-";
+//                                }
+                                bianbiC = ShiOrShiliu.hexToFloatWuBuhuan(bianbi);
+                                zabiC = ShiOrShiliu.hexToFloatWuBuhuan(zabi);
                             }
+                            jinru +=1;
+                            Log.e("进入==1", jinru+"");
+                            if(jinru==19){
+                                lianjiefangshi = LianjieZubie.getYi2(gyjxlx)+LianjieZubie.getEr2(dyjxlx)+LianjieZubie.getSan2(zubie);
+                                finish();
+                                Intent intent = new Intent(SxBbCeshiActivity.this, SxBbEndActivity.class);
+                                intent.putExtra("bbfenjie",fenjie);
+                                intent.putExtra("bbbianbiA",bianbiA);
+                                intent.putExtra("bbzabiA",zabiA);
+                                intent.putExtra("bbbianbiB",bianbiB);
+                                intent.putExtra("bbzabiB",zabiB);
+                                intent.putExtra("bbbianbiC",bianbiC);
+                                intent.putExtra("bbzabiC",zabiC);
+                                intent.putExtra("bblianjiefangshi",lianjiefangshi);
+                                intent.putExtra("bbzubie",zubie);
+                                startActivity(intent);
+                                //startActivity(new Intent(DxBbCeshiActivity.this,DxBbEndActivity.class));
+                            } else {
+                                newMsgStr = "";
+                            }
+                            //}
                         }
                     }
                     break;

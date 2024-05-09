@@ -126,11 +126,11 @@ public class DxBbCeshiActivity extends AppCompatActivity {
                                 if(jinru==19){
                                     fenjie = StringUtils.subStrStartToEnd(newMsgStr,82,84);//测试分接
                                     bianbi = StringUtils.subStrStartToEnd(newMsgStr,60,68);//变比
-                                    jixing = StringUtils.subStrStartToEnd(newMsgStr,58,60);//极性：0：正；1负
+                                    jixing = StringUtils.subStrStartToEnd(newMsgStr,68,70);//极性：1：正；0负
                                     String jixing2 = "";
-                                    if(StringUtils.isEquals(jixing,"00")){
+                                    if(StringUtils.isEquals(jixing,"01")){
                                         jixing2 = "+";
-                                    } else if (StringUtils.isEquals(jixing,"01")) {
+                                    } else if (StringUtils.isEquals(jixing,"00")) {
                                         jixing2 = "-";
                                     }
                                     String bianbiStr = ShiOrShiliu.hexToFloatWuBuhuan(bianbi);
