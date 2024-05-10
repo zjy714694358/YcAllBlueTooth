@@ -31,6 +31,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.bianbi.activity.BbHomeActivity;
+import com.yc.allbluetooth.bianbi.activity.danxiang.DxBbEndActivity;
 import com.yc.allbluetooth.bianbi.adapter.DyjlAdapter;
 import com.yc.allbluetooth.bianbi.adapter.DyjlNewAdapter;
 import com.yc.allbluetooth.bianbi.entity.Diaoyuejilu;
@@ -81,10 +82,11 @@ public class DyJlNewActivity extends AppCompatActivity implements View.OnClickLi
     int SjglListType = 0;
     int jinruPeizhi = 0;
 
-    private String TAG = "DlzkShujuActivity";
+    private String TAG = "DyJlNewActivity";
 
     BleConnectUtil bleConnectUtil;
     String newMsgStr = "";
+    String newMsgStr1 = "";
     //String newMsgStr2 = "";
     //配置文件
     String sjcd;//数据长度
@@ -130,22 +132,13 @@ public class DyJlNewActivity extends AppCompatActivity implements View.OnClickLi
                     if (StringUtils.isEquals(Config.ymType, "bianbiDyjlNew")) {
                         String msgStr = msg.obj.toString();
                         Log.e(TAG + "，msg0", msgStr);
-                        if (msgStr.length() != 26) {//msgStr.length()==22||msgStr.length()>26
-                            if (IndexOfAndSubStr.isIndexOf(msgStr, "6677")) {
-                                newMsgStr = msgStr;
-                                Log.e(TAG + "6677", newMsgStr);
-                            } else {
-                                if (!IndexOfAndSubStr.isIndexOf(newMsgStr, msgStr)) {
-                                    newMsgStr = newMsgStr + msgStr;
-                                    Log.e(TAG + 2, newMsgStr);
-                                }
-//                                newMsgStr = newMsgStr + msgStr;
-//                                //可以
-//                                Log.e(TAG + "可以", newMsgStr);
-                            }
-                            if (newMsgStr.length() == 62) {//>40
+                        if (newMsgStr1.length()!=102) {//msgStr.length()==22||msgStr.length()>26
+                            newMsgStr1 += msgStr;
+                            if (newMsgStr1.length() == 102) {//>40
                                 //可以
-                                Log.e("newMsgStr=62", "new1:" + newMsgStr);
+                                Log.e("newMsgStr=62", "new1:" + newMsgStr1);
+
+                                newMsgStr = StringUtils.subStrStartToEnd(newMsgStr1,18,102);
                                 sjcd = StringUtils.subStrStartToEnd(newMsgStr, 4, 6);
                                 yqly = StringUtils.subStrStartToEnd(newMsgStr, 6, 8);
                                 danorSan = StringUtils.subStrStartToEnd(newMsgStr, 10, 12);
@@ -174,12 +167,19 @@ public class DyJlNewActivity extends AppCompatActivity implements View.OnClickLi
                                     Config.getSjglListId += 1;
                                     jlCx.setId(Config.getSjglListId);
                                     //if(!(ShiOrShiliu.parseInt(nian)<2021)){
-                                    jlCx.setCeshishijian("20" + nian + "-" + yue + "-" + ri + " " + shi + ":" + fen + ":" + miao);
+                                    String nian2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(nian));
+                                    String yue2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(yue));
+                                    String ri2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(ri));
+                                    String shi2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(shi));
+                                    String fen2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(fen));
+                                    String miao2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(miao));
+                                    jlCx.setCeshishijian("20" + nian2 + "-" + yue2 + "-" + ri2 + " " + shi2 + ":" + fen2 + ":" + miao2);
                                     jlCx.setBianhao(rwbh);
                                     jlCx.setFenjie(csfj);
                                     jlCx.setBbzA(ab);
                                     jlCx.setBbzB(bcOrJixing);
                                     jlCx.setBbzC(ca);
+                                    jlCx.setDanOrSan(danorSan);
                                     mDatas2.add(jlCx);
 
                                     //根据时间属性去重
@@ -213,7 +213,8 @@ public class DyJlNewActivity extends AppCompatActivity implements View.OnClickLi
                                     lv.setAdapter(mAdapter);
                                     //Config.getSjglListType+=1;
                                     SjglListType += 1;
-                                    sendDataByBle(SendUtil.jiluchaxunSend("6b", SjglListType), "");
+                                    sendDataByBle(SendUtil.jiluchaxunSendBb("6c", SjglListType), "");
+                                    newMsgStr1 = "";
                                 } else {
                                     SjglListType -= 1;
                                 }
@@ -251,6 +252,7 @@ public class DyJlNewActivity extends AppCompatActivity implements View.OnClickLi
         ActivityCollector.addActivity(this);
         Config.ymType = "bianbiDyjlNew";
         initView();
+        initModel();
     }
     public void initView(){
         lv = findViewById(R.id.lvBbDyjlNew);
@@ -270,7 +272,7 @@ public class DyJlNewActivity extends AppCompatActivity implements View.OnClickLi
             diaoyuejilu.setBbzA(i+".000");
             diaoyuejilu.setBbzB(i+".000");
             diaoyuejilu.setBbzC(i+".000");
-            diaoyuejilu.setCeshishijian("2024-05-06 12:12:16");
+            diaoyuejilu.setCeshishijian("2024-05-06 12:12:1"+i);
             mDatas.add(diaoyuejilu);
         }
         sp = this.getSharedPreferences("jiluchaxun", Activity.MODE_PRIVATE);//创建sp对象
@@ -347,7 +349,7 @@ public class DyJlNewActivity extends AppCompatActivity implements View.OnClickLi
                     /**
                      *要执行的操作
                      */
-                    sendDataByBle(SendUtil.jiluchaxunSend("6c", 0), "");
+                    sendDataByBle(SendUtil.jiluchaxunSendBb("6c", 0), "");
                 }
             }, 1000);//3秒后执行Runnable中的run方法
         }
@@ -469,10 +471,13 @@ public class DyJlNewActivity extends AppCompatActivity implements View.OnClickLi
             mDatas.clear();
             mAdapter.notifyDataSetChanged();
         } else if (view.getId() == R.id.tvBbDyjlNewDayin) {//打印
-            //finish();
+            sendDataByBle(SendUtil.initSendStd("7b"),"");
+            Toast.makeText(DyJlNewActivity.this,getString(R.string.dayintanchuang),Toast.LENGTH_SHORT).show();
         }else if (view.getId() == R.id.tvBbDyjlNewDaochu) {//导出
-            //finish();
+            //sendDataByBle(SendUtil.initSendStd("7b"),"");
+            //Toast.makeText(DyJlNewActivity.this,getString(R.string.daochu),Toast.LENGTH_SHORT).show();
         }else if (view.getId() == R.id.tvBbDyjlNewFanhui) {//返回
+            sendDataByBle(SendUtil.initSendStd("7c"),"");
             finish();
         }
     }

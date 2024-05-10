@@ -13,6 +13,7 @@ public class DiaoyuejiluNew {
     public String bbzB;
     public String bbzC;
     public String ceshishijian;
+    public String danOrSan;//0:单；1：三
 
     public int getId() {
         return id;
@@ -68,5 +69,13 @@ public class DiaoyuejiluNew {
 
     public void setCeshishijian(String ceshishijian) {
         this.ceshishijian = ceshishijian;
+    }
+
+    public String getDanOrSan() {
+        return danOrSan;
+    }
+
+    public void setDanOrSan(String danOrSan) {
+        this.danOrSan = danOrSan;
     }
 }

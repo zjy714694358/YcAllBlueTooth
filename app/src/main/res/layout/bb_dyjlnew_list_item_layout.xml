@@ -11,52 +11,92 @@
         <TextView
             android:id="@+id/tvBbDyjlListNewItemBianhao"
             android:layout_width="110dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:theme="@style/textSize_20_b"
             android:gravity="center"/>
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/current_time_text"/>
         <TextView
             android:id="@+id/tvBbDyjlListNewItemFenjie"
             android:layout_width="60dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:theme="@style/textSize_20_b"
             android:gravity="center"/>
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/current_time_text"/>
         <TextView
             android:id="@+id/tvBbDyjlListNewItemBbzA"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:theme="@style/textSize_20_b"
             android:gravity="center"
             android:background="@color/gold3"
             android:text=""/>
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/current_time_text"/>
         <TextView
             android:id="@+id/tvBbDyjlListNewItemBbzB"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:theme="@style/textSize_20_b"
             android:gravity="center"
             android:singleLine="true"
             android:background="@color/drawer_advice_coclor"
             android:text=""/>
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/current_time_text"/>
         <TextView
             android:id="@+id/tvBbDyjlListNewItemBbzC"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:theme="@style/textSize_20_b"
             android:gravity="center"
             android:singleLine="true"
             android:background="@color/textColor_gray"
             android:text=""/>
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/current_time_text"/>
+
         <TextView
             android:id="@+id/tvBbDyjlListNewItemCcsj"
             android:layout_width="210dp"
-            android:layout_height="wrap_content"
-            android:theme="@style/textSize_20_b"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:singleLine="true"
-            android:text=""/>
+            android:text=""
+            android:theme="@style/textSize_20_b" />
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/current_time_text"/>
+        <LinearLayout
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvBbDyjlListNewItemDaochu"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:theme="@style/textSize_20_b"
+                android:background="@drawable/btn_lv_yinying_hei"
+                android:gravity="center"
+                android:text="@string/daochu"
+                android:focusable="false"/>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

@@ -179,8 +179,41 @@ public class SendUtil {
                 strStdCsAllStdSave = "6886"+zhiling+"00000000"+"000"+ ShiOrShiliu.toHexString(type)+"0000";
             }else if(type>=16&&type<=255){
                 strStdCsAllStdSave = "6886"+zhiling+"00000000"+"00"+ShiOrShiliu.toHexString(type)+"0000";
-            }else if(type>255&&type<=999){
+            }else if(type>255&&type<4096){
                 strStdCsAllStdSave = "6886"+zhiling+"00000000"+"0"+ShiOrShiliu.toHexString(type)+"0000";
+            } else if (type>=4096&&type<=65535) {
+                strStdCsAllStdSave = "6886"+zhiling+"00000000"+ShiOrShiliu.toHexString(type)+"0000";
+            }
+        }
+        //strStdCsAllStdSave = "6886"+zhiling+"0000000000"+sjStr+"0000";
+        byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
+        String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
+        String sendAllYnSave = strStdCsAllStdSave + crcStdSave;
+        Log.e("jlcxfasong:",sendAllYnSave);
+        return sendAllYnSave;
+    }
+    /**
+     * 记录查询 6b
+     * @param zhiling
+     * @param type
+     * @return
+     */
+    public static String jiluchaxunSendBb(String zhiling,int type){
+        String strStdCsAllStdSave = "";
+        if(type==0){//00   16~20
+            strStdCsAllStdSave = "6886"+zhiling+"000"+type+"000000000000";
+        }else{
+            //Config.getSjglListType+=1;
+            if(type<10){
+                strStdCsAllStdSave = "6886"+zhiling+"000"+type+"000000000000";
+            }else if(type>=10&&type<16){
+                strStdCsAllStdSave = "6886"+zhiling+"000"+ ShiOrShiliu.toHexString(type)+"000000000000";
+            }else if(type>=16&&type<=255){
+                strStdCsAllStdSave = "6886"+zhiling+"00"+ShiOrShiliu.toHexString(type)+"000000000000";
+            }else if(type>255&&type<4096){
+                strStdCsAllStdSave = "6886"+zhiling+"0"+ShiOrShiliu.toHexString(type)+"000000000000";
+            } else if (type>=4096&&type<=65535) {
+                strStdCsAllStdSave = "6886"+zhiling+ShiOrShiliu.toHexString(type)+"00000000"+"0000";
             }
         }
         //strStdCsAllStdSave = "6886"+zhiling+"0000000000"+sjStr+"0000";
