@@ -28,8 +28,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="110dp"
@@ -57,6 +57,12 @@
                 android:theme="@style/textSize_26_b"
                 android:gravity="center"
                 android:text="@string/dianzuzhi"/>
+            <LinearLayout
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,16 +72,17 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:background="@color/current_time_text"/>
         </LinearLayout>
+
         <ListView
             android:id="@+id/lvHlDyjl"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:scrollbars="none">
 
@@ -89,8 +96,8 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:background="@color/current_time_text"/>
     </LinearLayout>
     <LinearLayout
@@ -98,14 +105,15 @@
         android:layout_height="50dp"
         android:orientation="horizontal"
         android:background="@color/bacg"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:gravity="center_vertical">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:visibility="invisible"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/tvHlDyjlDayin"
@@ -121,6 +129,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:visibility="invisible"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/tvHlDyjlShanchu"
@@ -136,6 +145,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:visibility="invisible"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/tvHlDyjlDaochu"

@@ -62,6 +62,7 @@ public class HLDyjlAdapter extends BaseAdapter {
             holder.tvJilushijian = convertView.findViewById(R.id.tvHlDyjlListItemJilusj);
             holder.tvDlz = convertView.findViewById(R.id.tvHlDyjlListItemDlz);
             holder.tvDzz = convertView.findViewById(R.id.tvHlDyjlListItemDzz);
+            holder.tvDaochu = convertView.findViewById(R.id.tvHlDyjlListItemDaochu);
 
             convertView.setTag(holder);
 
@@ -76,6 +77,13 @@ public class HLDyjlAdapter extends BaseAdapter {
             holder.tvJilushijian.setText(dataBean.getJilushijian());
             holder.tvDlz.setText(dataBean.getDlz());
             holder.tvDzz.setText(dataBean.getDzz());
+            holder.tvDaochu.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //导出分享
+
+                }
+            });
 
         }
         return convertView;
@@ -86,6 +94,7 @@ public class HLDyjlAdapter extends BaseAdapter {
         public TextView tvJilushijian;
         public TextView tvDlz;
         public TextView tvDzz;
+        public TextView tvDaochu;
 
     }
 }

@@ -21,24 +21,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:theme="@style/textSize_26_b"
-                android:text="@string/bianhao2"/>
-            <TextView
-                android:id="@+id/tvHlDzcs2Bianhao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:theme="@style/textSize_26_b"
-                android:text=""/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:theme="@style/textSize_26_b"
                 android:text="@string/dianliu2"/>
             <TextView
                 android:id="@+id/tvHlDzcs2Dianliu"
@@ -61,6 +43,24 @@
                 android:text="@string/jishi"/>
             <TextView
                 android:id="@+id/tvHlDzcs2Jishi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:theme="@style/textSize_26_b"
+                android:text=""/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/textSize_26_b"
+                android:text="@string/bianhao2"/>
+            <TextView
+                android:id="@+id/tvHlDzcs2Bianhao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"

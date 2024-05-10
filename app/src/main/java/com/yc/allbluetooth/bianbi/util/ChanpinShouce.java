@@ -39,4 +39,13 @@ public class ChanpinShouce {
             imageView.setImageDrawable(drawable);
         }
     }
+    public void qiehuanHl(Activity activity, int i, ImageView imageView){
+        if(i == 1){
+            Drawable drawable = activity.getResources().getDrawable(R.drawable.hlcpsc1);
+            imageView.setImageDrawable(drawable);
+        } else if (i == 2) {
+            Drawable drawable = activity.getResources().getDrawable(R.drawable.huilucpsc2);
+            imageView.setImageDrawable(drawable);
+        }
+    }
 }

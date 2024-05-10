@@ -1,9 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".huilu.activity.HlShijianjiaozhengActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/bacg"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/yuanjiao_bai_biankuang"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/riqi"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:theme="@style/textSize_26_b"
+                            android:gravity="center"
+                            android:visibility="invisible"
+                            android:text="@string/nian" />
+                        <TextView
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:theme="@style/textSize_26_b"
+                            android:gravity="center"
+                            android:text="@string/nian" />
+                        <TextView
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:theme="@style/textSize_26_b"
+                            android:text="@string/yue" />
+                        <TextView
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:theme="@style/textSize_26_b"
+                            android:text="@string/ri" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:theme="@style/textSize_26_b"
+                            android:text="20" />
+                        <EditText
+                            android:id="@+id/etHlSjjzNian"
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:theme="@style/textSize_26_b"
+                            android:background="@drawable/bac_bai_yinying_hei_zhijiao_shangyou"
+                            android:inputType="number"
+                            android:imeOptions="actionDone"
+                            android:maxLength="2"/>
+                        <EditText
+                            android:id="@+id/etHlSjjzYue"
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:background="@drawable/bac_bai_yinying_hei_zhijiao_shangyou"
+                            android:theme="@style/textSize_26_b"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:imeOptions="actionDone"
+                            android:layout_marginLeft="20dp"/>
+                        <EditText
+                            android:id="@+id/etHlSjjzRi"
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:imeOptions="actionDone"
+                            android:theme="@style/textSize_26_b"
+                            android:background="@drawable/bac_bai_yinying_hei_zhijiao_shangyou"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/yuanjiao_bai_biankuang"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/shijian"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:theme="@style/textSize_26_b"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:text="@string/nian" />
+                        <TextView
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:theme="@style/textSize_26_b"
+                            android:gravity="center"
+                            android:text="@string/shi" />
+                        <TextView
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:theme="@style/textSize_26_b"
+                            android:text="@string/fen" />
+                        <TextView
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:theme="@style/textSize_26_b"
+                            android:text="@string/miao" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:theme="@style/textSize_26_b"
+                            android:visibility="gone"
+                            android:text="20" />
+
+                        <EditText
+                            android:id="@+id/etHlSjjzShi"
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bac_bai_yinying_hei_zhijiao_shangyou"
+                            android:gravity="center"
+                            android:imeOptions="actionDone"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:theme="@style/textSize_26_b" />
+                        <EditText
+                            android:id="@+id/etHlSjjzFen"
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:background="@drawable/bac_bai_yinying_hei_zhijiao_shangyou"
+                            android:theme="@style/textSize_26_b"
+                            android:inputType="number"
+                            android:imeOptions="actionDone"
+                            android:maxLength="2"
+                            android:layout_marginLeft="20dp"/>
+                        <EditText
+                            android:id="@+id/etHlSjjzMiao"
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:inputType="number"
+                            android:imeOptions="actionDone"
+                            android:maxLength="2"
+                            android:theme="@style/textSize_26_b"
+                            android:background="@drawable/bac_bai_yinying_hei_zhijiao_shangyou" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tvHlSjjzQueren"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/textSize_24_b"
+                        android:background="@drawable/btn_lv_yinying_hei"
+                        android:gravity="center"
+                        android:text="@string/queren"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

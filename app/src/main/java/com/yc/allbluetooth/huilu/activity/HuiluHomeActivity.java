@@ -101,7 +101,7 @@ public class HuiluHomeActivity extends AppCompatActivity implements View.OnClick
         llDyjl = findViewById(R.id.llHlHomeDyJl);
         llSjjz = findViewById(R.id.llHlHomeSjJz);
         llCpsc = findViewById(R.id.llHlHomeCpSc);
-        tvTime = findViewById(R.id.tvHomeTime);
+        tvTime = findViewById(R.id.tvHlHomeTime);
         llDzcs.setOnClickListener(this);
         llDyjl.setOnClickListener(this);
         llSjjz.setOnClickListener(this);

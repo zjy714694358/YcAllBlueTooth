@@ -67,7 +67,7 @@ public class HlDiaoyuejiluActivity extends AppCompatActivity implements View.OnC
     private HLDyjlAdapter mAdapter;
     SharedPreferences sp;
     List<HlDiaoyuejilu> mDatas2 = new ArrayList<>();
-    ShujuchuliAdapter shujuchuliAdapter;
+    HLDyjlAdapter hlDyjlAdapter;
 
     int SjglListType = 0;
     int jinruPeizhi = 0;
@@ -255,7 +255,7 @@ public class HlDiaoyuejiluActivity extends AppCompatActivity implements View.OnC
             HlDiaoyuejilu diaoyuejilu = new HlDiaoyuejilu();
             diaoyuejilu.setId(i);
             diaoyuejilu.setBianhao("12345678");
-            diaoyuejilu.setJilushijian("2024-05-06 12:12:16");
+            diaoyuejilu.setJilushijian("2024-05-06 12:12:1"+i);
             diaoyuejilu.setDlz(i+".000");
             diaoyuejilu.setDzz(i+".000");
             mDatas.add(diaoyuejilu);

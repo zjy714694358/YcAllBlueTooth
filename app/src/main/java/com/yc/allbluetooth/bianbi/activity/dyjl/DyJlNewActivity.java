@@ -264,17 +264,17 @@ public class DyJlNewActivity extends AppCompatActivity implements View.OnClickLi
         tvFanhui.setOnClickListener(this);
         tvDayin.setOnClickListener(this);
         tvDaochu.setOnClickListener(this);
-        for(int i=0;i<10;i++){
-            DiaoyuejiluNew diaoyuejilu = new DiaoyuejiluNew();
-            diaoyuejilu.setId(i);
-            diaoyuejilu.setBianhao("12345678");
-            diaoyuejilu.setFenjie(""+i);
-            diaoyuejilu.setBbzA(i+".000");
-            diaoyuejilu.setBbzB(i+".000");
-            diaoyuejilu.setBbzC(i+".000");
-            diaoyuejilu.setCeshishijian("2024-05-06 12:12:1"+i);
-            mDatas.add(diaoyuejilu);
-        }
+//        for(int i=0;i<10;i++){
+//            DiaoyuejiluNew diaoyuejilu = new DiaoyuejiluNew();
+//            diaoyuejilu.setId(i);
+//            diaoyuejilu.setBianhao("12345678");
+//            diaoyuejilu.setFenjie(""+i);
+//            diaoyuejilu.setBbzA(i+".000");
+//            diaoyuejilu.setBbzB(i+".000");
+//            diaoyuejilu.setBbzC(i+".000");
+//            diaoyuejilu.setCeshishijian("2024-05-06 12:12:1"+i);
+//            mDatas.add(diaoyuejilu);
+//        }
         sp = this.getSharedPreferences("jiluchaxun", Activity.MODE_PRIVATE);//创建sp对象
 
         //读取数据

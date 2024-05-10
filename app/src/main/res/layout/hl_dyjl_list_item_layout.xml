@@ -11,13 +11,13 @@
         <TextView
             android:id="@+id/tvHlDyjlListItemBianhao"
             android:layout_width="110dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:theme="@style/textSize_20_b"
             android:gravity="center"/>
         <TextView
             android:id="@+id/tvHlDyjlListItemJilusj"
             android:layout_width="210dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:theme="@style/textSize_20_b"
             android:gravity="center"
             android:singleLine="true"
@@ -25,7 +25,7 @@
         <TextView
             android:id="@+id/tvHlDyjlListItemDlz"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:theme="@style/textSize_20_b"
             android:gravity="center"
@@ -33,11 +33,26 @@
         <TextView
             android:id="@+id/tvHlDyjlListItemDzz"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:theme="@style/textSize_20_b"
             android:gravity="center"
             android:text=""/>
+        <LinearLayout
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvHlDyjlListItemDaochu"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:theme="@style/textSize_20_b"
+                android:background="@drawable/btn_lv_yinying_hei"
+                android:gravity="center"
+                android:text="@string/daochu"
+                android:focusable="false"/>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
