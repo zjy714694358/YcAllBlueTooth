@@ -198,7 +198,7 @@
                     android:background="@drawable/bac_bai_yinying_hei_zhijiao"
                     android:paddingLeft="5dp"
                     android:imeOptions="actionDone"
-                    android:maxEms="8"
+                    android:maxLength="8"
                     android:text="A123456"/>
             </LinearLayout>
         </LinearLayout>

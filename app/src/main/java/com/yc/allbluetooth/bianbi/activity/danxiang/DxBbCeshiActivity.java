@@ -317,7 +317,16 @@ public class DxBbCeshiActivity extends AppCompatActivity {
     }
     @Override
     protected void onDestroy() {
-        ActivityCollector.removeActivity(DxBbCeshiActivity.this);
         super.onDestroy();
+        Log.e(TAG,"onDestroy()");
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+        }
+        if(bleConnectUtil.mBluetoothGatt!=null){
+            bleConnectUtil.mBluetoothGatt.close();
+        }
+        bleConnectUtil.setCallback(null);
+//        bleConnectUtil.disConnect();
+//        mHandler.removeCallbacksAndMessages(null);
+        ActivityCollector.removeActivity(this);
     }
 }

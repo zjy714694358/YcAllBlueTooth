@@ -103,7 +103,7 @@ public class SxBbActivity extends AppCompatActivity implements View.OnClickListe
                                 }else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"74")){//d-y-z
                                     sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("75", "00"), "");
                                 }else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"75")){//组别号：0-11-未知
-                                    sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("76", "11"), "");
+                                    sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("76", "0B"), "");
                                 }else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"76")){
                                     //sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("6d",""),"");
                                     sendDataByBle(SendUtil.initSendBianbiNew8("6d", StrToAsc.ToAscii("A123456",8)),"");
@@ -176,7 +176,7 @@ public class SxBbActivity extends AppCompatActivity implements View.OnClickListe
                             sendDataByBle(SendUtil.ShuruSizijieSend("70", "10.00"), "");
                         }else {
                             Config.bbEdgy = edgy;
-                            sendDataByBle(SendUtil.dlzkCanshuShuruSizijieSend("70", edgy), "");
+                            sendDataByBle(SendUtil.ShuruSizijieSend("70", edgy), "");
                         }
                         break;
                 }
@@ -196,7 +196,7 @@ public class SxBbActivity extends AppCompatActivity implements View.OnClickListe
                             sendDataByBle(SendUtil.ShuruSizijieSend("71", "0.4"), "");
                         }else {
                             Config.bbEddy = eddy;
-                            sendDataByBle(SendUtil.dlzkCanshuShuruSizijieSend("71", eddy), "");
+                            sendDataByBle(SendUtil.ShuruSizijieSend("71", eddy), "");
                         }
                         break;
                 }
@@ -421,7 +421,16 @@ public class SxBbActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     protected void onDestroy() {
-        ActivityCollector.removeActivity(SxBbActivity.this);
         super.onDestroy();
+        Log.e(TAG,"onDestroy()");
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+        }
+        if(bleConnectUtil.mBluetoothGatt!=null){
+            bleConnectUtil.mBluetoothGatt.close();
+        }
+        bleConnectUtil.setCallback(null);
+//        bleConnectUtil.disConnect();
+//        mHandler.removeCallbacksAndMessages(null);
+        ActivityCollector.removeActivity(this);
     }
 }

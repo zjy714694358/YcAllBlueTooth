@@ -476,4 +476,18 @@ public class DyJlNewActivity extends AppCompatActivity implements View.OnClickLi
             finish();
         }
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e(TAG,"onDestroy()");
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+        }
+        if(bleConnectUtil.mBluetoothGatt!=null){
+            bleConnectUtil.mBluetoothGatt.close();
+        }
+        bleConnectUtil.setCallback(null);
+//        bleConnectUtil.disConnect();
+//        mHandler.removeCallbacksAndMessages(null);
+        ActivityCollector.removeActivity(this);
+    }
 }

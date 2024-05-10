@@ -167,7 +167,7 @@ public class SxBbCeshiActivity extends AppCompatActivity {
                             }
                             jinru +=1;
                             Log.e("进入==1", jinru+"");
-                            if(jinru==19){
+                            if(jinru==15){
                                 lianjiefangshi = LianjieZubie.getYi2(gyjxlx)+LianjieZubie.getEr2(dyjxlx)+LianjieZubie.getSan2(zubie);
                                 finish();
                                 Intent intent = new Intent(SxBbCeshiActivity.this, SxBbEndActivity.class);
@@ -363,7 +363,16 @@ public class SxBbCeshiActivity extends AppCompatActivity {
     }
     @Override
     protected void onDestroy() {
-        ActivityCollector.removeActivity(SxBbCeshiActivity.this);
         super.onDestroy();
+        Log.e(TAG,"onDestroy()");
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+        }
+        if(bleConnectUtil.mBluetoothGatt!=null){
+            bleConnectUtil.mBluetoothGatt.close();
+        }
+        bleConnectUtil.setCallback(null);
+//        bleConnectUtil.disConnect();
+//        mHandler.removeCallbacksAndMessages(null);
+        ActivityCollector.removeActivity(this);
     }
 }

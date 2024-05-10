@@ -188,8 +188,8 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
         tvZbC.setText(zabiC);
         XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
         String edbb = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(Config.bbEdgy),xiaoshuYunsuan.xiaoshu(Config.bbEddy))+"";
-        String edbbWu = StringUtils.wuweiYouxiaoStr(edbb);
-        tvFjzhi.setText(edbbWu);
+        //String edbbWu = StringUtils.wuweiYouxiaoStr(edbb);
+        //tvFjzhi.setText(edbbWu);
         //String edfj = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(Config.bbFjzs),xiaoshuYunsuan.xiaoshu("2"))+"";
         int edfj = (StringUtils.strToInt(Config.bbFjzs)+1)/2;
         Log.e(TAG,"额定分接："+edfj);
@@ -203,6 +203,7 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
         Log.e(TAG,"误差比率："+wuchaBilv);
         String duiyingBb = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(edbb),xiaoshuYunsuan.xiaoshu(wuchaBilv))+"";
         Log.e(TAG,"对应分接变比："+duiyingBb);
+        tvFjzhi.setText(duiyingBb);
         String shijiA = xiaoshuYunsuan.xiaoshuJian(xiaoshuYunsuan.xiaoshu(bianbiA),xiaoshuYunsuan.xiaoshu(duiyingBb))+"";
         String shijiB = xiaoshuYunsuan.xiaoshuJian(xiaoshuYunsuan.xiaoshu(bianbiB),xiaoshuYunsuan.xiaoshu(duiyingBb))+"";
         String shijiC = xiaoshuYunsuan.xiaoshuJian(xiaoshuYunsuan.xiaoshu(bianbiC),xiaoshuYunsuan.xiaoshu(duiyingBb))+"";
@@ -219,9 +220,9 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
         sanxiangEndImg.getImg2(ivZbsl,zubie);
         int zubieI = ShiOrShiliu.parseInt(zubie);
         int jiaodu = zubieI*30;
-        if(jiaodu==360){
-            jiaodu=0;
-        }
+//        if(jiaodu==360){
+//            jiaodu=0;
+//        }
         Random random = new Random();
         double randomNum1 = random.nextDouble()*0.5;
         double randomNum2 = random.nextDouble()*0.5;
@@ -234,8 +235,8 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
         String jdB = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu(jiaodu+""),xiaoshuYunsuan.xiaoshu(formattedNum2))+"";
         String jdC = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu(jiaodu+""),xiaoshuYunsuan.xiaoshu(formattedNum3))+"";
         tvJdA.setText(jdA);
-        tvJdA.setText(jdB);
-        tvJdA.setText(jdC);
+        tvJdB.setText(jdB);
+        tvJdC.setText(jdC);
         tvWcA.setText(wucha2A);
         tvWcB.setText(wucha2B);
         tvWcC.setText(wucha2C);
@@ -366,8 +367,17 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
     }
     @Override
     protected void onDestroy() {
-        ActivityCollector.removeActivity(SxBbEndActivity.this);
         super.onDestroy();
+        Log.e(TAG,"onDestroy()");
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+        }
+        if(bleConnectUtil.mBluetoothGatt!=null){
+            bleConnectUtil.mBluetoothGatt.close();
+        }
+        bleConnectUtil.setCallback(null);
+//        bleConnectUtil.disConnect();
+//        mHandler.removeCallbacksAndMessages(null);
+        ActivityCollector.removeActivity(this);
     }
 
     @Override
