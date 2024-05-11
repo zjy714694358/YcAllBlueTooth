@@ -13,6 +13,8 @@ import android.widget.LinearLayout;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.bianbi.util.ChanpinShouce;
+import com.yc.allbluetooth.config.Config;
+import com.yc.allbluetooth.utils.StringUtils;
 
 
 /**
@@ -81,6 +83,13 @@ public class ChanpinScFragment extends Fragment implements View.OnClickListener 
         llXia = view.findViewById(R.id.llBbXtCpscXia);
         llShang.setOnClickListener(this);
         llXia.setOnClickListener(this);
+        if(StringUtils.isEquals(Config.zyType,"zh")){
+            Drawable drawable = getResources().getDrawable(R.drawable.cpsc01);
+            ivCpsc.setImageDrawable(drawable);
+        }else {
+            Drawable drawable = getResources().getDrawable(R.drawable.cpsc011);
+            ivCpsc.setImageDrawable(drawable);
+        }
     }
 
     @Override

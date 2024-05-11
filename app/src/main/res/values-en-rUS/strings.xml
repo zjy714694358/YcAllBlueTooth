@@ -339,45 +339,45 @@
 
     <!--************************************************变比*******************************************************-->
     <!--主页四个模块-->
-    <string name="bianbiceshiyi" translatable="false">Ratio tester</string>
-    <string name="danxiangbianbi" translatable="false">Single-phase ratio</string>
-    <string name="sanxiangbianbi" translatable="false">Three-phase ratio</string>
-    <string name="diaoyuejilu" translatable="false">Retrieve records</string>
+    <string name="bianbiceshiyi" translatable="false">Transformation Ratio Tester</string>
+    <string name="danxiangbianbi" translatable="false">Single-phase Ratio</string>
+    <string name="sanxiangbianbi" translatable="false">Three-phase Ratio</string>
+    <string name="diaoyuejilu" translatable="false">Retrieval Record</string>
     <!--<string name="xitongshezhi" translatable="false">系统设置</string>-->
     <!--单相参数设置-->
     <!--<string name="canshushezhi" translatable="false">参数设置</string>-->
-    <string name="edinggaoya" translatable="false">Rated high voltage</string>
-    <string name="edingdiya" translatable="false">Rated low voltage</string>
-    <string name="fenjiezongshu" translatable="false">Total number of taps</string>
-    <string name="fenjiejianju" translatable="false">Tap spacing</string>
-    <string name="renwubianhao" translatable="false">Task number</string>
+    <string name="edinggaoya" translatable="false">Rated High-voltage</string>
+    <string name="edingdiya" translatable="false">Rated Low-voltage</string>
+    <string name="fenjiezongshu" translatable="false">Tap Number</string>
+    <string name="fenjiejianju" translatable="false">Tap Spacing</string>
+    <string name="renwubianhao" translatable="false">Project No.</string>
     <!--<string name="ceshi" translatable="false">测试</string>
     <string name="fanhui" translatable="false">返回</string>-->
     <!--单相测试中-->
     <!--<string name="zhengzaiceshi" translatable="false">正在测试</string>-->
-    <string name="fenjie" translatable="false">Tapping</string>
+    <string name="fenjie" translatable="false">Tap</string>
     <!--<string name="ceshidianliu" translatable="false">测试电流</string>-->
-    <string name="yicidianya" translatable="false">Primary voltage</string>
-    <string name="ercidianya" translatable="false">Secondary voltage</string>
+    <string name="yicidianya" translatable="false">Primary Voltage</string>
+    <string name="ercidianya" translatable="false">Secondary Voltage</string>
     <!--单相测试结果-->
-    <string name="ceshijieguo" translatable="false">Test result</string>
-    <string name="bianbi" translatable="false">Transformation ratio</string>
-    <string name="zabi" translatable="false">Turn ratio</string>
+    <string name="ceshijieguo" translatable="false">Test Results</string>
+    <string name="bianbi" translatable="false">Ratio</string>
+    <string name="zabi" translatable="false">Turns</string>
     <string name="jixing" translatable="false">Polarity</string>
     <string name="wucha" translatable="false">Error</string>
     <!--<string name="chongce" translatable="false">重测</string>
     <string name="baocun" translatable="false">保存</string>
     <string name="dayin" translatable="false">打印</string>-->
     <!--三相参数设置-->
-    <string name="lianjiezubie" translatable="false">Linking groups</string>
+    <string name="lianjiezubie" translatable="false">Winding Connection</string>
     <string name="weizhi" translatable="false">Unknown</string>
     <!--三相测试中-->
     <!--<string name="xiangbie" translatable="false">相别</string>-->
     <!--三相测试结果-->
     <string name="jiaodu" translatable="false">Angle</string>
-    <string name="zubieshiliang" translatable="false">Group vector</string>
-    <string name="fenjiezhi" translatable="false">Tapping value</string>
-    <string name="lianjiefangshi2" translatable="false">Connection method</string>
+    <string name="zubieshiliang" translatable="false">Vectorgraph</string>
+    <string name="fenjiezhi" translatable="false">Tap Value</string>
+    <string name="lianjiefangshi2" translatable="false">Connection</string>
     <!--系统设置-->
     <!--<string name="chanpinshouce" translatable="false">产品手册</string>
     <string name="shijianjiaozheng" translatable="false">时间校正</string>
