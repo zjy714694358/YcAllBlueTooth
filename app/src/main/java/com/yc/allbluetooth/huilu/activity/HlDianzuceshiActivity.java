@@ -31,7 +31,9 @@ import com.yc.allbluetooth.config.Config;
 import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.GetTime;
+import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SendUtil;
+import com.yc.allbluetooth.utils.StrToAsc;
 import com.yc.allbluetooth.utils.StringUtils;
 
 import org.w3c.dom.Text;
@@ -50,8 +52,8 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
     private EditText etSybh;
     private TextView tvKscs;
     private TextView tvFanhui;
-    String shiyanDl = "";
-    String ceshiSc = "";
+    int diyi = 0;
+    String hlCsdl = "50A";
 
     private String TAG = "HlDianzuceshiActivity";
 
@@ -75,8 +77,24 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
                 case msgKey1:
                     break;
                 case Config.BLUETOOTH_GETDATA:
-                    String msgStr = msg.obj.toString();
-                    Log.e(TAG, "Home:"+msgStr);
+                    if(StringUtils.isEquals(Config.ymType,"hlDianzuceshi")){
+                        String msgStr = msg.obj.toString();
+                        Log.i(TAG, msgStr);
+                        if(IndexOfAndSubStr.isIndexOf(msgStr,"6677")){
+                            newMsgStr = msgStr;
+                            Log.e(TAG+2,newMsgStr);
+                            if(diyi==0) {
+                                Log.e(TAG+3,newMsgStr);
+                                if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"70")==true){
+                                    Log.e(TAG,"----70------1----");
+                                    sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","01"),"");
+                                }else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"71")==true){
+                                    diyi = 1;//进入第一轮发送完毕
+                                    Log.e(TAG,"进入第一轮发送完成");
+                                }
+                            }
+                        }
+                    }
                     break;
                 default:
                     break;
@@ -104,6 +122,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
         ActivityCollector.addActivity(this);
         initModel();
         initView();
+        initSend();
     }
     public void initView(){
         tvSydl50 = findViewById(R.id.tvHlDzcsSydl50);
@@ -142,59 +161,82 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.tvHlDzcsSydl50){
-            shiyanDl = "";
+            diyi = 1;
+            hlCsdl = "50A";
             tvSydl50.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvSydl100.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
-            sendDataByBle(SendUtil.initSend(shiyanDl),"");
+            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","32"),"");
         } else if (view.getId() == R.id.tvHlDzcsSydl100) {
-            shiyanDl = "";
+            diyi = 1;
+            hlCsdl = "100A";
             tvSydl50.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvSydl100.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
-            sendDataByBle(SendUtil.initSend(shiyanDl),"");
+            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","64"),"");
         }else if (view.getId() == R.id.tvHlDzcsCssc1) {
-            ceshiSc = "";
+            diyi = 1;
             tvCssc1.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
-            sendDataByBle(SendUtil.initSend(ceshiSc),"");
+            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","01"),"");
         }else if (view.getId() == R.id.tvHlDzcsCssc3) {
-            ceshiSc = "";
+            diyi = 1;
             tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc3.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
-            sendDataByBle(SendUtil.initSend(ceshiSc),"");
+            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","03"),"");
         }else if (view.getId() == R.id.tvHlDzcsCssc10) {
-            ceshiSc = "";
+            diyi = 1;
             tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc10.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
-            sendDataByBle(SendUtil.initSend(ceshiSc),"");
+            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","0A"),"");
         }else if (view.getId() == R.id.tvHlDzcsCssc60) {
-            ceshiSc = "";
+            diyi = 1;
             tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc60.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
-            sendDataByBle(SendUtil.initSend(ceshiSc),"");
+            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","3C"),"");
         }else if (view.getId() == R.id.tvHlDzcsCsscLianxu) {
-            ceshiSc = "";
+            diyi = 1;
             tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCsscLianxu.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
-            sendDataByBle(SendUtil.initSend(ceshiSc),"");
-        }else if (view.getId() == R.id.tvHlDzcsKaishiceshi) {
-            sendDataByBle(SendUtil.initSend(""),"");
-            startActivity(new Intent(HlDianzuceshiActivity.this, HlDianzuceshi2Activity.class));
+            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","64"),"");
+        }else if (view.getId() == R.id.tvHlDzcsKaishiceshi) {//开始测试
+            sendDataByBle(SendUtil.initSend("77"),"");
+            String etBhStr = etSybh.getText().toString();
+            finish();
+            Intent intent = new Intent(HlDianzuceshiActivity.this, HlDianzuceshi2Activity.class);
+            intent.putExtra("hlCsdl",hlCsdl);
+            intent.putExtra("hlBianhao",etBhStr);
+            startActivity(intent);
+            //startActivity(new Intent(HlDianzuceshiActivity.this, HlDianzuceshi2Activity.class));
+        }else if(view.getId() == R.id.tvHlDzcsFanhui){//返回
+            //sendDataByBle(SendUtil.initSend("78"),"");
+            finish();
         }
+    }
+    public void initSend(){
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                /**
+                 *要执行的操作
+                 */
+                sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","32"),"");
+            }
+        }, 100);//3秒后执行Runnable中的run方法
     }
     public void initModel(){
         bleConnectUtil = new BleConnectUtil(HlDianzuceshiActivity.this);

@@ -45,6 +45,7 @@ import com.yc.allbluetooth.utils.DateUtil;
 import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SPUtils;
 import com.yc.allbluetooth.utils.SendUtil;
+import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StringUtils;
 
 import java.util.ArrayList;
@@ -76,6 +77,7 @@ public class HlDiaoyuejiluActivity extends AppCompatActivity implements View.OnC
 
     BleConnectUtil bleConnectUtil;
     String newMsgStr = "";
+    String newMsgStr1 = "";
     //String newMsgStr2 = "";
     //配置文件
     String sjcd;//数据长度
@@ -93,9 +95,8 @@ public class HlDiaoyuejiluActivity extends AppCompatActivity implements View.OnC
     String fen;//分
     String miao;//秒
     String rwbh;//任务编号
-    String ab;//AB
-    String bcOrJixing;//BC或者极性：1+；0-
-    String ca;//CA
+    String dianliu;//AB
+    String dianzu;//BC或者极性：1+；0-
     String crcJy;//Crc校验
     String sjxh = "";
 
@@ -121,43 +122,24 @@ public class HlDiaoyuejiluActivity extends AppCompatActivity implements View.OnC
                     if (StringUtils.isEquals(Config.ymType, "huiluDyjl")) {
                         String msgStr = msg.obj.toString();
                         Log.e(TAG + "，msg0", msgStr);
-                        if (msgStr.length() != 26) {//msgStr.length()==22||msgStr.length()>26
-                            if (IndexOfAndSubStr.isIndexOf(msgStr, "6677")) {
-                                newMsgStr = msgStr;
-                                Log.e(TAG + "6677", newMsgStr);
-                            } else {
-                                if (!IndexOfAndSubStr.isIndexOf(newMsgStr, msgStr)) {
-                                    newMsgStr = newMsgStr + msgStr;
-                                    Log.e(TAG + 2, newMsgStr);
-                                }
-//                                newMsgStr = newMsgStr + msgStr;
-//                                //可以
-//                                Log.e(TAG + "可以", newMsgStr);
-                            }
-                            if (newMsgStr.length() == 62) {//>40
+                        if (newMsgStr1.length() != 78) {//msgStr.length()==22||msgStr.length()>26
+                            if (newMsgStr1.length() == 78) {//>40
                                 //可以
-                                Log.e("newMsgStr=62", "new1:" + newMsgStr);
+                                Log.e("newMsgStr=62", "new1:" + newMsgStr1);
+                                newMsgStr = StringUtils.subStrStartToEnd(newMsgStr1,18,78);
                                 sjcd = StringUtils.subStrStartToEnd(newMsgStr, 4, 6);
                                 yqly = StringUtils.subStrStartToEnd(newMsgStr, 6, 8);
-                                danorSan = StringUtils.subStrStartToEnd(newMsgStr, 10, 12);
-                                gyjxlx = StringUtils.subStrStartToEnd(newMsgStr, 12, 14);
-                                dyjxlx = StringUtils.subStrStartToEnd(newMsgStr, 14, 16);
-                                zubie = StringUtils.subStrStartToEnd(newMsgStr, 16, 18);
-                                csfj = StringUtils.subStrStartToEnd(newMsgStr, 18, 20);
-                                edfj = StringUtils.subStrStartToEnd(newMsgStr, 20, 28);
-                                nian = StringUtils.subStrStartToEnd(newMsgStr, 28, 30);
-                                yue = StringUtils.subStrStartToEnd(newMsgStr, 30, 32);
-                                ri = StringUtils.subStrStartToEnd(newMsgStr, 32, 34);
-                                shi = StringUtils.subStrStartToEnd(newMsgStr, 34, 36);
-                                fen = StringUtils.subStrStartToEnd(newMsgStr, 36, 38);
-                                miao = StringUtils.subStrStartToEnd(newMsgStr, 38, 40);
-                                rwbh = StringUtils.subStrStartToEnd(newMsgStr, 40, 56);
-                                ab = StringUtils.subStrStartToEnd(newMsgStr, 56, 64);
-                                Log.e(TAG + "1" + "a", ab);
-                                bcOrJixing = StringUtils.subStrStartToEnd(newMsgStr, 64, 72);
-                                Log.e(TAG + "1" + "b", bcOrJixing);
-                                ca = StringUtils.subStrStartToEnd(newMsgStr, 72, 80);
-                                Log.e(TAG + "1" + "c", ca);
+                                nian = StringUtils.subStrStartToEnd(newMsgStr, 12, 14);
+                                yue = StringUtils.subStrStartToEnd(newMsgStr, 14, 16);
+                                ri = StringUtils.subStrStartToEnd(newMsgStr, 16, 18);
+                                shi = StringUtils.subStrStartToEnd(newMsgStr, 18, 20);
+                                fen = StringUtils.subStrStartToEnd(newMsgStr, 20, 22);
+                                miao = StringUtils.subStrStartToEnd(newMsgStr, 22, 24);
+                                rwbh = StringUtils.subStrStartToEnd(newMsgStr, 24, 40);
+                                dianliu = StringUtils.subStrStartToEnd(newMsgStr, 40, 48);
+                                Log.e(TAG + "1" + "a", dianliu);
+                                dianzu = StringUtils.subStrStartToEnd(newMsgStr, 48, 56);
+                                Log.e(TAG + "1" + "b", dianzu);
                                 crcJy = StringUtils.subStrStartToEnd(newMsgStr,80,84);
 
                                 if (!StringUtils.isEquals(sjxh, "ABAB")) {
@@ -165,10 +147,16 @@ public class HlDiaoyuejiluActivity extends AppCompatActivity implements View.OnC
                                     Config.getSjglListId += 1;
                                     jlCx.setId(Config.getSjglListId);
                                     //if(!(ShiOrShiliu.parseInt(nian)<2021)){
-                                    jlCx.setJilushijian("20" + nian + "-" + yue + "-" + ri + " " + shi + ":" + fen + ":" + miao);
+                                    String nian2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(nian));
+                                    String yue2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(yue));
+                                    String ri2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(ri));
+                                    String shi2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(shi));
+                                    String fen2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(fen));
+                                    String miao2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(miao));
+                                    jlCx.setJilushijian("20" + nian2 + "-" + yue2 + "-" + ri2 + " " + shi2 + ":" + fen2 + ":" + miao2);
                                     jlCx.setBianhao(rwbh);
-                                    jlCx.setDlz(csfj);
-                                    jlCx.setDzz(ab);
+                                    jlCx.setDlz(dianliu);
+                                    jlCx.setDzz(dianzu);
                                     mDatas2.add(jlCx);
 
                                     //根据时间属性去重
@@ -197,12 +185,13 @@ public class HlDiaoyuejiluActivity extends AppCompatActivity implements View.OnC
                                     });
                                     // }
 
-//                            //更新UI数据列表
+                                    //更新UI数据列表
                                     mAdapter = new HLDyjlAdapter(HlDiaoyuejiluActivity.this, mDatas);
                                     lv.setAdapter(mAdapter);
                                     //Config.getSjglListType+=1;
                                     SjglListType += 1;
-                                    sendDataByBle(SendUtil.jiluchaxunSend("6b", SjglListType), "");
+                                    sendDataByBle(SendUtil.jiluchaxunSendBb("6c", SjglListType), "");
+                                    newMsgStr1 = "";
                                 } else {
                                     SjglListType -= 1;
                                 }
@@ -210,7 +199,7 @@ public class HlDiaoyuejiluActivity extends AppCompatActivity implements View.OnC
                                 Gson gson = new Gson();
                                 String jsonStr = gson.toJson(mDatas); //将List转换成Json
                                 SharedPreferences.Editor editor = sp.edit();
-                                editor.putString("jiluchaxunList", jsonStr); //存入json串
+                                editor.putString("hljiluchaxunList", jsonStr); //存入json串
                                 editor.commit();  //提交
 
                             }
@@ -334,7 +323,7 @@ public class HlDiaoyuejiluActivity extends AppCompatActivity implements View.OnC
                     /**
                      *要执行的操作
                      */
-                    sendDataByBle(SendUtil.jiluchaxunSend("6c", 0), "");
+                    sendDataByBle(SendUtil.jiluchaxunSendBb("6c", 0), "");
                 }
             }, 1000);//3秒后执行Runnable中的run方法
         }

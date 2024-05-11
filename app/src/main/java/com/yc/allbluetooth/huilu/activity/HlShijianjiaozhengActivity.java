@@ -3,8 +3,11 @@ package com.yc.allbluetooth.huilu.activity;
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -33,6 +36,7 @@ import java.util.Locale;
 
 public class HlShijianjiaozhengActivity extends AppCompatActivity {
 
+    String TAG = "HlShijianjiaozhengActivity";
     private EditText etNian;
     private EditText etYue;
     private EditText etRi;
@@ -40,6 +44,7 @@ public class HlShijianjiaozhengActivity extends AppCompatActivity {
     private EditText etFen;
     private EditText etMiao;
     private TextView tvQueren;
+    private TextView tvFanhui;
 
     BleConnectUtil bleConnectUtil;
     String newMsgStr = "";
@@ -99,6 +104,7 @@ public class HlShijianjiaozhengActivity extends AppCompatActivity {
         etFen = findViewById(R.id.etHlSjjzFen);
         etMiao = findViewById(R.id.etHlSjjzMiao);
         tvQueren = findViewById(R.id.tvHlSjjzQueren);
+        tvFanhui = findViewById(R.id.tvHlSjjzFanhui);
         tvQueren.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,7 +123,12 @@ public class HlShijianjiaozhengActivity extends AppCompatActivity {
                         StringUtils.bulingXiaoShiliu(miaoStr)),"");
             }
         });
-
+        tvFanhui.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         String timeStr = GetTime.getTime(3);
         String nian = StringUtils.subStrStartToEnd(timeStr,0,2);
         String yue = StringUtils.subStrStartToEnd(timeStr,2,4);
@@ -260,5 +271,17 @@ public class HlShijianjiaozhengActivity extends AppCompatActivity {
                 }
             }, (currentSendAllOrder.length() / 40 + 1) * 15);
         }
+    }
+    @Override
+    protected void onDestroy() {
+        Log.e(TAG,"onDestroy()");
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+        }
+        if(bleConnectUtil.mBluetoothGatt!=null){
+            bleConnectUtil.mBluetoothGatt.close();
+        }
+        ActivityCollector.removeActivity(this);
+        super.onDestroy();
     }
 }

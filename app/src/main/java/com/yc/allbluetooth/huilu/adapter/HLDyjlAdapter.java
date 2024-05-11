@@ -1,17 +1,36 @@
 package com.yc.allbluetooth.huilu.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import androidx.core.content.FileProvider;
+
 import com.yc.allbluetooth.R;
+import com.yc.allbluetooth.bianbi.adapter.DyjlNewAdapter;
 import com.yc.allbluetooth.bianbi.entity.DiaoyuejiluNew;
 import com.yc.allbluetooth.huilu.entity.HlDiaoyuejilu;
+import com.yc.allbluetooth.poi.PoiUtils;
+import com.yc.allbluetooth.utils.BytesToHexString;
+import com.yc.allbluetooth.utils.GetTime;
+import com.yc.allbluetooth.utils.HexUtil;
+import com.yc.allbluetooth.utils.IndexOfAndSubStr;
+import com.yc.allbluetooth.utils.ShiOrShiliu;
+import com.yc.allbluetooth.utils.StringUtils;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author ZJY
@@ -73,15 +92,73 @@ public class HLDyjlAdapter extends BaseAdapter {
 
         final HlDiaoyuejilu dataBean = mDatas.get(position);
         if (dataBean != null) {
-            holder.tvBianhao.setText(dataBean.getBianhao());
+
+            String bianhao = "";
+            if(IndexOfAndSubStr.isIndexOf(dataBean.getBianhao(),"FFFF")==false){
+                bianhao = BytesToHexString.hexStr2Str2(HexUtil.reverseHex(dataBean.getBianhao()));
+            }
+            holder.tvBianhao.setText(bianhao);
             holder.tvJilushijian.setText(dataBean.getJilushijian());
-            holder.tvDlz.setText(dataBean.getDlz());
-            holder.tvDzz.setText(dataBean.getDzz());
+
+            String dianliuzhi = "";
+            String dianzuzhi = "";
+            if(StringUtils.noEmpty(dataBean.getDlz())){
+                dianliuzhi = ShiOrShiliu.hexToFloatWuBuhuan(dataBean.getDlz());
+            }
+            if(StringUtils.noEmpty(dataBean.getDzz())){
+                dianzuzhi = ShiOrShiliu.hexToFloatWuBuhuan(dataBean.getDzz());
+            }
+            holder.tvDlz.setText(dianliuzhi);
+            holder.tvDzz.setText(dianzuzhi);
+            HLDyjlAdapter.ViewHolder finalHolder = holder;
             holder.tvDaochu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     //导出分享
+                    Log.e("", dataBean.getJilushijian());
+                    try {
+                        String lujingStr = "";
+//                         String targetDocPath = getContext().getExternalFilesDir("poi").getPath() + File.separator + "模板3"+".doc";//这个目录，不需要申请存储权限
+                        //InputStream templetDocStream = mContext.getAssets().open("10kV变压器.doc");
+                        InputStream templetDocStream = mContext.getAssets().open("回路.doc");
+                        String targetDocPath = mContext.getExternalFilesDir("poi").getPath() + File.separator + GetTime.getTime(3)+ ".doc";//这个目录，不需要申请存储权限//"10kV干式变压器报告5"
 
+                        Log.e("=====", targetDocPath);
+                        lujingStr = IndexOfAndSubStr.subStrStart(targetDocPath,targetDocPath.length()-18);
+                        Log.e("=====", lujingStr);
+
+                        Map<String, String> dataMap = new HashMap<String, String>();
+                        dataMap.put("$bianhao$", finalHolder.tvBianhao.getText().toString());
+                        dataMap.put("$dianliuzhi$", finalHolder.tvDzz.getText().toString());
+                        dataMap.put("$dianzuzhi$", finalHolder.tvDlz.getText().toString());
+                        dataMap.put("$jilushijian$",dataBean.getJilushijian());
+
+                        PoiUtils.writeToDoc(templetDocStream, targetDocPath, dataMap);
+                        //Log.e("TTTT==", "写入...");
+
+                        Intent share = new Intent(Intent.ACTION_SEND);
+                        File file = new File("/storage/emulated/0/Android/data/com.yc.allbluetooth/files/poi/"+lujingStr);///storage/emulated/0/Android/data/com.yc.allbluetooth/files/poi/23051500090137.doc
+
+                        Uri contentUri = null;
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            share.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                            contentUri = FileProvider.getUriForFile(mContext, mContext.getPackageName()+".FileProvider" , file);
+                            share.putExtra(Intent.EXTRA_STREAM, contentUri);
+                            share.setType("application/msword");// 此处可发送多种文件
+                        } else {
+                            share.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+                            share.setType("application/msword");// 此处可发送多种文件
+                        }
+                        try{
+                            mContext.startActivity(Intent.createChooser(share, "Share"));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+
+                    } catch(IOException e){
+                        e.printStackTrace();
+                    }
                 }
             });
 

@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/zhuti"
-        android:gravity="center"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
@@ -18,10 +19,6 @@
             android:theme="@style/textSize_26_b"
             android:text="@string/huiludianzuceshiyi"/>
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/white"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -121,10 +118,6 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/white"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"

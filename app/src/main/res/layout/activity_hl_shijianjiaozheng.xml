@@ -224,6 +224,15 @@
                         android:background="@drawable/btn_lv_yinying_hei"
                         android:gravity="center"
                         android:text="@string/queren"/>
+                    <TextView
+                        android:id="@+id/tvHlSjjzFanhui"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/textSize_24_b"
+                        android:layout_marginTop="50dp"
+                        android:background="@drawable/btn_lv_yinying_hei"
+                        android:gravity="center"
+                        android:text="@string/fanhui"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

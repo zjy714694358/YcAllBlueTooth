@@ -51,11 +51,11 @@
             android:name=".huilu.activity.HuiluHomeActivity"
             android:exported="true"
             android:screenOrientation="landscape">
-            <!--<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
         <activity
             android:name=".bianbi.activity.dyjl.DyJlNewActivity"
@@ -296,11 +296,11 @@
             android:name=".activity.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
     </application>
 

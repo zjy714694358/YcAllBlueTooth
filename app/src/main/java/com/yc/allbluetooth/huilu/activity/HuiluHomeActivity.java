@@ -30,6 +30,7 @@ import com.yc.allbluetooth.config.Config;
 import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.GetTime;
+import com.yc.allbluetooth.utils.SendUtil;
 import com.yc.allbluetooth.utils.StringUtils;
 
 import java.util.Locale;
@@ -92,7 +93,7 @@ public class HuiluHomeActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_huilu_home);
         Config.ymType = "huiluHome";
         ActivityCollector.addActivity(this);
-        initModel();
+        //initModel();
         initView();
         new TimeThread().start();
     }
@@ -111,6 +112,7 @@ public class HuiluHomeActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         if(view.getId()==R.id.llHlHomeDzCs){//电阻测试
+            //sendDataByBle(SendUtil.initSend("6a"),"");
             startActivity(new Intent(HuiluHomeActivity.this, HlDianzuceshiActivity.class));
         } else if (view.getId()==R.id.llHlHomeDyJl) {//调阅记录
             startActivity(new Intent(HuiluHomeActivity.this, HlDiaoyuejiluActivity.class));

@@ -222,7 +222,7 @@ public class DyJlNewActivity extends AppCompatActivity implements View.OnClickLi
                                 Gson gson = new Gson();
                                 String jsonStr = gson.toJson(mDatas); //将List转换成Json
                                 SharedPreferences.Editor editor = sp.edit();
-                                editor.putString("jiluchaxunList", jsonStr); //存入json串
+                                editor.putString("bbjiluchaxunList", jsonStr); //存入json串
                                 editor.commit();  //提交
 
                             }

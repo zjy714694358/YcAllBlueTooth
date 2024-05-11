@@ -51,6 +51,7 @@ import com.yc.allbluetooth.dlzk.activity.DlzkHomeActivity;
 import com.yc.allbluetooth.dtd10c.activity.Dtd10cHomeActivity;
 import com.yc.allbluetooth.entity.BlueTooth;
 import com.yc.allbluetooth.entity.EventMsg;
+import com.yc.allbluetooth.huilu.activity.HuiluHomeActivity;
 import com.yc.allbluetooth.poi.PoiUtils;
 import com.yc.allbluetooth.std.activity.StdHomeActivity;
 import com.yc.allbluetooth.utils.ActivityCollector;
@@ -171,10 +172,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Config.yqlx = yqlx;
                         Config.yzBenjiAddress = bjdz;
                         startActivity(new Intent(MainActivity.this, YzHomeActivity.class));
-                    }else if(IndexOfAndSubStr.isIndexOf(newMsgStr, "6677") && newMsgStr.length() == 18){//确定设备型号是有载
+                    }else if(IndexOfAndSubStr.isIndexOf(newMsgStr, "6677") && newMsgStr.length() == 18){//确定设备型号
                         yqlx = StringUtils.subStrStartToEnd(newMsgStr, 8, 10);
                         if (StringUtils.isEquals(yqlx, "38")) {//变比
                             startActivity(new Intent(MainActivity.this, BbHomeActivity.class));
+                        }else if(StringUtils.isEquals(yqlx, "39")){//回路
+                            startActivity(new Intent(MainActivity.this, HuiluHomeActivity.class));
                         }
                     }else{//如果不是助磁、直阻、短路阻抗，发送获取有载设备型号指令
                         sendDataByBle("feefaaaa5555fddf","");//feef..aa5555fddf(..:04/05)
