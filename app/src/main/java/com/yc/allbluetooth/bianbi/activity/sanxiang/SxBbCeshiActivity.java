@@ -2,9 +2,6 @@ package com.yc.allbluetooth.bianbi.activity.sanxiang;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.Intent;
@@ -21,18 +18,16 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.yc.allbluetooth.R;
-import com.yc.allbluetooth.bianbi.activity.danxiang.DxBbCeshiActivity;
-import com.yc.allbluetooth.bianbi.activity.danxiang.DxBbEndActivity;
 import com.yc.allbluetooth.bianbi.util.LianjieZubie;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
-import com.yc.allbluetooth.crc.CrcUtil;
 import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
-import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SendUtil;
 import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StringUtils;
@@ -54,6 +49,7 @@ public class SxBbCeshiActivity extends AppCompatActivity {
     private TextView tvFanhui;
 
     String crcJy =  "";
+    String beiyong = "";//备用===》扩大一百倍的角度
     String sjxz = "";//1电流；2变比匝比
     String csxw = "";
     String csdl = "";
@@ -76,6 +72,10 @@ public class SxBbCeshiActivity extends AppCompatActivity {
     String jixingA = "";
     String jixingB = "";
     String jixingC = "";
+    String jiaodu = "";
+    String jiaoduA = "";
+    String jiaoduB = "";
+    String jiaoduC = "";
     String lianjiefangshi = "";
 
 
@@ -115,6 +115,7 @@ public class SxBbCeshiActivity extends AppCompatActivity {
                             crcJy = StringUtils.subStrStartToEnd(newMsgStr,40,44);
                             //Log.e("tfxx==1", CrcUtil.getTableCRC(bytesSx));
                             //if(CrcUtil.CrcIsOk(bytesSx,crcJy)){
+                            beiyong = StringUtils.subStrStartToEnd(newMsgStr,8,12);//扩大一百倍的角度
                             sjxz = StringUtils.subStrStartToEnd(newMsgStr,12,14);//数据性质：1、电流电压；2、测试变比匝比
                             csxw = StringUtils.subStrStartToEnd(newMsgStr,14,16);//测试相位0：AB；1：BC；2：CA
                             csdl = StringUtils.subStrStartToEnd(newMsgStr,16,24);//测试电流；测试变比
@@ -140,6 +141,7 @@ public class SxBbCeshiActivity extends AppCompatActivity {
 //                                } else if (StringUtils.isEquals(jixing,"00")) {
 //                                    jixingA = "-";
 //                                }
+                                jiaoduA = ShiOrShiliu.parseInt(beiyong)+"";
                                 bianbiA = ShiOrShiliu.hexToFloatWuBuhuan(bianbi);
                                 zabiA = ShiOrShiliu.hexToFloatWuBuhuan(zabi);
                             }else if(StringUtils.isEquals(csxw,"01")){
@@ -151,6 +153,7 @@ public class SxBbCeshiActivity extends AppCompatActivity {
 //                                } else if (StringUtils.isEquals(jixing,"00")) {
 //                                    jixingB = "-";
 //                                }
+                                jiaoduB = ShiOrShiliu.parseInt(beiyong)+"";
                                 bianbiB = ShiOrShiliu.hexToFloatWuBuhuan(bianbi);
                                 zabiB = ShiOrShiliu.hexToFloatWuBuhuan(zabi);
                             }else if(StringUtils.isEquals(csxw,"02")){
@@ -162,6 +165,7 @@ public class SxBbCeshiActivity extends AppCompatActivity {
 //                                } else if (StringUtils.isEquals(jixing,"00")) {
 //                                    jixingC = "-";
 //                                }
+                                jiaoduC = ShiOrShiliu.parseInt(beiyong)+"";
                                 bianbiC = ShiOrShiliu.hexToFloatWuBuhuan(bianbi);
                                 zabiC = ShiOrShiliu.hexToFloatWuBuhuan(zabi);
                             }
@@ -174,10 +178,13 @@ public class SxBbCeshiActivity extends AppCompatActivity {
                                 intent.putExtra("bbfenjie",fenjie);
                                 intent.putExtra("bbbianbiA",bianbiA);
                                 intent.putExtra("bbzabiA",zabiA);
+                                intent.putExtra("bbjdA",jiaoduA);
                                 intent.putExtra("bbbianbiB",bianbiB);
                                 intent.putExtra("bbzabiB",zabiB);
+                                intent.putExtra("bbjdB",jiaoduB);
                                 intent.putExtra("bbbianbiC",bianbiC);
                                 intent.putExtra("bbzabiC",zabiC);
+                                intent.putExtra("bbjdC",jiaoduC);
                                 intent.putExtra("bblianjiefangshi",lianjiefangshi);
                                 intent.putExtra("bbzubie",zubie);
                                 startActivity(intent);

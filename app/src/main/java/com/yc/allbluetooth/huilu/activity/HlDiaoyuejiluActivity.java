@@ -2,10 +2,6 @@ package com.yc.allbluetooth.huilu.activity;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.app.Activity;
 import android.bluetooth.BluetoothGattCharacteristic;
@@ -26,23 +22,23 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.yc.allbluetooth.R;
-import com.yc.allbluetooth.bianbi.activity.dyjl.DyJlNewActivity;
-import com.yc.allbluetooth.bianbi.adapter.DyjlNewAdapter;
 import com.yc.allbluetooth.bianbi.entity.DiaoyuejiluNew;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
-import com.yc.allbluetooth.dlzk.adapter.ShujuchuliAdapter;
 import com.yc.allbluetooth.dlzk.entity.Shujuchuli;
 import com.yc.allbluetooth.huilu.adapter.HLDyjlAdapter;
 import com.yc.allbluetooth.huilu.entity.HlDiaoyuejilu;
 import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.DateUtil;
-import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SPUtils;
 import com.yc.allbluetooth.utils.SendUtil;
 import com.yc.allbluetooth.utils.ShiOrShiliu;
@@ -140,7 +136,7 @@ public class HlDiaoyuejiluActivity extends AppCompatActivity implements View.OnC
                                 Log.e(TAG + "1" + "a", dianliu);
                                 dianzu = StringUtils.subStrStartToEnd(newMsgStr, 48, 56);
                                 Log.e(TAG + "1" + "b", dianzu);
-                                crcJy = StringUtils.subStrStartToEnd(newMsgStr,80,84);
+                                crcJy = StringUtils.subStrStartToEnd(newMsgStr,56,60);
 
                                 if (!StringUtils.isEquals(sjxh, "ABAB")) {
                                     HlDiaoyuejilu jlCx = new HlDiaoyuejilu();
@@ -240,16 +236,16 @@ public class HlDiaoyuejiluActivity extends AppCompatActivity implements View.OnC
         tvFanhui.setOnClickListener(this);
         tvDayin.setOnClickListener(this);
         tvDaochu.setOnClickListener(this);
-        for(int i=0;i<10;i++){
-            HlDiaoyuejilu diaoyuejilu = new HlDiaoyuejilu();
-            diaoyuejilu.setId(i);
-            diaoyuejilu.setBianhao("12345678");
-            diaoyuejilu.setJilushijian("2024-05-06 12:12:1"+i);
-            diaoyuejilu.setDlz(i+".000");
-            diaoyuejilu.setDzz(i+".000");
-            mDatas.add(diaoyuejilu);
-        }
-        sp = this.getSharedPreferences("jiluchaxun", Activity.MODE_PRIVATE);//创建sp对象
+//        for(int i=0;i<10;i++){
+//            HlDiaoyuejilu diaoyuejilu = new HlDiaoyuejilu();
+//            diaoyuejilu.setId(i);
+//            diaoyuejilu.setBianhao("12345678");
+//            diaoyuejilu.setJilushijian("2024-05-06 12:12:1"+i);
+//            diaoyuejilu.setDlz(i+".000");
+//            diaoyuejilu.setDzz(i+".000");
+//            mDatas.add(diaoyuejilu);
+//        }
+        sp = this.getSharedPreferences("hljiluchaxun", Activity.MODE_PRIVATE);//创建sp对象
 
         //读取数据
         //SharedPreferences sp = this.getSharedPreferences("SP_NewUserModel_List",Activity.MODE_PRIVATE);//创建sp对象,如果有key为"SP_PEOPLE"的sp就取出

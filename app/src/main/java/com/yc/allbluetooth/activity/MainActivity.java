@@ -2,17 +2,6 @@ package com.yc.allbluetooth.activity;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
-
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -26,19 +15,27 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.adapter.BlueToothListBaseAdapter;
@@ -46,44 +43,27 @@ import com.yc.allbluetooth.bianbi.activity.BbHomeActivity;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
-import com.yc.allbluetooth.crc.CrcUtil;
 import com.yc.allbluetooth.dlzk.activity.DlzkHomeActivity;
 import com.yc.allbluetooth.dtd10c.activity.Dtd10cHomeActivity;
 import com.yc.allbluetooth.entity.BlueTooth;
 import com.yc.allbluetooth.entity.EventMsg;
 import com.yc.allbluetooth.huilu.activity.HuiluHomeActivity;
-import com.yc.allbluetooth.poi.PoiUtils;
 import com.yc.allbluetooth.std.activity.StdHomeActivity;
 import com.yc.allbluetooth.utils.ActivityCollector;
-import com.yc.allbluetooth.utils.BytesToHexString;
 import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.Constants;
-import com.yc.allbluetooth.utils.GetTime;
-import com.yc.allbluetooth.utils.HexUtil;
 import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SendUtil;
-import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StringUtils;
-import com.yc.allbluetooth.utils.XiaoshuYunsuan;
 import com.yc.allbluetooth.youzai.activity.YzHomeActivity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-import java.util.Random;
-import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -126,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             switch (msg.what) {
                 case Config.BLUETOOTH_GETDATA:
                     String msgStr = msg.obj.toString();
-                    Log.e(TAG, msgStr);
+                    Log.e(TAG+"接收2===", msgStr);
                     if (IndexOfAndSubStr.isIndexOf(msgStr, "6677")) {
                         //newMsgStr2 = "";
                         newMsgStr = msgStr;
@@ -160,8 +140,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 startActivity(new Intent(MainActivity.this, Dtd10cHomeActivity.class));
                             } else if (StringUtils.isEquals(yqlx, "33")) {//短路阻抗
                                 startActivity(new Intent(MainActivity.this, DlzkHomeActivity.class));
-                            } else if (StringUtils.isEquals(yqlx, "38")) {//变比
-                                startActivity(new Intent(MainActivity.this, BbHomeActivity.class));
                             }
                         }
 

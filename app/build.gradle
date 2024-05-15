@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
 }
 android {
+
     compileSdk 32
 
     defaultConfig {
@@ -23,6 +24,10 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    aaptOptions{
+        //是否开启png图片优化检查，目前开启会打包失败
+        cruncherEnabled = false;
     }
 }
 

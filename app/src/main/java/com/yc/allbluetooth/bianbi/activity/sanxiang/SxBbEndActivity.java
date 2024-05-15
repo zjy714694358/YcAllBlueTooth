@@ -173,10 +173,13 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
         String fenjie = intent.getStringExtra("bbfenjie");
         String bianbiA = intent.getStringExtra("bbbianbiA");
         String zabiA = intent.getStringExtra("bbzabiA");
+        String jiaoduA = intent.getStringExtra("bbjdA");
         String bianbiB = intent.getStringExtra("bbbianbiB");
         String zabiB = intent.getStringExtra("bbzabiB");
+        String jiaoduB = intent.getStringExtra("bbjdB");
         String bianbiC = intent.getStringExtra("bbbianbiC");
         String zabiC = intent.getStringExtra("bbzabiC");
+        String jiaoduC = intent.getStringExtra("bbjdC");
         String ljfs = intent.getStringExtra("bblianjiefangshi");
         String zubie = intent.getStringExtra("bbzubie");
         tvFj.setText(fenjie);
@@ -218,22 +221,24 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
         Log.e(TAG,"误差2："+wucha2A+wucha2B+wucha2C);
         SanxiangEndImg sanxiangEndImg = new SanxiangEndImg();
         sanxiangEndImg.getImg2(ivZbsl,zubie);
-        int zubieI = ShiOrShiliu.parseInt(zubie);
-        int jiaodu = zubieI*30;
-//        if(jiaodu==360){
-//            jiaodu=0;
-//        }
-        Random random = new Random();
-        double randomNum1 = random.nextDouble()*0.5;
-        double randomNum2 = random.nextDouble()*0.5;
-        double randomNum3 = random.nextDouble()*0.5;
-        DecimalFormat decimalFormat = new DecimalFormat("#0.00");
-        String formattedNum1 = decimalFormat.format(randomNum1);
-        String formattedNum2 = decimalFormat.format(randomNum2);
-        String formattedNum3 = decimalFormat.format(randomNum3);
-        String jdA = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu(jiaodu+""),xiaoshuYunsuan.xiaoshu(formattedNum1))+"";
-        String jdB = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu(jiaodu+""),xiaoshuYunsuan.xiaoshu(formattedNum2))+"";
-        String jdC = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu(jiaodu+""),xiaoshuYunsuan.xiaoshu(formattedNum3))+"";
+ //       int zubieI = ShiOrShiliu.parseInt(zubie);
+//        int jiaodu = zubieI*30;
+
+//        Random random = new Random();
+//        double randomNum1 = random.nextDouble()*0.5;
+//        double randomNum2 = random.nextDouble()*0.5;
+//        double randomNum3 = random.nextDouble()*0.5;
+//        DecimalFormat decimalFormat = new DecimalFormat("#0.00");
+//        String formattedNum1 = decimalFormat.format(randomNum1);
+//        String formattedNum2 = decimalFormat.format(randomNum2);
+//        String formattedNum3 = decimalFormat.format(randomNum3);
+//        String jdA = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu(jiaodu+""),xiaoshuYunsuan.xiaoshu(formattedNum1))+"";
+//        String jdB = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu(jiaodu+""),xiaoshuYunsuan.xiaoshu(formattedNum2))+"";
+//        String jdC = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu(jiaodu+""),xiaoshuYunsuan.xiaoshu(formattedNum3))+"";
+        String jdA = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(jiaoduA),xiaoshuYunsuan.xiaoshu("100"))+"";
+        String jdB = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(jiaoduB),xiaoshuYunsuan.xiaoshu("100"))+"";
+        String jdC = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(jiaoduC),xiaoshuYunsuan.xiaoshu("100"))+"";
+
         tvJdA.setText(jdA);
         tvJdB.setText(jdB);
         tvJdC.setText(jdC);
