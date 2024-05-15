@@ -290,7 +290,7 @@ public class SxBbCeshiActivity extends AppCompatActivity {
             //收到的数据
             byte[] receive_byte = data_char.getValue();
             String str = CheckUtils.byte2hex(receive_byte).toString();
-            //Log.e(TAG,"收..."+str);
+            Log.e(TAG,"收..."+str);
 
             Message message = new Message();
             message.obj = str;
