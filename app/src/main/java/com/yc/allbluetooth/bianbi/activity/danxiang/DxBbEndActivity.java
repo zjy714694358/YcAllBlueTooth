@@ -2,9 +2,6 @@ package com.yc.allbluetooth.bianbi.activity.danxiang;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.Intent;
@@ -22,8 +19,10 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.yc.allbluetooth.R;
-import com.yc.allbluetooth.bianbi.activity.BbHomeActivity;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
@@ -32,7 +31,6 @@ import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SendUtil;
-import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StringUtils;
 import com.yc.allbluetooth.utils.XiaoshuYunsuan;
 
@@ -307,7 +305,7 @@ public class DxBbEndActivity extends AppCompatActivity implements View.OnClickLi
         } else if (v.getId() == R.id.tvDxBbEndFanhui) {//返回
             sendDataByBle(SendUtil.initSend("7c"),"");
             finish();
-            startActivity(new Intent(DxBbEndActivity.this, BbHomeActivity.class));
+            //startActivity(new Intent(DxBbEndActivity.this, BbHomeActivity.class));
         }
     }
     @Override

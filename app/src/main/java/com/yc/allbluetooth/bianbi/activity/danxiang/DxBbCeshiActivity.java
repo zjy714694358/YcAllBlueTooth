@@ -2,9 +2,6 @@ package com.yc.allbluetooth.bianbi.activity.danxiang;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.Intent;
@@ -21,15 +18,15 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
-import com.yc.allbluetooth.crc.CrcUtil;
 import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
-import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SendUtil;
 import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StringUtils;
@@ -125,18 +122,21 @@ public class DxBbCeshiActivity extends AppCompatActivity {
                             Log.e("进入==1", jinru+"");
                                 if(jinru==19){
                                     fenjie = StringUtils.subStrStartToEnd(newMsgStr,82,84);//测试分接
+                                    String fenjie2 = ShiOrShiliu.parseInt(fenjie)+"";
                                     bianbi = StringUtils.subStrStartToEnd(newMsgStr,60,68);//变比
                                     jixing = StringUtils.subStrStartToEnd(newMsgStr,68,70);//极性：1：正；0负
+                                    Log.e(TAG,"jixing=1=="+jixing);
                                     String jixing2 = "";
                                     if(StringUtils.isEquals(jixing,"01")){
                                         jixing2 = "+";
                                     } else if (StringUtils.isEquals(jixing,"00")) {
                                         jixing2 = "-";
                                     }
+                                    Log.e(TAG,"jixing==="+jixing2);
                                     String bianbiStr = ShiOrShiliu.hexToFloatWuBuhuan(bianbi);
                                     finish();
                                     Intent intent = new Intent(DxBbCeshiActivity.this,DxBbEndActivity.class);
-                                    intent.putExtra("bbfenjie",fenjie);
+                                    intent.putExtra("bbfenjie",fenjie2);
                                     intent.putExtra("bbbianbi",bianbiStr);
                                     intent.putExtra("bbjixing",jixing2);
                                     startActivity(intent);

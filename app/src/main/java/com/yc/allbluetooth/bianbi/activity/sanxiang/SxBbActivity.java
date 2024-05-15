@@ -2,9 +2,6 @@ package com.yc.allbluetooth.bianbi.activity.sanxiang;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.Intent;
@@ -25,9 +22,10 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.yc.allbluetooth.R;
-import com.yc.allbluetooth.bianbi.activity.danxiang.DxBbActivity;
 import com.yc.allbluetooth.bianbi.util.LianjieZubie;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
@@ -36,7 +34,6 @@ import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SendUtil;
-import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StrToAsc;
 import com.yc.allbluetooth.utils.StringUtils;
 
@@ -144,6 +141,10 @@ public class SxBbActivity extends AppCompatActivity implements View.OnClickListe
         initSend();
     }
     public void initView(){
+        Config.bbEdgy = "10";
+        Config.bbEddy = "0.4";
+        Config.bbFjzs = "3";
+        Config.bbFjjj = "2.5";
         etEdgy = findViewById(R.id.etSxCsEdgy);
         etEddy = findViewById(R.id.etSxCsEddy);
         etFjzs = findViewById(R.id.etSxCsFjzs);
@@ -211,11 +212,11 @@ public class SxBbActivity extends AppCompatActivity implements View.OnClickListe
                         diyi = 1;
                         String fjzs = etFjzs.getText().toString();
                         if(StringUtils.noEmpty(fjzs)){
-                            Config.bbFjjj = StringUtils.strToInt(fjzs)+"";
+                            Config.bbFjzs = StringUtils.strToInt(fjzs)+"";
                             sendDataByBle(SendUtil.dlzkShujuSend("72", StringUtils.strToInt(fjzs)),"");
                         }else{
                             etFjzs.setText("03");
-                            Config.bbFjjj = "03";
+                            Config.bbFjzs = "03";
                             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("72", "03"), "");
                         }
                         break;
@@ -300,7 +301,7 @@ public class SxBbActivity extends AppCompatActivity implements View.OnClickListe
             String zhiling = LianjieZubie.getSan(SxBbActivity.this,tvLjzbSan,tvzbSanStr);
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("76",zhiling),"");
         } else if (v.getId() == R.id.tvSxCsCeshi) {
-            //sendDataByBle(SendUtil.initSend("77"),"");
+            sendDataByBle(SendUtil.initSend("77"),"");
             finish();
             startActivity(new Intent(SxBbActivity.this, SxBbCeshiActivity.class));
         } else if (v.getId() == R.id.tvSxCsFanhui) {

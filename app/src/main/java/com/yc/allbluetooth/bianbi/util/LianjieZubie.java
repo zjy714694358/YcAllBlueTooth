@@ -114,7 +114,7 @@ public class LianjieZubie {
     public static String getSan2(String str){
         String strEnd = "";
         if(StringUtils.isEquals(str,"00")){
-            strEnd = "00";
+            strEnd = "0";
         } else if (StringUtils.isEquals(str,"01")) {
             strEnd = "01";
         }else if (StringUtils.isEquals(str,"02")) {

@@ -40,31 +40,31 @@
                         android:layout_marginTop="5dp"
                         android:orientation="horizontal">
                         <TextView
-                            android:layout_width="45dp"
+                            android:layout_width="35dp"
                             android:layout_height="wrap_content"
-                            android:theme="@style/textSize_26_b"
+                            android:theme="@style/textSize_24_b"
                             android:gravity="center"
                             android:visibility="invisible"
                             android:text="@string/nian" />
                         <TextView
-                            android:layout_width="45dp"
+                            android:layout_width="35dp"
                             android:layout_height="wrap_content"
-                            android:theme="@style/textSize_26_b"
+                            android:theme="@style/textSize_24_b"
                             android:gravity="center"
                             android:text="@string/nian" />
                         <TextView
-                            android:layout_width="45dp"
+                            android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:layout_marginLeft="20dp"
-                            android:theme="@style/textSize_26_b"
+                            android:theme="@style/textSize_24_b"
                             android:text="@string/yue" />
                         <TextView
-                            android:layout_width="45dp"
+                            android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:layout_marginLeft="20dp"
-                            android:theme="@style/textSize_26_b"
+                            android:theme="@style/textSize_24_b"
                             android:text="@string/ri" />
                     </LinearLayout>
                     <LinearLayout
@@ -73,42 +73,42 @@
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
                         <TextView
-                            android:layout_width="45dp"
+                            android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:theme="@style/textSize_26_b"
+                            android:theme="@style/textSize_24_b"
                             android:text="20" />
                         <EditText
                             android:id="@+id/etBbXtSjjzNian"
-                            android:layout_width="45dp"
+                            android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:theme="@style/textSize_26_b"
+                            android:theme="@style/textSize_24_b"
                             android:background="@drawable/bac_bai_yinying_hei_zhijiao_shangyou"
                             android:inputType="number"
                             android:imeOptions="actionDone"
                             android:maxLength="2"/>
                         <EditText
                             android:id="@+id/etBbXtSjjzYue"
-                            android:layout_width="45dp"
+                            android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:background="@drawable/bac_bai_yinying_hei_zhijiao_shangyou"
-                            android:theme="@style/textSize_26_b"
+                            android:theme="@style/textSize_24_b"
                             android:inputType="number"
                             android:maxLength="2"
                             android:imeOptions="actionDone"
                             android:layout_marginLeft="20dp"/>
                         <EditText
                             android:id="@+id/etBbXtSjjzRi"
-                            android:layout_width="45dp"
+                            android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:layout_marginLeft="20dp"
                             android:inputType="number"
                             android:maxLength="2"
                             android:imeOptions="actionDone"
-                            android:theme="@style/textSize_26_b"
+                            android:theme="@style/textSize_24_b"
                             android:background="@drawable/bac_bai_yinying_hei_zhijiao_shangyou"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -141,20 +141,20 @@
                             android:visibility="gone"
                             android:text="@string/nian" />
                         <TextView
-                            android:layout_width="45dp"
+                            android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:theme="@style/textSize_26_b"
                             android:gravity="center"
                             android:text="@string/shi" />
                         <TextView
-                            android:layout_width="45dp"
+                            android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:layout_marginLeft="20dp"
                             android:theme="@style/textSize_26_b"
                             android:text="@string/fen" />
                         <TextView
-                            android:layout_width="45dp"
+                            android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:layout_marginLeft="20dp"
@@ -167,44 +167,44 @@
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
                         <TextView
-                            android:layout_width="45dp"
+                            android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:theme="@style/textSize_26_b"
+                            android:theme="@style/textSize_24_b"
                             android:visibility="gone"
                             android:text="20" />
 
                         <EditText
                             android:id="@+id/etBbXtSjjzShi"
-                            android:layout_width="45dp"
+                            android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bac_bai_yinying_hei_zhijiao_shangyou"
                             android:gravity="center"
                             android:imeOptions="actionDone"
                             android:inputType="number"
                             android:maxLength="2"
-                            android:theme="@style/textSize_26_b" />
+                            android:theme="@style/textSize_24_b" />
                         <EditText
                             android:id="@+id/etBbXtSjjzFen"
-                            android:layout_width="45dp"
+                            android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:background="@drawable/bac_bai_yinying_hei_zhijiao_shangyou"
-                            android:theme="@style/textSize_26_b"
+                            android:theme="@style/textSize_24_b"
                             android:inputType="number"
                             android:imeOptions="actionDone"
                             android:maxLength="2"
                             android:layout_marginLeft="20dp"/>
                         <EditText
                             android:id="@+id/etBbXtSjjzMiao"
-                            android:layout_width="45dp"
+                            android:layout_width="35dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:layout_marginLeft="20dp"
                             android:inputType="number"
                             android:imeOptions="actionDone"
                             android:maxLength="2"
-                            android:theme="@style/textSize_26_b"
+                            android:theme="@style/textSize_24_b"
                             android:background="@drawable/bac_bai_yinying_hei_zhijiao_shangyou" />
                     </LinearLayout>
                 </LinearLayout>

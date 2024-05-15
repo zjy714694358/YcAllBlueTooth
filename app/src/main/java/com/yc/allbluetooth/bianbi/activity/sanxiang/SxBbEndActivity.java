@@ -2,9 +2,6 @@ package com.yc.allbluetooth.bianbi.activity.sanxiang;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.Intent;
@@ -23,11 +20,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.yc.allbluetooth.R;
-import com.yc.allbluetooth.bianbi.activity.BbHomeActivity;
-import com.yc.allbluetooth.bianbi.activity.danxiang.DxBbCeshiActivity;
-import com.yc.allbluetooth.bianbi.activity.danxiang.DxBbEndActivity;
 import com.yc.allbluetooth.bianbi.util.SanxiangEndImg;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
@@ -42,9 +38,7 @@ import com.yc.allbluetooth.utils.StringUtils;
 import com.yc.allbluetooth.utils.XiaoshuYunsuan;
 
 import java.math.BigInteger;
-import java.text.DecimalFormat;
 import java.util.Locale;
-import java.util.Random;
 
 public class SxBbEndActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -182,7 +176,8 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
         String jiaoduC = intent.getStringExtra("bbjdC");
         String ljfs = intent.getStringExtra("bblianjiefangshi");
         String zubie = intent.getStringExtra("bbzubie");
-        tvFj.setText(fenjie);
+        String fenjie2 = ShiOrShiliu.parseInt(fenjie)+"";
+        tvFj.setText(fenjie2);
         tvBbA.setText(bianbiA);
         tvZbA.setText(zabiA);
         tvBbB.setText(bianbiB);
@@ -196,7 +191,7 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
         //String edfj = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(Config.bbFjzs),xiaoshuYunsuan.xiaoshu("2"))+"";
         int edfj = (StringUtils.strToInt(Config.bbFjzs)+1)/2;
         Log.e(TAG,"额定分接："+edfj);
-        int wuchaFj = edfj-StringUtils.strToInt(fenjie);
+        int wuchaFj = edfj- StringUtils.strToInt(fenjie2);
         Log.e(TAG,"与额定差几个分接："+wuchaFj);
         String fjjjStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(wuchaFj+""),xiaoshuYunsuan.xiaoshu(Config.bbFjjj))+"";
         Log.e(TAG,"分接间距1："+fjjjStr);
@@ -235,9 +230,9 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
 //        String jdA = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu(jiaodu+""),xiaoshuYunsuan.xiaoshu(formattedNum1))+"";
 //        String jdB = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu(jiaodu+""),xiaoshuYunsuan.xiaoshu(formattedNum2))+"";
 //        String jdC = xiaoshuYunsuan.xiaoshuJia(xiaoshuYunsuan.xiaoshu(jiaodu+""),xiaoshuYunsuan.xiaoshu(formattedNum3))+"";
-        String jdA = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(jiaoduA),xiaoshuYunsuan.xiaoshu("100"))+"";
-        String jdB = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(jiaoduB),xiaoshuYunsuan.xiaoshu("100"))+"";
-        String jdC = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(jiaoduC),xiaoshuYunsuan.xiaoshu("100"))+"";
+        String jdA = xiaoshuYunsuan.xiaoshuChu2(xiaoshuYunsuan.xiaoshu(jiaoduA),xiaoshuYunsuan.xiaoshu("100"))+"";
+        String jdB = xiaoshuYunsuan.xiaoshuChu2(xiaoshuYunsuan.xiaoshu(jiaoduB),xiaoshuYunsuan.xiaoshu("100"))+"";
+        String jdC = xiaoshuYunsuan.xiaoshuChu2(xiaoshuYunsuan.xiaoshu(jiaoduC),xiaoshuYunsuan.xiaoshu("100"))+"";
 
         tvJdA.setText(jdA);
         tvJdB.setText(jdB);
@@ -400,7 +395,7 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
         } else if (v.getId() == R.id.tvSxBbEndFanhui) {//返回
             sendDataByBle(SendUtil.initSendStd("7c"),"");
             finish();
-            startActivity(new Intent(SxBbEndActivity.this, BbHomeActivity.class));
+            //startActivity(new Intent(SxBbEndActivity.this, BbHomeActivity.class));
         }
     }
 }

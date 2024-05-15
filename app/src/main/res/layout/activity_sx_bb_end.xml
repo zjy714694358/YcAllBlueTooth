@@ -260,26 +260,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:theme="@style/textSize_30_b"
+                android:theme="@style/textSize_26_b"
                 android:text="@string/fenjie"/>
             <TextView
                 android:id="@+id/tvSxBbEndFenjie"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:theme="@style/textSize_30_b"
+                android:theme="@style/textSize_26_b"
                 android:layout_marginLeft="5dp"
                 android:paddingLeft="10dp"
                 android:background="@drawable/bac_bai_yinying_hei_zhijiao_xia"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:theme="@style/textSize_30_b"
+                android:theme="@style/textSize_26_b"
                 android:layout_marginLeft="25dp"
                 android:text="@string/fenjiezhi"/>
             <TextView
@@ -288,13 +289,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginLeft="5dp"
-                android:theme="@style/textSize_30_b"
+                android:theme="@style/textSize_26_b"
                 android:paddingLeft="10dp"
                 android:background="@drawable/bac_bai_yinying_hei_zhijiao_xia"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:theme="@style/textSize_30_b"
+                android:theme="@style/textSize_26_b"
                 android:layout_marginLeft="25dp"
                 android:text="@string/lianjiefangshi2"/>
             <TextView
@@ -303,7 +304,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginLeft="5dp"
-                android:theme="@style/textSize_30_b"
+                android:theme="@style/textSize_26_b"
                 android:paddingLeft="10dp"
                 android:background="@drawable/bac_bai_yinying_hei_zhijiao_xia"/>
 

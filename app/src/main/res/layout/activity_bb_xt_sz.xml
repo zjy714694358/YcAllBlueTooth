@@ -30,76 +30,81 @@
         android:paddingRight="20dp">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:orientation="vertical">
             <LinearLayout
                 android:id="@+id/llBbXtCpsc"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/yuanjiao_bac_bacg_biankuang_jin"
                 android:gravity="center"
+                android:padding="2dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:theme="@style/textSize_30_b"
+                    android:theme="@style/textSize_26_b"
                     android:text="@string/chanpinshouce"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/llBbXtSjjz"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/yuanjiao_bac_lv_biankuang_lv"
+                android:background="@drawable/yuanjiao_bac_lv_biankuang_lv2"
                 android:gravity="center"
+                android:padding="2dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:theme="@style/textSize_30_b"
+                    android:theme="@style/textSize_26_b"
                     android:text="@string/shijianjiaozheng"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/llBbXtTxcs"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/yuanjiao_bac_lv_biankuang_lv"
+                android:background="@drawable/yuanjiao_bac_lv_biankuang_lv2"
                 android:gravity="center"
+                android:padding="2dp"
+                android:visibility="invisible"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:theme="@style/textSize_30_b"
+                    android:theme="@style/textSize_26_b"
                     android:text="@string/tongxuncanshu"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/llBbXtCjts"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/yuanjiao_bac_lv_biankuang_lv"
+                android:background="@drawable/yuanjiao_bac_lv_biankuang_lv2"
                 android:gravity="center"
+                android:visibility="invisible"
+                android:padding="2dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:theme="@style/textSize_30_b"
+                    android:theme="@style/textSize_26_b"
                     android:text="@string/changjiatiaoshi"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="1"
             android:layout_margin="10dp"
             android:background="@drawable/yuanjiao_bac_bacg_biankuang_jin"
             android:orientation="vertical">

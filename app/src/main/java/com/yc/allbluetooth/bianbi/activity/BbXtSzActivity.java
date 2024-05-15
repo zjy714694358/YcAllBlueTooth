@@ -1,10 +1,5 @@
 package com.yc.allbluetooth.bianbi.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -16,6 +11,10 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.bianbi.fragment.ChangjiaTsFragment;
@@ -84,29 +83,29 @@ public class BbXtSzActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         if(v.getId() == R.id.llBbXtCpsc){//产品手册
             llCpsc.setBackgroundResource(R.drawable.yuanjiao_bac_bacg_biankuang_jin);
-            llSjjz.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv);
-            llTxcs.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv);
-            llCjts.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv);
+            llSjjz.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv2);
+            llTxcs.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv2);
+            llCjts.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv2);
             ChanpinScFragment chanpinScFragment = ChanpinScFragment.newInstance("", "");
             addFragemntToShow(1, chanpinScFragment);
         } else if (v.getId() == R.id.llBbXtSjjz) {//时间校正
-            llCpsc.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv);
+            llCpsc.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv2);
             llSjjz.setBackgroundResource(R.drawable.yuanjiao_bac_bacg_biankuang_jin);
-            llTxcs.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv);
-            llCjts.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv);
+            llTxcs.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv2);
+            llCjts.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv2);
             ShijianJzFragment shijianJzFragment = ShijianJzFragment.newInstance("", "");
             addFragemntToShow(1, shijianJzFragment);
         } else if (v.getId() == R.id.llBbXtTxcs) {//通讯参数
-            llCpsc.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv);
-            llSjjz.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv);
+            llCpsc.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv2);
+            llSjjz.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv2);
             llTxcs.setBackgroundResource(R.drawable.yuanjiao_bac_bacg_biankuang_jin);
-            llCjts.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv);
+            llCjts.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv2);
             TongxunCsFragment tongxunCsFragment = TongxunCsFragment.newInstance("","");
             addFragemntToShow(1,tongxunCsFragment);
         } else if (v.getId() == R.id.llBbXtCjts) {//厂家调试
-            llCpsc.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv);
-            llSjjz.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv);
-            llTxcs.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv);
+            llCpsc.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv2);
+            llSjjz.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv2);
+            llTxcs.setBackgroundResource(R.drawable.yuanjiao_bac_lv_biankuang_lv2);
             llCjts.setBackgroundResource(R.drawable.yuanjiao_bac_bacg_biankuang_jin);
             ChangjiaTsFragment changjiaTsFragment = ChangjiaTsFragment.newInstance("","");
             addFragemntToShow(1,changjiaTsFragment);

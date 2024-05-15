@@ -52,13 +52,23 @@ public class XiaoshuYunsuan {
     }
 
     /**
-     * 小数除法
+     * 小数除法保留4位
      * @param b1
      * @param b2
      * @return
      */
     public BigDecimal xiaoshuChu(BigDecimal b1,BigDecimal b2){
         BigDecimal b3 = b1.divide(b2,4,BigDecimal.ROUND_HALF_UP);
+        return b3;
+    }
+    /**
+     * 小数除法保留两位小数
+     * @param b1
+     * @param b2
+     * @return
+     */
+    public BigDecimal xiaoshuChu2(BigDecimal b1,BigDecimal b2){
+        BigDecimal b3 = b1.divide(b2,2,BigDecimal.ROUND_HALF_UP);
         return b3;
     }
     /**

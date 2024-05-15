@@ -2,10 +2,6 @@ package com.yc.allbluetooth.bianbi.activity.dyjl;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.app.Activity;
 import android.bluetooth.BluetoothGattCharacteristic;
@@ -27,36 +23,28 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.yc.allbluetooth.R;
-import com.yc.allbluetooth.bianbi.activity.BbHomeActivity;
-import com.yc.allbluetooth.bianbi.activity.danxiang.DxBbEndActivity;
-import com.yc.allbluetooth.bianbi.adapter.DyjlAdapter;
 import com.yc.allbluetooth.bianbi.adapter.DyjlNewAdapter;
-import com.yc.allbluetooth.bianbi.entity.Diaoyuejilu;
 import com.yc.allbluetooth.bianbi.entity.DiaoyuejiluNew;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
-import com.yc.allbluetooth.crc.CrcUtil;
-import com.yc.allbluetooth.dlzk.activity.DlzkShujuActivity;
 import com.yc.allbluetooth.dlzk.adapter.ShujuchuliAdapter;
 import com.yc.allbluetooth.dlzk.entity.Shujuchuli;
-import com.yc.allbluetooth.dtd10c.activity.Dtd10cJlCxActivity;
-import com.yc.allbluetooth.dtd10c.adapter.JlCxAdapter;
-import com.yc.allbluetooth.dtd10c.entity.JlCx;
 import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.DateUtil;
-import com.yc.allbluetooth.utils.HexUtil;
-import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SPUtils;
 import com.yc.allbluetooth.utils.SendUtil;
 import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StringUtils;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -174,8 +162,9 @@ public class DyJlNewActivity extends AppCompatActivity implements View.OnClickLi
                                     String fen2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(fen));
                                     String miao2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(miao));
                                     jlCx.setCeshishijian("20" + nian2 + "-" + yue2 + "-" + ri2 + " " + shi2 + ":" + fen2 + ":" + miao2);
+                                    int fjI = ShiOrShiliu.parseInt(csfj);
                                     jlCx.setBianhao(rwbh);
-                                    jlCx.setFenjie(csfj);
+                                    jlCx.setFenjie(fjI+"");
                                     jlCx.setBbzA(ab);
                                     jlCx.setBbzB(bcOrJixing);
                                     jlCx.setBbzC(ca);
