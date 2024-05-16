@@ -2,9 +2,6 @@ package com.yc.allbluetooth.huilu.activity;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.Intent;
@@ -22,11 +19,10 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.yc.allbluetooth.R;
-import com.yc.allbluetooth.bianbi.activity.BbHomeActivity;
-import com.yc.allbluetooth.bianbi.activity.danxiang.DxBbActivity;
-import com.yc.allbluetooth.bianbi.activity.danxiang.DxBbCeshiActivity;
-import com.yc.allbluetooth.bianbi.activity.danxiang.DxBbEndActivity;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
@@ -166,7 +162,7 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
             Toast.makeText(HlDianzuceshi2Activity.this,getString(R.string.fangdiantanchuang),Toast.LENGTH_SHORT).show();
         }else if (view.getId() == R.id.tvHlDzcs2Fanhui) {//返回
             finish();
-            startActivity(new Intent(HlDianzuceshi2Activity.this, HuiluHomeActivity.class));
+            //startActivity(new Intent(HlDianzuceshi2Activity.this, HuiluHomeActivity.class));
         }
     }
     public void initModel(){

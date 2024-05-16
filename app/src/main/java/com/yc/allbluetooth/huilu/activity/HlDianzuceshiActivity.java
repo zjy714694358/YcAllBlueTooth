@@ -2,9 +2,6 @@ package com.yc.allbluetooth.huilu.activity;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.Intent;
@@ -24,19 +21,18 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
 import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
-import com.yc.allbluetooth.utils.GetTime;
 import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SendUtil;
-import com.yc.allbluetooth.utils.StrToAsc;
 import com.yc.allbluetooth.utils.StringUtils;
-
-import org.w3c.dom.Text;
 
 import java.util.Locale;
 
@@ -160,19 +156,19 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.tvHlDzcsSydl50){
+        if (view.getId() == R.id.tvHlDzcsSydl50){//50A
             diyi = 1;
             hlCsdl = "50A";
             tvSydl50.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvSydl100.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","32"),"");
-        } else if (view.getId() == R.id.tvHlDzcsSydl100) {
+        } else if (view.getId() == R.id.tvHlDzcsSydl100) {//100A
             diyi = 1;
             hlCsdl = "100A";
             tvSydl50.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvSydl100.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","64"),"");
-        }else if (view.getId() == R.id.tvHlDzcsCssc1) {
+        }else if (view.getId() == R.id.tvHlDzcsCssc1) {//1S
             diyi = 1;
             tvCssc1.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
@@ -180,7 +176,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","01"),"");
-        }else if (view.getId() == R.id.tvHlDzcsCssc3) {
+        }else if (view.getId() == R.id.tvHlDzcsCssc3) {//3S
             diyi = 1;
             tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc3.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
@@ -188,7 +184,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","03"),"");
-        }else if (view.getId() == R.id.tvHlDzcsCssc10) {
+        }else if (view.getId() == R.id.tvHlDzcsCssc10) {//10S
             diyi = 1;
             tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
@@ -196,7 +192,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","0A"),"");
-        }else if (view.getId() == R.id.tvHlDzcsCssc60) {
+        }else if (view.getId() == R.id.tvHlDzcsCssc60) {//60S
             diyi = 1;
             tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
@@ -204,7 +200,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             tvCssc60.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","3C"),"");
-        }else if (view.getId() == R.id.tvHlDzcsCsscLianxu) {
+        }else if (view.getId() == R.id.tvHlDzcsCsscLianxu) {//连续
             diyi = 1;
             tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);

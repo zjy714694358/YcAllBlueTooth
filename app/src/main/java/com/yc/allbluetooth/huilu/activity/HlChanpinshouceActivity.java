@@ -1,17 +1,16 @@
 package com.yc.allbluetooth.huilu.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.bianbi.util.ChanpinShouce;
@@ -67,18 +66,20 @@ public class HlChanpinshouceActivity extends AppCompatActivity implements View.O
             }else{
                 type=1;
             }
-
+            //Log.e("===",type+"");
+            ChanpinShouce chanpinShouce = new ChanpinShouce();
+            chanpinShouce.qiehuanHl(HlChanpinshouceActivity.this,type,ivCpsc);
         } else if (v.getId() == R.id.llHlCpscXia) {//下一页
             if(type==1){
                 type=2;
             }else{
                 type=1;
             }
+            //Log.e("===",type+"");
+            ChanpinShouce chanpinShouce = new ChanpinShouce();
+            chanpinShouce.qiehuanHl(HlChanpinshouceActivity.this,type,ivCpsc);
         }else if (v.getId() == R.id.llHlCpscFanhui) {//返回
             finish();
         }
-        Log.e("===",type+"");
-        ChanpinShouce chanpinShouce = new ChanpinShouce();
-        chanpinShouce.qiehuanHl(HlChanpinshouceActivity.this,type,ivCpsc);
     }
 }
