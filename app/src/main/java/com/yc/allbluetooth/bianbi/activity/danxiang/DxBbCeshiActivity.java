@@ -124,13 +124,13 @@ public class DxBbCeshiActivity extends AppCompatActivity {
                                     fenjie = StringUtils.subStrStartToEnd(newMsgStr,82,84);//测试分接
                                     String fenjie2 = ShiOrShiliu.parseInt(fenjie)+"";
                                     bianbi = StringUtils.subStrStartToEnd(newMsgStr,60,68);//变比
-                                    jixing = StringUtils.subStrStartToEnd(newMsgStr,68,70);//极性：1：正；0负
+                                    jixing = StringUtils.subStrStartToEnd(newMsgStr,68,76);//极性：1：正；0负
                                     Log.e(TAG,"jixing=1=="+jixing);
                                     String jixing2 = "";
-                                    if(StringUtils.isEquals(jixing,"01")){
-                                        jixing2 = "+";
-                                    } else if (StringUtils.isEquals(jixing,"00")) {
+                                    if(StringUtils.isEquals(jixing,"00000000")){
                                         jixing2 = "-";
+                                    } else  {
+                                        jixing2 = "+";
                                     }
                                     Log.e(TAG,"jixing==="+jixing2);
                                     String bianbiStr = ShiOrShiliu.hexToFloatWuBuhuan(bianbi);

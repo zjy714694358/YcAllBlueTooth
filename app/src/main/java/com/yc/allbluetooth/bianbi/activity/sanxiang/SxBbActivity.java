@@ -56,7 +56,7 @@ public class SxBbActivity extends AppCompatActivity implements View.OnClickListe
     private TextView tvFanhui;
 
     int diyi = 0;
-    String TAG = "DxBbActivity";
+    String TAG = "SxBbActivity";
 
     BleConnectUtil bleConnectUtil;
     String newMsgStr = "";
