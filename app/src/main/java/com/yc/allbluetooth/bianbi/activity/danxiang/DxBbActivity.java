@@ -188,6 +188,8 @@ public class DxBbActivity extends AppCompatActivity implements View.OnClickListe
                     case EditorInfo.IME_ACTION_DONE:
                         diyi = 1;
                         String fjzs = etFjzs.getText().toString();
+                        //String vStr = v.getText().toString();
+                        //Log.e(TAG,fjzs+","+vStr);
                         if(StringUtils.noEmpty(fjzs)){
                             Config.bbFjzs = StringUtils.strToInt(fjzs)+"";
                             sendDataByBle(SendUtil.dlzkShujuSend("72", StringUtils.strToInt(fjzs)),"");
@@ -196,6 +198,7 @@ public class DxBbActivity extends AppCompatActivity implements View.OnClickListe
                             Config.bbFjzs = "03";
                             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("72", "03"), "");
                         }
+
                         break;
                 }
                 return false;

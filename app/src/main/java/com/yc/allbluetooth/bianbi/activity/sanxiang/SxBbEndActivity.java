@@ -209,10 +209,31 @@ public class SxBbEndActivity extends AppCompatActivity implements View.OnClickLi
         String wuchaA = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(shijiA),xiaoshuYunsuan.xiaoshu(duiyingBb))+"";
         String wuchaB = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(shijiB),xiaoshuYunsuan.xiaoshu(duiyingBb))+"";
         String wuchaC = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(shijiC),xiaoshuYunsuan.xiaoshu(duiyingBb))+"";
+        String wcA = "";
+        String wcB = "";
+        String wcC = "";
+        if(xiaoshuYunsuan.bijiao(xiaoshuYunsuan.xiaoshu(wuchaA),xiaoshuYunsuan.xiaoshu("1"))){
+            wuchaA = "1";
+        }
+        if(xiaoshuYunsuan.bijiao(xiaoshuYunsuan.xiaoshu(wuchaB),xiaoshuYunsuan.xiaoshu("1"))){
+            wuchaB = "1";
+        }
+        if(xiaoshuYunsuan.bijiao(xiaoshuYunsuan.xiaoshu(wuchaC),xiaoshuYunsuan.xiaoshu("1"))){
+            wuchaC = "1";
+        }
+        if(xiaoshuYunsuan.bijiao(xiaoshuYunsuan.xiaoshu(wuchaA),xiaoshuYunsuan.xiaoshu("0"))){
+            wcA = "+";
+        }
+        if(xiaoshuYunsuan.bijiao(xiaoshuYunsuan.xiaoshu(wuchaB),xiaoshuYunsuan.xiaoshu("0"))){
+            wcB = "+";
+        }
+        if(xiaoshuYunsuan.bijiao(xiaoshuYunsuan.xiaoshu(wuchaC),xiaoshuYunsuan.xiaoshu("0"))){
+            wcC = "+";
+        }
         Log.e(TAG,"误差1："+wuchaA+wuchaB+wuchaC);
-        String wucha2A = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(wuchaA),xiaoshuYunsuan.xiaoshu("100"))+"%";
-        String wucha2B = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(wuchaB),xiaoshuYunsuan.xiaoshu("100"))+"%";
-        String wucha2C = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(wuchaC),xiaoshuYunsuan.xiaoshu("100"))+"%";
+        String wucha2A = wcA+xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(wuchaA),xiaoshuYunsuan.xiaoshu("100"))+"%";
+        String wucha2B = wcB+xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(wuchaB),xiaoshuYunsuan.xiaoshu("100"))+"%";
+        String wucha2C = wcC+xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(wuchaC),xiaoshuYunsuan.xiaoshu("100"))+"%";
         Log.e(TAG,"误差2："+wucha2A+wucha2B+wucha2C);
         SanxiangEndImg sanxiangEndImg = new SanxiangEndImg();
         sanxiangEndImg.getImg2(ivZbsl,zubie);

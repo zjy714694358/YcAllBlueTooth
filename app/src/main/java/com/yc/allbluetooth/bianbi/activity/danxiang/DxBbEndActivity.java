@@ -163,7 +163,14 @@ public class DxBbEndActivity extends AppCompatActivity implements View.OnClickLi
         Log.e(TAG,"实际："+shiji);
         String wucha = xiaoshuYunsuan.xiaoshuChu(xiaoshuYunsuan.xiaoshu(shiji),xiaoshuYunsuan.xiaoshu(duiyingBb))+"";
         Log.e(TAG,"误差1："+wucha);
-        String wucha2 = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(wucha),xiaoshuYunsuan.xiaoshu("100"))+"%";
+        String wc = "";
+        if(xiaoshuYunsuan.bijiao(xiaoshuYunsuan.xiaoshu(wucha),xiaoshuYunsuan.xiaoshu("1"))){
+            wucha = "1";
+        }
+        if(xiaoshuYunsuan.bijiao(xiaoshuYunsuan.xiaoshu(wucha),xiaoshuYunsuan.xiaoshu("0"))){
+            wc = "+";
+        }
+        String wucha2 = wc+xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(wucha),xiaoshuYunsuan.xiaoshu("100"))+"%";
         Log.e(TAG,"误差2："+wucha2);
         tvWc.setText(wucha2);
     }
