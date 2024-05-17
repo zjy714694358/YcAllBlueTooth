@@ -2,9 +2,6 @@ package com.yc.allbluetooth.huilu.activity;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.pm.PackageManager;
@@ -20,6 +17,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.ble.BleConnectUtil;
@@ -95,6 +95,7 @@ public class HlShijianjiaozhengActivity extends AppCompatActivity {
         ActivityCollector.addActivity(this);
         Config.ymType = "huiluSjjz";
         initView();
+        initModel();
     }
     public void initView(){
         etNian = findViewById(R.id.etHlSjjzNian);

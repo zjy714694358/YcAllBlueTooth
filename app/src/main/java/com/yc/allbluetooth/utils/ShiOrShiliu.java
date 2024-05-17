@@ -163,6 +163,7 @@ public class ShiOrShiliu {
     }
     /**
      * 十六进制转浮点型小数（五个有效数字）
+     * 不换位
      * @param hexStr
      * @return
      */
@@ -173,6 +174,24 @@ public class ShiOrShiliu {
         try {
             hexF = Float.intBitsToFloat((int) HexUtil.parseLong(hexHl,16));
             str = StringUtils.wuweiYouxiaoStr(hexF+"");
+        } catch (HexUtil.NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return str;
+    }
+    /**
+     * 十六进制转浮点型小数（四个有效数字）
+     * 不换位
+     * @param hexStr
+     * @return
+     */
+    public static String hexToFloatSiBuhuan(String hexStr){
+        float hexF = 0;
+        String str = "" ;
+        String hexHl = hexStr;
+        try {
+            hexF = Float.intBitsToFloat((int) HexUtil.parseLong(hexHl,16));
+            str = StringUtils.siweiYouxiaoStr(hexF+"");
         } catch (HexUtil.NumberFormatException e) {
             e.printStackTrace();
         }

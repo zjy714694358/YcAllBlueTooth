@@ -2,9 +2,6 @@ package com.yc.allbluetooth.huilu.activity;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.Intent;
@@ -22,15 +19,16 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.yc.allbluetooth.R;
-import com.yc.allbluetooth.bianbi.activity.BbHomeActivity;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
 import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.GetTime;
-import com.yc.allbluetooth.utils.SendUtil;
 import com.yc.allbluetooth.utils.StringUtils;
 
 import java.util.Locale;
@@ -66,8 +64,10 @@ public class HuiluHomeActivity extends AppCompatActivity implements View.OnClick
                     tvTime.setText(GetTime.getTime(4));//年-月-日 时：分：秒
                     break;
                 case Config.BLUETOOTH_GETDATA:
-                    String msgStr = msg.obj.toString();
-                    Log.e(TAG, "Home:"+msgStr);
+                    if(StringUtils.isEquals(Config.ymType ,"huiluHome")) {
+                        String msgStr = msg.obj.toString();
+                        Log.e(TAG, "Home:" + msgStr);
+                    }
                     break;
                 default:
                     break;
@@ -93,7 +93,7 @@ public class HuiluHomeActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_huilu_home);
         Config.ymType = "huiluHome";
         ActivityCollector.addActivity(this);
-        //initModel();
+        initModel();
         initView();
         new TimeThread().start();
     }

@@ -45,7 +45,7 @@
             android:orientation="vertical">
             <TextView
                 android:id="@+id/tvHlDyjlListItemDaochu"
-                android:layout_width="60dp"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:theme="@style/textSize_20_b"
                 android:background="@drawable/btn_lv_yinying_hei"

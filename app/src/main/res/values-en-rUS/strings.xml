@@ -410,15 +410,15 @@
     <string name="bianbizhiorzabizhi" translatable="false">Variable ratio/turn ratio</string>
     <!--<string name="ceshishijian" translatable="false">测试时间</string>-->
     <!--********************************************************回路**************************************************************-->
-    <string name="huiludianzuceshiyi" translatable="false">回路电阻测试仪</string>
-    <string name="dianzuceshi" translatable="false">电阻测试</string>
-    <string name="shiyandianliu2" translatable="false">试验电流:</string>
-    <string name="ceshishichang2" translatable="false">测试时长:</string>
-    <string name="shiyanbianhao2" translatable="false">试验编号:</string>
-    <string name="lianxu" translatable="false">连续</string>
-    <string name="bianhao2" translatable="false">编号:</string>
+    <string name="huiludianzuceshiyi" translatable="false">Loop resistance tester</string>
+    <string name="dianzuceshi" translatable="false">Resistance testing</string>
+    <string name="shiyandianliu2" translatable="false">Test current:</string>
+    <string name="ceshishichang2" translatable="false">Test duration:</string>
+    <string name="shiyanbianhao2" translatable="false">Test number:</string>
+    <string name="lianxu" translatable="false">Continuity</string>
+    <string name="bianhao2" translatable="false">Number:</string>
     <!--<string name="dianliu2" translatable="false">电流:</string>-->
-    <string name="jilushijian" translatable="false">记录时间</string>
-    <string name="dianliuzhi" translatable="false">电流值</string>
-    <string name="dianzuzhi" translatable="false">电阻值</string>
+    <string name="jilushijian" translatable="false">Record time</string>
+    <string name="dianliuzhi" translatable="false">Current value</string>
+    <string name="dianzuzhi" translatable="false">Resistance value</string>
 </resources>

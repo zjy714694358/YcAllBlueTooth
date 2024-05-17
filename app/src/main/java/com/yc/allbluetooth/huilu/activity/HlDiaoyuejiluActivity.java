@@ -27,13 +27,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.yc.allbluetooth.R;
-import com.yc.allbluetooth.bianbi.entity.DiaoyuejiluNew;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
-import com.yc.allbluetooth.dlzk.entity.Shujuchuli;
 import com.yc.allbluetooth.huilu.adapter.HLDyjlAdapter;
 import com.yc.allbluetooth.huilu.entity.HlDiaoyuejilu;
 import com.yc.allbluetooth.utils.ActivityCollector;
@@ -69,7 +66,7 @@ public class HlDiaoyuejiluActivity extends AppCompatActivity implements View.OnC
     int SjglListType = 0;
     int jinruPeizhi = 0;
 
-    private String TAG = "DlzkShujuActivity";
+    private String TAG = "HlDiaoyuejiluActivity";
 
     BleConnectUtil bleConnectUtil;
     String newMsgStr = "";
@@ -98,7 +95,6 @@ public class HlDiaoyuejiluActivity extends AppCompatActivity implements View.OnC
 
     int jinruI = 0;
 
-    Shujuchuli shujuchuli = new Shujuchuli();
 
     int regainBleDataCount = 0;
     String currentRevice, currentSendOrder;
@@ -117,8 +113,9 @@ public class HlDiaoyuejiluActivity extends AppCompatActivity implements View.OnC
                 case Config.BLUETOOTH_GETDATA:
                     if (StringUtils.isEquals(Config.ymType, "huiluDyjl")) {
                         String msgStr = msg.obj.toString();
-                        Log.e(TAG + "，msg0", msgStr);
+                        Log.e(TAG, msgStr);
                         if (newMsgStr1.length() != 78) {//msgStr.length()==22||msgStr.length()>26
+                            newMsgStr1+=msgStr;
                             if (newMsgStr1.length() == 78) {//>40
                                 //可以
                                 Log.e("newMsgStr=62", "new1:" + newMsgStr1);
@@ -225,6 +222,7 @@ public class HlDiaoyuejiluActivity extends AppCompatActivity implements View.OnC
         ActivityCollector.addActivity(this);
         Config.ymType = "huiluDyjl";
         initView();
+        initModel();
     }
     public void initView(){
         lv = findViewById(R.id.lvHlDyjl);
@@ -236,54 +234,46 @@ public class HlDiaoyuejiluActivity extends AppCompatActivity implements View.OnC
         tvFanhui.setOnClickListener(this);
         tvDayin.setOnClickListener(this);
         tvDaochu.setOnClickListener(this);
-//        for(int i=0;i<10;i++){
-//            HlDiaoyuejilu diaoyuejilu = new HlDiaoyuejilu();
-//            diaoyuejilu.setId(i);
-//            diaoyuejilu.setBianhao("12345678");
-//            diaoyuejilu.setJilushijian("2024-05-06 12:12:1"+i);
-//            diaoyuejilu.setDlz(i+".000");
-//            diaoyuejilu.setDzz(i+".000");
-//            mDatas.add(diaoyuejilu);
-//        }
-        sp = this.getSharedPreferences("hljiluchaxun", Activity.MODE_PRIVATE);//创建sp对象
 
-        //读取数据
-        //SharedPreferences sp = this.getSharedPreferences("SP_NewUserModel_List",Activity.MODE_PRIVATE);//创建sp对象,如果有key为"SP_PEOPLE"的sp就取出
-        String listJson = sp.getString("hljiluchaxunList", "");  //取出key为"KEY_PEOPLE_DATA"的值，如果值为空，则将第二个参数作为默认值赋值
-        Log.e("spStr===", listJson);
-        Log.e("spAbcStr===", SPUtils.get(this, "hlabc", ""));
-        if (StringUtils.noEmpty(listJson) && !"[]".equals(listJson))  //防空判断
-        {
-            Gson gson = new Gson();
-            mDatas2 = gson.fromJson(listJson, new TypeToken<List<DiaoyuejiluNew>>() {
-            }.getType()); //将json字符串转换成List集合
-        }
-        //根据时间属性去重
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            mDatas = mDatas2.stream()
-                    .collect(Collectors.collectingAndThen(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(o -> o.getJilushijian() + ";" + o.getJilushijian()))), ArrayList::new));
-        }
-        Log.e("=================1", mDatas.toString());
-        //对mList数组的数据按data字段升序
-        Collections.sort(mDatas, new Comparator<HlDiaoyuejilu>() {
-            /**
-             *时间排序
-             * @param lhs
-             * @param rhs
-             * @return an integer < 0 if lhs is less than rhs, 0 if they are
-             *         equal, and > 0 if lhs is greater than rhs,比较数据大小时,这里比的是时间
-             */
-            @Override
-            public int compare(HlDiaoyuejilu lhs, HlDiaoyuejilu rhs) {
-                Date date1 = DateUtil.stringToDate(lhs.getJilushijian());
-                Date date2 = DateUtil.stringToDate(rhs.getJilushijian());
-                // 对日期字段进行升序，如果欲降序可采用after方法
-                if (date1.before(date2)) {
-                    return 1;
-                }
-                return -1;
-            }
-        });
+        sp = this.getSharedPreferences("hljiluchaxun", Activity.MODE_PRIVATE);//创建sp对象
+//
+//        //读取数据
+//        //SharedPreferences sp = this.getSharedPreferences("SP_NewUserModel_List",Activity.MODE_PRIVATE);//创建sp对象,如果有key为"SP_PEOPLE"的sp就取出
+//        String listJson = sp.getString("hljiluchaxunList", "");  //取出key为"KEY_PEOPLE_DATA"的值，如果值为空，则将第二个参数作为默认值赋值
+//        Log.e("spStr===", listJson);
+//        Log.e("spAbcStr===", SPUtils.get(this, "hlabc", ""));
+//        if (StringUtils.noEmpty(listJson) && !"[]".equals(listJson))  //防空判断
+//        {
+//            Gson gson = new Gson();
+//            mDatas2 = gson.fromJson(listJson, new TypeToken<List<HlDiaoyuejilu>>() {
+//            }.getType()); //将json字符串转换成List集合
+//        }
+//        //根据时间属性去重
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//            mDatas = mDatas2.stream()
+//                    .collect(Collectors.collectingAndThen(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(o -> o.getJilushijian() + ";" + o.getJilushijian()))), ArrayList::new));
+//        }
+//        Log.e("=================1", mDatas.toString());
+//        //对mList数组的数据按data字段升序
+//        Collections.sort(mDatas, new Comparator<HlDiaoyuejilu>() {
+//            /**
+//             *时间排序
+//             * @param lhs
+//             * @param rhs
+//             * @return an integer < 0 if lhs is less than rhs, 0 if they are
+//             *         equal, and > 0 if lhs is greater than rhs,比较数据大小时,这里比的是时间
+//             */
+//            @Override
+//            public int compare(HlDiaoyuejilu lhs, HlDiaoyuejilu rhs) {
+//                Date date1 = DateUtil.stringToDate(lhs.getJilushijian());
+//                Date date2 = DateUtil.stringToDate(rhs.getJilushijian());
+//                // 对日期字段进行升序，如果欲降序可采用after方法
+//                if (date1.before(date2)) {
+//                    return 1;
+//                }
+//                return -1;
+//            }
+//        });
         mAdapter = new HLDyjlAdapter(HlDiaoyuejiluActivity.this,mDatas);
         lv.setAdapter(mAdapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {

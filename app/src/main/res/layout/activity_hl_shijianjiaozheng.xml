@@ -44,29 +44,32 @@
                         <TextView
                             android:layout_width="45dp"
                             android:layout_height="wrap_content"
-                            android:theme="@style/textSize_26_b"
+                            android:theme="@style/textSize_20_b"
                             android:gravity="center"
                             android:visibility="invisible"
                             android:text="@string/nian" />
                         <TextView
-                            android:layout_width="45dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:theme="@style/textSize_26_b"
+                            android:layout_weight="1"
+                            android:theme="@style/textSize_24_b"
                             android:gravity="center"
                             android:text="@string/nian" />
                         <TextView
-                            android:layout_width="45dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:theme="@style/textSize_26_b"
+                            android:layout_marginLeft="10dp"
+                            android:theme="@style/textSize_24_b"
                             android:text="@string/yue" />
                         <TextView
-                            android:layout_width="45dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:theme="@style/textSize_26_b"
+                            android:layout_marginLeft="10dp"
+                            android:theme="@style/textSize_24_b"
                             android:text="@string/ri" />
                     </LinearLayout>
                     <LinearLayout
@@ -82,8 +85,9 @@
                             android:text="20" />
                         <EditText
                             android:id="@+id/etHlSjjzNian"
-                            android:layout_width="45dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:gravity="center"
                             android:theme="@style/textSize_26_b"
                             android:background="@drawable/bac_bai_yinying_hei_zhijiao_shangyou"
@@ -92,21 +96,23 @@
                             android:maxLength="2"/>
                         <EditText
                             android:id="@+id/etHlSjjzYue"
-                            android:layout_width="45dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:gravity="center"
                             android:background="@drawable/bac_bai_yinying_hei_zhijiao_shangyou"
                             android:theme="@style/textSize_26_b"
                             android:inputType="number"
                             android:maxLength="2"
                             android:imeOptions="actionDone"
-                            android:layout_marginLeft="20dp"/>
+                            android:layout_marginLeft="10dp"/>
                         <EditText
                             android:id="@+id/etHlSjjzRi"
-                            android:layout_width="45dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:gravity="center"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="10dp"
                             android:inputType="number"
                             android:maxLength="2"
                             android:imeOptions="actionDone"
@@ -143,24 +149,27 @@
                             android:visibility="gone"
                             android:text="@string/nian" />
                         <TextView
-                            android:layout_width="45dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:theme="@style/textSize_26_b"
+                            android:layout_weight="1"
+                            android:theme="@style/textSize_24_b"
                             android:gravity="center"
                             android:text="@string/shi" />
                         <TextView
-                            android:layout_width="45dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:theme="@style/textSize_26_b"
+                            android:layout_marginLeft="10dp"
+                            android:theme="@style/textSize_24_b"
                             android:text="@string/fen" />
                         <TextView
-                            android:layout_width="45dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:theme="@style/textSize_26_b"
+                            android:layout_marginLeft="10dp"
+                            android:theme="@style/textSize_24_b"
                             android:text="@string/miao" />
                     </LinearLayout>
                     <LinearLayout
@@ -178,8 +187,9 @@
 
                         <EditText
                             android:id="@+id/etHlSjjzShi"
-                            android:layout_width="45dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:background="@drawable/bac_bai_yinying_hei_zhijiao_shangyou"
                             android:gravity="center"
                             android:imeOptions="actionDone"
@@ -188,21 +198,23 @@
                             android:theme="@style/textSize_26_b" />
                         <EditText
                             android:id="@+id/etHlSjjzFen"
-                            android:layout_width="45dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:gravity="center"
                             android:background="@drawable/bac_bai_yinying_hei_zhijiao_shangyou"
                             android:theme="@style/textSize_26_b"
                             android:inputType="number"
                             android:imeOptions="actionDone"
                             android:maxLength="2"
-                            android:layout_marginLeft="20dp"/>
+                            android:layout_marginLeft="10dp"/>
                         <EditText
                             android:id="@+id/etHlSjjzMiao"
-                            android:layout_width="45dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:gravity="center"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="10dp"
                             android:inputType="number"
                             android:imeOptions="actionDone"
                             android:maxLength="2"
@@ -218,7 +230,7 @@
                     android:orientation="vertical">
                     <TextView
                         android:id="@+id/tvHlSjjzQueren"
-                        android:layout_width="70dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:theme="@style/textSize_24_b"
                         android:background="@drawable/btn_lv_yinying_hei"
@@ -226,7 +238,7 @@
                         android:text="@string/queren"/>
                     <TextView
                         android:id="@+id/tvHlSjjzFanhui"
-                        android:layout_width="70dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:theme="@style/textSize_24_b"
                         android:layout_marginTop="50dp"

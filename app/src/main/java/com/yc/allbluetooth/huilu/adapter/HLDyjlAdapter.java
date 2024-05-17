@@ -14,8 +14,6 @@ import android.widget.TextView;
 import androidx.core.content.FileProvider;
 
 import com.yc.allbluetooth.R;
-import com.yc.allbluetooth.bianbi.adapter.DyjlNewAdapter;
-import com.yc.allbluetooth.bianbi.entity.DiaoyuejiluNew;
 import com.yc.allbluetooth.huilu.entity.HlDiaoyuejilu;
 import com.yc.allbluetooth.poi.PoiUtils;
 import com.yc.allbluetooth.utils.BytesToHexString;
@@ -103,13 +101,13 @@ public class HLDyjlAdapter extends BaseAdapter {
             String dianliuzhi = "";
             String dianzuzhi = "";
             if(StringUtils.noEmpty(dataBean.getDlz())){
-                dianliuzhi = ShiOrShiliu.hexToFloatWuBuhuan(dataBean.getDlz());
+                dianliuzhi = ShiOrShiliu.hexToFloatSiBuhuan(dataBean.getDlz());
             }
             if(StringUtils.noEmpty(dataBean.getDzz())){
-                dianzuzhi = ShiOrShiliu.hexToFloatWuBuhuan(dataBean.getDzz());
+                dianzuzhi = ShiOrShiliu.hexToFloatSiBuhuan(dataBean.getDzz());
             }
-            holder.tvDlz.setText(dianliuzhi);
-            holder.tvDzz.setText(dianzuzhi);
+            holder.tvDlz.setText(dianliuzhi+"A");
+            holder.tvDzz.setText(dianzuzhi+"mΩ");
             HLDyjlAdapter.ViewHolder finalHolder = holder;
             holder.tvDaochu.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -49,7 +49,8 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
     private TextView tvKscs;
     private TextView tvFanhui;
     int diyi = 0;
-    String hlCsdl = "50A";
+    String hlCsdl = "100A";
+    String hlCssc = "1S";
 
     private String TAG = "HlDianzuceshiActivity";
 
@@ -85,6 +86,10 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
                                     Log.e(TAG,"----70------1----");
                                     sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","01"),"");
                                 }else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"71")==true){
+                                    //diyi = 1;//进入第一轮发送完毕
+                                    Log.e(TAG,"测试时长");
+                                    sendDataByBle(SendUtil.yiqibianhaoSend_std("6d", "A123456"),"");
+                                }else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"6D")==true){
                                     diyi = 1;//进入第一轮发送完毕
                                     Log.e(TAG,"进入第一轮发送完成");
                                 }
@@ -170,6 +175,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","64"),"");
         }else if (view.getId() == R.id.tvHlDzcsCssc1) {//1S
             diyi = 1;
+            hlCssc = "1S";
             tvCssc1.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
@@ -178,6 +184,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","01"),"");
         }else if (view.getId() == R.id.tvHlDzcsCssc3) {//3S
             diyi = 1;
+            hlCssc = "3S";
             tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc3.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
@@ -186,6 +193,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","03"),"");
         }else if (view.getId() == R.id.tvHlDzcsCssc10) {//10S
             diyi = 1;
+            hlCssc = "10S";
             tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc10.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
@@ -194,6 +202,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","0A"),"");
         }else if (view.getId() == R.id.tvHlDzcsCssc60) {//60S
             diyi = 1;
+            hlCssc = "60S";
             tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
@@ -202,6 +211,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","3C"),"");
         }else if (view.getId() == R.id.tvHlDzcsCsscLianxu) {//连续
             diyi = 1;
+            hlCssc = "";
             tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
@@ -215,6 +225,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             Intent intent = new Intent(HlDianzuceshiActivity.this, HlDianzuceshi2Activity.class);
             intent.putExtra("hlCsdl",hlCsdl);
             intent.putExtra("hlBianhao",etBhStr);
+            intent.putExtra("hlCssc",hlCssc);
             startActivity(intent);
             //startActivity(new Intent(HlDianzuceshiActivity.this, HlDianzuceshi2Activity.class));
         }else if(view.getId() == R.id.tvHlDzcsFanhui){//返回
@@ -230,7 +241,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
                 /**
                  *要执行的操作
                  */
-                sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","32"),"");
+                sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","64"),"");
             }
         }, 100);//3秒后执行Runnable中的run方法
     }
