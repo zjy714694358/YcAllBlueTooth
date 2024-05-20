@@ -29,7 +29,7 @@ public class Zhiling {
             dl = "04";
         }else if(StringUtils.isEquals("0.02A+0.02A",str)){
             dl = "05";
-        }else if(StringUtils.isEquals("40A",str)){
+        }else if(StringUtils.isEquals("40A",str)||StringUtils.isEquals("50A",str)){
             dl = "06";
         }else if(StringUtils.isEquals("20A",str)){
             dl = "07";

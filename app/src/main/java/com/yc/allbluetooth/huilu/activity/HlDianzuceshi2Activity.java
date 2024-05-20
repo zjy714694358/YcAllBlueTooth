@@ -51,7 +51,7 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
     private TextView tvTingzhi;
     private TextView tvFanhui;
 
-    String TAG = "DxBbCeshiActivity";
+    String TAG = "HlDianzuceshi2Activity";
     BleConnectUtil bleConnectUtil;
     String newMsgStr = "";
     String sjcd = "";

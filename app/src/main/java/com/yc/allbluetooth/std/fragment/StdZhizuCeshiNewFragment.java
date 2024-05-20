@@ -7,10 +7,6 @@ import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -22,6 +18,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
@@ -31,8 +30,6 @@ import com.yc.allbluetooth.std.activity.ZhizuCeshiDyYiActivity;
 import com.yc.allbluetooth.std.activity.ZhizuCeshiStdLingxianYiActivity;
 import com.yc.allbluetooth.std.activity.ZhizuCeshiStdYiActivity;
 import com.yc.allbluetooth.std.activity.ZhizuCeshiYnYiActivity;
-import com.yc.allbluetooth.std.entity.TestSet;
-import com.yc.allbluetooth.std.tchd.SlideDialog;
 import com.yc.allbluetooth.std.util.CsFf;
 import com.yc.allbluetooth.std.util.DyCsDlList;
 import com.yc.allbluetooth.std.util.DyXbList;
@@ -42,7 +39,6 @@ import com.yc.allbluetooth.std.util.StdCsDlList;
 import com.yc.allbluetooth.std.util.YnCsDlList;
 import com.yc.allbluetooth.std.util.YnXbList;
 import com.yc.allbluetooth.std.util.Zhiling;
-import com.yc.allbluetooth.std.util.ZzCsStartCs;
 import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SendUtil;
@@ -211,11 +207,14 @@ public class StdZhizuCeshiNewFragment extends Fragment implements View.OnClickLi
                                         }else{
                                             sendDataByBle(sendAll, "");
                                             startActivity(new Intent(getActivity(), ZhizuCeshiStdYiActivity.class));
+                                            Log.e("fasong2=STD:", sendAll);
                                         }
                                     }else if(StringUtils.isEquals("01",ffZl)){//YN
+                                        Log.e("fasong2=YN:", sendAll);
                                         sendDataByBle(sendAll, "");
                                         startActivity(new Intent(getActivity(), ZhizuCeshiYnYiActivity.class));
                                     }else if(StringUtils.isEquals("02",ffZl)){//D(Y)
+                                        Log.e("fasong2=DY:", sendAll);
                                         sendDataByBle(sendAll, "");
                                         startActivity(new Intent(getActivity(), ZhizuCeshiDyYiActivity.class));
                                     }

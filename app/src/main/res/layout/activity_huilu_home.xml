@@ -50,7 +50,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/tvYzHomeSize"
+                    style="@style/textSize_24_b"
                     android:text="@string/dianzuceshi"/>
             </LinearLayout>
             <LinearLayout
@@ -69,7 +69,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/tvYzHomeSize"
+                    style="@style/textSize_24_b"
                     android:text="@string/diaoyuejilu" />
             </LinearLayout>
         </LinearLayout>
@@ -95,7 +95,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/tvYzHomeSize"
+                    style="@style/textSize_24_b"
                     android:text="@string/shijianjiaozheng"/>
             </LinearLayout>
             <LinearLayout
@@ -113,7 +113,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/tvYzHomeSize"
+                    style="@style/textSize_24_b"
                     android:text="@string/chanpinshouce"/>
             </LinearLayout>
         </LinearLayout>

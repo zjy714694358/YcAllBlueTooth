@@ -411,7 +411,7 @@
     <!--<string name="ceshishijian" translatable="false">测试时间</string>-->
     <!--********************************************************回路**************************************************************-->
     <string name="huiludianzuceshiyi" translatable="false">Loop resistance tester</string>
-    <string name="dianzuceshi" translatable="false">Resistance testing</string>
+    <string name="dianzuceshi" translatable="false">Resistance test</string>
     <string name="shiyandianliu2" translatable="false">Test current:</string>
     <string name="ceshishichang2" translatable="false">Test duration:</string>
     <string name="shiyanbianhao2" translatable="false">Test number:</string>
@@ -419,6 +419,6 @@
     <string name="bianhao2" translatable="false">Number:</string>
     <!--<string name="dianliu2" translatable="false">电流:</string>-->
     <string name="jilushijian" translatable="false">Record time</string>
-    <string name="dianliuzhi" translatable="false">Current value</string>
-    <string name="dianzuzhi" translatable="false">Resistance value</string>
+    <string name="dianliuzhi" translatable="false">Current</string>
+    <string name="dianzuzhi" translatable="false">Resistance</string>
 </resources>
