@@ -27,6 +27,7 @@ import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
+import com.yc.allbluetooth.huilu.util.HlDlOrDzDw;
 import com.yc.allbluetooth.huilu.util.TingzhiToFanhui;
 import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
@@ -106,7 +107,7 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
 //                            XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
 //                            String dlStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(dl),xiaoshuYunsuan.xiaoshu("1000"))+"";
                             tvI.setText(dl+"  A");
-                            tvR.setText(dz+"m  Ω");
+                            tvR.setText(HlDlOrDzDw.getDzDw(dz));
                             newMsgStr = "";
                         }
                         if (newMsgStr.length() == 64) {
@@ -123,7 +124,7 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
 //                            XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
 //                            String dlStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(dl),xiaoshuYunsuan.xiaoshu("1000"))+"";
                             tvI.setText(dl+"  A");
-                            tvR.setText(dz+"m  Ω");
+                            tvR.setText(HlDlOrDzDw.getDzDw(dz));
                             newMsgStr = "";
                         }
                         if (newMsgStr.length() == 96) {
@@ -137,7 +138,7 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
                             //XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
                             //String dlStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(dl),xiaoshuYunsuan.xiaoshu("1000"))+"";
                             tvI.setText(dl+"  A");
-                            tvR.setText(dz+"m  Ω");
+                            tvR.setText(HlDlOrDzDw.getDzDw(dz));
                             newMsgStr = "";
                         }
                         if (newMsgStr.length() == 192) {
@@ -151,7 +152,7 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
 //                            XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
 //                            String dlStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(dl),xiaoshuYunsuan.xiaoshu("1000"))+"";
                             tvI.setText(dl+"  A");
-                            tvR.setText(dz+"m  Ω");
+                            tvR.setText(HlDlOrDzDw.getDzDw(dz));
                             newMsgStr = "";
                         }
                     }

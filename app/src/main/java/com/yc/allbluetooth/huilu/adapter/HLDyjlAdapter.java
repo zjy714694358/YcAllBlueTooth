@@ -15,10 +15,10 @@ import androidx.core.content.FileProvider;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.huilu.entity.HlDiaoyuejilu;
+import com.yc.allbluetooth.huilu.util.HlDlOrDzDw;
 import com.yc.allbluetooth.poi.PoiUtils;
 import com.yc.allbluetooth.utils.BytesToHexString;
 import com.yc.allbluetooth.utils.GetTime;
-import com.yc.allbluetooth.utils.HexUtil;
 import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StringUtils;
@@ -92,8 +92,8 @@ public class HLDyjlAdapter extends BaseAdapter {
         if (dataBean != null) {
 
             String bianhao = "";
-            if(IndexOfAndSubStr.isIndexOf(dataBean.getBianhao(),"FFFF")==false){
-                bianhao = BytesToHexString.hexStr2Str2(HexUtil.reverseHex(dataBean.getBianhao()));
+            if(IndexOfAndSubStr.isIndexOf(dataBean.getBianhao(),"FFFFFFFFFFFFFFFF")==false){
+                bianhao = BytesToHexString.hexStr2Str2(dataBean.getBianhao());//不换位
             }
             holder.tvBianhao.setText(bianhao);
             holder.tvJilushijian.setText(dataBean.getJilushijian());
@@ -104,10 +104,10 @@ public class HLDyjlAdapter extends BaseAdapter {
                 dianliuzhi = ShiOrShiliu.hexToFloatSiBuhuan(dataBean.getDlz());
             }
             if(StringUtils.noEmpty(dataBean.getDzz())){
-                dianzuzhi = ShiOrShiliu.hexToFloatSiBuhuan(dataBean.getDzz());
+                dianzuzhi = ShiOrShiliu.hexToFloatWuBuhuan(dataBean.getDzz());
             }
             holder.tvDlz.setText(dianliuzhi+"A");
-            holder.tvDzz.setText(dianzuzhi+"mΩ");
+            holder.tvDzz.setText(HlDlOrDzDw.getDzDw(dianzuzhi));
             HLDyjlAdapter.ViewHolder finalHolder = holder;
             holder.tvDaochu.setOnClickListener(new View.OnClickListener() {
                 @Override
