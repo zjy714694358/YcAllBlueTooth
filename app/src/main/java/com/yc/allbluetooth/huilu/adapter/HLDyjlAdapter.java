@@ -127,8 +127,8 @@ public class HLDyjlAdapter extends BaseAdapter {
 
                         Map<String, String> dataMap = new HashMap<String, String>();
                         dataMap.put("$bianhao$", finalHolder.tvBianhao.getText().toString());
-                        dataMap.put("$dianliuzhi$", finalHolder.tvDzz.getText().toString());
-                        dataMap.put("$dianzuzhi$", finalHolder.tvDlz.getText().toString());
+                        dataMap.put("$dianliuzhi$", finalHolder.tvDlz.getText().toString());
+                        dataMap.put("$dianzuzhi$", finalHolder.tvDzz.getText().toString());
                         dataMap.put("$jilushijian$",dataBean.getJilushijian());
 
                         PoiUtils.writeToDoc(templetDocStream, targetDocPath, dataMap);

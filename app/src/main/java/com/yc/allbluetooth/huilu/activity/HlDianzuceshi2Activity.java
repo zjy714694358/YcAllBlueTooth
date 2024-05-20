@@ -71,7 +71,7 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
     private static final int msgKey1 = 1;
 
     private Handler mHandler2 = new Handler();
-    Runnable runnable = null;
+    //Runnable runnable = null;
 
 
     private Handler mHandler = new Handler() {
