@@ -13,8 +13,8 @@ import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.yc.allbluetooth.R;
-import com.yc.allbluetooth.bianbi.util.ChanpinShouce;
 import com.yc.allbluetooth.config.Config;
+import com.yc.allbluetooth.huilu.util.Chanpinshouce;
 import com.yc.allbluetooth.utils.ActivityCollector;
 
 import java.util.Locale;
@@ -25,6 +25,8 @@ public class HlChanpinshouceActivity extends AppCompatActivity implements View.O
     private LinearLayout llShang;
     private LinearLayout llXia;
     private LinearLayout llFanhui;
+    private LinearLayout llJszb;//技术指标
+    private LinearLayout llXntd;//性能特点
     int type = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,10 @@ public class HlChanpinshouceActivity extends AppCompatActivity implements View.O
         llShang = findViewById(R.id.llHlCpscShang);
         llXia = findViewById(R.id.llHlCpscXia);
         llFanhui = findViewById(R.id.llHlCpscFanhui);
+
+        llJszb = findViewById(R.id.llHlCpscJszb);
+        llXntd = findViewById(R.id.llHlCpscXntd);
+
         llShang.setOnClickListener(this);
         llXia.setOnClickListener(this);
         llFanhui.setOnClickListener(this);
@@ -60,24 +66,27 @@ public class HlChanpinshouceActivity extends AppCompatActivity implements View.O
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.llHlCpscShang){//上一页
-            //ivCpsc.setImageAlpha(R.drawable.cpsc06);
-            if(type==1){
-                type=2;
-            }else{
-                type=1;
-            }
-            //Log.e("===",type+"");
-            ChanpinShouce chanpinShouce = new ChanpinShouce();
-            chanpinShouce.qiehuanHl(HlChanpinshouceActivity.this,type,ivCpsc);
+//            if(type==1){
+//                type=2;
+//            }else{
+//                type=1;
+//            }
+//            //Log.e("===",type+"");
+//            ChanpinShouce chanpinShouce = new ChanpinShouce();
+//            chanpinShouce.qiehuanHl(HlChanpinshouceActivity.this,type,ivCpsc);
+            Chanpinshouce chanpinshouce = new Chanpinshouce();
+            chanpinshouce.xianOryin(llJszb,llXntd);
         } else if (v.getId() == R.id.llHlCpscXia) {//下一页
-            if(type==1){
-                type=2;
-            }else{
-                type=1;
-            }
-            //Log.e("===",type+"");
-            ChanpinShouce chanpinShouce = new ChanpinShouce();
-            chanpinShouce.qiehuanHl(HlChanpinshouceActivity.this,type,ivCpsc);
+//            if(type==1){
+//                type=2;
+//            }else{
+//                type=1;
+//            }
+//            //Log.e("===",type+"");
+//            ChanpinShouce chanpinShouce = new ChanpinShouce();
+//            chanpinShouce.qiehuanHl(HlChanpinshouceActivity.this,type,ivCpsc);
+            Chanpinshouce chanpinshouce = new Chanpinshouce();
+            chanpinshouce.xianOryin(llJszb,llXntd);
         }else if (v.getId() == R.id.llHlCpscFanhui) {//返回
             finish();
         }

@@ -421,4 +421,22 @@
     <string name="jilushijian" translatable="false">Record time</string>
     <string name="dianliuzhi" translatable="false">Current</string>
     <string name="dianzuzhi" translatable="false">Resistance</string>
+    <string name="hl_cpsc_jszb1" translatable="false">Output current: 50A, 100A;</string>
+    <string name="hl_cpsc_jszb2" translatable="false">Range: 0-1Ω;</string>
+    <string name="hl_cpsc_jszb3" translatable="false">Resolution: Min 0.1μΩ;</string>
+    <string name="hl_cpsc_jszb4" translatable="false">Accuracy: ≤ 70mΩ: ± (0.5%+2 bytes);> 70mΩ: ± (1%+2 bytes);</string>
+    <string name="hl_cpsc_jszb5" translatable="false">Output power：500W;</string>
+    <string name="hl_cpsc_jszb6" translatable="false">Working mode: pulse measurement, continuous measurement;</string>
+    <string name="hl_cpsc_jszb7" translatable="false">Working power supply：AC220V±10%  50HZ;</string>
+    <string name="hl_cpsc_jszb8" translatable="false">Operating temperature：-10~40℃;</string>
+    <string name="hl_cpsc_jszb9" translatable="false">External dimensions：323*275*135mm;</string>
+    <string name="hl_cpsc_jszb10" translatable="false">Instrument weight：4.9kg;</string>
+    <string name="hl_cpsc_xntd1" translatable="false">*Multiple current options available (maximum test current of 100A), with a wide range of test ranges;</string>
+    <string name="hl_cpsc_xntd2" translatable="false">*The test current comes from a high-precision high current constant current power supply, and the test is fast and accurate;</string>
+    <string name="hl_cpsc_xntd3" translatable="false">*Using four terminal wiring method to eliminate the influence of test wire resistance on test results;</string>
+    <string name="hl_cpsc_xntd4" translatable="false">*The instrument has both pulse measurement and continuous measurement methods. Pulse measurement can display test data as quickly as about 1 second, and can also be continuously tested to meet various application scenarios;</string>
+    <string name="hl_cpsc_xntd5" translatable="false">*The instrument is equipped with functions such as input misconnection AC380V power supply protection and overheating protection;</string>
+    <string name="hl_cpsc_xntd6" translatable="false">*The LCD adopts a 5-inch industrial grade color touch screen, which is clearly visible under strong sunlight;</string>
+    <string name="hl_cpsc_xntd7" translatable="false">*The instrument test data can be printed, saved in real time, and exported to a USB drive. This machine can store 1000 pieces of test data;</string>
+    <string name="hl_cpsc_xntd8" translatable="false">*The instrument has an RS232 interface and can transmit test data to the background;</string>
 </resources>

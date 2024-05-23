@@ -419,4 +419,22 @@
     <string name="jilushijian" translatable="false">记录时间</string>
     <string name="dianliuzhi" translatable="false">电流值</string>
     <string name="dianzuzhi" translatable="false">电阻值</string>
+    <string name="hl_cpsc_jszb1" translatable="false">输出电流：50A、100A;</string>
+    <string name="hl_cpsc_jszb2" translatable="false">量程：0~1Ω;</string>
+    <string name="hl_cpsc_jszb3" translatable="false">分辨率：最小0.1μΩ;</string>
+    <string name="hl_cpsc_jszb4" translatable="false">精确度：≤70mΩ：±(0.5%+2个字);>70mΩ：±(1%+2个字);</string>
+    <string name="hl_cpsc_jszb5" translatable="false">输出功率：500W;</string>
+    <string name="hl_cpsc_jszb6" translatable="false">工作方式：脉冲测量、连续测量;</string>
+    <string name="hl_cpsc_jszb7" translatable="false">工作电源：AC220V±10%  50HZ;</string>
+    <string name="hl_cpsc_jszb8" translatable="false">使用温度：-10~40℃;</string>
+    <string name="hl_cpsc_jszb9" translatable="false">外形尺寸：323*275*135mm;</string>
+    <string name="hl_cpsc_jszb10" translatable="false">仪器重量：4.9kg;</string>
+    <string name="hl_cpsc_xntd1" translatable="false">*多档电流可选(测试电流最大100A)，测试量程范围宽;</string>
+    <string name="hl_cpsc_xntd2" translatable="false">*测试电流来自高精度的大电流恒流电源，测试迅速准确;</string>
+    <string name="hl_cpsc_xntd3" translatable="false">*采用四端子接线法，排除测试线电阻对测试结果的影响;</string>
+    <string name="hl_cpsc_xntd4" translatable="false">*仪器具有脉冲测量和连续测量方式，脉冲测量最快1秒左右显示测试数据，也可连续测试满足各种应用场合;</string>
+    <string name="hl_cpsc_xntd5" translatable="false">*仪器设有输入误接AC380V电源保护和过热保护等功能;</string>
+    <string name="hl_cpsc_xntd6" translatable="false">*液晶采用5寸工业级彩色触摸屏，强阳光下清晰可见;</string>
+    <string name="hl_cpsc_xntd7" translatable="false">*仪器测试数据可实现打印，实时保存，导出到U盘，本机可存储1000条测试数据;</string>
+    <string name="hl_cpsc_xntd8" translatable="false">*仪器具有RS232接口，可以将测试数据传输到后台;</string>
 </resources>
