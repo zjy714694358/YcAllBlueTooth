@@ -105,17 +105,18 @@ public class SxBbCeshiActivity extends AppCompatActivity {
                     if(StringUtils.isEquals(Config.ymType,"bianbiSxBbCeshi")){
                         String msgStr = msg.obj.toString();
                         Log.i(TAG, msgStr);
-                        if(msgStr.length()!=18&&newMsgStr.length()<44){
+                        if(msgStr.length()!=18&&newMsgStr.length()<88){
                             newMsgStr += msgStr;
                             Log.e(TAG,newMsgStr);
                         }
-                        if (newMsgStr.length() == 44&&jinru!=15) {
+                        if (newMsgStr.length() == 88&&jinru!=15) {
+                            Log.e(TAG,newMsgStr);
                             String crcAll = StringUtils.subStrStartToEnd(newMsgStr,0,40);
                             byte[] bytesSx = new BigInteger(crcAll, 16).toByteArray();
                             crcJy = StringUtils.subStrStartToEnd(newMsgStr,40,44);
                             //Log.e("tfxx==1", CrcUtil.getTableCRC(bytesSx));
                             //if(CrcUtil.CrcIsOk(bytesSx,crcJy)){
-                            /*beiyong = StringUtils.subStrStartToEnd(newMsgStr,52,56);//扩大一百倍的角度
+                            beiyong = StringUtils.subStrStartToEnd(newMsgStr,52,56);//扩大一百倍的角度
                             sjxz = StringUtils.subStrStartToEnd(newMsgStr,12,14);//数据性质：1、电流电压；2、测试变比匝比
                             csxw = StringUtils.subStrStartToEnd(newMsgStr,14,16);//测试相位0：AB；1：BC；2：CA
                             csdl = StringUtils.subStrStartToEnd(newMsgStr,16,24);//测试电流；测试变比
@@ -127,10 +128,10 @@ public class SxBbCeshiActivity extends AppCompatActivity {
                             gyjxlx = StringUtils.subStrStartToEnd(newMsgStr,76,78);//高压侧接线类型
                             dyjxlx = StringUtils.subStrStartToEnd(newMsgStr,78,80);//低压侧接线类型
                             zubie = StringUtils.subStrStartToEnd(newMsgStr,80,82);//组别
-                            fenjie = StringUtils.subStrStartToEnd(newMsgStr,82,84);//测试分接*/
-                            beiyong = StringUtils.subStrStartToEnd(newMsgStr,8,12);//扩大一百倍的角度
+                            fenjie = StringUtils.subStrStartToEnd(newMsgStr,82,84);//测试分接
+                            /*beiyong = StringUtils.subStrStartToEnd(newMsgStr,8,12);//扩大一百倍的角度
                             sjxz = StringUtils.subStrStartToEnd(newMsgStr,12,14);//数据性质：1、电流电压；2、测试变比匝比
-                            csxw = StringUtils.subStrStartToEnd(newMsgStr,14,16);//测试相位0：AB；1：BC；2：CA
+                            csxw = StringUtils.subStrStartToEnd(newMsgStr,14,16);//测试相位0：AB；1：BC；2：CA*/
                             if(StringUtils.isEquals(sjxz,"01")){
                                 //sjxz = StringUtils.subStrStartToEnd(newMsgStr,12,14);//数据性质：1、电流电压；2、测试变比匝比
                                 csdl = StringUtils.subStrStartToEnd(newMsgStr,16,24);//测试电流；测试变比
