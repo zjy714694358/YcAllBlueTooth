@@ -105,30 +105,30 @@ public class SxBbCeshiActivity extends AppCompatActivity {
                     if(StringUtils.isEquals(Config.ymType,"bianbiSxBbCeshi")){
                         String msgStr = msg.obj.toString();
                         Log.i(TAG, msgStr);
-                        if(msgStr.length()!=18&&newMsgStr.length()<88){
+                        if(msgStr.length()!=18&&newMsgStr.length()<44){
                             newMsgStr += msgStr;
                             Log.e(TAG,newMsgStr);
                         }
-                        if (newMsgStr.length() == 88&&jinru!=15) {
+                        if (newMsgStr.length() == 44&&jinru!=15) {
                             Log.e(TAG,newMsgStr);
                             String crcAll = StringUtils.subStrStartToEnd(newMsgStr,0,40);
                             byte[] bytesSx = new BigInteger(crcAll, 16).toByteArray();
                             crcJy = StringUtils.subStrStartToEnd(newMsgStr,40,44);
                             //Log.e("tfxx==1", CrcUtil.getTableCRC(bytesSx));
                             //if(CrcUtil.CrcIsOk(bytesSx,crcJy)){
-                            beiyong = StringUtils.subStrStartToEnd(newMsgStr,52,56);//扩大一百倍的角度
+                            beiyong = StringUtils.subStrStartToEnd(newMsgStr,8,12);//扩大一百倍的角度
                             sjxz = StringUtils.subStrStartToEnd(newMsgStr,12,14);//数据性质：1、电流电压；2、测试变比匝比
                             csxw = StringUtils.subStrStartToEnd(newMsgStr,14,16);//测试相位0：AB；1：BC；2：CA
-                            csdl = StringUtils.subStrStartToEnd(newMsgStr,16,24);//测试电流；测试变比
+                            //csdl = StringUtils.subStrStartToEnd(newMsgStr,16,24);//测试电流；测试变比
                             ycdy = StringUtils.subStrStartToEnd(newMsgStr,24,32);//一次电压；测试匝比
                             ecdy = StringUtils.subStrStartToEnd(newMsgStr,32,40);//二次电压;
-                            bianbi = StringUtils.subStrStartToEnd(newMsgStr,60,68);//变比;
-                            zabi = StringUtils.subStrStartToEnd(newMsgStr,68,76);//匝比
-                            jixing = StringUtils.subStrStartToEnd(newMsgStr,68,70);//极性：1：正；0负
-                            gyjxlx = StringUtils.subStrStartToEnd(newMsgStr,76,78);//高压侧接线类型
-                            dyjxlx = StringUtils.subStrStartToEnd(newMsgStr,78,80);//低压侧接线类型
-                            zubie = StringUtils.subStrStartToEnd(newMsgStr,80,82);//组别
-                            fenjie = StringUtils.subStrStartToEnd(newMsgStr,82,84);//测试分接
+                            bianbi = StringUtils.subStrStartToEnd(newMsgStr,16,24);//变比;60-68
+                            zabi = StringUtils.subStrStartToEnd(newMsgStr,24,32);//匝比
+                            jixing = StringUtils.subStrStartToEnd(newMsgStr,24,26);//极性：1：正；0负
+                            gyjxlx = StringUtils.subStrStartToEnd(newMsgStr,32,34);//高压侧接线类型
+                            dyjxlx = StringUtils.subStrStartToEnd(newMsgStr,34,36);//低压侧接线类型
+                            zubie = StringUtils.subStrStartToEnd(newMsgStr,36,38);//组别
+                            fenjie = StringUtils.subStrStartToEnd(newMsgStr,38,40);//测试分接
                             /*beiyong = StringUtils.subStrStartToEnd(newMsgStr,8,12);//扩大一百倍的角度
                             sjxz = StringUtils.subStrStartToEnd(newMsgStr,12,14);//数据性质：1、电流电压；2、测试变比匝比
                             csxw = StringUtils.subStrStartToEnd(newMsgStr,14,16);//测试相位0：AB；1：BC；2：CA*/
@@ -150,45 +150,57 @@ public class SxBbCeshiActivity extends AppCompatActivity {
                             String dl = ShiOrShiliu.hexToFloatWuBuhuan(csdl);
                             String ycdyFl = ShiOrShiliu.hexToFloatWuBuhuan(ycdy);
                             String ecdyFl = ShiOrShiliu.hexToFloatWuBuhuan(ecdy);
+                            Log.e(TAG,"csxw==:"+csxw+","+dl);
                             if(StringUtils.isEquals(csxw,"00")){
-                                tvCsdlA.setText(dl+"mA");
-                                tvYcdyA.setText(ycdyFl+"V");
-                                tvEcdyA.setText(ecdyFl+"V");
+                                if(StringUtils.isEquals(sjxz,"01")){
+                                    tvCsdlA.setText(dl+"mA");
+                                    tvYcdyA.setText(ycdyFl+"V");
+                                    tvEcdyA.setText(ecdyFl+"V");
+                                }else{
+                                    jiaoduA = ShiOrShiliu.parseInt(beiyong)+"";
+                                    bianbiA = ShiOrShiliu.hexToFloatWuBuhuan(bianbi);
+                                    zabiA = ShiOrShiliu.hexToFloatWuBuhuan(zabi);
+                                    Log.e(TAG+"A",beiyong+","+jiaoduA);
+                                }
+
 //                                if(StringUtils.isEquals(jixing,"01")){
 //                                    jixingA = "+";
 //                                } else if (StringUtils.isEquals(jixing,"00")) {
 //                                    jixingA = "-";
 //                                }
-                                jiaoduA = ShiOrShiliu.parseInt(beiyong)+"";
-                                bianbiA = ShiOrShiliu.hexToFloatWuBuhuan(bianbi);
-                                zabiA = ShiOrShiliu.hexToFloatWuBuhuan(zabi);
-                                Log.e(TAG,beiyong+","+jiaoduA);
                             }else if(StringUtils.isEquals(csxw,"01")){
-                                tvCsdlB.setText(dl+"mA");
-                                tvYcdyB.setText(ycdyFl+"V");
-                                tvEcdyB.setText(ecdyFl+"V");
+                                if(StringUtils.isEquals(sjxz,"01")){
+                                    tvCsdlB.setText(dl+"mA");
+                                    tvYcdyB.setText(ycdyFl+"V");
+                                    tvEcdyB.setText(ecdyFl+"V");
+                                }else{
+                                    jiaoduB = ShiOrShiliu.parseInt(beiyong)+"";
+                                    bianbiB = ShiOrShiliu.hexToFloatWuBuhuan(bianbi);
+                                    zabiB = ShiOrShiliu.hexToFloatWuBuhuan(zabi);
+                                    Log.e(TAG+"B",beiyong+","+jiaoduB);
+                                }
+
 //                                if(StringUtils.isEquals(jixing,"01")){
 //                                    jixingB = "+";
 //                                } else if (StringUtils.isEquals(jixing,"00")) {
 //                                    jixingB = "-";
 //                                }
-                                jiaoduB = ShiOrShiliu.parseInt(beiyong)+"";
-                                bianbiB = ShiOrShiliu.hexToFloatWuBuhuan(bianbi);
-                                zabiB = ShiOrShiliu.hexToFloatWuBuhuan(zabi);
-                                Log.e(TAG,beiyong+","+jiaoduB);
                             }else if(StringUtils.isEquals(csxw,"02")){
-                                tvCsdlC.setText(dl+"mA");
-                                tvYcdyC.setText(ycdyFl+"V");
-                                tvEcdyC.setText(ecdyFl+"V");
+                                if(StringUtils.isEquals(sjxz,"01")){
+                                    tvCsdlC.setText(dl+"mA");
+                                    tvYcdyC.setText(ycdyFl+"V");
+                                    tvEcdyC.setText(ecdyFl+"V");
+                                }else{
+                                    jiaoduC = ShiOrShiliu.parseInt(beiyong)+"";
+                                    bianbiC = ShiOrShiliu.hexToFloatWuBuhuan(bianbi);
+                                    zabiC = ShiOrShiliu.hexToFloatWuBuhuan(zabi);
+                                    Log.e(TAG+"C",beiyong+","+jiaoduC);
+                                }
 //                                if(StringUtils.isEquals(jixing,"01")){
 //                                    jixingC = "+";
 //                                } else if (StringUtils.isEquals(jixing,"00")) {
 //                                    jixingC = "-";
 //                                }
-                                jiaoduC = ShiOrShiliu.parseInt(beiyong)+"";
-                                bianbiC = ShiOrShiliu.hexToFloatWuBuhuan(bianbi);
-                                zabiC = ShiOrShiliu.hexToFloatWuBuhuan(zabi);
-                                Log.e(TAG,beiyong+","+jiaoduC);
                             }
                             jinru +=1;
                             Log.e("进入==1", jinru+"");

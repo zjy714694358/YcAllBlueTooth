@@ -437,4 +437,10 @@
     <string name="hl_cpsc_xntd6" translatable="false">*液晶采用5寸工业级彩色触摸屏，强阳光下清晰可见;</string>
     <string name="hl_cpsc_xntd7" translatable="false">*仪器测试数据可实现打印，实时保存，导出到U盘，本机可存储1000条测试数据;</string>
     <string name="hl_cpsc_xntd8" translatable="false">*仪器具有RS232接口，可以将测试数据传输到后台;</string>
+    <!--********************************************************导出报告==》回路**************************************************************-->
+    <string name="hl_daochu_scbg" translatable="false">回路测试报告</string>
+    <string name="hl_daochu_bh" translatable="false">编号</string>
+    <string name="hl_daochu_dlz" translatable="false">电流值</string>
+    <string name="hl_daochu_dzz" translatable="false">电阻值</string>
+    <string name="hl_daochu_jlsj" translatable="false">记录时间</string>
 </resources>

@@ -130,6 +130,11 @@ public class HLDyjlAdapter extends BaseAdapter {
                         dataMap.put("$dianliuzhi$", finalHolder.tvDlz.getText().toString());
                         dataMap.put("$dianzuzhi$", finalHolder.tvDzz.getText().toString());
                         dataMap.put("$jilushijian$",dataBean.getJilushijian());
+//                        dataMap.put("$hldccsbg$",mContext.getString(R.string.hl_daochu_scbg));
+//                        dataMap.put("$hldcbh$", mContext.getString(R.string.hl_daochu_bh));
+//                        dataMap.put("$hldcdlz$", mContext.getString(R.string.hl_daochu_dlz));
+//                        dataMap.put("$hldcdzz$", mContext.getString(R.string.hl_daochu_dzz));
+//                        dataMap.put("$hldcjlsj$",mContext.getString(R.string.hl_daochu_jlsj));
 
                         PoiUtils.writeToDoc(templetDocStream, targetDocPath, dataMap);
                         //Log.e("TTTT==", "写入...");
