@@ -18,6 +18,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -47,6 +48,9 @@ public class SxBbCeshiActivity extends AppCompatActivity {
     private TextView tvEcdyB;
     private TextView tvEcdyC;
     private TextView tvFanhui;
+
+    AlertDialog.Builder builder = null;
+    AlertDialog dialog = null;
 
     String crcJy =  "";
     String beiyong = "";//备用===》扩大一百倍的角度
@@ -110,6 +114,7 @@ public class SxBbCeshiActivity extends AppCompatActivity {
                             Log.e(TAG,newMsgStr);
                         }
                         if (newMsgStr.length() == 44&&jinru!=15) {
+                            dialog.dismiss();//当接收到下位机送来的数据，关闭弹窗，进入解析运算，准备显示测试数据
                             Log.e(TAG,newMsgStr);
                             String crcAll = StringUtils.subStrStartToEnd(newMsgStr,0,40);
                             byte[] bytesSx = new BigInteger(crcAll, 16).toByteArray();
@@ -253,12 +258,21 @@ public class SxBbCeshiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sx_bb_ceshi);
         ActivityCollector.addActivity(this);
         Config.ymType = "bianbiSxBbCeshi";
+
         initModel();
         initView();
         sendDataByBle(SendUtil.initSend("77"),"");
     }
 
     public void initView(){
+
+        builder = new AlertDialog.Builder(this);
+        View dialogView = getLayoutInflater().inflate(R.layout.layout_bianbi_tc, null);
+        builder.setView(dialogView);
+        builder.setCancelable(false);//点击弹窗周围不关闭弹窗
+        dialog = builder.create();
+        dialog.show();
+
         tvCsdlA = findViewById(R.id.tvSxBbCeshiCsDlA);
         tvCsdlB = findViewById(R.id.tvSxBbCeshiCsDlB);
         tvCsdlC = findViewById(R.id.tvSxBbCeshiCsDlC);

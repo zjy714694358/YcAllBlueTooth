@@ -407,6 +407,7 @@
     <string name="bianhao" translatable="false">编号</string>
     <string name="bianbizhiorzabizhi" translatable="false">变比值/匝比值</string>
     <!--<string name="ceshishijian" translatable="false">测试时间</string>-->
+    <string name="zhengzaiceshiqingshaohou" translatable="false">正在测试，请稍后...</string>
     <!--********************************************************回路**************************************************************-->
     <string name="huiludianzuceshiyi" translatable="false">回路电阻测试仪</string>
     <string name="dianzuceshi" translatable="false">电阻测试</string>

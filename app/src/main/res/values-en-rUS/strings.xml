@@ -409,6 +409,7 @@
     <string name="bianhao" translatable="false">Number</string>
     <string name="bianbizhiorzabizhi" translatable="false">Variable ratio/turn ratio</string>
     <!--<string name="ceshishijian" translatable="false">测试时间</string>-->
+    <string name="zhengzaiceshiqingshaohou" translatable="false">Testing in progress, please wait...</string>
     <!--********************************************************回路**************************************************************-->
     <string name="huiludianzuceshiyi" translatable="false">Loop resistance tester</string>
     <string name="dianzuceshi" translatable="false">Resistance test</string>
