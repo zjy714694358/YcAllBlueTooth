@@ -14,15 +14,39 @@ public class Chanpinshouce {
      * @param ll1 产品手册
      * @param ll2 性能特点
      */
-    public void xianOryin(LinearLayout ll1,LinearLayout ll2){
+    public void xianOryin(int type,LinearLayout ll1,LinearLayout ll2,LinearLayout ll3){
         int ll10 = ll1.getVisibility();
         int ll20 = ll2.getVisibility();
-        if(ll10==0){//0：目前显示的
-            ll1.setVisibility(View.GONE);
-            ll2.setVisibility(View.VISIBLE);
-        }else if(ll20==0){
-            ll2.setVisibility(View.GONE);
-            ll1.setVisibility(View.VISIBLE);
+        int ll30 = ll3.getVisibility();
+        if(type==0){
+            if(ll10==0){//0：目前显示的
+                ll1.setVisibility(View.GONE);
+                ll2.setVisibility(View.GONE);
+                ll3.setVisibility(View.VISIBLE);
+            }else if(ll20==0){
+                ll2.setVisibility(View.GONE);
+                ll3.setVisibility(View.GONE);
+                ll1.setVisibility(View.VISIBLE);
+            }else if(ll30==0){
+                ll3.setVisibility(View.GONE);
+                ll1.setVisibility(View.GONE);
+                ll2.setVisibility(View.VISIBLE);
+            }
+        } else if (type==1) {
+            if(ll10==0){//0：目前显示的
+                ll1.setVisibility(View.GONE);
+                ll3.setVisibility(View.GONE);
+                ll2.setVisibility(View.VISIBLE);
+            }else if(ll20==0){
+                ll2.setVisibility(View.GONE);
+                ll1.setVisibility(View.GONE);
+                ll3.setVisibility(View.VISIBLE);
+            }else if(ll30==0){
+                ll3.setVisibility(View.GONE);
+                ll2.setVisibility(View.GONE);
+                ll1.setVisibility(View.VISIBLE);
+            }
         }
+
     }
 }

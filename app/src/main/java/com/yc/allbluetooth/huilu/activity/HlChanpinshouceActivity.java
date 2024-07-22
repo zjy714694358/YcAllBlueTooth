@@ -27,6 +27,7 @@ public class HlChanpinshouceActivity extends AppCompatActivity implements View.O
     private LinearLayout llFanhui;
     private LinearLayout llJszb;//技术指标
     private LinearLayout llXntd;//性能特点
+    private LinearLayout llJxt;//接线图
     int type = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,7 @@ public class HlChanpinshouceActivity extends AppCompatActivity implements View.O
 
         llJszb = findViewById(R.id.llHlCpscJszb);
         llXntd = findViewById(R.id.llHlCpscXntd);
+        llJxt = findViewById(R.id.llHlCpscCsyujx);
 
         llShang.setOnClickListener(this);
         llXia.setOnClickListener(this);
@@ -75,7 +77,7 @@ public class HlChanpinshouceActivity extends AppCompatActivity implements View.O
 //            ChanpinShouce chanpinShouce = new ChanpinShouce();
 //            chanpinShouce.qiehuanHl(HlChanpinshouceActivity.this,type,ivCpsc);
             Chanpinshouce chanpinshouce = new Chanpinshouce();
-            chanpinshouce.xianOryin(llJszb,llXntd);
+            chanpinshouce.xianOryin(0,llJszb,llXntd,llJxt);
         } else if (v.getId() == R.id.llHlCpscXia) {//下一页
 //            if(type==1){
 //                type=2;
@@ -86,7 +88,7 @@ public class HlChanpinshouceActivity extends AppCompatActivity implements View.O
 //            ChanpinShouce chanpinShouce = new ChanpinShouce();
 //            chanpinShouce.qiehuanHl(HlChanpinshouceActivity.this,type,ivCpsc);
             Chanpinshouce chanpinshouce = new Chanpinshouce();
-            chanpinshouce.xianOryin(llJszb,llXntd);
+            chanpinshouce.xianOryin(1,llJszb,llXntd,llJxt);
         }else if (v.getId() == R.id.llHlCpscFanhui) {//返回
             finish();
         }

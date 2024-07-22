@@ -438,6 +438,8 @@
     <string name="hl_cpsc_xntd6" translatable="false">*液晶采用5寸工业级彩色触摸屏，强阳光下清晰可见;</string>
     <string name="hl_cpsc_xntd7" translatable="false">*仪器测试数据可实现打印，实时保存，导出到U盘，本机可存储1000条测试数据;</string>
     <string name="hl_cpsc_xntd8" translatable="false">*仪器具有RS232接口，可以将测试数据传输到后台;</string>
+    <string name="hl_cpsc_csyujx" translatable="false">测试与接线</string>
+    <string name="hl_cpsc_csyujx2" translatable="false">将专用测试线按红对红，黑对黑，粗线接到对应的I+、I-电流接线柱扭紧，细线插入到U+、U-电压接线座内，两把夹钳夹住被测试品的两端(注意：测试钳的全部连接面应与试品可靠接触)。</string>
     <!--********************************************************导出报告==》回路**************************************************************-->
     <string name="hl_daochu_scbg" translatable="false">回路测试报告</string>
     <string name="hl_daochu_bh" translatable="false">编号</string>

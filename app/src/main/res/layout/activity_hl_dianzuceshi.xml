@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:theme="@style/textSize_26_b"
-            android:text="@string/dianzuceshi"/>
+            android:text="@string/huiludianzuceshiyi"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -165,6 +165,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
+            android:visibility="gone"
             android:gravity="center_vertical"
             android:orientation="vertical">
             <TextView
@@ -218,23 +219,74 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
         android:gravity="center"
         android:orientation="horizontal">
-        <TextView
-            android:id="@+id/tvHlDzcsKaishiceshi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn_lv_yinying_hei"
-            android:theme="@style/textSize_24_b"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:text="@string/kaishiceshi"/>
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvHlDzcsDiaoyuejilu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_lv_yinying_hei"
+                android:theme="@style/textSize_22_b"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/diaoyuejilu"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvHlDzcsKaishiceshi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_lv_yinying_hei"
+                android:theme="@style/textSize_22_b"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/kaishiceshi"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvHlDzcsShijianjiaozheng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_lv_yinying_hei"
+                android:theme="@style/textSize_22_b"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/shijianjiaozheng"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvHlDzcsChanpinshouce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_lv_yinying_hei"
+                android:theme="@style/textSize_22_b"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/chanpinshouce"/>
+        </LinearLayout>
         <TextView
             android:id="@+id/tvHlDzcsFanhui"
             android:layout_width="wrap_content"
@@ -243,6 +295,41 @@
             android:theme="@style/textSize_24_b"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
+            android:visibility="gone"
             android:text="@string/fanhui"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/zhuti"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                style="@style/tvYzHomeDiSize_20"
+                android:text="@string/youzaikaiguancanshuceshiyi"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                style="@style/tvYzHomeDiSize_20"
+                android:text="01"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tvHlDzcsTime"
+            android:layout_width="220dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            style="@style/tvYzHomeDiSize_20"
+            android:text=""/>
     </LinearLayout>
 </LinearLayout>

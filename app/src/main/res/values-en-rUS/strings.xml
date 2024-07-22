@@ -440,6 +440,8 @@
     <string name="hl_cpsc_xntd6" translatable="false">*The LCD adopts a 5-inch industrial grade color touch screen, which is clearly visible under strong sunlight;</string>
     <string name="hl_cpsc_xntd7" translatable="false">*The instrument test data can be printed, saved in real time, and exported to a USB drive. This machine can store 1000 pieces of test data;</string>
     <string name="hl_cpsc_xntd8" translatable="false">*The instrument has an RS232 interface and can transmit test data to the background;</string>
+    <string name="hl_cpsc_csyujx" translatable="false">Testing and wiring</string>
+    <string name="hl_cpsc_csyujx2" translatable="false">Connect the dedicated test wire to the corresponding I+and I - current terminals in a red to red and black to black manner, tighten the thick wire, insert the thin wire into the U+and U - voltage terminals, and clamp the two ends of the test sample with two clamps (note: all connection surfaces of the test clamp should be in reliable contact with the test sample).</string>
     <!--********************************************************导出报告==》回路**************************************************************-->
     <string name="hl_daochu_scbg" translatable="false">Loop test report</string>
     <string name="hl_daochu_bh" translatable="false">Number</string>

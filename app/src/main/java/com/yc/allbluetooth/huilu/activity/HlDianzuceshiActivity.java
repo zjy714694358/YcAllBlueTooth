@@ -30,6 +30,7 @@ import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
 import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
+import com.yc.allbluetooth.utils.GetTime;
 import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SendUtil;
 import com.yc.allbluetooth.utils.StringUtils;
@@ -48,6 +49,10 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
     private EditText etSybh;
     private TextView tvKscs;
     private TextView tvFanhui;
+    private TextView tvDyjl;
+    private TextView tvSjjz;
+    private TextView tvCpsc;
+    private TextView tvTime;
     int diyi = 0;
     String hlCsdl = "100A";
     String hlCssc = "1S";
@@ -72,6 +77,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             super.handleMessage(msg);
             switch (msg.what) {
                 case msgKey1:
+                    tvTime.setText(GetTime.getTime(4));//年-月-日 时：分：秒
                     break;
                 case Config.BLUETOOTH_GETDATA:
                     if(StringUtils.isEquals(Config.ymType,"hlDianzuceshi")){
@@ -123,6 +129,8 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
         ActivityCollector.addActivity(this);
         initModel();
         initView();
+        Log.e(TAG,"====进入hl=======");
+        new TimeThread().start();
         initSend();
     }
     public void initView(){
@@ -136,6 +144,10 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
         etSybh = findViewById(R.id.etHlDzcsSybh);
         tvKscs = findViewById(R.id.tvHlDzcsKaishiceshi);
         tvFanhui = findViewById(R.id.tvHlDzcsFanhui);
+        tvDyjl = findViewById(R.id.tvHlDzcsDiaoyuejilu);
+        tvSjjz = findViewById(R.id.tvHlDzcsShijianjiaozheng);
+        tvCpsc = findViewById(R.id.tvHlDzcsChanpinshouce);
+        tvTime = findViewById(R.id.tvHlDzcsTime);
         tvSydl50.setOnClickListener(this);
         tvSydl100.setOnClickListener(this);
         tvCssc1.setOnClickListener(this);
@@ -145,6 +157,9 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
         tvCsscLianxu.setOnClickListener(this);
         tvKscs.setOnClickListener(this);
         tvFanhui.setOnClickListener(this);
+        tvDyjl.setOnClickListener(this);
+        tvSjjz.setOnClickListener(this);
+        tvCpsc.setOnClickListener(this);
         etSybh.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
@@ -166,13 +181,13 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             hlCsdl = "50A";
             tvSydl50.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvSydl100.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
-            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","32"),"");
+            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","01"),"");//1:50;
         } else if (view.getId() == R.id.tvHlDzcsSydl100) {//100A
             diyi = 1;
             hlCsdl = "100A";
             tvSydl50.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvSydl100.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
-            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","64"),"");
+            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","02"),"");//2:100
         }else if (view.getId() == R.id.tvHlDzcsCssc1) {//1S
             diyi = 1;
             hlCssc = "1S";
@@ -221,13 +236,19 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
         }else if (view.getId() == R.id.tvHlDzcsKaishiceshi) {//开始测试
             sendDataByBle(SendUtil.initSend("77"),"");
             String etBhStr = etSybh.getText().toString();
-            finish();
+            //finish();
             Intent intent = new Intent(HlDianzuceshiActivity.this, HlDianzuceshi2Activity.class);
             intent.putExtra("hlCsdl",hlCsdl);
             intent.putExtra("hlBianhao",etBhStr);
             intent.putExtra("hlCssc",hlCssc);
             startActivity(intent);
             //startActivity(new Intent(HlDianzuceshiActivity.this, HlDianzuceshi2Activity.class));
+        }else if (view.getId() == R.id.tvHlDzcsDiaoyuejilu) {//调阅记录
+            startActivity(new Intent(HlDianzuceshiActivity.this, HlDiaoyuejiluActivity.class));
+        }else if (view.getId() == R.id.tvHlDzcsShijianjiaozheng) {//时间校正
+            startActivity(new Intent(HlDianzuceshiActivity.this, HlShijianjiaozhengActivity.class));
+        }else if (view.getId() == R.id.tvHlDzcsChanpinshouce) {//产品手册
+            startActivity(new Intent(HlDianzuceshiActivity.this, HlChanpinshouceActivity.class));
         }else if(view.getId() == R.id.tvHlDzcsFanhui){//返回
             //sendDataByBle(SendUtil.initSend("78"),"");
             finish();
@@ -255,6 +276,25 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
         if(!bleConnectUtil.isConnected()&& StringUtils.noEmpty(bleConnectUtil.wsDeviceAddress)){
             bleConnectUtil.connect(bleConnectUtil.wsDeviceAddress,10,10);//标签从机：34:14:B5:B6:D6:E1
             bleConnectUtil.setCallback(blecallback);
+        }
+    }
+    /**
+     * 屏幕右下角时间显示，每隔一秒执行一次
+     */
+    public class TimeThread extends Thread{
+        @Override
+        public void run() {
+            do {
+                try {
+                    Thread.sleep(1000);
+                    Message msg = new Message();
+                    msg.what = msgKey1;
+                    mHandler.sendMessage(msg);
+                }
+                catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            } while(true);
         }
     }
     /**

@@ -47,7 +47,7 @@ import com.yc.allbluetooth.dlzk.activity.DlzkHomeActivity;
 import com.yc.allbluetooth.dtd10c.activity.Dtd10cHomeActivity;
 import com.yc.allbluetooth.entity.BlueTooth;
 import com.yc.allbluetooth.entity.EventMsg;
-import com.yc.allbluetooth.huilu.activity.HuiluHomeActivity;
+import com.yc.allbluetooth.huilu.activity.HlDianzuceshiActivity;
 import com.yc.allbluetooth.std.activity.StdHomeActivity;
 import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
@@ -105,63 +105,66 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             super.handleMessage(msg);
             switch (msg.what) {
                 case Config.BLUETOOTH_GETDATA:
-                    String msgStr = msg.obj.toString();
-                    Log.e(TAG+"接收2===", msgStr);
-                    if (IndexOfAndSubStr.isIndexOf(msgStr, "6677")) {
-                        //newMsgStr2 = "";
-                        newMsgStr = msgStr;
-                        Log.e(TAG + 1, newMsgStr);
-                    } else if(IndexOfAndSubStr.isIndexOf(msgStr, "FEEF")){
-                        newMsgStr = msgStr;
-                        Log.e(TAG + 1, newMsgStr);
-                    }else {
-                        if (IndexOfAndSubStr.isIndexOf(newMsgStr, msgStr) == false) {
-                            newMsgStr = newMsgStr + msgStr;
-                        }
-                        //可以
-                        Log.e(TAG + 2, newMsgStr);
+                    if(StringUtils.isEquals(Config.ymType,"main")) {
+                        String msgStr = msg.obj.toString();
+                        Log.e(TAG + "接收2===", msgStr);
+                        if (IndexOfAndSubStr.isIndexOf(msgStr, "6677")) {
+                            //newMsgStr2 = "";
+                            newMsgStr = msgStr;
+                            Log.e(TAG + 1, newMsgStr);
+                        } else if (IndexOfAndSubStr.isIndexOf(msgStr, "FEEF")) {
+                            newMsgStr = msgStr;
+                            Log.e(TAG + 1, newMsgStr);
+                        } else {
+                            if (IndexOfAndSubStr.isIndexOf(newMsgStr, msgStr) == false) {
+                                newMsgStr = newMsgStr + msgStr;
+                            }
+                            //可以
+                            Log.e(TAG + 2, newMsgStr);
 //                        if("FEEF0400240064000019070000000100020000000000000000000000000002000206110102001D336E00FDDF".equals(newMsgStr)){
 //                            //sendDataByBle("feef04B00700170606000f1237fddf","");
 //                            //sendDataByBle("feef04C00000fddf","");
 //                            sendDataByBle("feef04211c0014006009070000000100020031323334415344460000000000000007fddf","");
 //                        }
-                    }
-                    if (IndexOfAndSubStr.isIndexOf(newMsgStr, "6677") && newMsgStr.length() >= 26) {
-                        if(StringUtils.isEmpty(yqlx)){
-                            yqlx = StringUtils.subStrStartToEnd(newMsgStr, 18, 20);
-                            //yqlx = "34";//只能20
-                            Log.e(TAG+"仪器类型", yqlx);
-                            Config.yqlx = yqlx;
-                            if ((StringUtils.isEquals(yqlx, "31")) || (StringUtils.isEquals(yqlx, "34")) ||
-                                    (StringUtils.isEquals(yqlx, "35")) || (StringUtils.isEquals(yqlx, "36"))) {//三通道10、20、40、50
-                                //EventBus.getDefault().unregister(this);
-                                startActivity(new Intent(MainActivity.this, StdHomeActivity.class));
-                            } else if (StringUtils.isEquals(yqlx, "32")) {//直阻10C
-                                startActivity(new Intent(MainActivity.this, Dtd10cHomeActivity.class));
-                            } else if (StringUtils.isEquals(yqlx, "33")) {//短路阻抗
-                                startActivity(new Intent(MainActivity.this, DlzkHomeActivity.class));
+                        }
+                        if (IndexOfAndSubStr.isIndexOf(newMsgStr, "6677") && newMsgStr.length() >= 26) {
+                            if (StringUtils.isEmpty(yqlx)) {
+                                yqlx = StringUtils.subStrStartToEnd(newMsgStr, 18, 20);
+                                //yqlx = "34";//只能20
+                                Log.e(TAG + "仪器类型", yqlx);
+                                Config.yqlx = yqlx;
+                                if ((StringUtils.isEquals(yqlx, "31")) || (StringUtils.isEquals(yqlx, "34")) ||
+                                        (StringUtils.isEquals(yqlx, "35")) || (StringUtils.isEquals(yqlx, "36"))) {//三通道10、20、40、50
+                                    //EventBus.getDefault().unregister(this);
+                                    startActivity(new Intent(MainActivity.this, StdHomeActivity.class));
+                                } else if (StringUtils.isEquals(yqlx, "32")) {//直阻10C
+                                    startActivity(new Intent(MainActivity.this, Dtd10cHomeActivity.class));
+                                } else if (StringUtils.isEquals(yqlx, "33")) {//短路阻抗
+                                    startActivity(new Intent(MainActivity.this, DlzkHomeActivity.class));
+                                }
                             }
-                        }
 
-                    }else if(IndexOfAndSubStr.isIndexOf(newMsgStr, "FEEF")){//确定设备型号是有载
-                        yqlx = StringUtils.subStrStartToEnd(newMsgStr, 4, 6);
-                        bjdz = StringUtils.subStrStartToEnd(newMsgStr,6,8);
-                        Log.e(TAG, "仪器类型:"+yqlx+",本机地址："+bjdz);
-                        Config.yqlx = yqlx;
-                        Config.yzBenjiAddress = bjdz;
-                        startActivity(new Intent(MainActivity.this, YzHomeActivity.class));
-                    }else if(IndexOfAndSubStr.isIndexOf(newMsgStr, "6677") && newMsgStr.length() == 18){//确定设备型号
-                        yqlx = StringUtils.subStrStartToEnd(newMsgStr, 8, 10);
-                        if (StringUtils.isEquals(yqlx, "38")) {//变比
-                            startActivity(new Intent(MainActivity.this, BbHomeActivity.class));
-                        }else if(StringUtils.isEquals(yqlx, "39")){//回路
-                            startActivity(new Intent(MainActivity.this, HuiluHomeActivity.class));
+                        } else if (IndexOfAndSubStr.isIndexOf(newMsgStr, "FEEF")) {//确定设备型号是有载
+                            yqlx = StringUtils.subStrStartToEnd(newMsgStr, 4, 6);
+                            bjdz = StringUtils.subStrStartToEnd(newMsgStr, 6, 8);
+                            Log.e(TAG, "仪器类型:" + yqlx + ",本机地址：" + bjdz);
+                            Config.yqlx = yqlx;
+                            Config.yzBenjiAddress = bjdz;
+                            startActivity(new Intent(MainActivity.this, YzHomeActivity.class));
+                        } else if (IndexOfAndSubStr.isIndexOf(newMsgStr, "6677") && newMsgStr.length() == 18) {//确定设备型号
+                            yqlx = StringUtils.subStrStartToEnd(newMsgStr, 8, 10);
+                            if (StringUtils.isEquals(yqlx, "38")) {//变比
+                                startActivity(new Intent(MainActivity.this, BbHomeActivity.class));
+                            } else if (StringUtils.isEquals(yqlx, "39")) {//回路
+                                //startActivity(new Intent(MainActivity.this, HuiluHomeActivity.class));
+                                startActivity(new Intent(MainActivity.this, HlDianzuceshiActivity.class));
+                            }
+                        } else {//如果不是助磁、直阻、短路阻抗，发送获取有载设备型号指令
+                            sendDataByBle("feefaaaa5555fddf", "");//feef..aa5555fddf(..:04/05)
                         }
-                    }else{//如果不是助磁、直阻、短路阻抗，发送获取有载设备型号指令
-                        sendDataByBle("feefaaaa5555fddf","");//feef..aa5555fddf(..:04/05)
+                        break;
                     }
-                    break;
-                case 1000:
+                /*case 1000:
                     regainBleDataCount = 0;
                     bleFlag = false;
                     handler.removeCallbacks(checkConnetRunnable);
@@ -170,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     break;
                 case 1111:
                     bleConnectUtil.disConnect();
-                    break;
+                    break;*/
                 default:
                     break;
             }
