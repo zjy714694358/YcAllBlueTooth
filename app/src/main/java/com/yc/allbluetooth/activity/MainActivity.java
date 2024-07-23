@@ -154,9 +154,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         } else if (IndexOfAndSubStr.isIndexOf(newMsgStr, "6677") && newMsgStr.length() == 18) {//确定设备型号
                             yqlx = StringUtils.subStrStartToEnd(newMsgStr, 8, 10);
                             if (StringUtils.isEquals(yqlx, "38")) {//变比
+                                Config.yqlx = yqlx;
                                 startActivity(new Intent(MainActivity.this, BbHomeActivity.class));
-                            } else if (StringUtils.isEquals(yqlx, "39")) {//回路
+                            } else if (StringUtils.isEquals(yqlx, "39")||StringUtils.isEquals(yqlx,"3A")) {//回路100A：39；200A：3A
                                 //startActivity(new Intent(MainActivity.this, HuiluHomeActivity.class));
+                                Config.yqlx = yqlx;
                                 startActivity(new Intent(MainActivity.this, HlDianzuceshiActivity.class));
                             }
                         } else {//如果不是助磁、直阻、短路阻抗，发送获取有载设备型号指令

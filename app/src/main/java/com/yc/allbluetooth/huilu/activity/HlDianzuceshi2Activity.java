@@ -93,6 +93,8 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
                         }
                         if (newMsgStr.length() == 32) {
                             Log.e(TAG,32+"");
+                            String yqlx = StringUtils.subStrStartToEnd(newMsgStr,6,8);
+                            Log.e(TAG+"仪器类型32：",yqlx);
                             String crcAll = StringUtils.subStrStartToEnd(newMsgStr,0,28);
                             byte[] bytesSx = new BigInteger(crcAll, 16).toByteArray();
                             crcJy = StringUtils.subStrStartToEnd(newMsgStr,28,32);
@@ -112,6 +114,8 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
                         }
                         if (newMsgStr.length() == 64) {
                             Log.e(TAG,64+"");
+                            String yqlx = StringUtils.subStrStartToEnd(newMsgStr,6,8);
+                            Log.e(TAG+"仪器类型64：",yqlx);
                             String crcAll = StringUtils.subStrStartToEnd(newMsgStr,0,28);
                             byte[] bytesSx = new BigInteger(crcAll, 16).toByteArray();
                             crcJy = StringUtils.subStrStartToEnd(newMsgStr,28,32);
@@ -129,6 +133,8 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
                         }
                         if (newMsgStr.length() == 96) {
                             Log.e(TAG,96+"");
+                            String yqlx = StringUtils.subStrStartToEnd(newMsgStr,6,8);
+                            Log.e(TAG+"仪器类型96：",yqlx);
                             csdl = StringUtils.subStrStartToEnd(newMsgStr,76,84);//测试电流
                             csdz = StringUtils.subStrStartToEnd(newMsgStr,84,92);
                             Log.e(TAG,csdl+","+csdz);
@@ -143,6 +149,8 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
                         }
                         if (newMsgStr.length() == 192) {
                             Log.e(TAG,192+"");
+                            String yqlx = StringUtils.subStrStartToEnd(newMsgStr,6,8);
+                            Log.e(TAG+"仪器类型192：",yqlx);
                             csdl = StringUtils.subStrStartToEnd(newMsgStr,172,180);//测试电流
                             csdz = StringUtils.subStrStartToEnd(newMsgStr,180,188);
                             Log.e(TAG,csdl+","+csdz);

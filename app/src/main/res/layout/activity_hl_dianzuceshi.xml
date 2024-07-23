@@ -34,6 +34,46 @@
             android:layout_gravity="center_vertical"
             android:theme="@style/textSize_30_b"/>
         <LinearLayout
+            android:id="@+id/llHlDzcsSydl200"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvHlDzcsSydl200"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_lv_yinying_hei"
+                android:theme="@style/textSize_28_b"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="200A"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llHlDzcsSydl150"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvHlDzcsSydl150"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/textSize_28_b"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="150A"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llHlDzcsSydl100"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -44,7 +84,6 @@
                 android:id="@+id/tvHlDzcsSydl100"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/btn_lv_yinying_hei"
                 android:theme="@style/textSize_28_b"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
@@ -53,6 +92,7 @@
                 android:text="100A"/>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/llHlDzcsSydl50"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -71,12 +111,7 @@
                 android:theme="@style/textSize_28_b" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-        </LinearLayout>
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

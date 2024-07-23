@@ -19,6 +19,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,8 +54,20 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
     private TextView tvSjjz;
     private TextView tvCpsc;
     private TextView tvTime;
+    private LinearLayout ll200;
+    private LinearLayout ll150;
+    private LinearLayout ll100;
+    private LinearLayout ll50;
+    private TextView tvSydl200;
+    private TextView tvSydl150;
     int diyi = 0;
-    String hlCsdl = "100A";
+    /**
+     * 测试电流
+     */
+    String hlCsdl = "200A";
+    /**
+     * 测试时长
+     */
     String hlCssc = "1S";
 
     private String TAG = "HlDianzuceshiActivity";
@@ -136,6 +149,8 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
     public void initView(){
         tvSydl50 = findViewById(R.id.tvHlDzcsSydl50);
         tvSydl100 = findViewById(R.id.tvHlDzcsSydl100);
+        tvSydl150 = findViewById(R.id.tvHlDzcsSydl150);
+        tvSydl200 = findViewById(R.id.tvHlDzcsSydl200);
         tvCssc1 = findViewById(R.id.tvHlDzcsCssc1);
         tvCssc3 = findViewById(R.id.tvHlDzcsCssc3);
         tvCssc10 = findViewById(R.id.tvHlDzcsCssc10);
@@ -148,8 +163,14 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
         tvSjjz = findViewById(R.id.tvHlDzcsShijianjiaozheng);
         tvCpsc = findViewById(R.id.tvHlDzcsChanpinshouce);
         tvTime = findViewById(R.id.tvHlDzcsTime);
+        ll50 = findViewById(R.id.llHlDzcsSydl50);
+        ll100 = findViewById(R.id.llHlDzcsSydl100);
+        ll150 = findViewById(R.id.llHlDzcsSydl150);
+        ll200 = findViewById(R.id.llHlDzcsSydl200);
         tvSydl50.setOnClickListener(this);
         tvSydl100.setOnClickListener(this);
+        tvSydl150.setOnClickListener(this);
+        tvSydl200.setOnClickListener(this);
         tvCssc1.setOnClickListener(this);
         tvCssc3.setOnClickListener(this);
         tvCssc10.setOnClickListener(this);
@@ -160,6 +181,13 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
         tvDyjl.setOnClickListener(this);
         tvSjjz.setOnClickListener(this);
         tvCpsc.setOnClickListener(this);
+        if(StringUtils.isEquals("39",Config.yqlx)){//如果是100A回路（200A：3A），不显示150和200A，并且选中100A，去掉200A背景
+            hlCsdl = "100A";
+            ll150.setVisibility(View.GONE);
+            ll200.setVisibility(View.GONE);
+            tvSydl100.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+            tvSydl200.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+        }
         etSybh.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
@@ -181,13 +209,33 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             hlCsdl = "50A";
             tvSydl50.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvSydl100.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvSydl150.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvSydl200.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","01"),"");//1:50;
         } else if (view.getId() == R.id.tvHlDzcsSydl100) {//100A
             diyi = 1;
             hlCsdl = "100A";
             tvSydl50.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvSydl100.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+            tvSydl150.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvSydl200.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","02"),"");//2:100
+        }else if (view.getId() == R.id.tvHlDzcsSydl150) {//150A
+            diyi = 1;
+            hlCsdl = "150A";
+            tvSydl50.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvSydl100.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvSydl150.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+            tvSydl200.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","03"),"");//3:150
+        }else if (view.getId() == R.id.tvHlDzcsSydl200) {//200A
+            diyi = 1;
+            hlCsdl = "200A";
+            tvSydl50.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvSydl100.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvSydl150.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvSydl200.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","04"),"");//4:200
         }else if (view.getId() == R.id.tvHlDzcsCssc1) {//1S
             diyi = 1;
             hlCssc = "1S";
