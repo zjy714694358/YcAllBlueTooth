@@ -16,6 +16,7 @@ import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.config.Config;
 import com.yc.allbluetooth.huilu.util.Chanpinshouce;
 import com.yc.allbluetooth.utils.ActivityCollector;
+import com.yc.allbluetooth.utils.StringUtils;
 
 import java.util.Locale;
 
@@ -25,9 +26,12 @@ public class HlChanpinshouceActivity extends AppCompatActivity implements View.O
     private LinearLayout llShang;
     private LinearLayout llXia;
     private LinearLayout llFanhui;
-    private LinearLayout llJszb;//技术指标
-    private LinearLayout llXntd;//性能特点
-    private LinearLayout llJxt;//接线图
+    private LinearLayout llJszb100;//技术指标
+    private LinearLayout llXntd100;//性能特点
+    private LinearLayout llJxt100;//接线图
+    private LinearLayout llJszb200;//技术指标
+    private LinearLayout llXntd200;//性能特点
+    private LinearLayout llJxt200;//接线图
     int type = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,39 +60,34 @@ public class HlChanpinshouceActivity extends AppCompatActivity implements View.O
         llXia = findViewById(R.id.llHlCpscXia);
         llFanhui = findViewById(R.id.llHlCpscFanhui);
 
-        llJszb = findViewById(R.id.llHlCpscJszb);
-        llXntd = findViewById(R.id.llHlCpscXntd);
-        llJxt = findViewById(R.id.llHlCpscCsyujx);
+        llJszb100 = findViewById(R.id.llHlCpscJszb100);
+        llXntd100 = findViewById(R.id.llHlCpscXntd100);
+        llJxt100 = findViewById(R.id.llHlCpscCsyujx100);
+        llJszb200 = findViewById(R.id.llHlCpscJszb200);
+        llXntd200 = findViewById(R.id.llHlCpscXntd200);
+        llJxt200 = findViewById(R.id.llHlCpscCsyujx200);
 
         llShang.setOnClickListener(this);
         llXia.setOnClickListener(this);
         llFanhui.setOnClickListener(this);
+        if(StringUtils.isEquals(Config.yqlx,"39")){
+            llJszb100.setVisibility(View.VISIBLE);
+            llXntd100.setVisibility(View.GONE);
+            llJxt100.setVisibility(View.GONE);
+            llJszb200.setVisibility(View.GONE);
+            llXntd200.setVisibility(View.GONE);
+            llJxt200.setVisibility(View.GONE);
+        }
     }
 
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.llHlCpscShang){//上一页
-//            if(type==1){
-//                type=2;
-//            }else{
-//                type=1;
-//            }
-//            //Log.e("===",type+"");
-//            ChanpinShouce chanpinShouce = new ChanpinShouce();
-//            chanpinShouce.qiehuanHl(HlChanpinshouceActivity.this,type,ivCpsc);
             Chanpinshouce chanpinshouce = new Chanpinshouce();
-            chanpinshouce.xianOryin(0,llJszb,llXntd,llJxt);
+            chanpinshouce.xianOryin(0,llJszb100,llXntd100,llJxt100,llJszb200,llXntd200,llJxt200);
         } else if (v.getId() == R.id.llHlCpscXia) {//下一页
-//            if(type==1){
-//                type=2;
-//            }else{
-//                type=1;
-//            }
-//            //Log.e("===",type+"");
-//            ChanpinShouce chanpinShouce = new ChanpinShouce();
-//            chanpinShouce.qiehuanHl(HlChanpinshouceActivity.this,type,ivCpsc);
             Chanpinshouce chanpinshouce = new Chanpinshouce();
-            chanpinshouce.xianOryin(1,llJszb,llXntd,llJxt);
+            chanpinshouce.xianOryin(1,llJszb100,llXntd100,llJxt100,llJszb200,llXntd200,llJxt200);
         }else if (v.getId() == R.id.llHlCpscFanhui) {//返回
             finish();
         }

@@ -60,6 +60,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
     private LinearLayout ll50;
     private TextView tvSydl200;
     private TextView tvSydl150;
+    private TextView tvXtsz;
     int diyi = 0;
     /**
      * 测试电流
@@ -167,6 +168,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
         ll100 = findViewById(R.id.llHlDzcsSydl100);
         ll150 = findViewById(R.id.llHlDzcsSydl150);
         ll200 = findViewById(R.id.llHlDzcsSydl200);
+        tvXtsz = findViewById(R.id.tvHlDzcsXitongshezhi);
         tvSydl50.setOnClickListener(this);
         tvSydl100.setOnClickListener(this);
         tvSydl150.setOnClickListener(this);
@@ -181,6 +183,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
         tvDyjl.setOnClickListener(this);
         tvSjjz.setOnClickListener(this);
         tvCpsc.setOnClickListener(this);
+        tvXtsz.setOnClickListener(this);
         if(StringUtils.isEquals("39",Config.yqlx)){//如果是100A回路（200A：3A），不显示150和200A，并且选中100A，去掉200A背景
             hlCsdl = "100A";
             ll150.setVisibility(View.GONE);
@@ -300,6 +303,8 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
         }else if(view.getId() == R.id.tvHlDzcsFanhui){//返回
             //sendDataByBle(SendUtil.initSend("78"),"");
             finish();
+        }else if(view.getId() == R.id.tvHlDzcsXitongshezhi){//系统设置
+            startActivity(new Intent(HlDianzuceshiActivity.this,HlXitongshezhiActivity.class));
         }
     }
     public void initSend(){
@@ -325,6 +330,25 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             bleConnectUtil.connect(bleConnectUtil.wsDeviceAddress,10,10);//标签从机：34:14:B5:B6:D6:E1
             bleConnectUtil.setCallback(blecallback);
         }
+        tbTime();
+
+    }
+
+    /**
+     * 连上蓝牙后，进主页面先同步一次时间
+     */
+    public void tbTime(){
+        String timeStr = GetTime.getTime(3);
+        String nian = StringUtils.subStrStartToEnd(timeStr,0,2);
+        String yue = StringUtils.subStrStartToEnd(timeStr,2,4);
+        String ri = StringUtils.subStrStartToEnd(timeStr,4,6);
+        String shi = StringUtils.subStrStartToEnd(timeStr,8,10);
+        String fen = StringUtils.subStrStartToEnd(timeStr,10,12);
+        String miao = StringUtils.subStrStartToEnd(timeStr,12,14);
+
+        sendDataByBle(SendUtil.shijianSend("6e", StringUtils.bulingXiaoShiliu(nian)+StringUtils.bulingXiaoShiliu(yue)+
+                StringUtils.bulingXiaoShiliu(ri)+StringUtils.bulingXiaoShiliu(shi)+StringUtils.bulingXiaoShiliu(fen)+
+                StringUtils.bulingXiaoShiliu(miao)),"");
     }
     /**
      * 屏幕右下角时间显示，每隔一秒执行一次

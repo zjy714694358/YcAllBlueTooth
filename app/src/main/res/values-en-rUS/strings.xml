@@ -442,6 +442,26 @@
     <string name="hl_cpsc_xntd8" translatable="false">*The instrument has an RS232 interface and can transmit test data to the background;</string>
     <string name="hl_cpsc_csyujx" translatable="false">Testing and wiring</string>
     <string name="hl_cpsc_csyujx2" translatable="false">Connect the dedicated test wire to the corresponding I+and I - current terminals in a red to red and black to black manner, tighten the thick wire, insert the thin wire into the U+and U - voltage terminals, and clamp the two ends of the test sample with two clamps (note: all connection surfaces of the test clamp should be in reliable contact with the test sample).</string>
+    <!--********************************************************200A==》回路**************************************************************-->
+    <string name="hl_cpsc_jszb1_200" translatable="false">Output current:</string>
+    <string name="hl_cpsc_jszb2_200" translatable="false">50A:0~100mΩ;</string>
+    <string name="hl_cpsc_jszb3_200" translatable="false">100A:0~50mΩ;</string>
+    <string name="hl_cpsc_jszb4_200" translatable="false">150A:0~40mΩ;</string>
+    <string name="hl_cpsc_jszb5_200" translatable="false">200A:0~25mΩ;</string>
+    <string name="hl_cpsc_jszb6_200" translatable="false">Resolution: minimum 0.1 μ Ω;</string>
+    <string name="hl_cpsc_jszb7_200" translatable="false">Accuracy: ± (0.5%+2 words);</string>
+    <string name="hl_cpsc_jszb8_200" translatable="false">Output power: 2000W</string>
+    <string name="hl_cpsc_jszb9_200" translatable="false">Working mode: 1S/3S/10S/60S;</string>
+    <string name="hl_cpsc_jszb10_200" translatable="false">Working power supply: AC200V ± 10% 50HZ;</string>
+    <string name="hl_cpsc_jszb11_200" translatable="false">Operating temperature: -10~40 ℃;</string>
+    <string name="hl_cpsc_xntd1_200" translatable="false">*Multiple current options (maximum test current of 200A), wide testing range;</string>
+    <string name="hl_cpsc_xntd2_200" translatable="false">*The testing current comes from a high-precision high current constant current power supply, and the testing is fast and accurate;</string>
+    <string name="hl_cpsc_xntd3_200" translatable="false">*Adopting the four terminal wiring method to eliminate the influence of test line resistance on the test results;</string>
+    <string name="hl_cpsc_xntd4_200" translatable="false">*The instrument can display test data as fast as 1 second and can also test continuously for 60 seconds to meet application requirements;</string>
+    <string name="hl_cpsc_xntd5_200" translatable="false">*The instrument is equipped with functions such as input misconnection protection for AC380V power supply and overheating protection;</string>
+    <string name="hl_cpsc_xntd6_200" translatable="false">*The LCD adopts a 7-inch industrial grade color touch screen, which is clearly visible under strong sunlight;</string>
+    <string name="hl_cpsc_xntd7_200" translatable="false">*The instrument test data can be printed, saved in real time, and exported to a USB drive. The machine can store 1000 pieces of test data;</string>
+    <string name="hl_cpsc_xntd8_200" translatable="false">*The instrument has an RS232 interface, which can transmit test data to the background;</string>
     <!--********************************************************导出报告==》回路**************************************************************-->
     <string name="hl_daochu_scbg" translatable="false">Loop test report</string>
     <string name="hl_daochu_bh" translatable="false">Number</string>

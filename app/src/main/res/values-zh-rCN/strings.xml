@@ -440,6 +440,26 @@
     <string name="hl_cpsc_xntd8" translatable="false">*仪器具有RS232接口，可以将测试数据传输到后台;</string>
     <string name="hl_cpsc_csyujx" translatable="false">测试与接线</string>
     <string name="hl_cpsc_csyujx2" translatable="false">将专用测试线按红对红，黑对黑，粗线接到对应的I+、I-电流接线柱扭紧，细线插入到U+、U-电压接线座内，两把夹钳夹住被测试品的两端(注意：测试钳的全部连接面应与试品可靠接触)。</string>
+    <!--********************************************************200A==》回路**************************************************************-->
+    <string name="hl_cpsc_jszb1_200" translatable="false">输出电流：</string>
+    <string name="hl_cpsc_jszb2_200" translatable="false">50A:0~100mΩ;</string>
+    <string name="hl_cpsc_jszb3_200" translatable="false">100A:0~50mΩ;</string>
+    <string name="hl_cpsc_jszb4_200" translatable="false">150A:0~40mΩ;</string>
+    <string name="hl_cpsc_jszb5_200" translatable="false">200A:0~25mΩ;</string>
+    <string name="hl_cpsc_jszb6_200" translatable="false">分辨率：最小0.1μΩ;</string>
+    <string name="hl_cpsc_jszb7_200" translatable="false">精确度：±(0.5%+2个字);</string>
+    <string name="hl_cpsc_jszb8_200" translatable="false">输出功率：2000W</string>
+    <string name="hl_cpsc_jszb9_200" translatable="false">工作方式：1S/3S/10S/60S;</string>
+    <string name="hl_cpsc_jszb10_200" translatable="false">工作电源：AC200V±10% 50HZ;</string>
+    <string name="hl_cpsc_jszb11_200" translatable="false">使用温度：-10~40℃;</string>
+    <string name="hl_cpsc_xntd1_200" translatable="false">*多档电流可选(测试电流最大200A)，测试量程范围宽;</string>
+    <string name="hl_cpsc_xntd2_200" translatable="false">*测试电流来自高精度的大电流恒流电源，测试迅速准确;</string>
+    <string name="hl_cpsc_xntd3_200" translatable="false">*采用四端子接线法，排除测试线电阻对测试结果的影响;</string>
+    <string name="hl_cpsc_xntd4_200" translatable="false">*仪器最快1秒显示测试数据，也可连续60秒测试满足应用场合；</string>
+    <string name="hl_cpsc_xntd5_200" translatable="false">*仪器设有输入误接AC380V电源保护和过热保护等功能;</string>
+    <string name="hl_cpsc_xntd6_200" translatable="false">*液晶采用7寸工业级彩色触摸屏，强阳光下清晰可见;</string>
+    <string name="hl_cpsc_xntd7_200" translatable="false">*仪器测试数据可实现打印，实时保存，导出到U盘，本机可存储1000条测试数据;</string>
+    <string name="hl_cpsc_xntd8_200" translatable="false">*仪器具有RS232接口，可以将测试数据传输到后台;</string>
     <!--********************************************************导出报告==》回路**************************************************************-->
     <string name="hl_daochu_scbg" translatable="false">回路测试报告</string>
     <string name="hl_daochu_bh" translatable="false">编号</string>

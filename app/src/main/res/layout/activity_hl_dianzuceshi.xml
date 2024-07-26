@@ -15,9 +15,10 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/textSize_26_b"
+            android:gravity="center"
             android:text="@string/huiludianzuceshiyi"/>
     </LinearLayout>
     <LinearLayout
@@ -32,7 +33,7 @@
             android:layout_height="wrap_content"
             android:text="@string/shiyandianliu2"
             android:layout_gravity="center_vertical"
-            android:theme="@style/textSize_30_b"/>
+            android:theme="@style/textSize_28_b"/>
         <LinearLayout
             android:id="@+id/llHlDzcsSydl200"
             android:layout_width="0dp"
@@ -46,11 +47,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_lv_yinying_hei"
-                android:theme="@style/textSize_28_b"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:theme="@style/textSize_26_b"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:text="200A"/>
         </LinearLayout>
         <LinearLayout
@@ -65,11 +66,11 @@
                 android:id="@+id/tvHlDzcsSydl150"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:theme="@style/textSize_28_b"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:theme="@style/textSize_26_b"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:text="150A"/>
         </LinearLayout>
         <LinearLayout
@@ -84,11 +85,11 @@
                 android:id="@+id/tvHlDzcsSydl100"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:theme="@style/textSize_28_b"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:theme="@style/textSize_26_b"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:text="100A"/>
         </LinearLayout>
         <LinearLayout
@@ -103,12 +104,12 @@
                 android:id="@+id/tvHlDzcsSydl50"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingTop="10dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:text="50A"
-                android:theme="@style/textSize_28_b" />
+                android:theme="@style/textSize_26_b" />
         </LinearLayout>
 
 
@@ -125,7 +126,7 @@
             android:layout_height="wrap_content"
             android:text="@string/ceshishichang2"
             android:layout_gravity="center_vertical"
-            android:theme="@style/textSize_30_b"/>
+            android:theme="@style/textSize_28_b"/>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -138,11 +139,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_lv_yinying_hei"
-                android:theme="@style/textSize_30_b"
+                android:theme="@style/textSize_26_b"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:text="1S"/>
         </LinearLayout>
         <LinearLayout
@@ -155,11 +156,11 @@
                 android:id="@+id/tvHlDzcsCssc3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:theme="@style/textSize_28_b"
+                android:theme="@style/textSize_26_b"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:text="3S"/>
         </LinearLayout>
         <LinearLayout
@@ -172,11 +173,11 @@
                 android:id="@+id/tvHlDzcsCssc10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:theme="@style/textSize_28_b"
+                android:theme="@style/textSize_26_b"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:text="10S"/>
         </LinearLayout>
         <LinearLayout
@@ -189,11 +190,11 @@
                 android:id="@+id/tvHlDzcsCssc60"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:theme="@style/textSize_28_b"
+                android:theme="@style/textSize_26_b"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:text="60S"/>
         </LinearLayout>
         <LinearLayout
@@ -228,7 +229,7 @@
             android:layout_height="wrap_content"
             android:text="@string/shiyanbianhao2"
             android:layout_gravity="center_vertical"
-            android:theme="@style/textSize_30_b"/>
+            android:theme="@style/textSize_28_b"/>
         <EditText
             android:id="@+id/etHlDzcsSybh"
             android:layout_width="match_parent"
@@ -237,7 +238,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:paddingLeft="10dp"
-            android:theme="@style/textSize_30_b"
+            android:theme="@style/textSize_28_b"
             android:maxLength="8"
             android:text="A123456"/>
         <LinearLayout
@@ -250,10 +251,12 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/white"/>
+        android:background="@color/grey"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
         android:orientation="horizontal">
         <LinearLayout
@@ -267,7 +270,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_lv_yinying_hei"
-                android:theme="@style/textSize_22_b"
+                android:theme="@style/textSize_32_b"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="@string/diaoyuejilu"/>
@@ -283,18 +286,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_lv_yinying_hei"
-                android:theme="@style/textSize_22_b"
+                android:theme="@style/textSize_32_b"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="@string/kaishiceshi"/>
         </LinearLayout>
-
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvHlDzcsXitongshezhi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_lv_yinying_hei"
+                android:theme="@style/textSize_32_b"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/xitongshezhi"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:visibility="gone"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/tvHlDzcsShijianjiaozheng"
@@ -311,6 +330,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:visibility="gone"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/tvHlDzcsChanpinshouce"

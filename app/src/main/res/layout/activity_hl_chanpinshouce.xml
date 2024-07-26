@@ -34,10 +34,16 @@
                     android:orientation="vertical"
                     android:layout_weight="1">
                     <include layout="@layout/hl_cpsc_jszb_layout"
-                        android:visibility="visible" />
+                        android:visibility="gone" />
                     <include layout="@layout/hl_cpsc_xntd_layout"
                         android:visibility="gone"/>
                     <include layout="@layout/hl_cpsc_csyujx_layout"
+                        android:visibility="gone"/>
+                    <include layout="@layout/hl_cpsc_jszb2_layout"
+                        android:visibility="visible" />
+                    <include layout="@layout/hl_cpsc_xntd2_layout"
+                        android:visibility="gone"/>
+                    <include layout="@layout/hl_cpsc_csyujx2_layout"
                         android:visibility="gone"/>
                 </LinearLayout>
             </ScrollView>
