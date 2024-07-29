@@ -1,11 +1,7 @@
 package com.yc.allbluetooth.dtd10c.activity;
 
 
-
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
@@ -24,6 +20,8 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.ble.BleConnectUtil;
@@ -34,8 +32,6 @@ import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.GetTime;
 import com.yc.allbluetooth.utils.SendUtil;
 import com.yc.allbluetooth.utils.StringUtils;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.Locale;
 
@@ -134,6 +130,7 @@ public class Dtd10cHomeActivity extends AppCompatActivity implements View.OnClic
             bleConnectUtil.connect(bleConnectUtil.wsDeviceAddress,10,10);//标签从机：34:14:B5:B6:D6:E1
             bleConnectUtil.setCallback(blecallback);
         }
+        tbTime();
     }
     @Override
     public void onClick(View v) {
@@ -159,6 +156,19 @@ public class Dtd10cHomeActivity extends AppCompatActivity implements View.OnClic
                 finish();
                 break;
         }
+    }
+    public void tbTime(){
+        String timeStr = GetTime.getTime(3);
+        String nian = StringUtils.subStrStartToEnd(timeStr,0,2);
+        String yue = StringUtils.subStrStartToEnd(timeStr,2,4);
+        String ri = StringUtils.subStrStartToEnd(timeStr,4,6);
+        String shi = StringUtils.subStrStartToEnd(timeStr,8,10);
+        String fen = StringUtils.subStrStartToEnd(timeStr,10,12);
+        String miao = StringUtils.subStrStartToEnd(timeStr,12,14);
+        sendDataByBle(SendUtil.shijianSend("6d",nian+yue+ri+shi+fen+miao),"");
+//        sendDataByBle(SendUtil.shijianSend("6d", StringUtils.bulingXiaoShiliu(nian)+StringUtils.bulingXiaoShiliu(yue)+
+//                StringUtils.bulingXiaoShiliu(ri)+StringUtils.bulingXiaoShiliu(shi)+StringUtils.bulingXiaoShiliu(fen)+
+//                StringUtils.bulingXiaoShiliu(miao)),"");
     }
     /**
      * 屏幕左下角时间显示，每隔一秒执行一次

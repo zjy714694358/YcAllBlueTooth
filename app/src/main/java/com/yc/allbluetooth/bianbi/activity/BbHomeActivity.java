@@ -2,9 +2,6 @@ package com.yc.allbluetooth.bianbi.activity;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.Intent;
@@ -22,16 +19,16 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.bianbi.activity.danxiang.DxBbActivity;
-import com.yc.allbluetooth.bianbi.activity.dyjl.DyJlActivity;
 import com.yc.allbluetooth.bianbi.activity.dyjl.DyJlNewActivity;
 import com.yc.allbluetooth.bianbi.activity.sanxiang.SxBbActivity;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
-import com.yc.allbluetooth.dlzk.activity.DlzkHomeActivity;
 import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.GetTime;
@@ -124,6 +121,7 @@ public class BbHomeActivity extends AppCompatActivity implements View.OnClickLis
             bleConnectUtil.connect(bleConnectUtil.wsDeviceAddress,10,10);//标签从机：34:14:B5:B6:D6:E1
             bleConnectUtil.setCallback(blecallback);
         }
+        tbTime();
     }
     public void initView(){
         ivDx = findViewById(R.id.ivHomeDxBianbi);
@@ -135,6 +133,22 @@ public class BbHomeActivity extends AppCompatActivity implements View.OnClickLis
         ivSx.setOnClickListener(this);
         ivDyjl.setOnClickListener(this);
         ivXtsz.setOnClickListener(this);
+    }
+
+    /**
+     * 蓝牙连接成功进到主页面，同步一次时间到设备
+     */
+    public void tbTime(){
+        String timeStr = GetTime.getTime(3);
+        String nian = StringUtils.subStrStartToEnd(timeStr,0,2);
+        String yue = StringUtils.subStrStartToEnd(timeStr,2,4);
+        String ri = StringUtils.subStrStartToEnd(timeStr,4,6);
+        String shi = StringUtils.subStrStartToEnd(timeStr,8,10);
+        String fen = StringUtils.subStrStartToEnd(timeStr,10,12);
+        String miao = StringUtils.subStrStartToEnd(timeStr,12,14);
+        sendDataByBle(SendUtil.shijianSend("6e",StringUtils.bulingXiaoShiliu(nian)+StringUtils.bulingXiaoShiliu(yue)+
+                StringUtils.bulingXiaoShiliu(ri)+StringUtils.bulingXiaoShiliu(shi)+StringUtils.bulingXiaoShiliu(fen)+
+                StringUtils.bulingXiaoShiliu(miao)),"");
     }
 
     /**

@@ -2,13 +2,6 @@ package com.yc.allbluetooth.std.activity;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.pm.PackageManager;
@@ -28,23 +21,27 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
+import com.yc.allbluetooth.crc.CrcUtil;
 import com.yc.allbluetooth.std.fragment.StdDyJlNewFragment;
 import com.yc.allbluetooth.std.fragment.StdShijianShezhiFragment;
 import com.yc.allbluetooth.std.fragment.StdXiaociGongnengFragment;
 import com.yc.allbluetooth.std.fragment.StdXitongShezhiFragment;
-import com.yc.allbluetooth.std.fragment.StdZhizuCeshiFragment;
 import com.yc.allbluetooth.std.fragment.StdZhizuCeshiNewFragment;
-import com.yc.allbluetooth.std.fragment.zzcs.StdZzCsStdCsFragment;
 import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.GetTime;
-import com.yc.allbluetooth.utils.IndexOfAndSubStr;
-import com.yc.allbluetooth.utils.SendUtil;
 import com.yc.allbluetooth.utils.StringUtils;
 
+import java.math.BigInteger;
 import java.util.Locale;
 
 public class StdHomeActivity extends AppCompatActivity implements View.OnClickListener {
@@ -151,6 +148,7 @@ public class StdHomeActivity extends AppCompatActivity implements View.OnClickLi
             bleConnectUtil.setCallback(blecallback);
             Log.e(TAG, "进入...Home2");
         }
+        tbTime();
         //sendDataByBle("68866B010006060555B589","");
         //StdZhizuCeshiFragment zhizuCeshiFragment = StdZhizuCeshiFragment.newInstance("","");
         StdZhizuCeshiNewFragment zhizuCeshiFragment = StdZhizuCeshiNewFragment.newInstance("", "");
@@ -289,6 +287,24 @@ public class StdHomeActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    /**
+     * 同步时间
+     */
+    public void tbTime(){
+        String timeStr = GetTime.getTime(3);
+        String nian = StringUtils.subStrStartToEnd(timeStr,0,2);
+        String yue = StringUtils.subStrStartToEnd(timeStr,2,4);
+        String ri = StringUtils.subStrStartToEnd(timeStr,4,6);
+        String shi = StringUtils.subStrStartToEnd(timeStr,8,10);
+        String fen = StringUtils.subStrStartToEnd(timeStr,10,12);
+        String miao = StringUtils.subStrStartToEnd(timeStr,12,14);
+
+        String strStdCsAllStdSave = "6886"+"71"+nian+yue+ri+shi+fen+miao+"0000";//下发时间0x71
+        byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
+        String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
+        String sendAllYnSave = strStdCsAllStdSave + crcStdSave;
+        sendDataByBle(sendAllYnSave,"");
+    }
     /**
      * 屏幕左下角时间显示，每隔一秒执行一次
      */

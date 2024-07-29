@@ -1,8 +1,11 @@
 package com.yc.allbluetooth.youzai.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
+import android.Manifest;
+import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -16,16 +19,19 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.yc.allbluetooth.R;
+import com.yc.allbluetooth.ble.BleConnectUtil;
+import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
-import com.yc.allbluetooth.dtd10c.activity.Dtd10cHomeActivity;
 import com.yc.allbluetooth.utils.ActivityCollector;
+import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.GetTime;
-import com.yc.allbluetooth.utils.HexUtil;
 import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StringUtils;
-import com.yc.allbluetooth.utils.XiaoshuYunsuan;
-import com.yc.allbluetooth.youzai.util.CsszQiehuan;
+import com.yc.allbluetooth.youzai.util.CrcAll;
 
 import java.util.Locale;
 
@@ -38,6 +44,19 @@ public class YzHomeActivity extends AppCompatActivity implements View.OnClickLis
     private TextView tvTime;
 
     private String TAG = "YzHomeActivity";
+    BleConnectUtil bleConnectUtil;
+    String newMsgStr = "";
+    String csLongStr = "";//参数长度字符串
+    int csLong = 0;//参数字节个数
+
+    int regainBleDataCount = 0;
+    String currentRevice, currentSendOrder;
+    byte[] sData = null;
+    /**
+     * 跟ble通信的标志位,检测数据是否在指定时间内返回
+     */
+    private boolean bleFlag = false;
+
     private static final int msgKey1 = 1;
     private Handler mHandler = new Handler() {
         @Override
@@ -85,9 +104,17 @@ public class YzHomeActivity extends AppCompatActivity implements View.OnClickLis
 //        Log.e(TAG, HexUtil.reverseHex("6300"));
 //        Log.e(TAG,ShiOrShiliu.parseInt(HexUtil.reverseHex("6300"))+"");
 //        Log.e(TAG,(float)xsys.xiaoshuCheng(xsys.xiaoshu(ShiOrShiliu.parseInt(HexUtil.reverseHex("6300"))+""),xsys.xiaoshu("0.01"))+"");
-
+        initModel();
         initView();
         new TimeThread().start();
+    }
+    public void initModel(){
+        bleConnectUtil = new BleConnectUtil(YzHomeActivity.this);
+        if(!bleConnectUtil.isConnected()&& StringUtils.noEmpty(bleConnectUtil.wsDeviceAddress)){
+            bleConnectUtil.connect(bleConnectUtil.wsDeviceAddress,10,10);//标签从机：34:14:B5:B6:D6:E1
+            bleConnectUtil.setCallback(blecallback);
+        }
+        tbTime();
     }
     public void initView(){
         llYzCs = findViewById(R.id.llYzHomeYzCs);
@@ -119,6 +146,31 @@ public class YzHomeActivity extends AppCompatActivity implements View.OnClickLis
                 break;
         }
     }
+    public void tbTime(){
+        String timeStr = GetTime.getTime(3);
+        String nian = StringUtils.subStrStartToEnd(timeStr,0,2);
+        String yue = StringUtils.subStrStartToEnd(timeStr,2,4);
+        String ri = StringUtils.subStrStartToEnd(timeStr,4,6);
+        String shi = StringUtils.subStrStartToEnd(timeStr,8,10);
+        String fen = StringUtils.subStrStartToEnd(timeStr,10,12);
+        String miao = StringUtils.subStrStartToEnd(timeStr,12,14);
+
+        int nianInt = StringUtils.strToInt(nian);
+        int yueInt = StringUtils.strToInt(yue);
+        int riInt = StringUtils.strToInt(ri);
+        int shiInt = StringUtils.strToInt(shi);
+        int fenInt = StringUtils.strToInt(fen);
+        int miaoInt = StringUtils.strToInt(miao);
+        Log.e(TAG,nianInt+"");
+        String nianHex = ShiOrShiliu.toHexStringBl(nianInt);
+        String yueHex = ShiOrShiliu.toHexStringBl(yueInt);
+        String riHex = ShiOrShiliu.toHexStringBl(riInt);
+        String shiHex = ShiOrShiliu.toHexStringBl(shiInt);
+        String fenHex = ShiOrShiliu.toHexStringBl(fenInt);
+        String miaoHex = ShiOrShiliu.toHexStringBl(miaoInt);
+        Log.e(TAG,nianHex+"");
+        sendDataByBle(CrcAll.crcAdd("feef"+Config.yzBenjiAddress+"B00700"+nianHex+yueHex+riHex+"00"+shiHex+fenHex+miaoHex+"fddf",Config.yzCrcTYpe),"");
+    }
     /**
      * 屏幕左下角时间显示，每隔一秒执行一次
      */
@@ -138,10 +190,127 @@ public class YzHomeActivity extends AppCompatActivity implements View.OnClickLis
             } while(true);
         }
     }
+    /**
+     * 蓝牙连接检测线程
+     */
+    Runnable checkConnetRunnable = new Runnable() {
+        @Override
+        public void run() {
+            // TODO Auto-generated method stub
+            if (!bleFlag) {
+                //没有在指定时间收到回复
+                if (regainBleDataCount > 2) {
+                    mHandler.sendEmptyMessage(1000);
+                } else {
+                    regainBleDataCount++;
 
+                    sendDataByBle(currentSendOrder, "");
+                    //这里再次调用此Runnable对象，以实现每三秒实现一次的定时器操作
+                    mHandler.postDelayed(checkConnetRunnable, 3000);
+                }
+            }
+        }
+    };
+    /**
+     * 设置回调方法
+     */
+    private BleConnectionCallBack blecallback = new BleConnectionCallBack() {
+
+        @Override
+        public void onRecive(BluetoothGattCharacteristic data_char) {
+            bleFlag = true;
+
+            //收到的数据
+            byte[] receive_byte = data_char.getValue();
+            String str = CheckUtils.byte2hex(receive_byte).toString();
+            //Log.e(TAG,"收..."+str);
+
+            Message message = new Message();
+            message.obj = str;
+            message.what = Config.BLUETOOTH_GETDATA;
+            mHandler.sendMessage(message);
+        }
+
+        @Override
+        public void onSuccessSend() {
+            //数据发送成功
+            Log.e("home", "onSuccessSend: ");
+
+        }
+
+        @Override
+        public void onDisconnect() {
+            //设备断开连接
+            Log.e("home", "onDisconnect: ");
+            Message message = new Message();
+            message.what = Config.BLUETOOTH_LIANJIE_DUANKAI;
+            mHandler.sendMessage(message);
+        }
+    };
+    /**
+     * android ble 发送
+     * 每条数据长度应保证在20个字节以内
+     * 2条数据至少要空15ms
+     *
+     * @param currentSendAllOrder
+     * @param title
+     */
+    private void sendDataByBle(final String currentSendAllOrder, String title) {
+        if (currentSendAllOrder.length() > 0) {
+            if (!title.equals("")) {
+//                showDialog(title);
+                Log.d("--->", title);
+            }
+            currentSendOrder = currentSendAllOrder;
+            final boolean[] isSuccess = new boolean[1];
+            if (currentSendAllOrder.length() <= 40) {
+                Log.e("--->1", "currentSendAllOrder:"+currentSendAllOrder);
+                sData = CheckUtils.hex2byte(currentSendOrder);
+                Log.e("--->2", "currentSendAllOrder:"+sData);
+                //if(BleConnectUtil.mBluetoothGattCharacteristic==null){
+                mBluetoothGattCharacteristic.setValue(sData);
+                Log.e("--->3", "currentSendAllOrder:"+mBluetoothGattCharacteristic.getUuid().toString());
+                //}
+                isSuccess[0] = bleConnectUtil.sendData(mBluetoothGattCharacteristic);
+                Log.e("--->4", "currentSendAllOrder:"+ isSuccess[0]);
+            } else {
+                for (int i = 0; i < currentSendAllOrder.length(); i = i + 40) {
+                    final String[] shortOrder = {""};
+                    final int finalI = i;
+
+                    if (currentSendAllOrder.length() - i >= 40) {
+                        shortOrder[0] = currentSendAllOrder.substring(finalI, finalI + 40);
+                    } else {
+                        shortOrder[0] = currentSendAllOrder.substring(finalI, currentSendAllOrder.length());
+                    }
+
+                    Log.e("--->", "shortOrder[0]2：" + shortOrder[0]);
+                    sData = CheckUtils.hex2byte(shortOrder[0]);
+                    mBluetoothGattCharacteristic.setValue(sData);
+                    isSuccess[0] = bleConnectUtil.sendData(mBluetoothGattCharacteristic);
+                }
+            }
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (!isSuccess[0]) {
+                        //dialog.dismiss();
+                        mHandler.sendEmptyMessage(Config.BLUETOOTH_LIANJIE_DUANKAI);
+                    }
+                    Log.e("--->", "是否发送成功2：" + isSuccess[0]);
+                }
+            }, (currentSendAllOrder.length() / 40 + 1) * 15);
+        }
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+        }
+        if(bleConnectUtil.mBluetoothGatt!=null){
+            bleConnectUtil.mBluetoothGatt.close();
+        }
+        bleConnectUtil.setCallback(null);
         ActivityCollector.removeActivity(this);
     }
 }
