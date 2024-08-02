@@ -442,10 +442,10 @@
     <string name="hl_cpsc_csyujx2" translatable="false">将专用测试线按红对红，黑对黑，粗线接到对应的I+、I-电流接线柱扭紧，细线插入到U+、U-电压接线座内，两把夹钳夹住被测试品的两端(注意：测试钳的全部连接面应与试品可靠接触)。</string>
     <!--********************************************************200A==》回路**************************************************************-->
     <string name="hl_cpsc_jszb1_200" translatable="false">输出电流：</string>
-    <string name="hl_cpsc_jszb2_200" translatable="false">50A:0~100mΩ;</string>
-    <string name="hl_cpsc_jszb3_200" translatable="false">100A:0~50mΩ;</string>
-    <string name="hl_cpsc_jszb4_200" translatable="false">150A:0~40mΩ;</string>
-    <string name="hl_cpsc_jszb5_200" translatable="false">200A:0~25mΩ;</string>
+    <string name="hl_cpsc_jszb2_200" translatable="false">50A:0~50mΩ;</string>
+    <string name="hl_cpsc_jszb3_200" translatable="false">100A:0~25mΩ;</string>
+    <string name="hl_cpsc_jszb4_200" translatable="false">150A:0~16mΩ;</string>
+    <string name="hl_cpsc_jszb5_200" translatable="false">200A:0~12mΩ;</string>
     <string name="hl_cpsc_jszb6_200" translatable="false">分辨率：最小0.1μΩ;</string>
     <string name="hl_cpsc_jszb7_200" translatable="false">精确度：±(0.5%+2个字);</string>
     <string name="hl_cpsc_jszb8_200" translatable="false">输出功率：2000W</string>

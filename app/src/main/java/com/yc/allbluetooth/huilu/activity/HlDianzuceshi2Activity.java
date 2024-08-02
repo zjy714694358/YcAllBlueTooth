@@ -86,10 +86,61 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
                     Log.e(TAG,"进入.2..hlDianzuceshi2");
                     if(StringUtils.isEquals(Config.ymType,"hlDianzuceshi2")){
                         String msgStr = msg.obj.toString();
-                        Log.i(TAG, msgStr);
+                        Log.i(TAG+"----", msgStr);
                         if(msgStr.length()!=18){
+                            if(newMsgStr.contains("667709773A000039F0")){
+                                newMsgStr = StringUtils.subStrStartToEnd(newMsgStr,18,newMsgStr.length());
+                            }
                             newMsgStr += msgStr;
                             Log.e(TAG,newMsgStr);
+                        }
+//                        if(newMsgStr.length()>32){
+//                            String newMsgStr2 = StringUtils.subStrStartToEnd(newMsgStr,0,32);
+//                            Log.e(TAG,32+"");
+//                            String yqlx = StringUtils.subStrStartToEnd(newMsgStr2,6,8);
+//                            Log.e(TAG+"仪器类型323：",yqlx);
+//                            String crcAll = StringUtils.subStrStartToEnd(newMsgStr2,0,28);
+//                            byte[] bytesSx = new BigInteger(crcAll, 16).toByteArray();
+//                            crcJy = StringUtils.subStrStartToEnd(newMsgStr2,28,32);
+//                            //Log.e("tfxx==1", CrcUtil.getTableCRC(bytesSx));
+//                            //if(CrcUtil.CrcIsOk(bytesSx,crcJy)){
+//                            csdl = StringUtils.subStrStartToEnd(newMsgStr2,12,20);//测试电流
+//                            csdz = StringUtils.subStrStartToEnd(newMsgStr2,20,28);
+//                            Log.e(TAG,csdl+","+csdz);
+//                            String dl = ShiOrShiliu.hexToFloatSiBuhuan(csdl);
+//                            //String dz = ShiOrShiliu.hexToFloatWuBuhuan(csdz);
+//                            String dz = ShiOrShiliu.hexToFloatSiBuhuan(csdz);
+//                            Log.e(TAG,dl+","+dz);
+////                            XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
+////                            String dlStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(dl),xiaoshuYunsuan.xiaoshu("1000"))+"";
+//                            tvI.setText(dl+"  A");
+//                            tvR.setText(HlDlOrDzDw.getDzDw(dz));
+//                            StringBuffer sbf = new StringBuffer();
+//                            sbf.delete(0,32);
+//                            Log.e(TAG+"=======",newMsgStr);
+//                            //newMsgStr = StringUtils.subStrStartToEnd(newMsgStr2,32,40);
+//
+//                        }
+                        if (newMsgStr.length() == 160) {
+                            Log.e(TAG,32+"");
+                            String yqlx = StringUtils.subStrStartToEnd(newMsgStr,134,142);
+                            Log.e(TAG+"仪器类型32：",yqlx);
+                            String crcAll = StringUtils.subStrStartToEnd(newMsgStr,128,156);
+                            byte[] bytesSx = new BigInteger(crcAll, 16).toByteArray();
+                            crcJy = StringUtils.subStrStartToEnd(newMsgStr,156,160);
+                            //Log.e("tfxx==1", CrcUtil.getTableCRC(bytesSx));
+                            //if(CrcUtil.CrcIsOk(bytesSx,crcJy)){
+                            csdl = StringUtils.subStrStartToEnd(newMsgStr,140,148);//测试电流
+                            csdz = StringUtils.subStrStartToEnd(newMsgStr,148,156);
+                            Log.e(TAG,csdl+","+csdz);
+                            String dl = ShiOrShiliu.hexToFloatSiBuhuan(csdl);
+                            String dz = ShiOrShiliu.hexToFloatSiBuhuan(csdz);
+                            Log.e(TAG,dl+","+dz);
+//                            XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
+//                            String dlStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(dl),xiaoshuYunsuan.xiaoshu("1000"))+"";
+                            tvI.setText(dl+"  A");
+                            tvR.setText(HlDlOrDzDw.getDzDw(dz));
+                            newMsgStr = "";
                         }
                         if (newMsgStr.length() == 32) {
                             Log.e(TAG,32+"");
@@ -104,7 +155,7 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
                             csdz = StringUtils.subStrStartToEnd(newMsgStr,20,28);
                             Log.e(TAG,csdl+","+csdz);
                             String dl = ShiOrShiliu.hexToFloatSiBuhuan(csdl);
-                            String dz = ShiOrShiliu.hexToFloatWuBuhuan(csdz);
+                            String dz = ShiOrShiliu.hexToFloatSiBuhuan(csdz);
                             Log.e(TAG,dl+","+dz);
 //                            XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
 //                            String dlStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(dl),xiaoshuYunsuan.xiaoshu("1000"))+"";
@@ -123,7 +174,7 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
                             csdz = StringUtils.subStrStartToEnd(newMsgStr,52,60);
                             Log.e(TAG,csdl+","+csdz);
                             String dl = ShiOrShiliu.hexToFloatSiBuhuan(csdl);
-                            String dz = ShiOrShiliu.hexToFloatWuBuhuan(csdz);
+                            String dz = ShiOrShiliu.hexToFloatSiBuhuan(csdz);
                             Log.e(TAG,dl+","+dz);
 //                            XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
 //                            String dlStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(dl),xiaoshuYunsuan.xiaoshu("1000"))+"";
@@ -139,7 +190,7 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
                             csdz = StringUtils.subStrStartToEnd(newMsgStr,84,92);
                             Log.e(TAG,csdl+","+csdz);
                             String dl = ShiOrShiliu.hexToFloatSiBuhuan(csdl);
-                            String dz = ShiOrShiliu.hexToFloatWuBuhuan(csdz);
+                            String dz = ShiOrShiliu.hexToFloatSiBuhuan(csdz);
                             Log.e(TAG,dl+","+dz);
                             //XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
                             //String dlStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(dl),xiaoshuYunsuan.xiaoshu("1000"))+"";
@@ -155,7 +206,7 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
                             csdz = StringUtils.subStrStartToEnd(newMsgStr,180,188);
                             Log.e(TAG,csdl+","+csdz);
                             String dl = ShiOrShiliu.hexToFloatSiBuhuan(csdl);
-                            String dz = ShiOrShiliu.hexToFloatWuBuhuan(csdz);
+                            String dz = ShiOrShiliu.hexToFloatSiBuhuan(csdz);
                             Log.e(TAG,dl+","+dz);
 //                            XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
 //                            String dlStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(dl),xiaoshuYunsuan.xiaoshu("1000"))+"";
@@ -191,6 +242,7 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
         ActivityCollector.addActivity(this);
         initModel();
         initView();
+        //开始测试
         sendDataByBle(SendUtil.initSend("77"),"");
     }
     public void  initView(){
@@ -389,12 +441,12 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
     protected void onDestroy() {
         super.onDestroy();
         Log.e(TAG,"onDestroy()");
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-        }
-        if(bleConnectUtil.mBluetoothGatt!=null){
-            bleConnectUtil.mBluetoothGatt.close();
-        }
-        bleConnectUtil.setCallback(null);
+//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+//        }
+//        if(bleConnectUtil.mBluetoothGatt!=null){
+//            bleConnectUtil.mBluetoothGatt.close();
+//        }
+//        bleConnectUtil.setCallback(null);
 //        bleConnectUtil.disConnect();
 //        mHandler.removeCallbacksAndMessages(null);
         ActivityCollector.removeActivity(this);

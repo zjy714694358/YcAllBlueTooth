@@ -17,10 +17,12 @@ public class HlDlOrDzDw {
     public static String getDzDw(String str){
         String dz = "";
         XiaoshuYunsuan xsys = new XiaoshuYunsuan();
-        if(xsys.bijiao(xsys.xiaoshu(str),xsys.xiaoshu("1"))){
-            dz = str+"m Ω";
+        if(xsys.bijiao(xsys.xiaoshu(str),xsys.xiaoshu("1000"))){
+            //dz = str+"m Ω";
+            dz = xsys.xiaoshuChu(xsys.xiaoshu(str),xsys.xiaoshu("1000"))+"m Ω";
         }else {
-            dz = xsys.xiaoshuCheng(xsys.xiaoshu(str),xsys.xiaoshu("1000"))+"μ Ω";
+            //dz = xsys.xiaoshuCheng(xsys.xiaoshu(str),xsys.xiaoshu("1000"))+"μ Ω";
+            dz = str+"μ Ω";
         }
         return dz;
     }

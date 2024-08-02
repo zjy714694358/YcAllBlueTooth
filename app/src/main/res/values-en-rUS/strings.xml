@@ -444,10 +444,10 @@
     <string name="hl_cpsc_csyujx2" translatable="false">Connect the dedicated test wire to the corresponding I+and I - current terminals in a red to red and black to black manner, tighten the thick wire, insert the thin wire into the U+and U - voltage terminals, and clamp the two ends of the test sample with two clamps (note: all connection surfaces of the test clamp should be in reliable contact with the test sample).</string>
     <!--********************************************************200A==》回路**************************************************************-->
     <string name="hl_cpsc_jszb1_200" translatable="false">Output current:</string>
-    <string name="hl_cpsc_jszb2_200" translatable="false">50A:0~100mΩ;</string>
-    <string name="hl_cpsc_jszb3_200" translatable="false">100A:0~50mΩ;</string>
-    <string name="hl_cpsc_jszb4_200" translatable="false">150A:0~40mΩ;</string>
-    <string name="hl_cpsc_jszb5_200" translatable="false">200A:0~25mΩ;</string>
+    <string name="hl_cpsc_jszb2_200" translatable="false">50A:0~50mΩ;</string>
+    <string name="hl_cpsc_jszb3_200" translatable="false">100A:0~25mΩ;</string>
+    <string name="hl_cpsc_jszb4_200" translatable="false">150A:0~16mΩ;</string>
+    <string name="hl_cpsc_jszb5_200" translatable="false">200A:0~12mΩ;</string>
     <string name="hl_cpsc_jszb6_200" translatable="false">Resolution: minimum 0.1 μ Ω;</string>
     <string name="hl_cpsc_jszb7_200" translatable="false">Accuracy: ± (0.5%+2 words);</string>
     <string name="hl_cpsc_jszb8_200" translatable="false">Output power: 2000W</string>

@@ -45,6 +45,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
     private TextView tvCssc1;
     private TextView tvCssc3;
     private TextView tvCssc10;
+    private TextView tvCssc30;
     private TextView tvCssc60;
     private TextView tvCsscLianxu;
     private EditText etSybh;
@@ -61,6 +62,11 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
     private TextView tvSydl200;
     private TextView tvSydl150;
     private TextView tvXtsz;
+    private LinearLayout ll1S;
+    private LinearLayout ll10S;
+    private LinearLayout ll30S;
+    private LinearLayout ll60S;
+    private LinearLayout llLx;
     int diyi = 0;
     /**
      * 测试电流
@@ -105,7 +111,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
                                 if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"70")==true){
                                     Log.e(TAG,"----70------1----");
                                     sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","01"),"");
-                                }else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"71")==true){
+                                } else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"71")==true){
                                     //diyi = 1;//进入第一轮发送完毕
                                     Log.e(TAG,"测试时长");
                                     sendDataByBle(SendUtil.yiqibianhaoSend_std("6d", "A123456"),"");
@@ -155,6 +161,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
         tvCssc1 = findViewById(R.id.tvHlDzcsCssc1);
         tvCssc3 = findViewById(R.id.tvHlDzcsCssc3);
         tvCssc10 = findViewById(R.id.tvHlDzcsCssc10);
+        tvCssc30 = findViewById(R.id.tvHlDzcsCssc30);
         tvCssc60 = findViewById(R.id.tvHlDzcsCssc60);
         tvCsscLianxu = findViewById(R.id.tvHlDzcsCsscLianxu);
         etSybh = findViewById(R.id.etHlDzcsSybh);
@@ -169,6 +176,13 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
         ll150 = findViewById(R.id.llHlDzcsSydl150);
         ll200 = findViewById(R.id.llHlDzcsSydl200);
         tvXtsz = findViewById(R.id.tvHlDzcsXitongshezhi);
+
+        ll1S = findViewById(R.id.llHlDzcsCssc1);
+        ll10S = findViewById(R.id.llHlDzcsCssc10);
+        ll30S = findViewById(R.id.llHlDzcsCssc30);
+        ll60S = findViewById(R.id.llHlDzcsCssc60);
+        llLx = findViewById(R.id.llHlDzcsCsscLianxu);
+
         tvSydl50.setOnClickListener(this);
         tvSydl100.setOnClickListener(this);
         tvSydl150.setOnClickListener(this);
@@ -176,6 +190,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
         tvCssc1.setOnClickListener(this);
         tvCssc3.setOnClickListener(this);
         tvCssc10.setOnClickListener(this);
+        tvCssc30.setOnClickListener(this);
         tvCssc60.setOnClickListener(this);
         tvCsscLianxu.setOnClickListener(this);
         tvKscs.setOnClickListener(this);
@@ -190,6 +205,9 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             ll200.setVisibility(View.GONE);
             tvSydl100.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvSydl200.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            ll30S.setVisibility(View.GONE);
+            llLx.setVisibility(View.VISIBLE);
+
         }
         etSybh.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -214,6 +232,15 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             tvSydl100.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvSydl150.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvSydl200.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            diyi = 1;
+            hlCssc = "1S";
+            tvCssc1.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+            tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            ll30S.setVisibility(View.GONE);
+            tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            llLx.setVisibility(View.VISIBLE);
+
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","01"),"");//1:50;
         } else if (view.getId() == R.id.tvHlDzcsSydl100) {//100A
             diyi = 1;
@@ -222,6 +249,15 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             tvSydl100.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvSydl150.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvSydl200.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+
+            diyi = 1;
+            hlCssc = "1S";
+            tvCssc1.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+            tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            ll30S.setVisibility(View.GONE);
+            tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            llLx.setVisibility(View.VISIBLE);
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","02"),"");//2:100
         }else if (view.getId() == R.id.tvHlDzcsSydl150) {//150A
             diyi = 1;
@@ -230,6 +266,15 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             tvSydl100.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvSydl150.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvSydl200.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+
+            diyi = 1;
+            hlCssc = "1S";
+            tvCssc1.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+            tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc30.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            ll30S.setVisibility(View.VISIBLE);
+            llLx.setVisibility(View.GONE);
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","03"),"");//3:150
         }else if (view.getId() == R.id.tvHlDzcsSydl200) {//200A
             diyi = 1;
@@ -238,12 +283,21 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             tvSydl100.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvSydl150.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvSydl200.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+
+            diyi = 1;
+            hlCssc = "1S";
+            tvCssc1.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+            tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc30.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            ll30S.setVisibility(View.VISIBLE);
+            llLx.setVisibility(View.GONE);
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","04"),"");//4:200
         }else if (view.getId() == R.id.tvHlDzcsCssc1) {//1S
             diyi = 1;
             hlCssc = "1S";
             tvCssc1.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
-            tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc30.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
@@ -252,7 +306,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             diyi = 1;
             hlCssc = "3S";
             tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
-            tvCssc3.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+            tvCssc30.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
@@ -261,16 +315,26 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             diyi = 1;
             hlCssc = "10S";
             tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
-            tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc30.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc10.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","0A"),"");
+        }else if (view.getId() == R.id.tvHlDzcsCssc30) {//30S
+            Log.e(TAG,"===================");
+            diyi = 1;
+            hlCssc = "30S";
+            tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc30.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
+            tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","1E"),"");
         }else if (view.getId() == R.id.tvHlDzcsCssc60) {//60S
             diyi = 1;
             hlCssc = "60S";
             tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
-            tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc30.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc60.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             tvCsscLianxu.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
@@ -279,13 +343,13 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             diyi = 1;
             hlCssc = "";
             tvCssc1.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
-            tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
+            tvCssc30.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc10.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCssc60.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             tvCsscLianxu.setBackgroundResource(R.drawable.btn_lv_yinying_hei);
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","64"),"");
         }else if (view.getId() == R.id.tvHlDzcsKaishiceshi) {//开始测试
-            sendDataByBle(SendUtil.initSend("77"),"");
+            //sendDataByBle(SendUtil.initSend("77"),"");
             String etBhStr = etSybh.getText().toString();
             //finish();
             Intent intent = new Intent(HlDianzuceshiActivity.this, HlDianzuceshi2Activity.class);
@@ -315,9 +379,14 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
                 /**
                  *要执行的操作
                  */
-                sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","64"),"");
+                if(StringUtils.isEquals("39",Config.yqlx)){//如果是100A回路（200A：3A），不显示150和200A，并且选中100A，去掉200A背景
+                    sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","02"),"");
+                }else{
+                    sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("70","04"),"");
+                }
+
             }
-        }, 100);//3秒后执行Runnable中的run方法
+        }, 70);//3秒后执行Runnable中的run方法
     }
     public void initModel(){
         bleConnectUtil = new BleConnectUtil(HlDianzuceshiActivity.this);
