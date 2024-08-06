@@ -440,6 +440,7 @@
     <string name="hl_cpsc_xntd8" translatable="false">*仪器具有RS232接口，可以将测试数据传输到后台;</string>
     <string name="hl_cpsc_csyujx" translatable="false">测试与接线</string>
     <string name="hl_cpsc_csyujx2" translatable="false">将专用测试线按红对红，黑对黑，粗线接到对应的I+、I-电流s接线柱扭紧，细线插入到U+、U-电压接线座内，两把夹钳夹住被测试品的两端(注意：测试钳的全部连接面应与试品可靠接触)。</string>
+    <string name="dianliuguzhang" translatable="false">电流故障</string>
     <!--********************************************************200A==》回路**************************************************************-->
     <string name="hl_cpsc_jszb1_200" translatable="false">输出电流：</string>
     <string name="hl_cpsc_jszb2_200" translatable="false">50A:0~50mΩ;</string>
@@ -466,4 +467,8 @@
     <string name="hl_daochu_dlz" translatable="false">电流值</string>
     <string name="hl_daochu_dzz" translatable="false">电阻值</string>
     <string name="hl_daochu_jlsj" translatable="false">记录时间</string>
+    <!--********************************************************导出报告==》所有**************************************************************-->
+    <string name="queding" translatable="false">确定</string>
+    <string name="quxiao" translatable="false">取消</string>
+    <string name="qingshurubaogaomingcheng" translatable="false">请输入报告名称</string>
 </resources>

@@ -119,6 +119,14 @@
                 android:theme="@style/textSize_60_b"
                 android:layout_marginLeft="30dp"
                 android:text=""/>
+            <TextView
+                android:id="@+id/tvHlDzcs2IGuzhang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/textSize_60_b"
+                android:visibility="gone"
+                android:layout_marginLeft="30dp"
+                android:text="@string/dianliuguzhang"/>
         </LinearLayout>
         <View
             android:layout_width="match_parent"

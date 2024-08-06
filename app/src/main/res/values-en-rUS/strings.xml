@@ -442,6 +442,7 @@
     <string name="hl_cpsc_xntd8" translatable="false">*The instrument has an RS232 interface and can transmit test data to the background;</string>
     <string name="hl_cpsc_csyujx" translatable="false">Testing and wiring</string>
     <string name="hl_cpsc_csyujx2" translatable="false">Connect the dedicated test wire to the corresponding I+and I - current terminals in a red to red and black to black manner, tighten the thick wire, insert the thin wire into the U+and U - voltage terminals, and clamp the two ends of the test sample with two clamps (note: all connection surfaces of the test clamp should be in reliable contact with the test sample).</string>
+    <string name="dianliuguzhang" translatable="false">Current fault</string>
     <!--********************************************************200A==》回路**************************************************************-->
     <string name="hl_cpsc_jszb1_200" translatable="false">Output current:</string>
     <string name="hl_cpsc_jszb2_200" translatable="false">50A:0~50mΩ;</string>
@@ -468,4 +469,8 @@
     <string name="hl_daochu_dlz" translatable="false">Current</string>
     <string name="hl_daochu_dzz" translatable="false">Resistance</string>
     <string name="hl_daochu_jlsj" translatable="false">Record time</string>
+    <!--********************************************************导出报告==》所有**************************************************************-->
+    <string name="queding" translatable="false">OK</string>
+    <string name="quxiao" translatable="false">Cancel</string>
+    <string name="qingshurubaogaomingcheng" translatable="false">Please enter the report name</string>
 </resources>

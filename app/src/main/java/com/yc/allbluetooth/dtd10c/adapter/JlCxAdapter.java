@@ -1,5 +1,6 @@
 package com.yc.allbluetooth.dtd10c.adapter;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,8 +13,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.TextView;
-
 
 import androidx.core.content.FileProvider;
 
@@ -255,64 +256,89 @@ public class JlCxAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
                     Log.e("", dataBean.getShijian());
-                    try {
-                        String lujingStr = "";
+                    Dialog dialog = new Dialog(mContext);
+                    dialog.setContentView(R.layout.layout_daochu_tanchu);
+                    TextView tvQd = dialog.findViewById(R.id.tvQd);
+                    TextView tvQx = dialog.findViewById(R.id.tvQx);
+                    EditText et = dialog.findViewById(R.id.et);
+                    tvQd.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            // 自定义弹窗中按钮的点击事件回调
+                            String etStr = et.getText().toString();
+                            Log.e("=====",etStr);
+                            dialog.dismiss();
+                            try {
+                                String lujingStr = "";
 //                         String targetDocPath = getContext().getExternalFilesDir("poi").getPath() + File.separator + "模板3"+".doc";//这个目录，不需要申请存储权限
-                        //InputStream templetDocStream = mContext.getAssets().open("10kV变压器.doc");
-                        InputStream templetDocStream = mContext.getAssets().open("10C报告.doc");
-                        String targetDocPath = mContext.getExternalFilesDir("poi").getPath() + File.separator + GetTime.getTime(3)+ ".doc";//这个目录，不需要申请存储权限//"10kV干式变压器报告5"
+                                //InputStream templetDocStream = mContext.getAssets().open("10kV变压器.doc");
+                                InputStream templetDocStream = mContext.getAssets().open("10C报告.doc");
+                                String targetDocPath = mContext.getExternalFilesDir("poi").getPath() + File.separator + GetTime.getTime(3)+ ".doc";//这个目录，不需要申请存储权限//"10kV干式变压器报告5"
 
-                        Log.e("=====", targetDocPath);
-                        lujingStr = IndexOfAndSubStr.subStrStart(targetDocPath,targetDocPath.length()-18);
-                        Log.e("=====", lujingStr);
+                                Log.e("=====", targetDocPath);
+                                lujingStr = IndexOfAndSubStr.subStrStart(targetDocPath,targetDocPath.length()-18);
+                                Log.e("=====", lujingStr);
 
-                        Map<String, String> dataMap = new HashMap<String, String>();
-                        dataMap.put("$fenjieweizhi$", dataBean.getFenjie());
-                        //dataMap.put("$celiangwendu$", ShiOrShiliu.parseInt(dataBean.getCeliangwendu())+"");
-                        dataMap.put("$ceshishijian$", dataBean.getShijian());
-                        dataMap.put("$A0orAB$",finalHolder1.tvCsA0orAB.getText().toString());
-                        dataMap.put("$B0orBC$",finalHolder1.tvCsB0orBC.getText().toString());
-                        dataMap.put("$C0orCA$",finalHolder1.tvCsC0orCA.getText().toString());
-                        dataMap.put("$A0dianzu$", finalHolder1.tvDzA.getText().toString()+ finalHolder1.tvDzADw.getText().toString());
-                        dataMap.put("$B0dianzu$", finalHolder1.tvDzB.getText().toString()+ finalHolder1.tvDzBDw.getText().toString());
-                        dataMap.put("$C0dianzu$", finalHolder1.tvDzC.getText().toString()+ finalHolder1.tvDzCDw.getText().toString());
+                                Map<String, String> dataMap = new HashMap<String, String>();
+                                dataMap.put("$name$",etStr);
+                                dataMap.put("$fenjieweizhi$", dataBean.getFenjie());
+                                //dataMap.put("$celiangwendu$", ShiOrShiliu.parseInt(dataBean.getCeliangwendu())+"");
+                                dataMap.put("$ceshishijian$", dataBean.getShijian());
+                                dataMap.put("$A0orAB$",finalHolder1.tvCsA0orAB.getText().toString());
+                                dataMap.put("$B0orBC$",finalHolder1.tvCsB0orBC.getText().toString());
+                                dataMap.put("$C0orCA$",finalHolder1.tvCsC0orCA.getText().toString());
+                                dataMap.put("$A0dianzu$", finalHolder1.tvDzA.getText().toString()+ finalHolder1.tvDzADw.getText().toString());
+                                dataMap.put("$B0dianzu$", finalHolder1.tvDzB.getText().toString()+ finalHolder1.tvDzBDw.getText().toString());
+                                dataMap.put("$C0dianzu$", finalHolder1.tvDzC.getText().toString()+ finalHolder1.tvDzCDw.getText().toString());
 
 
 
-                        //dataMap.put("$A0dianzu$", DianliuDianzuDw.dw("01", dataBean.getA0orab(), finalHolder.tvA0DzDw) + finalHolder.tvA0DzDw.getText().toString());
-                        //dataMap.put("$A0zhesuandianzu$", StringUtils.siweiYouxiaoStr(xsys.xiaoshuCheng(kt, xsys.xiaoshu(DianliuDianzuDw.dw("01", dataBean.getA0orab(), finalHolder.tvA0ZsDzDw))) + "") + finalHolder.tvA0ZsDzDw.getText().toString());
-                        //dataMap.put("$B0dianzu$", DianliuDianzuDw.dw("01", dataBean.getB0orbc(), finalHolder.tvB0DzDw) + finalHolder.tvB0DzDw.getText().toString());
-                        //dataMap.put("$B0zhesuandianzu$", StringUtils.siweiYouxiaoStr(xsys.xiaoshuCheng(kt, xsys.xiaoshu(DianliuDianzuDw.dw("01", dataBean.getB0orbc(), finalHolder.tvB0ZsDzDw))) + "") + finalHolder.tvB0ZsDzDw.getText().toString());
-                        //dataMap.put("$C0dianzu$", DianliuDianzuDw.dw("01", dataBean.getC0orca(), finalHolder.tvC0DzDw) + finalHolder.tvC0DzDw.getText().toString());
-                        //dataMap.put("$C0zhesuandianzu$", StringUtils.siweiYouxiaoStr(xsys.xiaoshuCheng(kt, xsys.xiaoshu(DianliuDianzuDw.dw("01", dataBean.getC0orca(), finalHolder.tvC0ZsDzDw))) + "") + finalHolder.tvC0ZsDzDw.getText().toString());
-                        //dataMap.put("$zuidabupinghenglv$",finalHolder.tvBphl.getText().toString());
+                                //dataMap.put("$A0dianzu$", DianliuDianzuDw.dw("01", dataBean.getA0orab(), finalHolder.tvA0DzDw) + finalHolder.tvA0DzDw.getText().toString());
+                                //dataMap.put("$A0zhesuandianzu$", StringUtils.siweiYouxiaoStr(xsys.xiaoshuCheng(kt, xsys.xiaoshu(DianliuDianzuDw.dw("01", dataBean.getA0orab(), finalHolder.tvA0ZsDzDw))) + "") + finalHolder.tvA0ZsDzDw.getText().toString());
+                                //dataMap.put("$B0dianzu$", DianliuDianzuDw.dw("01", dataBean.getB0orbc(), finalHolder.tvB0DzDw) + finalHolder.tvB0DzDw.getText().toString());
+                                //dataMap.put("$B0zhesuandianzu$", StringUtils.siweiYouxiaoStr(xsys.xiaoshuCheng(kt, xsys.xiaoshu(DianliuDianzuDw.dw("01", dataBean.getB0orbc(), finalHolder.tvB0ZsDzDw))) + "") + finalHolder.tvB0ZsDzDw.getText().toString());
+                                //dataMap.put("$C0dianzu$", DianliuDianzuDw.dw("01", dataBean.getC0orca(), finalHolder.tvC0DzDw) + finalHolder.tvC0DzDw.getText().toString());
+                                //dataMap.put("$C0zhesuandianzu$", StringUtils.siweiYouxiaoStr(xsys.xiaoshuCheng(kt, xsys.xiaoshu(DianliuDianzuDw.dw("01", dataBean.getC0orca(), finalHolder.tvC0ZsDzDw))) + "") + finalHolder.tvC0ZsDzDw.getText().toString());
+                                //dataMap.put("$zuidabupinghenglv$",finalHolder.tvBphl.getText().toString());
 
-                        PoiUtils.writeToDoc(templetDocStream, targetDocPath, dataMap);
-                        //Log.e("TTTT==", "写入...");
+                                PoiUtils.writeToDoc(templetDocStream, targetDocPath, dataMap);
+                                //Log.e("TTTT==", "写入...");
 
-                        Intent share = new Intent(Intent.ACTION_SEND);
-                        File file = new File("/storage/emulated/0/Android/data/com.yc.allbluetooth/files/poi/"+lujingStr);///storage/emulated/0/Android/data/com.yc.allbluetooth/files/poi/23051500090137.doc
+                                Intent share = new Intent(Intent.ACTION_SEND);
+                                File file = new File("/storage/emulated/0/Android/data/com.yc.allbluetooth/files/poi/"+lujingStr);///storage/emulated/0/Android/data/com.yc.allbluetooth/files/poi/23051500090137.doc
 
-                        Uri contentUri = null;
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                            share.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                            contentUri = FileProvider.getUriForFile(mContext, mContext.getPackageName()+".FileProvider" , file);
-                            share.putExtra(Intent.EXTRA_STREAM, contentUri);
-                            share.setType("application/msword");// 此处可发送多种文件
-                        } else {
-                            share.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
-                            share.setType("application/msword");// 此处可发送多种文件
+                                Uri contentUri = null;
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                    share.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                                    contentUri = FileProvider.getUriForFile(mContext, mContext.getPackageName()+".FileProvider" , file);
+                                    share.putExtra(Intent.EXTRA_STREAM, contentUri);
+                                    share.setType("application/msword");// 此处可发送多种文件
+                                } else {
+                                    share.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+                                    share.setType("application/msword");// 此处可发送多种文件
+                                }
+                                try{
+                                    mContext.startActivity(Intent.createChooser(share, "Share"));
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
+
+                            } catch(IOException e){
+                                e.printStackTrace();
+                            }
                         }
-                        try{
-                            mContext.startActivity(Intent.createChooser(share, "Share"));
-                        } catch (Exception e) {
-                            e.printStackTrace();
+                    });
+                    tvQx.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            // 自定义弹窗中按钮的点击事件回调
+                            dialog.dismiss();
                         }
+                    });
+                    dialog.show();
 
-
-                    } catch(IOException e){
-                        e.printStackTrace();
-                    }}
+                }
             });
         }
         return convertView;

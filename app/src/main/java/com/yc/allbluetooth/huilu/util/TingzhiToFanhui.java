@@ -32,6 +32,8 @@ public class TingzhiToFanhui {
             timeI = 3;
         }else if (StringUtils.isEquals(timeStr,"10S")) {
             timeI = 10;
+        }else if (StringUtils.isEquals(timeStr,"30S")) {
+            timeI = 30;
         }else if (StringUtils.isEquals(timeStr,"60S")) {
             timeI = 60;
         }

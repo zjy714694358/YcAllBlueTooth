@@ -536,7 +536,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
                     mBluetoothGattCharacteristic.setValue(sData);
                     isSuccess[0] = bleConnectUtil.sendData(mBluetoothGattCharacteristic);
                 }
-            }
+            }   
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -555,9 +555,9 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
         }
-        if(bleConnectUtil.mBluetoothGatt!=null){
-            bleConnectUtil.mBluetoothGatt.close();
-        }
+//        if(bleConnectUtil.mBluetoothGatt!=null){
+//            bleConnectUtil.mBluetoothGatt.close();
+//        }
         ActivityCollector.removeActivity(this);
         super.onDestroy();
     }

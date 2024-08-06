@@ -51,6 +51,8 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
     private TextView tvTingzhi;
     private TextView tvFanhui;
 
+    private TextView tvDianliuGuzhang;
+
     String TAG = "HlDianzuceshi2Activity";
     BleConnectUtil bleConnectUtil;
     String newMsgStr = "";
@@ -124,7 +126,7 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
                         if (newMsgStr.length() == 160) {
                             Log.e(TAG,32+"");
                             String yqlx = StringUtils.subStrStartToEnd(newMsgStr,134,142);
-                            Log.e(TAG+"仪器类型32：",yqlx);
+                            Log.e(TAG+"仪器类型160：",yqlx);
                             String crcAll = StringUtils.subStrStartToEnd(newMsgStr,128,156);
                             byte[] bytesSx = new BigInteger(crcAll, 16).toByteArray();
                             crcJy = StringUtils.subStrStartToEnd(newMsgStr,156,160);
@@ -136,10 +138,19 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
                             String dl = ShiOrShiliu.hexToFloatSiBuhuan(csdl);
                             String dz = ShiOrShiliu.hexToFloatSiBuhuan(csdz);
                             Log.e(TAG,dl+","+dz);
+                            if(StringUtils.isEquals("1000",dl)){
+                                tvDianliuGuzhang.setVisibility(View.VISIBLE);
+                                tvI.setVisibility(View.GONE);
+                                tvR.setVisibility(View.GONE);
+                                //tvTingzhi.setText(getString(R.string.tingzhi));
+
+                            }else{
 //                            XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
 //                            String dlStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(dl),xiaoshuYunsuan.xiaoshu("1000"))+"";
-                            tvI.setText(dl+"  A");
-                            tvR.setText(HlDlOrDzDw.getDzDw(dz));
+                                tvI.setText(dl+"  A");
+                                tvR.setText(HlDlOrDzDw.getDzDw(dz));
+
+                            }
                             newMsgStr = "";
                         }
                         if (newMsgStr.length() == 32) {
@@ -157,10 +168,18 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
                             String dl = ShiOrShiliu.hexToFloatSiBuhuan(csdl);
                             String dz = ShiOrShiliu.hexToFloatSiBuhuan(csdz);
                             Log.e(TAG,dl+","+dz);
+                            if(StringUtils.isEquals("1000",dl)){
+                                tvDianliuGuzhang.setVisibility(View.VISIBLE);
+                                tvI.setVisibility(View.GONE);
+                                tvR.setVisibility(View.GONE);
+                                //tvTingzhi.setText(getString(R.string.tingzhi));
+                            }else{
 //                            XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
 //                            String dlStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(dl),xiaoshuYunsuan.xiaoshu("1000"))+"";
-                            tvI.setText(dl+"  A");
-                            tvR.setText(HlDlOrDzDw.getDzDw(dz));
+                                tvI.setText(dl+"  A");
+                                tvR.setText(HlDlOrDzDw.getDzDw(dz));
+
+                            }
                             newMsgStr = "";
                         }
                         if (newMsgStr.length() == 64) {
@@ -176,10 +195,18 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
                             String dl = ShiOrShiliu.hexToFloatSiBuhuan(csdl);
                             String dz = ShiOrShiliu.hexToFloatSiBuhuan(csdz);
                             Log.e(TAG,dl+","+dz);
+                            if(StringUtils.isEquals("1000",dl)){
+                                tvDianliuGuzhang.setVisibility(View.VISIBLE);
+                                tvI.setVisibility(View.GONE);
+                                tvR.setVisibility(View.GONE);
+                                //tvTingzhi.setText(getString(R.string.tingzhi));
+                            }else{
 //                            XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
 //                            String dlStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(dl),xiaoshuYunsuan.xiaoshu("1000"))+"";
-                            tvI.setText(dl+"  A");
-                            tvR.setText(HlDlOrDzDw.getDzDw(dz));
+                                tvI.setText(dl+"  A");
+                                tvR.setText(HlDlOrDzDw.getDzDw(dz));
+
+                            }
                             newMsgStr = "";
                         }
                         if (newMsgStr.length() == 96) {
@@ -192,11 +219,20 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
                             String dl = ShiOrShiliu.hexToFloatSiBuhuan(csdl);
                             String dz = ShiOrShiliu.hexToFloatSiBuhuan(csdz);
                             Log.e(TAG,dl+","+dz);
-                            //XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
-                            //String dlStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(dl),xiaoshuYunsuan.xiaoshu("1000"))+"";
-                            tvI.setText(dl+"  A");
-                            tvR.setText(HlDlOrDzDw.getDzDw(dz));
+                            if(StringUtils.isEquals("1000",dl)){
+                                tvDianliuGuzhang.setVisibility(View.VISIBLE);
+                                tvI.setVisibility(View.GONE);
+                                tvR.setVisibility(View.GONE);
+                                //tvTingzhi.setText(getString(R.string.tingzhi));
+                            }else{
+                                //XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
+                                //String dlStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(dl),xiaoshuYunsuan.xiaoshu("1000"))+"";
+                                tvI.setText(dl+"  A");
+                                tvR.setText(HlDlOrDzDw.getDzDw(dz));
+
+                            }
                             newMsgStr = "";
+
                         }
                         if (newMsgStr.length() == 192) {
                             Log.e(TAG,192+"");
@@ -208,10 +244,42 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
                             String dl = ShiOrShiliu.hexToFloatSiBuhuan(csdl);
                             String dz = ShiOrShiliu.hexToFloatSiBuhuan(csdz);
                             Log.e(TAG,dl+","+dz);
+                            if(StringUtils.isEquals("1000",dl)){
+                                tvDianliuGuzhang.setVisibility(View.VISIBLE);
+                                tvI.setVisibility(View.GONE);
+                                tvR.setVisibility(View.GONE);
+                                //tvTingzhi.setText(getString(R.string.tingzhi));
+                            }else{
 //                            XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
 //                            String dlStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(dl),xiaoshuYunsuan.xiaoshu("1000"))+"";
-                            tvI.setText(dl+"  A");
-                            tvR.setText(HlDlOrDzDw.getDzDw(dz));
+                                tvI.setText(dl+"  A");
+                                tvR.setText(HlDlOrDzDw.getDzDw(dz));
+
+                            }
+                            newMsgStr = "";
+                        }
+                        if (newMsgStr.length() == 224) {
+                            Log.e(TAG,224+"");
+                            String yqlx = StringUtils.subStrStartToEnd(newMsgStr,6,8);
+                            Log.e(TAG+"仪器类型192：",yqlx);
+                            csdl = StringUtils.subStrStartToEnd(newMsgStr,204,212);//测试电流
+                            csdz = StringUtils.subStrStartToEnd(newMsgStr,212,220);
+                            Log.e(TAG,csdl+","+csdz);
+                            String dl = ShiOrShiliu.hexToFloatSiBuhuan(csdl);
+                            String dz = ShiOrShiliu.hexToFloatSiBuhuan(csdz);
+                            Log.e(TAG,dl+","+dz);
+                            if(StringUtils.isEquals("1000",dl)){
+                                tvDianliuGuzhang.setVisibility(View.VISIBLE);
+                                tvI.setVisibility(View.GONE);
+                                tvR.setVisibility(View.GONE);
+                                //tvTingzhi.setText(getString(R.string.tingzhi));
+                            }else{
+//                            XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
+//                            String dlStr = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(dl),xiaoshuYunsuan.xiaoshu("1000"))+"";
+                                tvI.setText(dl+"  A");
+                                tvR.setText(HlDlOrDzDw.getDzDw(dz));
+
+                            }
                             newMsgStr = "";
                         }
                     }
@@ -256,6 +324,7 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
         tvDayin = findViewById(R.id.tvHlDzcs2Dayin);
         tvTingzhi = findViewById(R.id.tvHlDzcs2Tingzhi);
         tvFanhui = findViewById(R.id.tvHlDzcs2Fanhui);
+        tvDianliuGuzhang = findViewById(R.id.tvHlDzcs2IGuzhang);
         tvChongce.setOnClickListener(this);
         tvBaocun.setOnClickListener(this);
         tvDayin.setOnClickListener(this);
@@ -297,11 +366,17 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
         }else if (view.getId() == R.id.tvHlDzcs2Tingzhi) {//停止
             String tingzhiStr = tvTingzhi.getText().toString();
             if(StringUtils.isEquals(tingzhiStr,getString(R.string.tingzhi))){
-                sendDataByBle(SendUtil.initSendStd("7c"),"");
-                tvTingzhi.setText(getString(R.string.fanhui));
-                TingzhiToFanhui tingzhi = new TingzhiToFanhui();
-                tingzhi.HlDaojishiGuan(HlDianzuceshi2Activity.this,tvTingzhi);
-                //Toast.makeText(HlDianzuceshi2Activity.this,getString(R.string.fangdiantanchuang),Toast.LENGTH_SHORT).show();
+                int gzType = tvDianliuGuzhang.getVisibility();//0:目前显示的
+                if(gzType==0){
+                    finish();
+                    sendDataByBle(SendUtil.initSendStd("7c"),"");
+                }else{
+                    sendDataByBle(SendUtil.initSendStd("7c"),"");
+                    tvTingzhi.setText(getString(R.string.fanhui));
+                    TingzhiToFanhui tingzhi = new TingzhiToFanhui();
+                    tingzhi.HlDaojishiGuan(HlDianzuceshi2Activity.this,tvTingzhi);
+                    //Toast.makeText(HlDianzuceshi2Activity.this,getString(R.string.fangdiantanchuang),Toast.LENGTH_SHORT).show();
+                }
             }else{//返回
                 finish();
                 sendDataByBle(SendUtil.initSendStd("7c"),"");
