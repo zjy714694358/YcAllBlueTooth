@@ -1,5 +1,6 @@
 package com.yc.allbluetooth.std.adapter;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,6 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.core.content.FileProvider;
@@ -259,51 +261,63 @@ public class SjglNewAdapter extends BaseAdapter {
                 public void onClick(View v) {
                     Log.e("",dataBean.getShijian());
                     //TextView textView = finalHolder.tvA0DzDw;
-
-                    try {
-                        String lujingStr = "";
+                    Dialog dialog = new Dialog(mContext);
+                    dialog.setContentView(R.layout.layout_daochu_tanchu);
+                    TextView tvQd = dialog.findViewById(R.id.tvQd);
+                    TextView tvQx = dialog.findViewById(R.id.tvQx);
+                    EditText et = dialog.findViewById(R.id.et);
+                    tvQd.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            // 自定义弹窗中按钮的点击事件回调
+                            String etStr = et.getText().toString();
+                            Log.e("=====",etStr);
+                            dialog.dismiss();
+                            try {
+                                String lujingStr = "";
 //                         String targetDocPath = getContext().getExternalFilesDir("poi").getPath() + File.separator + "模板3"+".doc";//这个目录，不需要申请存储权限
-                        //InputStream templetDocStream = mContext.getAssets().open("10kV变压器.doc");
-                        InputStream templetDocStream = mContext.getAssets().open("三通道报告.doc");
-                        String targetDocPath = mContext.getExternalFilesDir("poi").getPath() + File.separator + GetTime.getTime(3)+ ".doc";//这个目录，不需要申请存储权限//"10kV干式变压器报告5"
+                                //InputStream templetDocStream = mContext.getAssets().open("10kV变压器.doc");
+                                InputStream templetDocStream = mContext.getAssets().open("三通道报告.doc");
+                                String targetDocPath = mContext.getExternalFilesDir("poi").getPath() + File.separator + GetTime.getTime(3)+ ".doc";//这个目录，不需要申请存储权限//"10kV干式变压器报告5"
 
-                        Log.e("=====", targetDocPath);
-                        lujingStr = IndexOfAndSubStr.subStrStart(targetDocPath,targetDocPath.length()-18);
+                                Log.e("=====", targetDocPath);
+                                lujingStr = IndexOfAndSubStr.subStrStart(targetDocPath,targetDocPath.length()-18);
 
-                        Log.e("=====", lujingStr);
-                        Map<String, String> dataMap = new HashMap<String, String>();
-                        dataMap.put("$fenjieweizhi$", dataBean.getFenjie());
-                        dataMap.put("$celiangwendu$", ShiOrShiliu.parseInt(dataBean.getCeliangwendu())+"");
-                        dataMap.put("$ceshishijian$", dataBean.getShijian());
-                        String csxwEjz = ShiOrShiliu.hexString2binaryString(dataBean.getCsxw(),1);//测试相位十六转二进制
-                        Log.e("std===sj==csxwEjz",csxwEjz);
-                        String csxwQianStr = StringUtils.subStrStartToEnd(csxwEjz,0,4);//前四位
+                                Log.e("=====", lujingStr);
+                                Map<String, String> dataMap = new HashMap<String, String>();
+                                dataMap.put("$name$",etStr);
+                                dataMap.put("$fenjieweizhi$", dataBean.getFenjie());
+                                dataMap.put("$celiangwendu$", ShiOrShiliu.parseInt(dataBean.getCeliangwendu())+"");
+                                dataMap.put("$ceshishijian$", dataBean.getShijian());
+                                String csxwEjz = ShiOrShiliu.hexString2binaryString(dataBean.getCsxw(),1);//测试相位十六转二进制
+                                Log.e("std===sj==csxwEjz",csxwEjz);
+                                String csxwQianStr = StringUtils.subStrStartToEnd(csxwEjz,0,4);//前四位
 //                        String csxwHouStrA = StringUtils.subStrStartToEnd(csxwEjz,5,6);//后二位
 //                        String csxwHouStrB = StringUtils.subStrStartToEnd(csxwEjz,6,7);//后三位
 //                        String csxwHouStrC = StringUtils.subStrStartToEnd(csxwEjz,7,8);//后四位
-                        String tvA0Str = finalHolder1.tvA0DzZhi.getText().toString();
-                        String tvB0Str = finalHolder1.tvB0DzZhi.getText().toString();
-                        String tvC0Str = finalHolder1.tvC0DzZhi.getText().toString();
-                        String tvA0ZsStr = finalHolder1.tvA0ZsDzZhi.getText().toString();
-                        String tvB0ZsStr = finalHolder1.tvB0ZsDzZhi.getText().toString();
-                        String tvC0ZsStr = finalHolder1.tvC0ZsDzZhi.getText().toString();
-                        String tvA0Dw = finalHolder1.tvA0DzDw.getText().toString();
-                        String tvB0Dw = finalHolder1.tvB0DzDw.getText().toString();
-                        String tvC0Dw = finalHolder1.tvC0DzDw.getText().toString();
-                        String tvA0ZsDw = finalHolder1.tvA0ZsDzDw.getText().toString();
-                        String tvB0ZsDw = finalHolder1.tvB0ZsDzDw.getText().toString();
-                        String tvC0ZsDw = finalHolder1.tvC0ZsDzDw.getText().toString();
-                        // StringUtils.isEquals(csxwQianStr,"0000")||StringUtils.isEquals(csxwQianStr,"0001")||StringUtils.isEquals(csxwQianStr,"0010")
-                        //if(dataBean.getA0orabType()<=2||dataBean.getA0orabType()==6){//A0--B0--C0
-                        if(StringUtils.isEquals(csxwQianStr,"0000")||StringUtils.isEquals(csxwQianStr,"0001")||StringUtils.isEquals(csxwQianStr,"0010")){
-                            dataMap.put("$A0orAb$","A0");
-                            dataMap.put("$B0orBc$","B0");
-                            dataMap.put("$C0orCa$","C0");
-                        }else{//ab--bc--ca
-                            dataMap.put("$A0orAb$","ab");
-                            dataMap.put("$B0orBc$","bc");
-                            dataMap.put("$C0orCa$","ca");
-                        }
+                                String tvA0Str = finalHolder1.tvA0DzZhi.getText().toString();
+                                String tvB0Str = finalHolder1.tvB0DzZhi.getText().toString();
+                                String tvC0Str = finalHolder1.tvC0DzZhi.getText().toString();
+                                String tvA0ZsStr = finalHolder1.tvA0ZsDzZhi.getText().toString();
+                                String tvB0ZsStr = finalHolder1.tvB0ZsDzZhi.getText().toString();
+                                String tvC0ZsStr = finalHolder1.tvC0ZsDzZhi.getText().toString();
+                                String tvA0Dw = finalHolder1.tvA0DzDw.getText().toString();
+                                String tvB0Dw = finalHolder1.tvB0DzDw.getText().toString();
+                                String tvC0Dw = finalHolder1.tvC0DzDw.getText().toString();
+                                String tvA0ZsDw = finalHolder1.tvA0ZsDzDw.getText().toString();
+                                String tvB0ZsDw = finalHolder1.tvB0ZsDzDw.getText().toString();
+                                String tvC0ZsDw = finalHolder1.tvC0ZsDzDw.getText().toString();
+                                // StringUtils.isEquals(csxwQianStr,"0000")||StringUtils.isEquals(csxwQianStr,"0001")||StringUtils.isEquals(csxwQianStr,"0010")
+                                //if(dataBean.getA0orabType()<=2||dataBean.getA0orabType()==6){//A0--B0--C0
+                                if(StringUtils.isEquals(csxwQianStr,"0000")||StringUtils.isEquals(csxwQianStr,"0001")||StringUtils.isEquals(csxwQianStr,"0010")){
+                                    dataMap.put("$A0orAb$","A0");
+                                    dataMap.put("$B0orBc$","B0");
+                                    dataMap.put("$C0orCa$","C0");
+                                }else{//ab--bc--ca
+                                    dataMap.put("$A0orAb$","ab");
+                                    dataMap.put("$B0orBc$","bc");
+                                    dataMap.put("$C0orCa$","ca");
+                                }
 //                        dataMap.put("$A0dianzu$", DianliuDianzuDw.dw("01", dataBean.getA0orab(), finalHolder.tvA0DzDw) + finalHolder.tvA0DzDw.getText().toString());
 //                        dataMap.put("$A0zhesuandianzu$", StringUtils.siweiYouxiaoStr(xsys.xiaoshuCheng(kt, xsys.xiaoshu(DianliuDianzuDw.dw("01", dataBean.getA0orab(), finalHolder.tvA0ZsDzDw))) + "") + finalHolder.tvA0ZsDzDw.getText().toString());
 //                        dataMap.put("$B0dianzu$", DianliuDianzuDw.dw("01", dataBean.getB0orbc(), finalHolder.tvB0DzDw) + finalHolder.tvB0DzDw.getText().toString());
@@ -312,37 +326,48 @@ public class SjglNewAdapter extends BaseAdapter {
 //                        dataMap.put("$C0zhesuandianzu$", StringUtils.siweiYouxiaoStr(xsys.xiaoshuCheng(kt, xsys.xiaoshu(DianliuDianzuDw.dw("01", dataBean.getC0orca(), finalHolder.tvC0ZsDzDw))) + "") + finalHolder.tvC0ZsDzDw.getText().toString());
 //                        dataMap.put("$zuidabupinghenglv$",finalHolder.tvBphl.getText().toString());
 
-                        dataMap.put("$A0dianzu$", tvA0Str+tvA0Dw);
-                        dataMap.put("$A0zhesuandianzu$", tvA0ZsStr+tvA0ZsDw);
-                        dataMap.put("$B0dianzu$", tvB0Str+tvB0Dw);
-                        dataMap.put("$B0zhesuandianzu$", tvB0ZsStr+tvB0ZsDw);
-                        dataMap.put("$C0dianzu$", tvC0Str+tvC0Dw);
-                        dataMap.put("$C0zhesuandianzu$", tvC0ZsStr+tvC0ZsDw);
-                        dataMap.put("$zuidabupinghenglv$",finalHolder.tvBphl.getText().toString());
+                                dataMap.put("$A0dianzu$", tvA0Str+tvA0Dw);
+                                dataMap.put("$A0zhesuandianzu$", tvA0ZsStr+tvA0ZsDw);
+                                dataMap.put("$B0dianzu$", tvB0Str+tvB0Dw);
+                                dataMap.put("$B0zhesuandianzu$", tvB0ZsStr+tvB0ZsDw);
+                                dataMap.put("$C0dianzu$", tvC0Str+tvC0Dw);
+                                dataMap.put("$C0zhesuandianzu$", tvC0ZsStr+tvC0ZsDw);
+                                dataMap.put("$zuidabupinghenglv$",finalHolder.tvBphl.getText().toString());
 
-                        PoiUtils.writeToDoc(templetDocStream, targetDocPath, dataMap);
+                                PoiUtils.writeToDoc(templetDocStream, targetDocPath, dataMap);
 
-                        Intent share = new Intent(Intent.ACTION_SEND);
-                        File file = new File("/storage/emulated/0/Android/data/com.yc.allbluetooth/files/poi/"+lujingStr);///storage/emulated/0/Android/data/com.yc.allbluetooth/files/poi/23051500090137.doc
-                        Uri contentUri = null;
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                            share.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                            contentUri = FileProvider.getUriForFile(mContext, mContext.getPackageName()+".FileProvider" , file);
-                            share.putExtra(Intent.EXTRA_STREAM, contentUri);
-                            share.setType("application/msword");// 此处可发送多种文件
-                        } else {
-                            share.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
-                            share.setType("application/msword");// 此处可发送多种文件
+                                Intent share = new Intent(Intent.ACTION_SEND);
+                                File file = new File("/storage/emulated/0/Android/data/com.yc.allbluetooth/files/poi/"+lujingStr);///storage/emulated/0/Android/data/com.yc.allbluetooth/files/poi/23051500090137.doc
+                                Uri contentUri = null;
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                    share.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                                    contentUri = FileProvider.getUriForFile(mContext, mContext.getPackageName()+".FileProvider" , file);
+                                    share.putExtra(Intent.EXTRA_STREAM, contentUri);
+                                    share.setType("application/msword");// 此处可发送多种文件
+                                } else {
+                                    share.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+                                    share.setType("application/msword");// 此处可发送多种文件
+                                }
+                                try{
+                                    mContext.startActivity(Intent.createChooser(share, "Share"));
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
+                            } catch(IOException e){
+                                e.printStackTrace();
+                            }
                         }
-                        try{
-                            mContext.startActivity(Intent.createChooser(share, "Share"));
-                        } catch (Exception e) {
-                            e.printStackTrace();
+                    });
+                    tvQx.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            // 自定义弹窗中按钮的点击事件回调
+                            dialog.dismiss();
                         }
-
-                        } catch(IOException e){
-                            e.printStackTrace();
-                        }}
+                    });
+                    dialog.show();
+                }
             });
         }
         return convertView;

@@ -715,9 +715,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onStop() {
         Log.e(TAG,"Main.....onStop");
-        bleConnectUtil.disConnect();
-        handler.removeCallbacks(checkConnetRunnable);
-        handler.removeCallbacksAndMessages(null);
+        /*暂时去掉下面三个,解决时间同步问题，如果其它设备有问题再临时调整*/
+//        bleConnectUtil.disConnect();
+//        handler.removeCallbacks(checkConnetRunnable);
+//        handler.removeCallbacksAndMessages(null);
 
         super.onStop();
     }

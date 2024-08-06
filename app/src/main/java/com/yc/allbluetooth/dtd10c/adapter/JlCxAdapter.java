@@ -256,6 +256,7 @@ public class JlCxAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
                     Log.e("", dataBean.getShijian());
+
                     Dialog dialog = new Dialog(mContext);
                     dialog.setContentView(R.layout.layout_daochu_tanchu);
                     TextView tvQd = dialog.findViewById(R.id.tvQd);
@@ -280,7 +281,7 @@ public class JlCxAdapter extends BaseAdapter {
                                 Log.e("=====", lujingStr);
 
                                 Map<String, String> dataMap = new HashMap<String, String>();
-                                dataMap.put("$name$",etStr);
+                                dataMap.put("$name$",etStr);//导出报告名称
                                 dataMap.put("$fenjieweizhi$", dataBean.getFenjie());
                                 //dataMap.put("$celiangwendu$", ShiOrShiliu.parseInt(dataBean.getCeliangwendu())+"");
                                 dataMap.put("$ceshishijian$", dataBean.getShijian());

@@ -121,6 +121,7 @@ public class BbHomeActivity extends AppCompatActivity implements View.OnClickLis
             bleConnectUtil.connect(bleConnectUtil.wsDeviceAddress,10,10);//标签从机：34:14:B5:B6:D6:E1
             bleConnectUtil.setCallback(blecallback);
         }
+        Log.e("======","=========1");
         tbTime();
     }
     public void initView(){
@@ -139,6 +140,7 @@ public class BbHomeActivity extends AppCompatActivity implements View.OnClickLis
      * 蓝牙连接成功进到主页面，同步一次时间到设备
      */
     public void tbTime(){
+        Log.e("======","=========2");
         String timeStr = GetTime.getTime(3);
         String nian = StringUtils.subStrStartToEnd(timeStr,0,2);
         String yue = StringUtils.subStrStartToEnd(timeStr,2,4);
