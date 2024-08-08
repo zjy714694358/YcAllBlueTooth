@@ -1,11 +1,7 @@
 package com.yc.allbluetooth.dtd10c.activity;
 
 
-
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
@@ -24,6 +20,8 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.ble.BleConnectUtil;
@@ -68,13 +66,15 @@ public class Dtd10cZzCs1Activity extends AppCompatActivity implements View.OnCli
             super.handleMessage(msg);
             switch (msg.what) {
                 case Config.BLUETOOTH_GETDATA:
-                    String msgStr = msg.obj.toString();
-                    Log.e(TAG, "zzcs1:"+msgStr);
-                    //String zhilingStr = StringUtils.subStrStartToEnd(msgStr, 4, 6);
-                    //if(StringUtils.isEquals("73",zhilingStr)){
-                    //startActivity(new Intent(ZzCs1Activity.this,ZzCs1Activity.class));
-                    //finish();
-                    //}
+                    if(StringUtils.isEquals(Config.ymType,"dtdZzCsYi")) {
+                        String msgStr = msg.obj.toString();
+                        Log.e(TAG, "zzcs1:" + msgStr);
+                        //String zhilingStr = StringUtils.subStrStartToEnd(msgStr, 4, 6);
+                        //if(StringUtils.isEquals("73",zhilingStr)){
+                        //startActivity(new Intent(ZzCs1Activity.this,ZzCs1Activity.class));
+                        //finish();
+                        //}
+                    }
 
                     break;
                 default:

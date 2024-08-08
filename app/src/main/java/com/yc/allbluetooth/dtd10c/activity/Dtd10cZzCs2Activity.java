@@ -3,14 +3,9 @@ package com.yc.allbluetooth.dtd10c.activity;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -31,6 +26,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.ble.BleConnectUtil;
@@ -40,7 +38,6 @@ import com.yc.allbluetooth.crc.CrcUtil;
 import com.yc.allbluetooth.dtd10c.util.DianliuDianzuDw;
 import com.yc.allbluetooth.dtd10c.util.Qiehuan;
 import com.yc.allbluetooth.dtd10c.util.Xianshi;
-import com.yc.allbluetooth.std.activity.ZhizuCeshiDyYiActivity;
 import com.yc.allbluetooth.utils.ActivityCollector;
 import com.yc.allbluetooth.utils.CheckUtils;
 import com.yc.allbluetooth.utils.GetTime;
@@ -763,6 +760,307 @@ public class Dtd10cZzCs2Activity extends AppCompatActivity implements View.OnCli
                                 Log.e(TAG, "crc==false");
                             }
                             //tvCsDl.setText(DianliuDianzuDw.dw("00", a0orab, tvCsDlDw));
+                        } else if(newMsgStr.length()==124){//>40
+                            //可以
+                            Log.e("diaoyueNew2=124", "new1:"+newMsgStr);
+                            //数据性质：=0测试电流，单位（A），=1 测试电阻值，单位（mΩ），=2放电电流，单位（A）,=3下位机突发信息
+                            String newMsgStr2 = StringUtils.subStrStartToEnd(newMsgStr,62,124);
+                            sjxz = StringUtils.subStrStartToEnd(newMsgStr2,4,6);
+                            //数据序号，=0xaa 当前数据，=0xab 无此序号数据，
+                            //sjxhH = StringUtils.subStrStartToEnd(newMsgStr,6,8);
+                            //测试相位：=0  AO，=1 BO，=2 CO，=3  ab，=4  bc ， =5 ca，=6三相(FF:无此数据)
+                            //0B00010101==>A0,B0,C0
+                            //0B00101010==>ab,bc,ca
+                            sjxh = StringUtils.subStrStartToEnd(newMsgStr2,6,10);
+                            csxw = StringUtils.subStrStartToEnd(newMsgStr2,10,12);
+                            tfxx = StringUtils.subStrStartToEnd(newMsgStr2,12,14);
+                            cswd = StringUtils.subStrStartToEnd(newMsgStr2,14,16);
+                            fjwz = StringUtils.subStrStartToEnd(newMsgStr2,16,18);
+                            csdl = StringUtils.subStrStartToEnd(newMsgStr2,18,20);
+                            raozu = StringUtils.subStrStartToEnd(newMsgStr2,20,22);
+                            zswd = StringUtils.subStrStartToEnd(newMsgStr2,22,24);
+                            rzcl = StringUtils.subStrStartToEnd(newMsgStr2,24,26);
+                            shi = StringUtils.subStrStartToEnd(newMsgStr2,26,28);
+                            fen = StringUtils.subStrStartToEnd(newMsgStr2,28,30);
+                            miao = StringUtils.subStrStartToEnd(newMsgStr2,30,32);
+                            a0orab = StringUtils.subStrStartToEnd(newMsgStr2,32,40);
+                            b0orbc = StringUtils.subStrStartToEnd(newMsgStr2,40,48);
+                            c0orca = StringUtils.subStrStartToEnd(newMsgStr2,48,56);
+                            crcJy = StringUtils.subStrStartToEnd(newMsgStr2,56,60);
+
+
+                            String crcAll = StringUtils.subStrStartToEnd(newMsgStr2,0,56);
+                            byte[] bytesStdSave = new BigInteger(crcAll, 16).toByteArray();
+                            if(CrcUtil.CrcIsOk(bytesStdSave,crcJy)) {
+                                Log.e(TAG, "crc==true");
+//                            Log.e(TAG+"1"+"a", a0orab);
+//                            Log.e(TAG+"2"+"a", a0orab);
+                                float a0orabF = 0;
+                                String a0orabHl = HexUtil.reverseHex(a0orab);
+                                try {
+                                    a0orabF = Float.intBitsToFloat((int) HexUtil.parseLong(a0orabHl, 16));
+                                } catch (HexUtil.NumberFormatException e) {
+                                    e.printStackTrace();
+                                }
+                                String a0orabStr2 = StringUtils.siweiYouxiaoStr(a0orabF + "");
+                                //Log.e(TAG+"2"+"a转换后", a0orabStr2);
+                                if (StringUtils.isEquals("00", sjxz)) {//电流值
+                                    Log.e(TAG + "2" + "测试电流", csdl);
+                                    Log.e(TAG + "2" + "电流转换后", a0orabStr2);
+                                    if (StringUtils.isEquals("03", csdl) ||StringUtils.isEquals("05", csdl) || StringUtils.isEquals("06", csdl)) {
+                                        Log.e(TAG + "毫安", csdl);
+                                        tvCsDl.setText(a0orabStr2);
+                                        tvCsDlDw.setText("mA");
+                                    } else {
+                                        tvCsDl.setText(DianliuDianzuDw.dw("00", a0orab, tvCsDlDw));
+                                    }
+
+                                } else if (StringUtils.isEquals("01", sjxz)) {//电阻值
+                                    Log.e(TAG + "2" + "电阻转换后", a0orabStr2);
+                                    tvDz.setText(DianliuDianzuDw.dw("01", a0orab, tvDzDw));
+                                    XiaoshuYunsuan xsys = new XiaoshuYunsuan();
+                                    BigDecimal kt = xsys.xiaoshuChu(xsys.xiaoshuJia(xsys.xiaoshu(Config.rzczInt + ""), xsys.xiaoshu(Config.zswd)),
+                                            xsys.xiaoshuJia(xsys.xiaoshu(Config.rzczInt + ""), xsys.xiaoshu(Config.cswd2)));//少测试温度
+                                    tvZsDz.setText(StringUtils.siweiYouxiaoStr(xsys.xiaoshuCheng(kt, xsys.xiaoshu(DianliuDianzuDw.dw("01", a0orab, tvZsDzDw))) + ""));
+                                } else if (StringUtils.isEquals("02", sjxz)) {//放电电流
+                                    //TipsFangdian.show();
+                                    Toast.makeText(Dtd10cZzCs2Activity.this,getString(R.string.fangdiantanchuang), Toast.LENGTH_SHORT).show();
+                                } else if (StringUtils.isEquals("03", sjxz)) {//下位机突发信息
+                                    Log.e(TAG, "突发信息2：" + tfxx);
+                                    Log.e("btnType==03突发", btnType + "");
+
+                                    if (StringUtils.isEquals("02", tfxx)) {//正在放电02
+
+                                        Log.e(TAG, "放电");
+                                        //TipsFangdian.show();
+                                        if(Config.fdTcCishu<3){
+                                            Config.fdTcCishu += 1;
+                                            Toast.makeText(Dtd10cZzCs2Activity.this,getString(R.string.fangdiantanchuang),Toast.LENGTH_SHORT).show();
+                                        }
+
+                                    } else if (StringUtils.isEquals("07", tfxx)) {//正在打印，目前02
+                                        Log.e(TAG, "打印");
+                                        //TipsDayin.show();
+                                        Toast.makeText(Dtd10cZzCs2Activity.this,getString(R.string.dayintanchuang),Toast.LENGTH_SHORT).show();
+                                    } else if (StringUtils.isEquals("11", ShiOrShiliu.parseInt(tfxx).toString())) {//保存成功==>"0B"0F
+                                        Log.e(TAG, "保存");
+                                        //if(!isFinishing()){
+                                        //TipsSave.show();
+                                        Toast.makeText(Dtd10cZzCs2Activity.this,getString(R.string.baocuntanchuang),Toast.LENGTH_SHORT).show();
+                                        //}else{
+//                                            viewSave = LayoutInflater.from(Dtd10cZzCs2Activity.this).inflate(R.layout.dialog_save, null, false);
+//                                            TipsSave = new AlertDialog.Builder(Dtd10cZzCs2Activity.this, R.style.MyDialog).setView(viewSave).create();
+//                                            TipsSave.show();
+//                                        }
+//                                        if(TipsSave!=null){
+//                                            TipsSave.show();
+//                                        }else{
+//                                            viewSave = LayoutInflater.from(Dtd10cZzCs2Activity.this).inflate(R.layout.dialog_save, null, false);
+//                                            TipsSave = new AlertDialog.Builder(Dtd10cZzCs2Activity.this, R.style.MyDialog).setView(viewSave).create();
+//                                            TipsSave.show();
+//                                        }
+
+                                    } else if (ShiOrShiliu.parseInt(tfxx) > 11) {//放电完毕、打印完毕、保存完毕//&&StringUtils.isEquals("69",tfxxType)==>0F
+                                        Log.e(TAG, "完成");
+                                        Log.e("btnType==>完成关闭", btnType + "");
+                                        if (btnType == 1) {//保存
+                                            Log.e(TAG, "保存2");
+                                            //TipsSave.cancel();
+                                            if (Config.bphlType == 1) {
+                                                String rzStr = tvRz.getText().toString();
+                                                String fjStr = etFj.getText().toString();
+                                                String xbStr = tvXb.getText().toString();
+                                                String dzStr = tvDz.getText().toString();
+                                                String dzDwStr = tvDzDw.getText().toString();
+                                                String zsdzStr = tvZsDz.getText().toString();
+                                                String zsdzDwStr = tvZsDzDw.getText().toString();
+                                                if (StringUtils.isEquals(Config.RzValue, rzStr) && StringUtils.isEquals(Config.FjValue, fjStr)) {
+                                                    Log.e("=============1","1");
+                                                    Log.e("====", "绕组、分接符合");
+                                                    if (StringUtils.isEquals("A0", xbStr)) {
+                                                        Config.A0Value = dzStr;
+                                                        Config.AValueDw = dzDwStr;
+
+                                                        Config.ABValue = "";
+                                                        Config.BCValue = "";
+                                                        Config.CAValue = "";
+                                                    } else if (StringUtils.isEquals("B0", xbStr)) {
+                                                        Config.B0Value = dzStr;
+                                                        Config.BValueDw = dzDwStr;
+
+                                                        Config.ABValue = "";
+                                                        Config.BCValue = "";
+                                                        Config.CAValue = "";
+                                                    } else if (StringUtils.isEquals("C0", xbStr)) {
+                                                        Config.C0Value = dzStr;
+                                                        Config.CValueDw = dzDwStr;
+
+                                                        Config.ABValue = "";
+                                                        Config.BCValue = "";
+                                                        Config.CAValue = "";
+                                                    } else if (StringUtils.isEquals("AB", xbStr)) {
+                                                        Config.ABValue = dzStr;
+                                                        Config.AValueDw = dzDwStr;
+
+                                                        Config.A0Value = "";
+                                                        Config.B0Value = "";
+                                                        Config.C0Value = "";
+                                                    } else if (StringUtils.isEquals("BC", xbStr)) {
+                                                        Config.BCValue = dzStr;
+                                                        Config.BValueDw = dzDwStr;
+
+                                                        Config.A0Value = "";
+                                                        Config.B0Value = "";
+                                                        Config.C0Value = "";
+                                                    } else if (StringUtils.isEquals("CA", xbStr)) {
+                                                        Config.CAValue = dzStr;
+                                                        Config.CValueDw = dzDwStr;
+
+                                                        Config.A0Value = "";
+                                                        Config.B0Value = "";
+                                                        Config.C0Value = "";
+                                                    }
+                                                    Log.e(TAG+"A0",Config.A0Value+","+Config.B0Value+","+Config.C0Value);
+                                                    Log.e(TAG+"AB",Config.ABValue+","+Config.BCValue+","+Config.CAValue);
+                                                    if (StringUtils.noEmpty(Config.A0Value) && StringUtils.noEmpty(Config.B0Value) && StringUtils.noEmpty(Config.C0Value)) {
+                                                        Config.TzType = 0;
+                                                        Config.CsDlValue = tvCsDl.getText().toString();
+                                                        Config.CsDlValueDw = tvCsDlDw.getText().toString();
+                                                        Config.CsXb = xbStr;
+                                                        finish();
+                                                        startActivity(new Intent(Dtd10cZzCs2Activity.this, Dtd10cZzCs3Activity.class));
+                                                    } else if (StringUtils.noEmpty(Config.ABValue) && StringUtils.noEmpty(Config.BCValue) && StringUtils.noEmpty(Config.CAValue)) {
+                                                        Config.TzType = 1;
+                                                        Config.CsDlValue = tvCsDl.getText().toString();
+                                                        Config.CsDlValueDw = tvCsDlDw.getText().toString();
+                                                        Config.CsXb = xbStr;
+                                                        finish();
+                                                        startActivity(new Intent(Dtd10cZzCs2Activity.this, Dtd10cZzCs3Activity.class));
+                                                    }
+                                                } else {
+                                                    Log.e("=============1","2");
+                                                    Log.e(TAG,"绕组："+rzStr);
+                                                    Config.RzValue = rzStr;
+                                                    Config.FjValue = fjStr;
+                                                    Log.e(TAG,"绕组2："+Config.RzValue);
+                                                    if (StringUtils.isEquals("A0", xbStr)) {
+                                                        Config.A0Value = dzStr;
+                                                        Config.AValueDw = dzDwStr;
+
+                                                        Config.ABValue = "";
+                                                        Config.BCValue = "";
+                                                        Config.CAValue = "";
+                                                    } else if (StringUtils.isEquals("B0", xbStr)) {
+                                                        Config.B0Value = dzStr;
+                                                        Config.BValueDw = dzDwStr;
+
+                                                        Config.ABValue = "";
+                                                        Config.BCValue = "";
+                                                        Config.CAValue = "";
+                                                    } else if (StringUtils.isEquals("C0", xbStr)) {
+                                                        Config.C0Value = dzStr;
+                                                        Config.CValueDw = dzDwStr;
+
+                                                        Config.ABValue = "";
+                                                        Config.BCValue = "";
+                                                        Config.CAValue = "";
+                                                    } else if (StringUtils.isEquals("AB", xbStr)) {
+                                                        Config.ABValue = dzStr;
+                                                        Config.AValueDw = dzDwStr;
+
+                                                        Config.A0Value = "";
+                                                        Config.B0Value = "";
+                                                        Config.C0Value = "";
+                                                    } else if (StringUtils.isEquals("BC", xbStr)) {
+                                                        Config.BCValue = dzStr;
+                                                        Config.BValueDw = dzDwStr;
+
+                                                        Config.A0Value = "";
+                                                        Config.B0Value = "";
+                                                        Config.C0Value = "";
+                                                    } else if (StringUtils.isEquals("CA", xbStr)) {
+                                                        Config.CAValue = dzStr;
+                                                        Config.CValueDw = dzDwStr;
+
+                                                        Config.A0Value = "";
+                                                        Config.B0Value = "";
+                                                        Config.C0Value = "";
+                                                    }
+                                                }
+                                            }
+                                        } else if (btnType == 2) {//打印
+                                            Log.e(TAG, "打印2");
+                                            TipsDayin.cancel();
+                                        } else if (btnType == 3) {//停止
+                                            Log.e(TAG, "放电2");
+                                            TipsFangdian.cancel();
+                                            Config.fdTcCishu = 0;
+                                            finish();
+                                        } else {
+                                            TipsFangdian.cancel();
+                                            TipsDayin.cancel();
+                                            TipsSave.cancel();
+                                        }
+                                    }
+                                }
+                                Log.e(TAG + "1" + "b", b0orbc);
+                                float b0orbcF = 0;
+                                String b0orbcHl = HexUtil.reverseHex(b0orbc);
+                                try {
+                                    b0orbcF = Float.intBitsToFloat((int) HexUtil.parseLong(b0orbcHl, 16));
+                                } catch (HexUtil.NumberFormatException e) {
+                                    e.printStackTrace();
+                                }
+                                String b0orbcStr2 = StringUtils.siweiYouxiaoStr(b0orbcF + "");
+                                Log.e(TAG + "2" + "b转换后", b0orbcStr2);
+
+
+                                Log.e(TAG + "1" + "c", c0orca);
+                                float c0orcaF = 0;
+                                String c0orcaHl = HexUtil.reverseHex(c0orca);
+                                try {
+                                    c0orcaF = Float.intBitsToFloat((int) HexUtil.parseLong(c0orcaHl, 16));
+                                } catch (HexUtil.NumberFormatException e) {
+                                    e.printStackTrace();
+                                }
+                                String c0orcaStr2 = StringUtils.siweiYouxiaoStr(c0orcaF + "");
+                                Log.e(TAG + "2" + "c转换后", c0orcaStr2);
+
+                                Log.e(TAG + "1", "数据序号：" + sjxh);
+                                /*************************************************************************/
+                                Log.e(TAG + "1", "测试相位：" + csxw);
+                                Log.e(TAG + "1", "测试温度：" + cswd);
+                                Log.e(TAG + "1", "分接位置：" + fjwz);
+                                Log.e(TAG + "1", "绕组：" + raozu);
+                                Log.e(TAG + "1", "折算温度：" + zswd);
+                                Log.e(TAG + "1", "绕组材料：" + rzcl);
+                                if (jinType < 2) {//第一次执行，获取下位机属性
+                                    Xianshi.raozu(raozu, tvRz, Dtd10cZzCs2Activity.this);
+                                    Xianshi.xiangbie(csxw, tvXb);
+                                    if (ShiOrShiliu.parseInt(fjwz) < 10) {
+                                        etFj.setText("0" + ShiOrShiliu.parseInt(fjwz));
+                                    } else {
+                                        etFj.setText(ShiOrShiliu.parseInt(fjwz) + "");
+                                    }
+                                    if (ShiOrShiliu.parseInt(cswd) < 10) {
+                                        etSpwd.setText("0" + ShiOrShiliu.parseInt(cswd));
+                                    } else {
+                                        etSpwd.setText(ShiOrShiliu.parseInt(cswd) + "");
+                                    }
+                                    Config.cswd2 = ShiOrShiliu.parseInt(cswd)+"";
+                                    if (ShiOrShiliu.parseInt(zswd) < 10) {
+                                        etZsWd.setText("0" + ShiOrShiliu.parseInt(zswd));
+                                    } else {
+                                        etZsWd.setText(ShiOrShiliu.parseInt(zswd) + "");
+                                    }
+                                    Xianshi.rzcl(rzcl, tvRzCl, Dtd10cZzCs2Activity.this);
+                                    jinType = jinType +1;
+                                }
+                            } else {
+                                Log.e(TAG, "crc==false");
+                            }
+
+
                         }
                     }
 

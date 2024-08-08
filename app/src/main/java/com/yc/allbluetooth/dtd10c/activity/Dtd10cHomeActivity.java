@@ -67,12 +67,14 @@ public class Dtd10cHomeActivity extends AppCompatActivity implements View.OnClic
                     tvTime.setText(GetTime.getTime(4));//年-月-日 时：分：秒
                     break;
                 case Config.BLUETOOTH_GETDATA:
-                    String msgStr = msg.obj.toString();
-                    Log.e(TAG, "Home:"+msgStr);
-                    //String zhilingStr = StringUtils.subStrStartToEnd(msgStr, 4, 6);
+                    if(StringUtils.isEquals(Config.ymType,"dtdHome")) {
+                        String msgStr = msg.obj.toString();
+                        Log.e(TAG, "Home:" + msgStr);
+                        //String zhilingStr = StringUtils.subStrStartToEnd(msgStr, 4, 6);
 //                    if(StringUtils.isEquals("6A",zhilingStr)){
 //                        startActivity(new Intent(HomeActivity.this,ZzCs1Activity.class));
 //                    }
+                    }
 
                     break;
                 default:
@@ -108,6 +110,7 @@ public class Dtd10cHomeActivity extends AppCompatActivity implements View.OnClic
         ActivityCollector.addActivity(this);
         initModel();
         initView();
+        tbTime();
         new TimeThread().start();
     }
     public void initView(){
@@ -130,7 +133,6 @@ public class Dtd10cHomeActivity extends AppCompatActivity implements View.OnClic
             bleConnectUtil.connect(bleConnectUtil.wsDeviceAddress,10,10);//标签从机：34:14:B5:B6:D6:E1
             bleConnectUtil.setCallback(blecallback);
         }
-        tbTime();
     }
     @Override
     public void onClick(View v) {

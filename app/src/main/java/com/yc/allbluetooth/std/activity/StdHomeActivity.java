@@ -148,7 +148,6 @@ public class StdHomeActivity extends AppCompatActivity implements View.OnClickLi
             bleConnectUtil.setCallback(blecallback);
             Log.e(TAG, "进入...Home2");
         }
-        tbTime();
         //sendDataByBle("68866B010006060555B589","");
         //StdZhizuCeshiFragment zhizuCeshiFragment = StdZhizuCeshiFragment.newInstance("","");
         StdZhizuCeshiNewFragment zhizuCeshiFragment = StdZhizuCeshiNewFragment.newInstance("", "");
@@ -156,6 +155,7 @@ public class StdHomeActivity extends AppCompatActivity implements View.OnClickLi
         //getSupportFragmentManager().beginTransaction().add(R.id.frameHome, zhizuCeshiFragment).commit();
         addFragemntToShow(0, zhizuCeshiFragment);
         initView();
+        tbTime();
         new TimeThread().start();
     }
 

@@ -116,6 +116,7 @@ public class DlzkHomeActivity extends AppCompatActivity implements View.OnClickL
         ActivityCollector.addActivity(this);
         initModel();
         initView();
+        tbTime();
         new TimeThread().start();
 
     }
@@ -130,7 +131,7 @@ public class DlzkHomeActivity extends AppCompatActivity implements View.OnClickL
             bleConnectUtil.connect(bleConnectUtil.wsDeviceAddress,10,10);//标签从机：34:14:B5:B6:D6:E1
             bleConnectUtil.setCallback(blecallback);
         }
-        tbTime();
+        //tbTime();
     }
     public void initView(){
         tvTime = findViewById(R.id.tvDlzkHomeTime);

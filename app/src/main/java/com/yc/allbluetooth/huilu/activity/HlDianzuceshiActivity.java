@@ -149,6 +149,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
         ActivityCollector.addActivity(this);
         initModel();
         initView();
+        tbTime();
         Log.e(TAG,"====进入hl=======");
         new TimeThread().start();
         initSend();
@@ -399,7 +400,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             bleConnectUtil.connect(bleConnectUtil.wsDeviceAddress,10,10);//标签从机：34:14:B5:B6:D6:E1
             bleConnectUtil.setCallback(blecallback);
         }
-        tbTime();
+        //tbTime();
 
     }
 

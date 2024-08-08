@@ -108,6 +108,7 @@ public class BbHomeActivity extends AppCompatActivity implements View.OnClickLis
         ActivityCollector.addActivity(this);
         initModel();
         initView();
+        tbTime();
         new TimeThread().start();
     }
     public void initModel(){
@@ -122,7 +123,7 @@ public class BbHomeActivity extends AppCompatActivity implements View.OnClickLis
             bleConnectUtil.setCallback(blecallback);
         }
         Log.e("======","=========1");
-        tbTime();
+        //tbTime();
     }
     public void initView(){
         ivDx = findViewById(R.id.ivHomeDxBianbi);
