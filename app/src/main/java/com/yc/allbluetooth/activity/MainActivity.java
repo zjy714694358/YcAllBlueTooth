@@ -189,7 +189,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ActivityCollector.addActivity(this);
         initView();
         Config.ymType = "main";
-
     }
 
     public void initView() {
@@ -490,13 +489,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Log.e(TAG,dev.getName()+","+dev.getAlias()+","+dev.getAddress()+","+serviceUuid+","+dev.getType());
                             listDevices.add(dev);
                             BlueTooth blueTooth = new BlueTooth();
-                            if(StringUtils.isEquals(dev.getAddress(),"C4:23:04:14:05:A6")){
-                                blueTooth.setName("YZ-1A");
-                            } else if (StringUtils.isEquals(dev.getAddress(),"C4:23:04:14:05:A2")) {
-                                blueTooth.setName("YZ-2A");
-                            } else {
-                                blueTooth.setName(dev.getName());
-                            }
+//                            if(StringUtils.isEquals(dev.getAddress(),"C4:23:04:14:05:A6")){
+//                                blueTooth.setName("YZ-1A");
+//                            } else if (StringUtils.isEquals(dev.getAddress(),"C4:23:04:14:05:A2")) {
+//                                blueTooth.setName("YZ-2A");
+//                            } else {
+//                                blueTooth.setName(dev.getName());
+//                            }
+                            blueTooth.setName(dev.getName());
                             blueTooth.setAddress(dev.getAddress());
                             blueTooth.setType(getString(R.string.weilianjie));
                             //Log.e(TAG,dev.getName()+","+dev.getAddress());
