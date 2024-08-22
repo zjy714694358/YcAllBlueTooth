@@ -564,4 +564,8 @@ public class Config {
      * 变比分接间距（%）
      */
     public static String bbFjjj = "2.5";
+    /**
+     * 变比三相盲测弹窗
+     */
+    public static String bbTanchuang = "";
 }

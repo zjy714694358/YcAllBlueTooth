@@ -271,8 +271,9 @@ public class SxBbCeshiActivity extends AppCompatActivity {
         builder.setView(dialogView);
         builder.setCancelable(false);//点击弹窗周围不关闭弹窗
         dialog = builder.create();
-        dialog.show();
-
+        if(StringUtils.isEquals(getString(R.string.weizhi),Config.bbTanchuang)==true){
+            dialog.show();
+        }
         tvCsdlA = findViewById(R.id.tvSxBbCeshiCsDlA);
         tvCsdlB = findViewById(R.id.tvSxBbCeshiCsDlB);
         tvCsdlC = findViewById(R.id.tvSxBbCeshiCsDlC);

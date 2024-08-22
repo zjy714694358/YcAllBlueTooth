@@ -131,6 +131,16 @@ public class DlzkHomeActivity extends AppCompatActivity implements View.OnClickL
             bleConnectUtil.connect(bleConnectUtil.wsDeviceAddress,10,10);//标签从机：34:14:B5:B6:D6:E1
             bleConnectUtil.setCallback(blecallback);
         }
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                /**
+                 *要执行的操作
+                 */
+                tbTime();
+            }
+        }, 1000);//3秒后执行Runnable中的run方法
         //tbTime();
     }
     public void initView(){

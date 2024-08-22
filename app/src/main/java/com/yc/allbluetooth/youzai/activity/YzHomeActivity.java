@@ -127,6 +127,17 @@ public class YzHomeActivity extends AppCompatActivity implements View.OnClickLis
         llSjCy.setOnClickListener(this);
         llSjSz.setOnClickListener(this);
         llSySm.setOnClickListener(this);
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                /**
+                 *要执行的操作
+                 */
+                tbTime();
+            }
+        }, 1000);//3秒后执行Runnable中的run方法
     }
 
     @Override

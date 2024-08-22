@@ -268,7 +268,7 @@ public class DxBbActivity extends AppCompatActivity implements View.OnClickListe
         if(v.getId() == R.id.tvDxCsCeshi){
             Log.e("bianbi==","测试");
             sendDataByBle(SendUtil.initSendStd("77"),"");
-            finish();
+            //finish();
             startActivity(new Intent(DxBbActivity.this, DxBbCeshiActivity.class));
         }else if (v.getId() == R.id.tvDxCsFanhui ){
             sendDataByBle(SendUtil.initSendStd("78"),"");

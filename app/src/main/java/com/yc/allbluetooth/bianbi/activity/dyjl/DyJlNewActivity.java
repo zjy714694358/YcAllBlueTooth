@@ -154,13 +154,14 @@ public class DyJlNewActivity extends AppCompatActivity implements View.OnClickLi
                                     Config.getSjglListId += 1;
                                     jlCx.setId(Config.getSjglListId);
                                     //if(!(ShiOrShiliu.parseInt(nian)<2021)){
-                                    String nian2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(nian));
-                                    String yue2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(yue));
-                                    String ri2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(ri));
-                                    String shi2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(shi));
-                                    String fen2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(fen));
-                                    String miao2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(miao));
-                                    jlCx.setCeshishijian("20" + nian2 + "-" + yue2 + "-" + ri2 + " " + shi2 + ":" + fen2 + ":" + miao2);
+//                                    String nian2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(nian));
+//                                    String yue2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(yue));
+//                                    String ri2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(ri));
+//                                    String shi2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(shi));
+//                                    String fen2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(fen));
+//                                    String miao2 = ShiOrShiliu.xiaoyushiBl(ShiOrShiliu.parseInt(miao));
+//                                    jlCx.setCeshishijian("20" + nian2 + "-" + yue2 + "-" + ri2 + " " + shi2 + ":" + fen2 + ":" + miao2);
+                                    jlCx.setCeshishijian("20" + nian + "-" + yue + "-" + ri + " " + shi + ":" + fen + ":" + miao);
                                     int fjI = ShiOrShiliu.parseInt(csfj);
                                     jlCx.setBianhao(rwbh);
                                     jlCx.setFenjie(fjI+"");

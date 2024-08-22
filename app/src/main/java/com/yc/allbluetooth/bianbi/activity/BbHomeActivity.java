@@ -123,6 +123,16 @@ public class BbHomeActivity extends AppCompatActivity implements View.OnClickLis
             bleConnectUtil.setCallback(blecallback);
         }
         Log.e("======","=========1");
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                /**
+                 *要执行的操作
+                 */
+                tbTime();
+            }
+        }, 1000);//3秒后执行Runnable中的run方法
         //tbTime();
     }
     public void initView(){

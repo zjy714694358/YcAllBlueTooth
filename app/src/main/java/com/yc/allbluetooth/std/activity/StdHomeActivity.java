@@ -148,6 +148,7 @@ public class StdHomeActivity extends AppCompatActivity implements View.OnClickLi
             bleConnectUtil.setCallback(blecallback);
             Log.e(TAG, "进入...Home2");
         }
+
         //sendDataByBle("68866B010006060555B589","");
         //StdZhizuCeshiFragment zhizuCeshiFragment = StdZhizuCeshiFragment.newInstance("","");
         StdZhizuCeshiNewFragment zhizuCeshiFragment = StdZhizuCeshiNewFragment.newInstance("", "");
@@ -220,6 +221,17 @@ public class StdHomeActivity extends AppCompatActivity implements View.OnClickLi
         btnDyjl.setOnClickListener(this);
         btnSjsz.setOnClickListener(this);
         btnXtsz.setOnClickListener(this);
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                /**
+                 *要执行的操作
+                 */
+                tbTime();
+            }
+        }, 1000);//1秒后执行Runnable中的run方法
     }
 
     @Override

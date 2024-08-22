@@ -302,7 +302,8 @@ public class SxBbActivity extends AppCompatActivity implements View.OnClickListe
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("76",zhiling),"");
         } else if (v.getId() == R.id.tvSxCsCeshi) {
             sendDataByBle(SendUtil.initSend("77"),"");
-            finish();
+            //finish();
+            Config.bbTanchuang = tvLjzbSan.getText().toString();
             startActivity(new Intent(SxBbActivity.this, SxBbCeshiActivity.class));
         } else if (v.getId() == R.id.tvSxCsFanhui) {
             sendDataByBle(SendUtil.initSend("78"),"");

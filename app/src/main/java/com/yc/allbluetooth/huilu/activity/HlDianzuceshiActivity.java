@@ -118,6 +118,17 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
                                 }else if(StringUtils.isEquals(StringUtils.subStrStartToEnd(newMsgStr,6,8),"6D")==true){
                                     diyi = 1;//进入第一轮发送完毕
                                     Log.e(TAG,"进入第一轮发送完成");
+
+                                    Handler handler = new Handler();
+                                    handler.postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            /**
+                                             *要执行的操作
+                                             */
+                                            tbTime();
+                                        }
+                                    }, 1000);//3秒后执行Runnable中的run方法
                                 }
                             }
                         }
