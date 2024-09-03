@@ -105,6 +105,7 @@ public class StdZhizuCeshiNewFragment extends Fragment implements View.OnClickLi
 
     String tfxxType;//突发信息状态码
     int btnType = 0;//点击保存、打印、停止按钮对应的状态；保存：1；打印：2；停止：3;换相：4
+    int diyi = 0;//第一次进入页面，不能进入测试
 
 
     int regainBleDataCount = 0;
@@ -192,7 +193,7 @@ public class StdZhizuCeshiNewFragment extends Fragment implements View.OnClickLi
                             byte[] bytes = new BigInteger(strStdCsAll, 16).toByteArray();
                             String crc = CrcUtil.getTableCRC(bytes);
                             String sendAll = strStdCsAll + crc;
-                            Log.e("fasong2:", sendAll);
+                            Log.e("fasong2---------:", sendAll);
                             Handler handler = new Handler();
                             handler.postDelayed(new Runnable() {
                                 @Override
@@ -200,23 +201,28 @@ public class StdZhizuCeshiNewFragment extends Fragment implements View.OnClickLi
                                     /**
                                      *要执行的操作：延迟0.5秒发送跳转，不然有时候跳转不过去
                                      */
-                                    if(StringUtils.isEquals("00",ffZl)){//三通道
-                                        if(StringUtils.isEquals("08",lxdzZl)){//08
+                                    if(diyi==0){
+
+                                    }else{
+                                        if(StringUtils.isEquals("00",ffZl)){//三通道
+                                            if(StringUtils.isEquals("08",lxdzZl)){//08
+                                                sendDataByBle(sendAll, "");
+                                                Log.e("fasong2=STD:", sendAll);
+                                                startActivity(new Intent(getActivity(), ZhizuCeshiStdLingxianYiActivity.class));//三通道08
+                                            }else{
+                                                sendDataByBle(sendAll, "");
+                                                startActivity(new Intent(getActivity(), ZhizuCeshiStdYiActivity.class));
+                                                Log.e("fasong2=STD:", sendAll);
+                                            }
+                                        }else if(StringUtils.isEquals("01",ffZl)){//YN
+                                            Log.e("fasong2=YN:", sendAll);
                                             sendDataByBle(sendAll, "");
-                                            startActivity(new Intent(getActivity(), ZhizuCeshiStdLingxianYiActivity.class));//三通道08
-                                        }else{
+                                            startActivity(new Intent(getActivity(), ZhizuCeshiYnYiActivity.class));
+                                        }else if(StringUtils.isEquals("02",ffZl)){//D(Y)
+                                            Log.e("fasong2=DY:", sendAll);
                                             sendDataByBle(sendAll, "");
-                                            startActivity(new Intent(getActivity(), ZhizuCeshiStdYiActivity.class));
-                                            Log.e("fasong2=STD:", sendAll);
+                                            startActivity(new Intent(getActivity(), ZhizuCeshiDyYiActivity.class));
                                         }
-                                    }else if(StringUtils.isEquals("01",ffZl)){//YN
-                                        Log.e("fasong2=YN:", sendAll);
-                                        sendDataByBle(sendAll, "");
-                                        startActivity(new Intent(getActivity(), ZhizuCeshiYnYiActivity.class));
-                                    }else if(StringUtils.isEquals("02",ffZl)){//D(Y)
-                                        Log.e("fasong2=DY:", sendAll);
-                                        sendDataByBle(sendAll, "");
-                                        startActivity(new Intent(getActivity(), ZhizuCeshiDyYiActivity.class));
                                     }
                                 }
                             }, 500);//0.5秒后执行Runnable中的run方法
@@ -437,6 +443,7 @@ public class StdZhizuCeshiNewFragment extends Fragment implements View.OnClickLi
                 break;
             case R.id.btnZzCsStartCsNew:
                 Log.e("","=============");
+                diyi=1;
                 Config.lxType = 0;//每次点击开始测试都默认是第一次进零线电阻
                 sendDataByBle(SendUtil.initSend("73"),"");//先发送返回
                 break;
