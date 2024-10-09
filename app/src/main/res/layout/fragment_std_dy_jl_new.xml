@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="#EEEEEE"
+            android:visibility="gone"
             android:orientation="horizontal">
             <CheckBox
                 android:id="@+id/ckbSjglAll"

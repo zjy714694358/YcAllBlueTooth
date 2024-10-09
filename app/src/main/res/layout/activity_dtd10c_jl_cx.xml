@@ -45,6 +45,7 @@
             android:gravity="center_vertical"
             android:layout_marginLeft="30dp"
             style="@style/tvHomeTimeSize_20"
+            android:visibility="gone"
             android:text="@string/quanxuan"/>
         <TextView
             android:layout_width="0dp"
@@ -57,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_marginRight="30dp"
             android:padding="5dp"
             style="@style/tvHomeTimeSize_20"

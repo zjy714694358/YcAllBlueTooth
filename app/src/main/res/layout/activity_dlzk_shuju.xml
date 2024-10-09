@@ -69,6 +69,7 @@
             android:layout_height="40dp"
             android:gravity="center_vertical"
             style="@style/textSize_20_b"
+            android:visibility="gone"
             android:text="@string/quanxuan"/>
         <View
             android:layout_width="0dp"
@@ -80,6 +81,7 @@
             android:layout_height="35dp"
             android:background="@drawable/btn_lv_yinying_hei"
             android:gravity="center"
+            android:visibility="gone"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/tvDlzkShujuShanchu"

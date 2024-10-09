@@ -20,10 +20,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:focusable="false"
+            android:visibility="gone"
             android:gravity="center"/>
         <View
             android:layout_width="1dp"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:background="@color/black"/>
         <TextView
             android:id="@+id/tvYzSjcyListItemSpbh"
@@ -59,7 +61,7 @@
             android:gravity="center"
             android:theme="@style/textSize_16_b"
             android:textColor="@color/black"
-            android:text="2023:6-14 16:33:35"/>
+            android:text="2023-06-14 16:33:35"/>
         <View
             android:layout_width="1dp"
             android:layout_height="wrap_content"

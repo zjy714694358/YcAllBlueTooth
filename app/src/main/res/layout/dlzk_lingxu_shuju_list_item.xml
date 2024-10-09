@@ -17,6 +17,7 @@
             android:layout_height="25dp"
             android:layout_marginRight="5dp"
             android:focusable="false"
+            android:visibility="gone"
             android:gravity="center"/>
         <View
             android:layout_width="1dp"

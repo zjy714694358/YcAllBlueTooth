@@ -59,10 +59,12 @@
                             android:layout_height="match_parent"
                             android:layout_weight="0.5"
                             android:gravity="center"
+                            android:visibility="gone"
                             android:text="@string/quanxuan"/>
                         <View
                             android:layout_width="1dp"
                             android:layout_height="wrap_content"
+                            android:visibility="gone"
                             android:background="@color/black"/>
                         <TextView
                             android:layout_width="0dp"
@@ -214,6 +216,7 @@
                     android:theme="@style/textSize_18_b"
                     android:background="@drawable/btn_yinying_shenlan"
                     android:gravity="center"
+                    android:visibility="gone"
                     android:text="@string/qingkong"/>
                <!-- <TextView
                     android:id="@+id/tvYzSjcySyy"
