@@ -19,7 +19,7 @@ android {
         release {
             minifyEnabled false //代码是否混淆
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.debug
+            //signingConfig signingConfigs.debug
         }
     }
     compileOptions {
