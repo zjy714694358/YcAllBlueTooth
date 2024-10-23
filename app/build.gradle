@@ -3,6 +3,14 @@ plugins {
 }
 android {
 
+    signingConfigs {
+        release {
+            storeFile file('D:\\ycall.jks')
+            storePassword '123456'
+            keyAlias 'key0'
+            keyPassword '123456'
+        }
+    }
     compileSdk 32
 
     defaultConfig {
@@ -19,8 +27,15 @@ android {
         release {
             minifyEnabled false //代码是否混淆
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            //signingConfig signingConfigs.debug
+            //manifestPlaceholders = [APP_NAME:"@string/app_name"]//修改APP名称
+            signingConfig signingConfigs.release
         }
+        /*debug{
+            manifestPlaceholders = [APP_NAME:"@string/app_name_debug"]
+        }
+        formal{
+            manifestPlaceholders = [APP_NAME:"@string/app_name_formal"]
+        }*/
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

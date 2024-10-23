@@ -45,7 +45,6 @@ import com.yc.allbluetooth.utils.SendUtil;
 import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StringUtils;
 
-import java.math.BigInteger;
 import java.util.Locale;
 
 public class DlzkSanxiangYiActivity extends AppCompatActivity implements View.OnClickListener {

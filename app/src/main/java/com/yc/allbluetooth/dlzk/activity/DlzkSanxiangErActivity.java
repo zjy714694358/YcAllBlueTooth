@@ -25,7 +25,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
@@ -39,9 +38,6 @@ import com.yc.allbluetooth.utils.SendUtil;
 import com.yc.allbluetooth.utils.StringUtils;
 import com.yc.allbluetooth.utils.XiaoshuYunsuan;
 
-import org.apache.poi.hpsf.Decimal;
-
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Locale;
 
@@ -246,10 +242,12 @@ public class DlzkSanxiangErActivity extends AppCompatActivity implements View.On
                                     allDgCa = StringUtils.subStrStartToEnd(newMsgStr,32,40);
                                     Config.allZkdyBfs = StringUtils.gaodiHuanBaoliuWuwei(allZkdyBfs);
                                     Config.allZkdyBfs2 = StringUtils.gaodiHuanBaoliuShierwei(allZkdyBfs);
+                                    //漏电感
                                     Config.rzdgAb = StringUtils.gaodiHuanBaoliuShierwei(allDgAB);
                                     Config.rzdgBc = StringUtils.gaodiHuanBaoliuShierwei(allDgBc);
                                     Config.rzdgCa = StringUtils.gaodiHuanBaoliuShierwei(allDgCa);
                                     XiaoshuYunsuan xiaoshuYunsuan = new XiaoshuYunsuan();
+                                    //测量电抗
                                     double bdGkAbCheng = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(Config.rzdgAb),xiaoshuYunsuan.xiaoshu("314.15926"));
                                     Config.dlgkAb = StringUtils.shierweiYouxiaoStr(xiaoshuYunsuan.xiaoshuChu6(xiaoshuYunsuan.xiaoshu(bdGkAbCheng+""),xiaoshuYunsuan.xiaoshu("1000"))+"");
                                     double bdGkBcCheng = xiaoshuYunsuan.xiaoshuCheng(xiaoshuYunsuan.xiaoshu(Config.rzdgBc),xiaoshuYunsuan.xiaoshu("314.15926"));
