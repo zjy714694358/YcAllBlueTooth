@@ -106,7 +106,8 @@ public class HLDyjlAdapter extends BaseAdapter {
                 dianliuzhi = ShiOrShiliu.hexToFloatSiBuhuan(dataBean.getDlz());
             }
             if(StringUtils.noEmpty(dataBean.getDzz())){
-                dianzuzhi = ShiOrShiliu.hexToFloatWuBuhuan(dataBean.getDzz());
+                //dianzuzhi = ShiOrShiliu.hexToFloatWuBuhuan(dataBean.getDzz());
+                dianzuzhi = ShiOrShiliu.hexToFloatYiweixiaoshuBuhuan(dataBean.getDzz());
             }
             holder.tvDlz.setText(dianliuzhi+"A");
             holder.tvDzz.setText(HlDlOrDzDw.getDzDw(dianzuzhi));

@@ -158,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 startActivity(new Intent(MainActivity.this, BbHomeActivity.class));
                             } else if (StringUtils.isEquals(yqlx, "39")||StringUtils.isEquals(yqlx,"3A")) {//回路100A：39；200A：3A
                                 //startActivity(new Intent(MainActivity.this, HuiluHomeActivity.class));
+                                Log.e("回路1===",yqlx);
                                 Config.yqlx = yqlx;
                                 startActivity(new Intent(MainActivity.this, HlDianzuceshiActivity.class));
                             }

@@ -148,6 +148,7 @@
                 android:text="1S"/>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/llHlDzcsCssc3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -262,6 +263,7 @@
             android:layout_marginLeft="20dp"
             android:paddingLeft="10dp"
             android:theme="@style/textSize_28_b"
+            android:cursorVisible="false"
             android:maxLength="8"
             android:text="A123456"/>
         <LinearLayout
