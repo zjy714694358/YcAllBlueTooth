@@ -388,7 +388,7 @@ public class HlDianzuceshiActivity extends AppCompatActivity implements View.OnC
             tvCssc3.setBackgroundResource(R.drawable.yuanjiao_bac_bacg);
             sendDataByBle(SendUtil.dlzkCanshuShuruDanzijieSend("71","64"),"");
         }else if (view.getId() == R.id.tvHlDzcsKaishiceshi) {//开始测试
-            //sendDataByBle(SendUtil.initSend("77"),"");
+            sendDataByBle(SendUtil.initSend("77"),"");//是否需要此行代码有待商榷
             String etBhStr = etSybh.getText().toString();
             //finish();
             Intent intent = new Intent(HlDianzuceshiActivity.this, HlDianzuceshi2Activity.class);
