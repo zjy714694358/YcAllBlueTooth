@@ -372,7 +372,7 @@ public class HlDianzuceshi2Activity extends AppCompatActivity implements View.On
                     sendDataByBle(SendUtil.initSendStd("7c"),"");
                 }else{
                     sendDataByBle(SendUtil.initSendStd("7c"),"");
-                    tvTingzhi.setText(getString(R.string.fanhui));
+                    tvTingzhi.setText(getString(R.string.hl_fanhui));
                     TingzhiToFanhui tingzhi = new TingzhiToFanhui();
                     tingzhi.HlDaojishiGuan(HlDianzuceshi2Activity.this,tvTingzhi);
                     //Toast.makeText(HlDianzuceshi2Activity.this,getString(R.string.fangdiantanchuang),Toast.LENGTH_SHORT).show();

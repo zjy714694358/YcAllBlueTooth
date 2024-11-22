@@ -20,7 +20,7 @@ public class TingzhiToFanhui {
     Runnable runnable1 = new Runnable() {
         @Override
         public void run() {
-            textView1.setText(activity1.getString(R.string.fanhui));
+            textView1.setText(activity1.getString(R.string.hl_fanhui));
         }
     };
 

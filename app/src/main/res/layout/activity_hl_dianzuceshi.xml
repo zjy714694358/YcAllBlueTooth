@@ -298,7 +298,7 @@
                 android:theme="@style/textSize_32_b"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:text="@string/diaoyuejilu"/>
+                android:text="@string/hl_diaoyuejilu"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
@@ -330,7 +330,7 @@
                 android:theme="@style/textSize_32_b"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:text="@string/xitongshezhi"/>
+                android:text="@string/hl_xitongshezhi"/>
         </LinearLayout>
 
         <LinearLayout

@@ -15,10 +15,11 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/textSize_26_b"
-            android:text="@string/dianzuceshi"/>
+            android:gravity="center"
+            android:text="@string/huiludianzuceshiyi"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -246,7 +247,7 @@
                 android:theme="@style/textSize_24_b"
                 android:background="@drawable/btn_lv_yinying_hei"
                 android:gravity="center"
-                android:text="@string/fanhui"/>
+                android:text="@string/hl_fanhui"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

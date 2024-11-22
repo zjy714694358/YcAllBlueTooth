@@ -294,7 +294,7 @@
     <string name="kaijihouxianshipingwuxianshi1" translatable="false">1.Check AC220V power supply and safety tube。</string>
     <string name="sanxiangdianliubupingheng" translatable="false">Three phase current unbalance</string>
     <string name="sanxiangdianliubupingheng1" translatable="false">1.Check test wiring to ensure good contact。</string>
-    <string name="xingnengtedian" translatable="false">Performance characteristics</string>
+    <string name="xingnengtedian" translatable="false">Performance Characteristics</string>
     <string name="xingnengtedian1" translatable="false">1.Powerful function, can realize the transition waveform, transition time, transition resistance, three phase synchronization and other parameters measurement, calculation；</string>
     <string name="xingnengtedian2" translatable="false">2.Using a bright 7.0 inch LCD display and touch screen, all Chinese menu, simple and convenient operation；</string>
     <string name="xingnengtedian3" translatable="false">3.Intelligent test and result analysis, with the function of enlarging or reducing the waveform and automatically converting the tap gear number；</string>
@@ -411,7 +411,7 @@
     <!--<string name="ceshishijian" translatable="false">测试时间</string>-->
     <string name="zhengzaiceshiqingshaohou" translatable="false">Testing in progress, please wait...</string>
     <!--********************************************************回路**************************************************************-->
-    <string name="huiludianzuceshiyi" translatable="false">Loop resistance tester</string>
+    <string name="huiludianzuceshiyi" translatable="false">Digital Low Resistance Ohmmeter</string>
     <string name="dianzuceshi" translatable="false">Resistance test</string>
     <string name="shiyandianliu2" translatable="false">Test current:</string>
     <string name="ceshishichang2" translatable="false">Test duration:</string>
@@ -422,20 +422,22 @@
     <string name="jilushijian" translatable="false">Record time</string>
     <string name="dianliuzhi" translatable="false">Current</string>
     <string name="dianzuzhi" translatable="false">Resistance</string>
+    <string name="hl_fanhui" translatable="false">Back</string>
+    <string name="hl_queren" translatable="false">Ok</string>
     <string name="hl_cpsc_jszb1" translatable="false">Output current: 50A, 100A;</string>
-    <string name="hl_cpsc_jszb2" translatable="false">Range: 0-1Ω;</string>
-    <string name="hl_cpsc_jszb3" translatable="false">Resolution: Min 0.1μΩ;</string>
-    <string name="hl_cpsc_jszb4" translatable="false">Accuracy: ≤ 70mΩ: ± (0.5%+2 bytes);> 70mΩ: ± (1%+2 bytes);</string>
+    <string name="hl_cpsc_jszb2" translatable="false">Measuring range: 50A:0~60mΩ;100A:0~30mΩ;</string>
+    <string name="hl_cpsc_jszb3" translatable="false">Resolution: minimum 0.1μΩ;</string>
+    <string name="hl_cpsc_jszb4" translatable="false">Accuracy: ± (0.5%+2 words);</string>
     <string name="hl_cpsc_jszb5" translatable="false">Output power：500W;</string>
-    <string name="hl_cpsc_jszb6" translatable="false">Working mode: pulse measurement, continuous measurement;</string>
+    <string name="hl_cpsc_jszb6" translatable="false">Working mode: 1S/3S/10S/60S;</string>
     <string name="hl_cpsc_jszb7" translatable="false">Working power supply：AC220V±10%  50HZ;</string>
     <string name="hl_cpsc_jszb8" translatable="false">Operating temperature：-10~40℃;</string>
-    <string name="hl_cpsc_jszb9" translatable="false">External dimensions：323*275*135mm;</string>
+    <string name="hl_cpsc_jszb9" translatable="false">Overall size：323*275*135mm;</string>
     <string name="hl_cpsc_jszb10" translatable="false">Instrument weight：4.9kg;</string>
     <string name="hl_cpsc_xntd1" translatable="false">*Multiple current options available (maximum test current of 100A), with a wide range of test ranges;</string>
     <string name="hl_cpsc_xntd2" translatable="false">*The test current comes from a high-precision high current constant current power supply, and the test is fast and accurate;</string>
     <string name="hl_cpsc_xntd3" translatable="false">*Using four terminal wiring method to eliminate the influence of test wire resistance on test results;</string>
-    <string name="hl_cpsc_xntd4" translatable="false">*The instrument has both pulse measurement and continuous measurement methods. Pulse measurement can display test data as quickly as about 1 second, and can also be continuously tested to meet various application scenarios;</string>
+    <string name="hl_cpsc_xntd4" translatable="false">*The instrument displays the test data in 1 second at the fastest time,and can also test for 60 seconds continuously to meet the application occasions;</string>
     <string name="hl_cpsc_xntd5" translatable="false">*The instrument is equipped with functions such as input misconnection AC380V power supply protection and overheating protection;</string>
     <string name="hl_cpsc_xntd6" translatable="false">*The LCD adopts a 5-inch industrial grade color touch screen, which is clearly visible under strong sunlight;</string>
     <string name="hl_cpsc_xntd7" translatable="false">*The instrument test data can be printed, saved in real time, and exported to a USB drive. This machine can store 1000 pieces of test data;</string>
@@ -443,6 +445,8 @@
     <string name="hl_cpsc_csyujx" translatable="false">Testing and wiring</string>
     <string name="hl_cpsc_csyujx2" translatable="false">Connect the dedicated test wire to the corresponding I+and I - current terminals in a red to red and black to black manner, tighten the thick wire, insert the thin wire into the U+and U - voltage terminals, and clamp the two ends of the test sample with two clamps (note: all connection surfaces of the test clamp should be in reliable contact with the test sample).</string>
     <string name="dianliuguzhang" translatable="false">Current fault</string>
+    <string name="hl_diaoyuejilu" translatable="false">Record</string>
+    <string name="hl_xitongshezhi" translatable="false">Setting</string>
     <!--********************************************************200A==》回路**************************************************************-->
     <string name="hl_cpsc_jszb1_200" translatable="false">Output current:</string>
     <string name="hl_cpsc_jszb2_200" translatable="false">50A:0~50mΩ;</string>

@@ -93,7 +93,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:theme="@style/textSize_24_b"
-                    android:text="@string/fanhui"/>
+                    android:text="@string/hl_fanhui"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

@@ -71,6 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/textSize_16_b"
+            android:visibility="gone"
             android:text="@string/hl_cpsc_jszb10"/>
     </LinearLayout>
 

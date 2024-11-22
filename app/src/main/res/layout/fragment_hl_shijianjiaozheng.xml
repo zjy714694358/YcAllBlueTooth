@@ -238,7 +238,7 @@
                     android:background="@drawable/btn_lv_yinying_hei"
                     android:padding="5dp"
                     android:gravity="center"
-                    android:text="@string/queren"/>
+                    android:text="@string/hl_queren"/>
                 <TextView
                     android:id="@+id/tvHlSjjzFanhui"
                     android:layout_width="wrap_content"
@@ -248,7 +248,7 @@
                     android:background="@drawable/btn_lv_yinying_hei"
                     android:padding="5dp"
                     android:gravity="center"
-                    android:text="@string/fanhui"/>
+                    android:text="@string/hl_fanhui"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
