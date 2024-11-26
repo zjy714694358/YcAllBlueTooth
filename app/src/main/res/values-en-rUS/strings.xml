@@ -413,11 +413,11 @@
     <!--********************************************************回路**************************************************************-->
     <string name="huiludianzuceshiyi" translatable="false">Digital Low Resistance Ohmmeter</string>
     <string name="dianzuceshi" translatable="false">Resistance test</string>
-    <string name="shiyandianliu2" translatable="false">Test current:</string>
-    <string name="ceshishichang2" translatable="false">Test duration:</string>
-    <string name="shiyanbianhao2" translatable="false">Test number:</string>
+    <string name="shiyandianliu2" translatable="false">Current:</string>
+    <string name="ceshishichang2" translatable="false">Duration:</string>
+    <string name="shiyanbianhao2" translatable="false">Testing No.:</string>
     <string name="lianxu" translatable="false">Continuity</string>
-    <string name="bianhao2" translatable="false">Number:</string>
+    <string name="bianhao2" translatable="false">Testing No.:</string>
     <!--<string name="dianliu2" translatable="false">电流:</string>-->
     <string name="jilushijian" translatable="false">Record time</string>
     <string name="dianliuzhi" translatable="false">Current</string>
