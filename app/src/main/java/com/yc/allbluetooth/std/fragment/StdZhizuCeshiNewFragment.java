@@ -127,7 +127,7 @@ public class StdZhizuCeshiNewFragment extends Fragment implements View.OnClickLi
                         Log.e("yemian==",Config.ymType);
 
                         Log.e("zhizu0", msgStr);
-                        if (msgStr.length() == 20 || msgStr.length() > 26||msgStr.length()==6) {
+                        if (msgStr.length() == 22 || msgStr.length() > 28||msgStr.length()==8) {
                             if (IndexOfAndSubStr.isIndexOf(msgStr, "6677")) {
                                 newMsgStr = msgStr;
                                 Log.e("zhizuNew1=:", newMsgStr);
@@ -136,7 +136,7 @@ public class StdZhizuCeshiNewFragment extends Fragment implements View.OnClickLi
                                 //可以
                                 Log.e("zhizuNew2=:", newMsgStr);
                             }
-                            if (newMsgStr.length() == 60) {//> 40
+                            if (newMsgStr.length() == 62) {//> 40
                                 //可以
                                 Log.e("首页zhizu=60", "new:" + newMsgStr);
                                 //数据性质：=0测试电流，单位（A），=1 测试电阻值，单位（mΩ），=2放电电流，单位（A）,=3下位机突发信息
@@ -185,10 +185,10 @@ public class StdZhizuCeshiNewFragment extends Fragment implements View.OnClickLi
                             String strStdCsAll = "";
                             if(StringUtils.isEquals("08",lxdzZl)){//08
                                 Config.isStdLingxian = 1;
-                                strStdCsAll = "6886" + "6b" + ffZl + xbZl + lxdzZl + dlZl + "00" + "00" + "0000";
+                                strStdCsAll = "6886" + "6b" + ffZl + xbZl + lxdzZl + dlZl + "00" + "00" + "0000"+"00";//+00+
                             }else{
                                 Config.isStdLingxian = 0;
-                                strStdCsAll = "6886" + "6b" + ffZl + xbZl + zcZl + dlZl + "00" + "00" + "0000";
+                                strStdCsAll = "6886" + "6b" + ffZl + xbZl + zcZl + dlZl + "00" + "00" + "0000"+"00";//+00+
                             }
                             byte[] bytes = new BigInteger(strStdCsAll, 16).toByteArray();
                             String crc = CrcUtil.getTableCRC(bytes);

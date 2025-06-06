@@ -230,15 +230,17 @@
                 android:gravity="center"
                 android:layout_marginBottom="15dp"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/tvHlSjjzQueren"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:theme="@style/textSize_24_b"
                     android:background="@drawable/btn_lv_yinying_hei"
-                    android:padding="5dp"
                     android:gravity="center"
-                    android:text="@string/hl_queren"/>
+                    android:padding="5dp"
+                    android:text="@string/hl_queren"
+                    android:theme="@style/textSize_24_b" />
+
                 <TextView
                     android:id="@+id/tvHlSjjzFanhui"
                     android:layout_width="wrap_content"

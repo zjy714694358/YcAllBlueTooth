@@ -9,10 +9,6 @@ import com.yc.allbluetooth.crc.CrcUtil;
 import com.yc.allbluetooth.std.entity.TestSet;
 import com.yc.allbluetooth.std.util.Zhiling;
 import com.yc.allbluetooth.std.util.ZzCsStartCs;
-import com.yc.allbluetooth.utils.BytesToHexString;
-import com.yc.allbluetooth.utils.HexUtil;
-import com.yc.allbluetooth.utils.ShiOrShiliu;
-import com.yc.allbluetooth.utils.StringUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
@@ -64,7 +60,7 @@ public class SendUtil {
      * @return
      */
     public static String xcSend(String zhiling,String xwStr){
-        String strStdCsAllStdSave = "6886"+zhiling+"00"+xwStr+"06"+"00"+"00"+"00"+"0000";
+        String strStdCsAllStdSave = "6886"+zhiling+"00"+xwStr+"06"+"00"+"00"+"00"+"0000"+"00";//+00+
         byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
         String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
         String sendAllYnSave = strStdCsAllStdSave + crcStdSave;
@@ -80,23 +76,23 @@ public class SendUtil {
     public static String yiqibianhaoSend_std(String zhiling,String yqbhStr){
         String strStdCsAllStdSave = "";
         if(StringUtils.isEmpty(yqbhStr)){
-            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr)+"ffffffffffffffff";
+            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr)+"ffffffffffffffff"+"00";
         }else if(yqbhStr.length()==1){
-            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr)+"ffffffffffffff";
+            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr)+"ffffffffffffff"+"00";
         }else if(yqbhStr.length()==2){
-            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr)+"ffffffffffff";
+            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr)+"ffffffffffff"+"00";
         }else if(yqbhStr.length()==3){
-            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr)+"ffffffffff";
+            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr)+"ffffffffff"+"00";
         }else if(yqbhStr.length()==4){
-            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr)+"ffffffff";
+            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr)+"ffffffff"+"00";
         }else if(yqbhStr.length()==5){
-            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr)+"ffffff";
+            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr)+"ffffff"+"00";
         }else if(yqbhStr.length()==6){
-            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr)+"ffff";
+            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr)+"ffff"+"00";
         }else if(yqbhStr.length()==7){
-            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr)+"ff";
+            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr)+"ff"+"00";
         }else if(yqbhStr.length()==8){
-            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr);
+            strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(yqbhStr)+"00";
         }
         //strStdCsAllStdSave = "6886"+zhiling+ BytesToHexString.str2HexStr(csStr);
         byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
@@ -115,7 +111,7 @@ public class SendUtil {
      */
     public static String initSend(String zhiling){
 
-        String strStdCsAllStdSave = "6886"+zhiling+"000000000000"+"0000";
+        String strStdCsAllStdSave = "6886"+zhiling+"000000000000"+"0000"+"00";//+00+
         byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
         String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
         String sendAllYnSave = strStdCsAllStdSave + crcStdSave;
@@ -431,7 +427,7 @@ public class SendUtil {
      */
     public static String initSendStd(String zhiling){
 
-        String strStdCsAllStdSave = "6886"+zhiling+"000000000000"+"0000";
+        String strStdCsAllStdSave = "6886"+zhiling+"000000000000"+"0000"+"00";//+00+
         byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
         String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
         String sendAllYnSave = strStdCsAllStdSave + crcStdSave;
@@ -446,7 +442,7 @@ public class SendUtil {
      * @return
      */
     public static String initSendStdNew(String zhiling,String type){
-        String strStdCsAllStdSave = "6886"+zhiling+"00000000"+type+"00"+"0000";
+        String strStdCsAllStdSave = "6886"+zhiling+"00000000"+type+"00"+"0000"+"00";//+00+
         byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
         String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
         String sendAllSave = strStdCsAllStdSave + crcStdSave;

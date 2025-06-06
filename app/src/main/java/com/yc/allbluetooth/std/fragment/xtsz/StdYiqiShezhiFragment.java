@@ -7,17 +7,10 @@ import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-
 import android.os.Handler;
 import android.os.Message;
-import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
-import android.text.TextWatcher;
 import android.text.method.DigitsKeyListener;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -28,8 +21,10 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.ble.BleConnectUtil;
@@ -43,9 +38,7 @@ import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.SendUtil;
 import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StringUtils;
-import com.yc.allbluetooth.utils.XiaoshuYunsuan;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 
 /**
@@ -110,7 +103,7 @@ public class StdYiqiShezhiFragment extends Fragment implements View.OnClickListe
                 case Config.BLUETOOTH_GETDATA:
                     String msgStr = msg.obj.toString();
                     Log.i("yiqishezhi", msgStr);
-                    if(msgStr.length()==20||msgStr.length()>26){
+                    if(msgStr.length()==22||msgStr.length()>28){
                         if(IndexOfAndSubStr.isIndexOf(msgStr,"6677")){
                             newMsgStr = msgStr;
                             Log.e("yiqishezhi1=:",newMsgStr);

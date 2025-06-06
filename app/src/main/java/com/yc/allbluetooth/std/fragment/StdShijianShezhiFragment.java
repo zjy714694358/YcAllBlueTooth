@@ -1,17 +1,12 @@
 package com.yc.allbluetooth.std.fragment;
 
 
-
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -21,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.ble.BleConnectUtil;
@@ -33,7 +30,6 @@ import com.yc.allbluetooth.utils.GetTime;
 import com.yc.allbluetooth.utils.IndexOfAndSubStr;
 import com.yc.allbluetooth.utils.StringUtils;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 
 /**
@@ -101,7 +97,7 @@ public class StdShijianShezhiFragment extends Fragment implements View.OnClickLi
                     String msgStr = msg.obj.toString();
                     Log.i("shijian", msgStr);
                     if(StringUtils.isEquals("stdShijian",Config.ymType)){
-                        if(msgStr.length()==20||msgStr.length()>26){
+                        if(msgStr.length()==22||msgStr.length()>28){
                             if(IndexOfAndSubStr.isIndexOf(msgStr,"6677")){
                                 newMsgStr = msgStr;
                                 Log.e("diaoyueNew1=:",newMsgStr);
@@ -110,7 +106,7 @@ public class StdShijianShezhiFragment extends Fragment implements View.OnClickLi
                                 //可以
                                 Log.e("diaoyueNew2=:",newMsgStr);
                             }
-                            if(newMsgStr.length()>40){
+                            if(newMsgStr.length()>42){
                                 //可以
                                 Log.i("diaoyue", "new:"+newMsgStr);
                                 //数据性质：=0测试电流，单位（A），=1 测试电阻值，单位（mΩ），=2放电电流，单位（A）,=3下位机突发信息
@@ -195,7 +191,7 @@ public class StdShijianShezhiFragment extends Fragment implements View.OnClickLi
         super.onHiddenChanged(hidden);
         Log.e("shijianshezhi==","onHiddenChanged");
 
-        String strStdCsAllStdSave = "6886"+"73"+"00000000"+"00"+"00"+"0000";
+        String strStdCsAllStdSave = "6886"+"73"+"00000000"+"00"+"00"+"0000"+"00";//+00+
         byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
         String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
         Log.e("fasong:",CrcUtil.getTableCRC(bytesStdSave));
@@ -285,7 +281,7 @@ public class StdShijianShezhiFragment extends Fragment implements View.OnClickLi
 //        String fenHexStr = ShiOrShiliu.toHexString(StringUtils.strToInt(fenStr));
 //        String miaoHexStr = ShiOrShiliu.toHexString(StringUtils.strToInt(miaoStr));
 
-        String strStdCsAllStdSave = "6886"+"71"+nianStr+yueStr+riStr+shiStr+fenStr+miaoStr+"0000";//下发时间0x71
+        String strStdCsAllStdSave = "6886"+"71"+nianStr+yueStr+riStr+shiStr+fenStr+miaoStr+"0000"+"00";//下发时间0x71+00+
         byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
         String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
         String sendAllYnSave = strStdCsAllStdSave + crcStdSave;

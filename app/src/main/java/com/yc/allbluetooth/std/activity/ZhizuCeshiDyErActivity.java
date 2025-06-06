@@ -2,10 +2,6 @@ package com.yc.allbluetooth.std.activity;
 
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.content.pm.PackageManager;
@@ -27,6 +23,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.ble.BleConnectUtil;
@@ -688,7 +687,8 @@ public class ZhizuCeshiDyErActivity extends AppCompatActivity implements View.On
                             Log.e(TAG, "这是返回的第一条验证指令：" + msgStr);
                             //tfxxType = StringUtils.subStrStartToEnd(msgStr, 4, 6);
                             if(diyi==0){
-                                if(StringUtils.isEquals(msgStr,"6677770000000003000000162A")){
+                                //if(StringUtils.isEquals(msgStr,"6677770000000003000000162A")){
+                                if(StringUtils.isEquals(msgStr,"667777000000000300000000ABCE")){//ABCE
                                     sendDataByBle(SendUtil.initSendStdNew("74","14"),"");
                                 }
                             }

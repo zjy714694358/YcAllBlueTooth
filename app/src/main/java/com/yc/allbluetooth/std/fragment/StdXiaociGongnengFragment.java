@@ -1,21 +1,12 @@
 package com.yc.allbluetooth.std.fragment;
 
 
-
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
 import android.Manifest;
-import android.app.Activity;
 import android.bluetooth.BluetoothGattCharacteristic;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -27,13 +18,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.ble.BleConnectUtil;
 import com.yc.allbluetooth.callback.BleConnectionCallBack;
 import com.yc.allbluetooth.config.Config;
 import com.yc.allbluetooth.crc.CrcUtil;
-import com.yc.allbluetooth.std.activity.ZhizuCeshiStdErActivity;
 import com.yc.allbluetooth.std.util.XiaociXbList;
 import com.yc.allbluetooth.std.util.Zhiling;
 import com.yc.allbluetooth.utils.CheckUtils;
@@ -44,7 +38,6 @@ import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StringUtils;
 import com.yc.allbluetooth.utils.XiaoshuYunsuan;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 
 /**
@@ -112,7 +105,7 @@ public class StdXiaociGongnengFragment extends Fragment implements View.OnClickL
                     if(StringUtils.isEquals("stdXiaoci",Config.ymType)){
                         String msgStr = msg.obj.toString();
                         Log.i("xiaoci", "Home:"+msgStr);
-                        if(msgStr.length()==20||msgStr.length()>26){
+                        if(msgStr.length()==22||msgStr.length()>28){//+00+
                             if(IndexOfAndSubStr.isIndexOf(msgStr,"6677")){
                                 newMsgStr = msgStr;
                                 Log.e("xiaociNew1=:",newMsgStr);
@@ -121,7 +114,7 @@ public class StdXiaociGongnengFragment extends Fragment implements View.OnClickL
                                 //可以
                                 Log.e("xiaoci2=:",newMsgStr);
                             }
-                            if(newMsgStr.length()==60){
+                            if(newMsgStr.length()==62){//+00+
                                 //可以
                                 Log.i("diaoyue", "new:"+newMsgStr);
                                 //数据性质：=0测试电流，单位（A），=1 测试电阻值，单位（mΩ），=2放电电流，单位（A）,=3下位机突发信息
@@ -180,7 +173,7 @@ public class StdXiaociGongnengFragment extends Fragment implements View.OnClickL
                                         pgbXc.setProgress(0);//进度条归零
                                     }
                                 }
-                            }else if(newMsgStr.length()>60){
+                            }else if(newMsgStr.length()>62){//+00+
                                 newMsgStr = StringUtils.subStrStart(newMsgStr,26);
                                 //可以
                                 Log.i("xiaoci", "new:"+newMsgStr);

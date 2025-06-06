@@ -311,7 +311,7 @@ public class StdHomeActivity extends AppCompatActivity implements View.OnClickLi
         String fen = StringUtils.subStrStartToEnd(timeStr,10,12);
         String miao = StringUtils.subStrStartToEnd(timeStr,12,14);
 
-        String strStdCsAllStdSave = "6886"+"71"+nian+yue+ri+shi+fen+miao+"0000";//下发时间0x71
+        String strStdCsAllStdSave = "6886"+"71"+nian+yue+ri+shi+fen+miao+"0000"+"00";//下发时间0x71+00+
         byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
         String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
         String sendAllYnSave = strStdCsAllStdSave + crcStdSave;

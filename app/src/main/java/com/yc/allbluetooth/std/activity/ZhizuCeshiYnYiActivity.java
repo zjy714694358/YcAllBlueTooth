@@ -1,12 +1,7 @@
 package com.yc.allbluetooth.std.activity;
 
 
-
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
@@ -19,7 +14,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +25,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.ble.BleConnectUtil;
@@ -45,11 +42,6 @@ import com.yc.allbluetooth.utils.SendUtil;
 import com.yc.allbluetooth.utils.ShiOrShiliu;
 import com.yc.allbluetooth.utils.StringUtils;
 import com.yc.allbluetooth.utils.XiaoshuYunsuan;
-import com.yc.allbluetooth.youzai.activity.YzHomeActivity;
-import com.yc.allbluetooth.youzai.activity.YzSjcyInfoActivity;
-import com.yc.allbluetooth.youzai.util.CrcAll;
-
-import org.apache.poi.ss.formula.functions.T;
 
 import java.math.BigDecimal;
 import java.util.Locale;
@@ -127,7 +119,7 @@ public class ZhizuCeshiYnYiActivity extends AppCompatActivity implements View.On
                     String msgStr = msg.obj.toString();
                     Log.i(TAG, "ynYi:"+msgStr);
                     if(StringUtils.isEquals(Config.ymType,"ynYi")){
-                        if (msgStr.length() == 20 || msgStr.length() > 26||msgStr.length()==6) {
+                        if (msgStr.length() == 22 || msgStr.length() > 28||msgStr.length()==6) {
                             if (IndexOfAndSubStr.isIndexOf(msgStr, "6677")) {
                                 newMsgStr = msgStr;
                                 Log.e("zhizuNew1=:", newMsgStr);
@@ -136,7 +128,7 @@ public class ZhizuCeshiYnYiActivity extends AppCompatActivity implements View.On
                                 //可以
                                 Log.e("zhizuNew2=:", newMsgStr);
                             }
-                            if (newMsgStr.length() == 60) {//> 40
+                            if (newMsgStr.length() == 62) {//> 40
                                 //可以
                                 Log.e("ynYizhizu=60", "new:" + newMsgStr);
                                 //数据性质：=0测试电流，单位（A），=1 测试电阻值，单位（mΩ），=2放电电流，单位（A）,=3下位机突发信息
@@ -928,7 +920,8 @@ public class ZhizuCeshiYnYiActivity extends AppCompatActivity implements View.On
                             Log.e(TAG, "这是返回的第一条验证指令：" + msgStr);
                             //tfxxType = StringUtils.subStrStartToEnd(msgStr, 4, 6);
                             if(diyi==0){
-                                if(StringUtils.isEquals(msgStr,"6677770000000003000000162A")){
+                                //if(StringUtils.isEquals(msgStr,"6677770000000003000000162A")){
+                                if(StringUtils.isEquals(msgStr,"667777000000000300000000ABCE")){//ABCE
                                     sendDataByBle(SendUtil.initSendStdNew("74","14"),"");
                                 }
                             }

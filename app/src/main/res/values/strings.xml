@@ -447,15 +447,15 @@
     <string name="hl_xitongshezhi" translatable="false">系统设置</string>
     <!--********************************************************200A==》回路**************************************************************-->
     <string name="hl_cpsc_jszb1_200" translatable="false">输出电流：</string>
-    <string name="hl_cpsc_jszb2_200" translatable="false">50A:0~50mΩ;</string>
-    <string name="hl_cpsc_jszb3_200" translatable="false">100A:0~25mΩ;</string>
-    <string name="hl_cpsc_jszb4_200" translatable="false">150A:0~16mΩ;</string>
-    <string name="hl_cpsc_jszb5_200" translatable="false">200A:0~12mΩ;</string>
+    <string name="hl_cpsc_jszb2_200" translatable="false">50A:0~100mΩ;</string>
+    <string name="hl_cpsc_jszb3_200" translatable="false">100A:0~50mΩ;</string>
+    <string name="hl_cpsc_jszb4_200" translatable="false">150A:0~40mΩ;</string>
+    <string name="hl_cpsc_jszb5_200" translatable="false">200A:0~25mΩ;</string>
     <string name="hl_cpsc_jszb6_200" translatable="false">分辨率：最小0.1μΩ;</string>
     <string name="hl_cpsc_jszb7_200" translatable="false">精确度：±(0.5%+2个字);</string>
     <string name="hl_cpsc_jszb8_200" translatable="false">输出功率：2000W</string>
-    <string name="hl_cpsc_jszb9_200" translatable="false">工作方式：1S/3S/10S/60S;</string>
-    <string name="hl_cpsc_jszb10_200" translatable="false">工作电源：AC200V±10% 50HZ;</string>
+    <string name="hl_cpsc_jszb9_200" translatable="false">工作方式：1S/3S/10S/60S/连续;</string>
+    <string name="hl_cpsc_jszb10_200" translatable="false">工作电源：AC220V±10% 50Hz±1Hz;</string>
     <string name="hl_cpsc_jszb11_200" translatable="false">使用温度：-10~40℃;</string>
     <string name="hl_cpsc_xntd1_200" translatable="false">*多档电流可选(测试电流最大200A)，测试量程范围宽;</string>
     <string name="hl_cpsc_xntd2_200" translatable="false">*测试电流来自高精度的大电流恒流电源，测试迅速准确;</string>

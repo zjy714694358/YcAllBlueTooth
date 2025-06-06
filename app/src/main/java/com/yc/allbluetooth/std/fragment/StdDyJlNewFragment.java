@@ -1,7 +1,6 @@
 package com.yc.allbluetooth.std.fragment;
 
 
-
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
 
 import android.Manifest;
@@ -12,11 +11,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.RequiresApi;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -28,7 +22,10 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -124,7 +121,7 @@ public class StdDyJlNewFragment extends Fragment {
                     if(StringUtils.isEquals("stdDyjl",Config.ymType)){
                         String msgStr = msg.obj.toString();
                         Log.i("diaoyueNewStart", msgStr);
-                        if(msgStr.length()==20||msgStr.length()>26||msgStr.length()==6){
+                        if(msgStr.length()==22||msgStr.length()>28||msgStr.length()==6){
                             if(IndexOfAndSubStr.isIndexOf(msgStr,"6677")){
                                 newMsgStr = msgStr;
                                 Log.e("diaoyueNew1=:",newMsgStr);
@@ -133,7 +130,7 @@ public class StdDyJlNewFragment extends Fragment {
                                 //可以
                                 Log.e("diaoyueNew2=:",newMsgStr);
                             }
-                            if(newMsgStr.length()==60){//>40
+                            if(newMsgStr.length()==62){//>40
                                 Log.e("diaoyueNew2=60:",newMsgStr);
                                 crcJy = StringUtils.subStrStartToEnd(newMsgStr,54,58);
                                 Log.e("crcJy1", crcJy);
@@ -264,7 +261,7 @@ public class StdDyJlNewFragment extends Fragment {
                                     }else{
                                         strStdCsAllStdSave = "6886"+"6e00000000"+"00"+ShiOrShiliu.toHexString(Config.getSjglListType)+"0000";
                                     }
-                                    byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
+                                    byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave+"00", 16).toByteArray();//+00+
                                     String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
                                     String sendAllYnSave = strStdCsAllStdSave + crcStdSave;
                                     sendDataByBle(sendAllYnSave,"");
@@ -278,7 +275,7 @@ public class StdDyJlNewFragment extends Fragment {
                                 SharedPreferences.Editor editor = sp.edit() ;
                                 editor.putString("shujuguanliList", jsonStr) ; //存入json串
                                 editor.commit() ;  //提交
-                            }else if(newMsgStr.length()==86){//86(newMsgStr.length()>60&&newMsgStr.length()!=80)
+                            }else if(newMsgStr.length()==88){//86(newMsgStr.length()>60&&newMsgStr.length()!=80)+00+
                                 Log.e("diaoyueNew2=86:",newMsgStr);
                                 newMsgStr = StringUtils.subStrStart(newMsgStr,26);
 
@@ -423,7 +420,7 @@ public class StdDyJlNewFragment extends Fragment {
                                 SharedPreferences.Editor editor = sp.edit() ;
                                 editor.putString("shujuguanliList", jsonStr) ; //存入json串
                                 editor.commit() ;  //提交
-                            }else if(newMsgStr.length()==80&&msgStr.length()==6){
+                            }else if(newMsgStr.length()==82&&msgStr.length()==6){//+00+
                                 newMsgStr = newMsgStr + msgStr;
                                 Log.e(TAG,newMsgStr);
                                 Log.e("diaoyueNew2=80&&6:",newMsgStr);
@@ -664,7 +661,7 @@ public class StdDyJlNewFragment extends Fragment {
                  */
 
                 Config.getSjglListType=0;
-                String strStdCsAllStdSave = "6886"+"6e00000000"+"00"+"00"+"0000";
+                String strStdCsAllStdSave = "6886"+"6e00000000"+"00"+"00"+"0000"+"00";//+00+
                 byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
                 String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
                 String sendAllYnSave = strStdCsAllStdSave + crcStdSave;
@@ -807,7 +804,7 @@ public class StdDyJlNewFragment extends Fragment {
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
         Log.e("dyjlNew=============","onHiddenChanged");
-        String strStdCsAllStdSave = "6886"+"73"+"00000000"+"00"+"00"+"0000";
+        String strStdCsAllStdSave = "6886"+"73"+"00000000"+"00"+"00"+"0000"+"00";//+00+
         byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
         String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
         Log.e("fasong:",CrcUtil.getTableCRC(bytesStdSave));

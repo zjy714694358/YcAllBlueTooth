@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                            sendDataByBle("feef04211c0014006009070000000100020031323334415344460000000000000007fddf","");
 //                        }
                         }
-                        if (IndexOfAndSubStr.isIndexOf(newMsgStr, "6677") && newMsgStr.length() >= 26) {
+                        if (IndexOfAndSubStr.isIndexOf(newMsgStr, "6677") && newMsgStr.length() >= 28) {
                             if (StringUtils.isEmpty(yqlx)) {
                                 yqlx = StringUtils.subStrStartToEnd(newMsgStr, 18, 20);
                                 //yqlx = "34";//只能20

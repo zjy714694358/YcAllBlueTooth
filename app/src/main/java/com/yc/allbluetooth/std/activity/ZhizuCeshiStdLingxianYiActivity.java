@@ -1,13 +1,7 @@
 package com.yc.allbluetooth.std.activity;
 
 
-
-
 import static com.yc.allbluetooth.ble.BleConnectUtil.mBluetoothGattCharacteristic;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.bluetooth.BluetoothGattCharacteristic;
@@ -28,6 +22,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.yc.allbluetooth.R;
 import com.yc.allbluetooth.ble.BleConnectUtil;
@@ -107,7 +104,7 @@ public class ZhizuCeshiStdLingxianYiActivity extends AppCompatActivity implement
                         String msgStr = msg.obj.toString();
                         Log.e(TAG, "stdYi:"+msgStr);
 
-                        if (msgStr.length() == 20 || msgStr.length() > 26||msgStr.length()==6) {
+                        if (msgStr.length() == 22 || msgStr.length() > 28||msgStr.length()==6) {
                             if (IndexOfAndSubStr.isIndexOf(msgStr, "6677")) {
                                 newMsgStr = msgStr;
                                 Log.e("zhizuNew1=:", newMsgStr);
@@ -116,7 +113,7 @@ public class ZhizuCeshiStdLingxianYiActivity extends AppCompatActivity implement
                                 //可以
                                 Log.e("zhizuNew2=:", newMsgStr);
                             }
-                            if (newMsgStr.length() == 60) {//> 40
+                            if (newMsgStr.length() == 62) {//> 40
                                 //可以
                                 Log.e("stdYizhizu=60", "new:" + newMsgStr);
                                 //数据性质：=0测试电流，单位（A），=1 测试电阻值，单位（mΩ），=2放电电流，单位（A）,=3下位机突发信息
@@ -551,7 +548,7 @@ public class ZhizuCeshiStdLingxianYiActivity extends AppCompatActivity implement
         switch (v.getId()){
             case R.id.llZzcsStdCsDlStop:
                 Config.fdTcCishu = 0;
-                String strStdCsAllStdSave = "6886"+"69"+"000000000000"+"0000";
+                String strStdCsAllStdSave = "6886"+"69"+"000000000000"+"0000"+"00";//+00+
                 byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
                 String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
                 Log.e("fasong:",CrcUtil.getTableCRC(bytesStdSave));
