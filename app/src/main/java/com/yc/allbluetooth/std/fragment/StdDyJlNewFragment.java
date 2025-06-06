@@ -121,7 +121,7 @@ public class StdDyJlNewFragment extends Fragment {
                     if(StringUtils.isEquals("stdDyjl",Config.ymType)){
                         String msgStr = msg.obj.toString();
                         Log.i("diaoyueNewStart", msgStr);
-                        if(msgStr.length()==22||msgStr.length()>28||msgStr.length()==6){
+                        if(msgStr.length()==22||msgStr.length()>28||msgStr.length()==10){
                             if(IndexOfAndSubStr.isIndexOf(msgStr,"6677")){
                                 newMsgStr = msgStr;
                                 Log.e("diaoyueNew1=:",newMsgStr);
@@ -130,6 +130,7 @@ public class StdDyJlNewFragment extends Fragment {
                                 //可以
                                 Log.e("diaoyueNew2=:",newMsgStr);
                             }
+                            Log.e("diaoyue=============1",newMsgStr.toString());
                             if(newMsgStr.length()==62){//>40
                                 Log.e("diaoyueNew2=60:",newMsgStr);
                                 crcJy = StringUtils.subStrStartToEnd(newMsgStr,54,58);
@@ -255,13 +256,13 @@ public class StdDyJlNewFragment extends Fragment {
                                     Config.getSjglListType+=1;
                                     String strStdCsAllStdSave = "";
                                     if(Config.getSjglListType<10){
-                                        strStdCsAllStdSave = "6886"+"6e00000000"+"00"+"0"+Config.getSjglListType+"0000";
+                                        strStdCsAllStdSave = "6886"+"6e00000000"+"00"+"0"+Config.getSjglListType+"0000"+"00";//+00+
                                     }else if(Config.getSjglListType>=10&&Config.getSjglListType<16){
-                                        strStdCsAllStdSave = "6886"+"6e00000000"+"00"+"0"+ShiOrShiliu.toHexString(Config.getSjglListType)+"0000";
+                                        strStdCsAllStdSave = "6886"+"6e00000000"+"00"+"0"+ShiOrShiliu.toHexString(Config.getSjglListType)+"0000"+"00";//+00+
                                     }else{
-                                        strStdCsAllStdSave = "6886"+"6e00000000"+"00"+ShiOrShiliu.toHexString(Config.getSjglListType)+"0000";
+                                        strStdCsAllStdSave = "6886"+"6e00000000"+"00"+ShiOrShiliu.toHexString(Config.getSjglListType)+"0000"+"00";//+00+
                                     }
-                                    byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave+"00", 16).toByteArray();//+00+
+                                    byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();//+00+
                                     String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
                                     String sendAllYnSave = strStdCsAllStdSave + crcStdSave;
                                     sendDataByBle(sendAllYnSave,"");
@@ -275,13 +276,13 @@ public class StdDyJlNewFragment extends Fragment {
                                 SharedPreferences.Editor editor = sp.edit() ;
                                 editor.putString("shujuguanliList", jsonStr) ; //存入json串
                                 editor.commit() ;  //提交
-                            }else if(newMsgStr.length()==88){//86(newMsgStr.length()>60&&newMsgStr.length()!=80)+00+
+                            }else if(newMsgStr.length()==90){//86(newMsgStr.length()>60&&newMsgStr.length()!=80)+00+
                                 Log.e("diaoyueNew2=86:",newMsgStr);
-                                newMsgStr = StringUtils.subStrStart(newMsgStr,26);
+                                newMsgStr = StringUtils.subStrStart(newMsgStr,28);
 
-                                crcJy = StringUtils.subStrStartToEnd(newMsgStr,54,58);
+                                crcJy = StringUtils.subStrStartToEnd(newMsgStr,56,60);
                                 Log.e("crcJy2", crcJy);
-                                byte[] bytesJieshou = new BigInteger(StringUtils.subStrStartToEnd(newMsgStr,0,54), 16).toByteArray();
+                                byte[] bytesJieshou = new BigInteger(StringUtils.subStrStartToEnd(newMsgStr,0,56), 16).toByteArray();
                                 Log.e("crcUtil2", CrcUtil.getTableCRC(bytesJieshou));
                                 if(StringUtils.isEquals(CrcUtil.getTableCRC(bytesJieshou),crcJy)){
                                     Log.e("crcUtiltrue2", "true");
@@ -290,7 +291,7 @@ public class StdDyJlNewFragment extends Fragment {
                                 }
 
                                 //可以
-                                Log.i("diaoyue=86", "new:"+newMsgStr);
+                                Log.i("diaoyue=861", "new:"+newMsgStr);
                                 //数据性质：=0测试电流，单位（A），=1 测试电阻值，单位（mΩ），=2放电电流，单位（A）,=3下位机突发信息
                                 sjxz = StringUtils.subStrStartToEnd(newMsgStr,4,6);
                                 //数据序号，=0xaa 当前数据，=0xab 无此序号数据，
@@ -400,11 +401,11 @@ public class StdDyJlNewFragment extends Fragment {
                                     Config.getSjglListType+=1;
                                     String strStdCsAllStdSave = "";
                                     if(Config.getSjglListType<10){
-                                        strStdCsAllStdSave = "6886"+"6e00000000"+"00"+"0"+Config.getSjglListType+"0000";
+                                        strStdCsAllStdSave = "6886"+"6e00000000"+"00"+"0"+Config.getSjglListType+"0000"+"00";//+00+
                                     }else if(Config.getSjglListType>=10&&Config.getSjglListType<16){
-                                        strStdCsAllStdSave = "6886"+"6e00000000"+"00"+"0"+ShiOrShiliu.toHexString(Config.getSjglListType)+"0000";
+                                        strStdCsAllStdSave = "6886"+"6e00000000"+"00"+"0"+ShiOrShiliu.toHexString(Config.getSjglListType)+"0000"+"00";//+00+
                                     }else{
-                                        strStdCsAllStdSave = "6886"+"6e00000000"+"00"+ShiOrShiliu.toHexString(Config.getSjglListType)+"0000";
+                                        strStdCsAllStdSave = "6886"+"6e00000000"+"00"+ShiOrShiliu.toHexString(Config.getSjglListType)+"0000"+"00";//+00+
                                     }
                                     byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
                                     String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
@@ -437,7 +438,7 @@ public class StdDyJlNewFragment extends Fragment {
                                 }
 
                                 //可以
-                                Log.i("diaoyue=86", "new:"+newMsgStr);
+                                Log.i("diaoyue=862", "new:"+newMsgStr);
                                 //数据性质：=0测试电流，单位（A），=1 测试电阻值，单位（mΩ），=2放电电流，单位（A）,=3下位机突发信息
                                 sjxz = StringUtils.subStrStartToEnd(newMsgStr,4,6);
                                 //数据序号，=0xaa 当前数据，=0xab 无此序号数据，

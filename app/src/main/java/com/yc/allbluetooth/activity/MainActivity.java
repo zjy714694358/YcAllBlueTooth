@@ -759,6 +759,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 /**
                  *要执行的操作
                  */
+                Log.e("仪器类型str",SendUtil.initSend("5b"));
                 sendDataByBle(SendUtil.initSend("5b"),"");
             }
         }, 300);//3秒后执行Runnable中的run方法

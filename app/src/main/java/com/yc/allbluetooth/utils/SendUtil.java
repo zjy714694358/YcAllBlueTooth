@@ -111,7 +111,7 @@ public class SendUtil {
      */
     public static String initSend(String zhiling){
 
-        String strStdCsAllStdSave = "6886"+zhiling+"000000000000"+"0000"+"00";//+00+
+        String strStdCsAllStdSave = "6886"+zhiling+"000000000000"+"0000";//+00+
         byte[] bytesStdSave = new BigInteger(strStdCsAllStdSave, 16).toByteArray();
         String crcStdSave = CrcUtil.getTableCRC(bytesStdSave);
         String sendAllYnSave = strStdCsAllStdSave + crcStdSave;
